@@ -14,6 +14,11 @@
 		0C3928A61F23727300397EDD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C3928A41F23727300397EDD /* LaunchScreen.storyboard */; };
 		0C3928B11F23727300397EDD /* SightOnMockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3928B01F23727300397EDD /* SightOnMockTests.swift */; };
 		0C3928BC1F23727300397EDD /* SightOnMockUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3928BB1F23727300397EDD /* SightOnMockUITests.swift */; };
+		0C3928CA1F2378EA00397EDD /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3928C91F2378EA00397EDD /* RecordViewController.swift */; };
+		0C3928CC1F23791A00397EDD /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3928CB1F23791A00397EDD /* FeedViewController.swift */; };
+		0C3928CE1F23792C00397EDD /* AutoEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3928CD1F23792C00397EDD /* AutoEditViewController.swift */; };
+		0C3928D01F23794300397EDD /* ManualEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3928CF1F23794300397EDD /* ManualEditViewController.swift */; };
+		0C3928D21F23796200397EDD /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3928D11F23796200397EDD /* PostViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +52,11 @@
 		0C3928B71F23727300397EDD /* SightOnMockUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SightOnMockUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C3928BB1F23727300397EDD /* SightOnMockUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightOnMockUITests.swift; sourceTree = "<group>"; };
 		0C3928BD1F23727300397EDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0C3928C91F2378EA00397EDD /* RecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
+		0C3928CB1F23791A00397EDD /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		0C3928CD1F23792C00397EDD /* AutoEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoEditViewController.swift; sourceTree = "<group>"; };
+		0C3928CF1F23794300397EDD /* ManualEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManualEditViewController.swift; sourceTree = "<group>"; };
+		0C3928D11F23796200397EDD /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +109,11 @@
 			children = (
 				0C39289B1F23727300397EDD /* AppDelegate.swift */,
 				0C39289D1F23727300397EDD /* ViewController.swift */,
+				0C3928C91F2378EA00397EDD /* RecordViewController.swift */,
+				0C3928CB1F23791A00397EDD /* FeedViewController.swift */,
+				0C3928CD1F23792C00397EDD /* AutoEditViewController.swift */,
+				0C3928CF1F23794300397EDD /* ManualEditViewController.swift */,
+				0C3928D11F23796200397EDD /* PostViewController.swift */,
 				0C39289F1F23727300397EDD /* Main.storyboard */,
 				0C3928A21F23727300397EDD /* Assets.xcassets */,
 				0C3928A41F23727300397EDD /* LaunchScreen.storyboard */,
@@ -259,7 +274,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C3928D01F23794300397EDD /* ManualEditViewController.swift in Sources */,
+				0C3928CA1F2378EA00397EDD /* RecordViewController.swift in Sources */,
+				0C3928D21F23796200397EDD /* PostViewController.swift in Sources */,
 				0C39289E1F23727300397EDD /* ViewController.swift in Sources */,
+				0C3928CC1F23791A00397EDD /* FeedViewController.swift in Sources */,
+				0C3928CE1F23792C00397EDD /* AutoEditViewController.swift in Sources */,
 				0C39289C1F23727300397EDD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
