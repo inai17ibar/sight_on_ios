@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ManualEditViewController: UIViewController {
+class ManualEditViewController: ViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

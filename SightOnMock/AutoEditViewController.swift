@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AutoEditViewController: UIViewController {
+class AutoEditViewController: ViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
