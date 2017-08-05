@@ -12,7 +12,7 @@
         <!--Record View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" userLabel="Record View Controller" customClass="RecordViewController" customModule="SightOnMock" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RecordViewController" id="BYZ-38-t0r" userLabel="Record View Controller" customClass="RecordViewController" customModule="SightOnMock" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -48,7 +48,7 @@
         <!--Post View Controller-->
         <scene sceneID="TKx-I9-Qe2">
             <objects>
-                <viewController id="Yi1-cS-iMR" userLabel="Post View Controller" customClass="PostViewController" customModule="SightOnMock" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Post" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Yi1-cS-iMR" userLabel="Post View Controller" customClass="PostViewController" customModule="SightOnMock" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YZ8-zS-6xL"/>
                         <viewControllerLayoutGuide type="bottom" id="Yd2-Fs-EcK"/>
@@ -84,7 +84,7 @@
         <!--Auto Edit View Controller-->
         <scene sceneID="2tR-u9-upa">
             <objects>
-                <viewController id="h1Q-YG-fGP" userLabel="Auto Edit View Controller" customClass="AutoEditViewController" customModule="SightOnMock" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AutoEdit" useStoryboardIdentifierAsRestorationIdentifier="YES" id="h1Q-YG-fGP" userLabel="Auto Edit View Controller" customClass="AutoEditViewController" customModule="SightOnMock" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="m2M-xD-i6w"/>
                         <viewControllerLayoutGuide type="bottom" id="TTi-fw-iG9"/>
@@ -120,7 +120,7 @@
         <!--Manual Edit View Controller-->
         <scene sceneID="8ex-DO-aVg">
             <objects>
-                <viewController id="1J9-8H-C0P" userLabel="Manual Edit View Controller" customClass="ManualEditViewController" customModule="SightOnMock" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ManualEditViewController" id="1J9-8H-C0P" userLabel="Manual Edit View Controller" customClass="ManualEditViewController" customModule="SightOnMock" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OMz-hf-kKV"/>
                         <viewControllerLayoutGuide type="bottom" id="cd0-p7-llg"/>
@@ -156,7 +156,7 @@
         <!--Feed View Controller-->
         <scene sceneID="2bS-GP-nkg">
             <objects>
-                <viewController id="7n7-tz-EaD" userLabel="Feed View Controller" customClass="FeedViewController" customModule="SightOnMock" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FeedViewController" id="7n7-tz-EaD" userLabel="Feed View Controller" customClass="FeedViewController" customModule="SightOnMock" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LiD-uE-P3u"/>
                         <viewControllerLayoutGuide type="bottom" id="f5h-my-hhw"/>
@@ -177,12 +177,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ATb-Ra-z15" userLabel="Photo">
-                                                    <rect key="frame" x="8" y="8" width="80" height="64"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sample" translatesAutoresizingMaskIntoConstraints="NO" id="ATb-Ra-z15" userLabel="Photo">
+                                                    <rect key="frame" x="0.0" y="0.0" width="90" height="79"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5yC-PJ-mUL">
-                                                    <rect key="frame" x="309" y="46" width="58" height="30"/>
+                                                    <rect key="frame" x="309" y="50" width="58" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L4C-pD-18p" userLabel="Share">
@@ -200,9 +200,9 @@
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="@UserNameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NxL-t3-ByS">
-                                                    <rect key="frame" x="253" y="8" width="107" height="21"/>
+                                                    <rect key="frame" x="260" y="8" width="107" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -221,7 +221,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Oq-mH-WQP">
-                                                    <rect key="frame" x="253" y="46" width="60" height="30"/>
+                                                    <rect key="frame" x="253" y="50" width="60" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6xd-qn-bpi" userLabel="Like">
@@ -274,22 +274,8 @@
             </objects>
             <point key="canvasLocation" x="3285.5999999999999" y="104.7976011994003"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="kKe-DL-zwA">
-            <objects>
-                <viewController id="eS4-w0-JAE" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="akh-vp-xND"/>
-                        <viewControllerLayoutGuide type="bottom" id="Jsl-Hh-tcK"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="zM7-lU-h2z">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="e3o-nA-6Uu" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
     </scenes>
+    <resources>
+        <image name="sample" width="2048" height="1152"/>
+    </resources>
 </document>
