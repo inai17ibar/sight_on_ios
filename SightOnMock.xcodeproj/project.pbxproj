@@ -19,6 +19,7 @@
 		0C3928CE1F23792C00397EDD /* AutoEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3928CD1F23792C00397EDD /* AutoEditViewController.swift */; };
 		0C3928D01F23794300397EDD /* ManualEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3928CF1F23794300397EDD /* ManualEditViewController.swift */; };
 		0C3928D21F23796200397EDD /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3928D11F23796200397EDD /* PostViewController.swift */; };
+		0CF2EB601F358603003DD9D2 /* FeedListItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF2EB5F1F358603003DD9D2 /* FeedListItemTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		0C3928CD1F23792C00397EDD /* AutoEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoEditViewController.swift; sourceTree = "<group>"; };
 		0C3928CF1F23794300397EDD /* ManualEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManualEditViewController.swift; sourceTree = "<group>"; };
 		0C3928D11F23796200397EDD /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		0CF2EB5F1F358603003DD9D2 /* FeedListItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedListItemTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 		0C39288F1F23727300397EDD = {
 			isa = PBXGroup;
 			children = (
+				0CF2EB621F35D649003DD9D2 /* Resource */,
 				0C39289A1F23727300397EDD /* SightOnMock */,
 				0C3928AF1F23727300397EDD /* SightOnMockTests */,
 				0C3928BA1F23727300397EDD /* SightOnMockUITests */,
@@ -107,10 +110,12 @@
 		0C39289A1F23727300397EDD /* SightOnMock */ = {
 			isa = PBXGroup;
 			children = (
+				0CF2EB611F35D0E3003DD9D2 /* Feed */,
+				0C3928CB1F23791A00397EDD /* FeedViewController.swift */,
+				0CF2EB5F1F358603003DD9D2 /* FeedListItemTableViewCell.swift */,
 				0C39289B1F23727300397EDD /* AppDelegate.swift */,
 				0C39289D1F23727300397EDD /* ViewController.swift */,
 				0C3928C91F2378EA00397EDD /* RecordViewController.swift */,
-				0C3928CB1F23791A00397EDD /* FeedViewController.swift */,
 				0C3928CD1F23792C00397EDD /* AutoEditViewController.swift */,
 				0C3928CF1F23794300397EDD /* ManualEditViewController.swift */,
 				0C3928D11F23796200397EDD /* PostViewController.swift */,
@@ -138,6 +143,20 @@
 				0C3928BD1F23727300397EDD /* Info.plist */,
 			);
 			path = SightOnMockUITests;
+			sourceTree = "<group>";
+		};
+		0CF2EB611F35D0E3003DD9D2 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Feed;
+			sourceTree = "<group>";
+		};
+		0CF2EB621F35D649003DD9D2 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +297,7 @@
 				0C3928CA1F2378EA00397EDD /* RecordViewController.swift in Sources */,
 				0C3928D21F23796200397EDD /* PostViewController.swift in Sources */,
 				0C39289E1F23727300397EDD /* ViewController.swift in Sources */,
+				0CF2EB601F358603003DD9D2 /* FeedListItemTableViewCell.swift in Sources */,
 				0C3928CC1F23791A00397EDD /* FeedViewController.swift in Sources */,
 				0C3928CE1F23792C00397EDD /* AutoEditViewController.swift in Sources */,
 				0C39289C1F23727300397EDD /* AppDelegate.swift in Sources */,
@@ -527,6 +547,7 @@
 				0C3928C21F23727300397EDD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0C3928C31F23727300397EDD /* Build configuration list for PBXNativeTarget "SightOnMockTests" */ = {
 			isa = XCConfigurationList;
@@ -535,6 +556,7 @@
 				0C3928C51F23727300397EDD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0C3928C61F23727300397EDD /* Build configuration list for PBXNativeTarget "SightOnMockUITests" */ = {
 			isa = XCConfigurationList;
@@ -543,6 +565,7 @@
 				0C3928C81F23727300397EDD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
