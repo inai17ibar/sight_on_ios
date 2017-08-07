@@ -20,6 +20,7 @@
 		0C3928CE1F23792C00397EDD /* AutoEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3928CD1F23792C00397EDD /* AutoEditViewController.swift */; };
 		0C3928D01F23794300397EDD /* ManualEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3928CF1F23794300397EDD /* ManualEditViewController.swift */; };
 		0C3928D21F23796200397EDD /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3928D11F23796200397EDD /* PostViewController.swift */; };
+		0C404CD31F389F590080F4EB /* sight_on_splash_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C404CD21F389F590080F4EB /* sight_on_splash_ipad.png */; };
 		0C978E1A1F375F46003E2232 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C978E191F375F46003E2232 /* Sound.swift */; };
 		0C978E1E1F377269003E2232 /* yurakucho_muzhirusi.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0C978E1D1F377269003E2232 /* yurakucho_muzhirusi.m4a */; };
 		0C978E201F377300003E2232 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C978E1F1F377300003E2232 /* AVFoundation.framework */; };
@@ -68,6 +69,7 @@
 		0C3928CD1F23792C00397EDD /* AutoEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoEditViewController.swift; sourceTree = "<group>"; };
 		0C3928CF1F23794300397EDD /* ManualEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManualEditViewController.swift; sourceTree = "<group>"; };
 		0C3928D11F23796200397EDD /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		0C404CD21F389F590080F4EB /* sight_on_splash_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sight_on_splash_ipad.png; sourceTree = "<group>"; };
 		0C978E191F375F46003E2232 /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		0C978E1D1F377269003E2232 /* yurakucho_muzhirusi.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = yurakucho_muzhirusi.m4a; sourceTree = "<group>"; };
 		0C978E1F1F377300003E2232 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -221,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				0CF2EB671F35E304003DD9D2 /* sight_on_splash.png */,
+				0C404CD21F389F590080F4EB /* sight_on_splash_ipad.png */,
 				0CF2EB6A1F35E391003DD9D2 /* sight_on_icon_dark_mat.png */,
 				0CF2EB651F35DC02003DD9D2 /* sample1.jpg */,
 			);
@@ -377,6 +380,7 @@
 				0CF2EB6B1F35E391003DD9D2 /* sight_on_icon_dark_mat.png in Resources */,
 				0C3928A31F23727300397EDD /* Assets.xcassets in Resources */,
 				0C978E1E1F377269003E2232 /* yurakucho_muzhirusi.m4a in Resources */,
+				0C404CD31F389F590080F4EB /* sight_on_splash_ipad.png in Resources */,
 				0C3928A11F23727300397EDD /* Main.storyboard in Resources */,
 				0CF2EB661F35DC02003DD9D2 /* sample1.jpg in Resources */,
 			);
@@ -704,6 +708,7 @@
 			baseConfigurationReference = 4D81EED59BB94FB6EB8919E4 /* Pods-SightOnMock.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = N33FTEJ7J3;
 				INFOPLIST_FILE = SightOnMock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -718,6 +723,7 @@
 			baseConfigurationReference = 9CD91C51691DA76DD6DF48C1 /* Pods-SightOnMock.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = N33FTEJ7J3;
 				INFOPLIST_FILE = SightOnMock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

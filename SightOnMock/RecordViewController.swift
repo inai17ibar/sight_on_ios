@@ -11,6 +11,8 @@ import AVFoundation
 
 class RecordViewController: ViewController {
 
+    @IBOutlet weak var button: UIButton!
+    
     var audioRecorder:AVAudioRecorder!
     
     override func viewDidLoad() {
@@ -42,6 +44,16 @@ class RecordViewController: ViewController {
             fatalError("初期設定にエラー")
         }
         // 初期化ここまで
+    }
+    
+    @IBAction func buttonTapped(_ sender : Any) {
+
+        if(audioRecorder.isRecording){
+            audioRecorder.stop()
+        }
+        else{
+            audioRecorder.record()
+        }
     }
 
     override func didReceiveMemoryWarning() {
