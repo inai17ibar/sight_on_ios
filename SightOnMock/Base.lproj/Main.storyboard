@@ -34,11 +34,11 @@
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="30"/>
                                 <state key="normal" title="Next"/>
                                 <connections>
-                                    <segue destination="h1Q-YG-fGP" kind="show" id="kmi-7h-rUE"/>
+                                    <segue destination="h1Q-YG-fGP" kind="show" id="VTc-cM-96N"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.15800479054450989" green="0.15815737843513489" blue="0.15802845358848572" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

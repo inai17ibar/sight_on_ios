@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C012CAE1F3754F500E8EFC8 /* Pods_SightOnMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C012CAD1F3754F500E8EFC8 /* Pods_SightOnMock.framework */; };
 		0C39289C1F23727300397EDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C39289B1F23727300397EDD /* AppDelegate.swift */; };
 		0C39289E1F23727300397EDD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C39289D1F23727300397EDD /* ViewController.swift */; };
 		0C3928A11F23727300397EDD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C39289F1F23727300397EDD /* Main.storyboard */; };
@@ -19,10 +20,15 @@
 		0C3928CE1F23792C00397EDD /* AutoEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3928CD1F23792C00397EDD /* AutoEditViewController.swift */; };
 		0C3928D01F23794300397EDD /* ManualEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3928CF1F23794300397EDD /* ManualEditViewController.swift */; };
 		0C3928D21F23796200397EDD /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3928D11F23796200397EDD /* PostViewController.swift */; };
+		0C978E1A1F375F46003E2232 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C978E191F375F46003E2232 /* Sound.swift */; };
+		0C978E1E1F377269003E2232 /* yurakucho_muzhirusi.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0C978E1D1F377269003E2232 /* yurakucho_muzhirusi.m4a */; };
+		0C978E201F377300003E2232 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C978E1F1F377300003E2232 /* AVFoundation.framework */; };
 		0CF2EB601F358603003DD9D2 /* FeedListItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF2EB5F1F358603003DD9D2 /* FeedListItemTableViewCell.swift */; };
 		0CF2EB661F35DC02003DD9D2 /* sample1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0CF2EB651F35DC02003DD9D2 /* sample1.jpg */; };
 		0CF2EB681F35E304003DD9D2 /* sight_on_splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CF2EB671F35E304003DD9D2 /* sight_on_splash.png */; };
 		0CF2EB6B1F35E391003DD9D2 /* sight_on_icon_dark_mat.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CF2EB6A1F35E391003DD9D2 /* sight_on_icon_dark_mat.png */; };
+		5F17B0A539692C2F54EA8C34 /* Pods_SightOnMockUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90938FFE72B1733A10128717 /* Pods_SightOnMockUITests.framework */; };
+		C62BF457D007FABD1210B0E4 /* Pods_SightOnMockTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCC753F3904B908C76D3381B /* Pods_SightOnMockTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C012CAD1F3754F500E8EFC8 /* Pods_SightOnMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_SightOnMock.framework; path = "../../Library/Developer/Xcode/DerivedData/SightOnMock-fkgespoavkjeucdizymdfvxtojxa/Build/Products/Debug-iphonesimulator/Pods_SightOnMock.framework"; sourceTree = "<group>"; };
 		0C3928981F23727300397EDD /* SightOnMock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SightOnMock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C39289B1F23727300397EDD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C39289D1F23727300397EDD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,10 +68,22 @@
 		0C3928CD1F23792C00397EDD /* AutoEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoEditViewController.swift; sourceTree = "<group>"; };
 		0C3928CF1F23794300397EDD /* ManualEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManualEditViewController.swift; sourceTree = "<group>"; };
 		0C3928D11F23796200397EDD /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		0C978E191F375F46003E2232 /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
+		0C978E1D1F377269003E2232 /* yurakucho_muzhirusi.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = yurakucho_muzhirusi.m4a; sourceTree = "<group>"; };
+		0C978E1F1F377300003E2232 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		0CF2EB5F1F358603003DD9D2 /* FeedListItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedListItemTableViewCell.swift; sourceTree = "<group>"; };
 		0CF2EB651F35DC02003DD9D2 /* sample1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample1.jpg; sourceTree = "<group>"; };
 		0CF2EB671F35E304003DD9D2 /* sight_on_splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sight_on_splash.png; sourceTree = "<group>"; };
 		0CF2EB6A1F35E391003DD9D2 /* sight_on_icon_dark_mat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sight_on_icon_dark_mat.png; sourceTree = "<group>"; };
+		160064C8895113388812E218 /* Pods_SightOnMock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SightOnMock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1628E6B18334240124B99AB4 /* Pods-SightOnMockUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SightOnMockUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SightOnMockUITests/Pods-SightOnMockUITests.release.xcconfig"; sourceTree = "<group>"; };
+		46C723F4E70C2241757DF438 /* Pods-SightOnMockUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SightOnMockUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SightOnMockUITests/Pods-SightOnMockUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		4D81EED59BB94FB6EB8919E4 /* Pods-SightOnMock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SightOnMock.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SightOnMock/Pods-SightOnMock.debug.xcconfig"; sourceTree = "<group>"; };
+		4F6F1607983B036B110DD236 /* Pods-SightOnMockTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SightOnMockTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SightOnMockTests/Pods-SightOnMockTests.release.xcconfig"; sourceTree = "<group>"; };
+		8A540E7FF74955A668E85C79 /* Pods-SightOnMockTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SightOnMockTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SightOnMockTests/Pods-SightOnMockTests.debug.xcconfig"; sourceTree = "<group>"; };
+		90938FFE72B1733A10128717 /* Pods_SightOnMockUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SightOnMockUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CD91C51691DA76DD6DF48C1 /* Pods-SightOnMock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SightOnMock.release.xcconfig"; path = "Pods/Target Support Files/Pods-SightOnMock/Pods-SightOnMock.release.xcconfig"; sourceTree = "<group>"; };
+		FCC753F3904B908C76D3381B /* Pods_SightOnMockTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SightOnMockTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +91,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C978E201F377300003E2232 /* AVFoundation.framework in Frameworks */,
+				0C012CAE1F3754F500E8EFC8 /* Pods_SightOnMock.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C62BF457D007FABD1210B0E4 /* Pods_SightOnMockTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F17B0A539692C2F54EA8C34 /* Pods_SightOnMockUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +122,8 @@
 				0C3928AF1F23727300397EDD /* SightOnMockTests */,
 				0C3928BA1F23727300397EDD /* SightOnMockUITests */,
 				0C3928991F23727300397EDD /* Products */,
+				69F220A6DB8DF6AA472C58A4 /* Pods */,
+				15E9702848637B3EB55A3099 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,6 +140,8 @@
 		0C39289A1F23727300397EDD /* SightOnMock */ = {
 			isa = PBXGroup;
 			children = (
+				0C978E1C1F37661F003E2232 /* SoundData */,
+				0C978E181F375F27003E2232 /* Model */,
 				0CF2EB691F35E370003DD9D2 /* Image */,
 				0CF2EB641F35DB1B003DD9D2 /* Record */,
 				0CF2EB631F35DAFA003DD9D2 /* PostAction */,
@@ -145,6 +172,22 @@
 				0C3928BD1F23727300397EDD /* Info.plist */,
 			);
 			path = SightOnMockUITests;
+			sourceTree = "<group>";
+		};
+		0C978E181F375F27003E2232 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0C978E191F375F46003E2232 /* Sound.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		0C978E1C1F37661F003E2232 /* SoundData */ = {
+			isa = PBXGroup;
+			children = (
+				0C978E1D1F377269003E2232 /* yurakucho_muzhirusi.m4a */,
+			);
+			name = SoundData;
 			sourceTree = "<group>";
 		};
 		0CF2EB611F35D0E3003DD9D2 /* Feed */ = {
@@ -184,6 +227,31 @@
 			name = Image;
 			sourceTree = "<group>";
 		};
+		15E9702848637B3EB55A3099 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0C978E1F1F377300003E2232 /* AVFoundation.framework */,
+				0C012CAD1F3754F500E8EFC8 /* Pods_SightOnMock.framework */,
+				160064C8895113388812E218 /* Pods_SightOnMock.framework */,
+				FCC753F3904B908C76D3381B /* Pods_SightOnMockTests.framework */,
+				90938FFE72B1733A10128717 /* Pods_SightOnMockUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		69F220A6DB8DF6AA472C58A4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4D81EED59BB94FB6EB8919E4 /* Pods-SightOnMock.debug.xcconfig */,
+				9CD91C51691DA76DD6DF48C1 /* Pods-SightOnMock.release.xcconfig */,
+				8A540E7FF74955A668E85C79 /* Pods-SightOnMockTests.debug.xcconfig */,
+				4F6F1607983B036B110DD236 /* Pods-SightOnMockTests.release.xcconfig */,
+				46C723F4E70C2241757DF438 /* Pods-SightOnMockUITests.debug.xcconfig */,
+				1628E6B18334240124B99AB4 /* Pods-SightOnMockUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -191,9 +259,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0C3928C01F23727300397EDD /* Build configuration list for PBXNativeTarget "SightOnMock" */;
 			buildPhases = (
+				CA8C9A66AE41D03F84ADD05B /* [CP] Check Pods Manifest.lock */,
 				0C3928941F23727300397EDD /* Sources */,
 				0C3928951F23727300397EDD /* Frameworks */,
 				0C3928961F23727300397EDD /* Resources */,
+				5FE14B39ED8773667CA8F816 /* [CP] Embed Pods Frameworks */,
+				14F22F1E670E3C4E9ABD1022 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -208,9 +279,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0C3928C31F23727300397EDD /* Build configuration list for PBXNativeTarget "SightOnMockTests" */;
 			buildPhases = (
+				956F632456A523E5D1293099 /* [CP] Check Pods Manifest.lock */,
 				0C3928A81F23727300397EDD /* Sources */,
 				0C3928A91F23727300397EDD /* Frameworks */,
 				0C3928AA1F23727300397EDD /* Resources */,
+				97D0A82CC75D8EFF3D97DC79 /* [CP] Embed Pods Frameworks */,
+				D413E93AE2380228AF99E506 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -226,9 +300,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0C3928C61F23727300397EDD /* Build configuration list for PBXNativeTarget "SightOnMockUITests" */;
 			buildPhases = (
+				A1014AA3ED07045C40F703A5 /* [CP] Check Pods Manifest.lock */,
 				0C3928B31F23727300397EDD /* Sources */,
 				0C3928B41F23727300397EDD /* Frameworks */,
 				0C3928B51F23727300397EDD /* Resources */,
+				64B8637638F19FFE28573C88 /* [CP] Embed Pods Frameworks */,
+				62D63DD0F00DD5501C8E4218 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -252,15 +329,19 @@
 				TargetAttributes = {
 					0C3928971F23727300397EDD = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 8VNMRNL2C6;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					0C3928AB1F23727300397EDD = {
 						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 0C3928971F23727300397EDD;
 					};
 					0C3928B61F23727300397EDD = {
 						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 0C3928971F23727300397EDD;
 					};
@@ -295,6 +376,7 @@
 				0CF2EB681F35E304003DD9D2 /* sight_on_splash.png in Resources */,
 				0CF2EB6B1F35E391003DD9D2 /* sight_on_icon_dark_mat.png in Resources */,
 				0C3928A31F23727300397EDD /* Assets.xcassets in Resources */,
+				0C978E1E1F377269003E2232 /* yurakucho_muzhirusi.m4a in Resources */,
 				0C3928A11F23727300397EDD /* Main.storyboard in Resources */,
 				0CF2EB661F35DC02003DD9D2 /* sample1.jpg in Resources */,
 			);
@@ -316,6 +398,144 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		14F22F1E670E3C4E9ABD1022 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SightOnMock/Pods-SightOnMock-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5FE14B39ED8773667CA8F816 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SightOnMock/Pods-SightOnMock-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		62D63DD0F00DD5501C8E4218 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SightOnMockUITests/Pods-SightOnMockUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		64B8637638F19FFE28573C88 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SightOnMockUITests/Pods-SightOnMockUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		956F632456A523E5D1293099 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		97D0A82CC75D8EFF3D97DC79 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SightOnMockTests/Pods-SightOnMockTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A1014AA3ED07045C40F703A5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CA8C9A66AE41D03F84ADD05B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D413E93AE2380228AF99E506 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SightOnMockTests/Pods-SightOnMockTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0C3928941F23727300397EDD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -328,6 +548,7 @@
 				0CF2EB601F358603003DD9D2 /* FeedListItemTableViewCell.swift in Sources */,
 				0C3928CC1F23791A00397EDD /* FeedViewController.swift in Sources */,
 				0C3928CE1F23792C00397EDD /* AutoEditViewController.swift in Sources */,
+				0C978E1A1F375F46003E2232 /* Sound.swift in Sources */,
 				0C39289C1F23727300397EDD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -480,11 +701,13 @@
 		};
 		0C3928C11F23727300397EDD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4D81EED59BB94FB6EB8919E4 /* Pods-SightOnMock.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 8VNMRNL2C6;
 				INFOPLIST_FILE = SightOnMock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.self.SightOnMock;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.self.SightOn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -492,11 +715,13 @@
 		};
 		0C3928C21F23727300397EDD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9CD91C51691DA76DD6DF48C1 /* Pods-SightOnMock.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 8VNMRNL2C6;
 				INFOPLIST_FILE = SightOnMock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.self.SightOnMock;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.self.SightOn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -504,6 +729,7 @@
 		};
 		0C3928C41F23727300397EDD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8A540E7FF74955A668E85C79 /* Pods-SightOnMockTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -518,6 +744,7 @@
 		};
 		0C3928C51F23727300397EDD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F6F1607983B036B110DD236 /* Pods-SightOnMockTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -532,6 +759,7 @@
 		};
 		0C3928C71F23727300397EDD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46C723F4E70C2241757DF438 /* Pods-SightOnMockUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = SightOnMockUITests/Info.plist;
@@ -545,6 +773,7 @@
 		};
 		0C3928C81F23727300397EDD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1628E6B18334240124B99AB4 /* Pods-SightOnMockUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = SightOnMockUITests/Info.plist;

@@ -16,6 +16,7 @@ class FeedListItemTableViewCell: UITableViewCell {
     @IBOutlet weak var tag_name: UILabel!
     
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
