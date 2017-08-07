@@ -20,17 +20,16 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
 
         // Do any additional setup after loading the view.
         // 新規オブジェクトをインサート
-        if false //同じキーが繰り返し入ってしまうので一回Realmに入れたらFalseにする
-        {
-            let audioPath = Bundle.main.path(forResource: "yurakucho_muzhirusi", ofType:"m4a")!
-            createSoundData(soundId: 1, titleName: "test1", userId: 1, userName: "wakeke",
-                            tags: ["night", "cool", "refresh"], created: Date().timeIntervalSince1970, updated: Date().timeIntervalSince1970, dataPath: audioPath)
-        }
+
+        let audioPath = Bundle.main.path(forResource: "yurakucho_muzhirusi", ofType:"m4a")!
+        //createSoundData(soundId: 1, titleName: "test1", userId: 1, userName: "wakeke",
+        //                    tags: ["night", "cool", "refresh"], created: Date().timeIntervalSince1970, updated: Date().timeIntervalSince1970, dataPath: audioPath)
         
-        let realm = try! Realm()
-        let sound = realm.objects(Sound.self).filter("soundId == 1").first //%@, val 非Optional型はnilが入らない
-        let audioUrl = URL(fileURLWithPath: sound!.dataPath)
-        print("\(sound!.dataPath)")
+        //let realm = try! Realm()
+        //let sound = realm.objects(Sound.self).filter("soundId == 1")[0] //%@, val 非Optional型はnilが入らない
+        let audioUrl = URL(fileURLWithPath: audioPath) //sound.dataPath)
+        //print("\(sound.dataPath)")
+        print("\(audioPath)")
         
         // auido を再生するプレイヤーを作成する
         do{
@@ -40,6 +39,7 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
             audioPlayer.delegate = self
         }
         catch{
+            print("Error: cannot init audioPlayer")
         }
         
         //audioPlayer.prepareToPlay()
@@ -74,13 +74,11 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if ( audioPlayer.isPlaying ){
+        if audioPlayer.isPlaying {
             audioPlayer.stop()
-            //button.setTitle("Stop", for: UIControlState())
         }
         else{
             audioPlayer.play()
-            //button.setTitle("Play", for: UIControlState())
         }
     }
     
@@ -90,7 +88,6 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
     // デコード中にエラーが起きた時に呼ばれるメソッド
     func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error: Error?)
     {}
-    
     
     func createSoundData(soundId: Int, titleName: String, userId: Int, userName: String, tags: [String], created: Double, updated: Double, dataPath: String) {
         
@@ -106,7 +103,6 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         
         // Sound型オブジェクトの作成
         let sound = Sound()
-        sound.soundId = soundId
         sound.titleName = titleName
         sound.userId = userId //realm.objects(Sound.self).count
         sound.userName = userName
@@ -114,6 +110,7 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         sound.created = created
         sound.updated = updated
         sound.dataPath = dataPath
+        sound.save()
         
         // Realmへのオブジェクトの書き込み
         try! realm.write {

@@ -24,6 +24,26 @@ class Sound: Object {
     dynamic var updated: Double = Date().timeIntervalSince1970
     dynamic var dataPath: String = ""
     
+    // データを保存。
+    func save() {
+        let realm = try! Realm()
+        if realm.isInWriteTransaction {
+            if self.soundId == 0 { self.soundId = self.createNewId() }
+            realm.add(self, update: true)
+        } else {
+            try! realm.write {
+                if self.soundId == 0 { self.soundId = self.createNewId() }
+                realm.add(self, update: true)
+            }
+        }
+    }
+    
+    // 新しいIDを採番します。
+    private func createNewId() -> Int {
+        let realm = try! Realm()
+        return (realm.objects(type(of: self).self).sorted(byKeyPath: "soundId", ascending: false).first?.soundId ?? 0) + 1
+    }
+    
     // プライマリーキーの設定
     override static func primaryKey() -> String? {
         return "soundId"
@@ -31,6 +51,6 @@ class Sound: Object {
     
     // インデックスの設定
 //    override static func indexedProperties() -> [String] {
-//        return ["titleName"]
+//        return [""]
 //    }
 }
