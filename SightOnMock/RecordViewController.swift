@@ -47,12 +47,14 @@ class RecordViewController: ViewController {
     }
     
     @IBAction func buttonTapped(_ sender : Any) {
-
+        
         if(audioRecorder.isRecording){
             audioRecorder.stop()
+            print("stop recording")
         }
         else{
             audioRecorder.record()
+            print("start recording")
         }
     }
 

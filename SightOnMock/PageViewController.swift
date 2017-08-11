@@ -38,7 +38,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController:
         UIPageViewController, viewControllerBefore viewController:UIViewController) -> UIViewController? {
         //右にスワイプした場合に表示したいviewControllerを返す
-        //ようはページを戻す
+        //ページを戻す
         //今表示しているページは何ページ目か取得する
         let index = pageViewControllers.index(of: viewController)
         if index == 0 {
@@ -53,7 +53,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController:
         UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         //左にスワイプした場合に表示したいviewControllerを返す
-        //ようはページを進める
+        //ページを進める
         //今表示しているページは何ページ目か取得する
         let index = pageViewControllers.index(of: viewController)
         if index == pageViewControllers.count-1 {
@@ -64,6 +64,8 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
             return pageViewControllers[index!+1]
         }
     }
+    
+    
 
     /*
     // MARK: - Navigation
