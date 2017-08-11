@@ -22,8 +22,9 @@
 		0C3928D01F23794300397EDD /* ManualEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3928CF1F23794300397EDD /* ManualEditViewController.swift */; };
 		0C3928D21F23796200397EDD /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3928D11F23796200397EDD /* PostViewController.swift */; };
 		0C404CD31F389F590080F4EB /* sight_on_splash_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C404CD21F389F590080F4EB /* sight_on_splash_ipad.png */; };
-		0C4BB7011F3DDCF6001CA4A2 /* RecordDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB7001F3DDCF6001CA4A2 /* RecordDataManager.swift */; };
+		0C4BB7011F3DDCF6001CA4A2 /* TemporaryDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB7001F3DDCF6001CA4A2 /* TemporaryDataManager.swift */; };
 		0C4BB7031F3DE102001CA4A2 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C4BB7021F3DE102001CA4A2 /* Default-568h@2x.png */; };
+		0C4BB7051F3E6F21001CA4A2 /* TemporaryDataManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB7041F3E6F21001CA4A2 /* TemporaryDataManagerTest.swift */; };
 		0C978E1A1F375F46003E2232 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C978E191F375F46003E2232 /* Sound.swift */; };
 		0C978E1E1F377269003E2232 /* yurakucho_muzhirusi.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0C978E1D1F377269003E2232 /* yurakucho_muzhirusi.m4a */; };
 		0C978E201F377300003E2232 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C978E1F1F377300003E2232 /* AVFoundation.framework */; };
@@ -74,8 +75,9 @@
 		0C3928CF1F23794300397EDD /* ManualEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManualEditViewController.swift; sourceTree = "<group>"; };
 		0C3928D11F23796200397EDD /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		0C404CD21F389F590080F4EB /* sight_on_splash_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sight_on_splash_ipad.png; sourceTree = "<group>"; };
-		0C4BB7001F3DDCF6001CA4A2 /* RecordDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordDataManager.swift; sourceTree = "<group>"; };
+		0C4BB7001F3DDCF6001CA4A2 /* TemporaryDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemporaryDataManager.swift; sourceTree = "<group>"; };
 		0C4BB7021F3DE102001CA4A2 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		0C4BB7041F3E6F21001CA4A2 /* TemporaryDataManagerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TemporaryDataManagerTest.swift; path = ../SightOnMock/TemporaryDataManagerTest.swift; sourceTree = "<group>"; };
 		0C978E191F375F46003E2232 /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		0C978E1D1F377269003E2232 /* yurakucho_muzhirusi.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = yurakucho_muzhirusi.m4a; sourceTree = "<group>"; };
 		0C978E1F1F377300003E2232 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -156,7 +158,7 @@
 				0CF2EB631F35DAFA003DD9D2 /* PostAction */,
 				0CF2EB611F35D0E3003DD9D2 /* Feed */,
 				0C39289B1F23727300397EDD /* AppDelegate.swift */,
-				0C4BB7001F3DDCF6001CA4A2 /* RecordDataManager.swift */,
+				0C4BB7001F3DDCF6001CA4A2 /* TemporaryDataManager.swift */,
 				0C39289D1F23727300397EDD /* ViewController.swift */,
 				0C13AE621F3D9AFD00C7847F /* PageViewController.swift */,
 				0C39289F1F23727300397EDD /* Main.storyboard */,
@@ -171,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				0C3928B01F23727300397EDD /* SightOnMockTests.swift */,
+				0C4BB7041F3E6F21001CA4A2 /* TemporaryDataManagerTest.swift */,
 				0C3928B21F23727300397EDD /* Info.plist */,
 			);
 			path = SightOnMockTests;
@@ -559,7 +562,7 @@
 				0C13AE631F3D9AFD00C7847F /* PageViewController.swift in Sources */,
 				0C3928CA1F2378EA00397EDD /* RecordViewController.swift in Sources */,
 				0C3928D21F23796200397EDD /* PostViewController.swift in Sources */,
-				0C4BB7011F3DDCF6001CA4A2 /* RecordDataManager.swift in Sources */,
+				0C4BB7011F3DDCF6001CA4A2 /* TemporaryDataManager.swift in Sources */,
 				0C39289E1F23727300397EDD /* ViewController.swift in Sources */,
 				0CF2EB601F358603003DD9D2 /* FeedListItemTableViewCell.swift in Sources */,
 				0C3928CC1F23791A00397EDD /* FeedViewController.swift in Sources */,
@@ -574,6 +577,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C3928B11F23727300397EDD /* SightOnMockTests.swift in Sources */,
+				0C4BB7051F3E6F21001CA4A2 /* TemporaryDataManagerTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

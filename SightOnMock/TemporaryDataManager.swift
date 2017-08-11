@@ -9,37 +9,36 @@
 import UIKit
 
 //TempData
-class RecordDataManager {
+class TemporaryDataManager {
     //singleton
-    static let sharedInstance = RecordDataManager()
+    static let sharedInstance = TemporaryDataManager()
     private var filePath: String
     let userDefaults = UserDefaults.standard
     
     init()
     {
+        userDefaults.register(defaults: ["DataStore": "default"])
         filePath = ""
     }
     
-    public func saveData()
+    public func saveData(path :String)
     {
-        userDefaults.register(defaults: ["DataStore": "default"])
-        
         let userDefault = UserDefaults.standard
         // キーを指定してオブジェクトを保存
-        userDefault.set("TEST", forKey: "Key")
+        userDefault.set(path, forKey: "Key")
     }
     
-    public func readData()
+    public func loadData() -> String
     {
-        userDefaults.string(forKey: "Key")
-        
-        return
+        return userDefaults.string(forKey: "Key")!
     }
     // Keyを指定して読み込み(使用イメージ)
-    //let str: String = userDefaults.object(forKey: "DataStore") as! String
+    //let str: String = loadData()
     
-    public func deleteData()
+    public func deleteData(path :String)
     {
         userDefaults.removeObject(forKey: "Key")
+        //TODOpathのファイルを削除する処理
+        print("Delete temporary data.")
     }
 }

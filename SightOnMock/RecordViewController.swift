@@ -20,7 +20,7 @@ class RecordViewController: ViewController {
         // Do any additional setup after loading the view.
         // 初期化ここから
         // 録音ファイルを指定する
-        let filePath = NSHomeDirectory() + "/Documents/test.m4a"
+        let filePath = NSHomeDirectory() + "/Documents/test.m4a" //既存のファイルの場合
         let url = URL(fileURLWithPath: filePath) //URL(fileURLWithPath: sound!.dataPath)
         
         // 再生と録音の機能をアクティブにする
