@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gsK-b6-Z4x">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,10 +9,18 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Page View Controller-->
+        <scene sceneID="7rR-Iy-vkK">
+            <objects>
+                <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="gsK-b6-Z4x" customClass="PageViewController" customModule="SightOnMock" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6qn-nR-ZSZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1137" y="-670"/>
+        </scene>
         <!--Record View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="RecordViewController" id="BYZ-38-t0r" userLabel="Record View Controller" customClass="RecordViewController" customModule="SightOnMock" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RecordViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" userLabel="Record View Controller" customClass="RecordViewController" customModule="SightOnMock" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -22,7 +30,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="33v-f2-IWw">
-                                <rect key="frame" x="123" y="548" width="119" height="48"/>
+                                <rect key="frame" x="123" y="609.5" width="119" height="48"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="30"/>
                                 <state key="normal" title="Next"/>
                                 <connections>
@@ -46,7 +54,6 @@
                         <color key="backgroundColor" red="0.15800479054450989" green="0.15815737843513489" blue="0.15802845358848572" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="oNp-Bq-EvE" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="200" id="0wF-8I-yy2"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="33v-f2-IWw" secondAttribute="bottom" constant="71" id="4y4-xB-lsz"/>
                             <constraint firstItem="7EW-kk-TbH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4yh-Go-egJ"/>
                             <constraint firstItem="7EW-kk-TbH" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="60m-hO-auO"/>
                             <constraint firstItem="7EW-kk-TbH" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Bxs-cc-Mcm"/>
@@ -63,7 +70,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-127.2" y="104.7976011994003"/>
+            <point key="canvasLocation" x="407" y="-670"/>
         </scene>
         <!--Post View Controller-->
         <scene sceneID="TKx-I9-Qe2">
@@ -105,7 +112,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CJA-wd-G4g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1996" y="104.7976011994003"/>
+            <point key="canvasLocation" x="2210" y="105"/>
         </scene>
         <!--Auto Edit View Controller-->
         <scene sceneID="2tR-u9-upa">
@@ -147,7 +154,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PLO-Qn-lNc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="592.79999999999995" y="104.7976011994003"/>
+            <point key="canvasLocation" x="406" y="105"/>
         </scene>
         <!--Manual Edit View Controller-->
         <scene sceneID="8ex-DO-aVg">
@@ -194,7 +201,7 @@
         <!--Feed View Controller-->
         <scene sceneID="2bS-GP-nkg">
             <objects>
-                <viewController storyboardIdentifier="FeedViewController" id="7n7-tz-EaD" userLabel="Feed View Controller" customClass="FeedViewController" customModule="SightOnMock" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FeedViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7n7-tz-EaD" userLabel="Feed View Controller" customClass="FeedViewController" customModule="SightOnMock" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LiD-uE-P3u"/>
                         <viewControllerLayoutGuide type="bottom" id="f5h-my-hhw"/>
@@ -317,7 +324,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="91k-SS-nZ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3285.5999999999999" y="104.7976011994003"/>
+            <point key="canvasLocation" x="-375" y="-669"/>
         </scene>
     </scenes>
     <resources>

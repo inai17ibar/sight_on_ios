@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0C012CAE1F3754F500E8EFC8 /* Pods_SightOnMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C012CAD1F3754F500E8EFC8 /* Pods_SightOnMock.framework */; };
+		0C13AE631F3D9AFD00C7847F /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C13AE621F3D9AFD00C7847F /* PageViewController.swift */; };
 		0C39289C1F23727300397EDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C39289B1F23727300397EDD /* AppDelegate.swift */; };
 		0C39289E1F23727300397EDD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C39289D1F23727300397EDD /* ViewController.swift */; };
 		0C3928A11F23727300397EDD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C39289F1F23727300397EDD /* Main.storyboard */; };
@@ -51,6 +52,7 @@
 
 /* Begin PBXFileReference section */
 		0C012CAD1F3754F500E8EFC8 /* Pods_SightOnMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_SightOnMock.framework; path = "../../Library/Developer/Xcode/DerivedData/SightOnMock-fkgespoavkjeucdizymdfvxtojxa/Build/Products/Debug-iphonesimulator/Pods_SightOnMock.framework"; sourceTree = "<group>"; };
+		0C13AE621F3D9AFD00C7847F /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		0C3928981F23727300397EDD /* SightOnMock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SightOnMock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C39289B1F23727300397EDD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C39289D1F23727300397EDD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				0C39289B1F23727300397EDD /* AppDelegate.swift */,
 				0C39289D1F23727300397EDD /* ViewController.swift */,
 				0C39289F1F23727300397EDD /* Main.storyboard */,
+				0C13AE621F3D9AFD00C7847F /* PageViewController.swift */,
 				0C3928A21F23727300397EDD /* Assets.xcassets */,
 				0C3928A41F23727300397EDD /* LaunchScreen.storyboard */,
 				0C3928A71F23727300397EDD /* Info.plist */,
@@ -546,6 +549,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C3928D01F23794300397EDD /* ManualEditViewController.swift in Sources */,
+				0C13AE631F3D9AFD00C7847F /* PageViewController.swift in Sources */,
 				0C3928CA1F2378EA00397EDD /* RecordViewController.swift in Sources */,
 				0C3928D21F23796200397EDD /* PostViewController.swift in Sources */,
 				0C39289E1F23727300397EDD /* ViewController.swift in Sources */,
