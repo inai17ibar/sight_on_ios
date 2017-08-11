@@ -10,6 +10,7 @@ import UIKit
 
 class PostViewController: ViewController {
 
+    @IBOutlet weak var postButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,7 +22,19 @@ class PostViewController: ViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func post()
+    {
+        let dataManager = TemporaryDataManager()
+        let file_path = dataManager.loadDataPath()
+        let url = URL(fileURLWithPath: file_path) //Postするとき，URL(fileURLWithPath: sound!.dataPath)
+        print(url)
+    }
 
+    @IBAction func buttonTapped(_ sender : Any) {
+        
+        post()
+    }
+    
     /*
     // MARK: - Navigation
 

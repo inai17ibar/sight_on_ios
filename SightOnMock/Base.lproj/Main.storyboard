@@ -38,7 +38,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oNp-Bq-EvE" userLabel="RecordButton">
-                                <rect key="frame" x="89" y="469" width="197" height="30"/>
+                                <rect key="frame" x="0.0" y="469" width="359" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Record Button">
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -94,11 +94,22 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUO-od-wKe">
-                                <rect key="frame" x="0.0" y="540" width="375" height="48"/>
+                                <rect key="frame" x="0.0" y="576" width="375" height="48"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="30"/>
                                 <state key="normal" title="Next"/>
                                 <connections>
                                     <segue destination="gsK-b6-Z4x" kind="show" id="GtH-7p-gH5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KVi-gL-m5p">
+                                <rect key="frame" x="0.0" y="508" width="375" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonTapped:" destination="Yi1-cS-iMR" eventType="touchUpInside" id="G5H-iY-G89"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -112,10 +123,13 @@
                             <constraint firstItem="A8c-tD-dpC" firstAttribute="centerX" secondItem="Qp7-Cf-vvT" secondAttribute="centerX" id="tLR-bB-pNo"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="postButton" destination="KVi-gL-m5p" id="urn-vc-FrO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CJA-wd-G4g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2210" y="105"/>
+            <point key="canvasLocation" x="2208.8000000000002" y="104.7976011994003"/>
         </scene>
         <!--Auto Edit View Controller-->
         <scene sceneID="2tR-u9-upa">

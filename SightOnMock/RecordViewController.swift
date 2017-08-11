@@ -20,8 +20,8 @@ class RecordViewController: ViewController {
         // Do any additional setup after loading the view.
         // 初期化ここから
         // 録音ファイルを指定する
-        let filePath = NSHomeDirectory() + "/Documents/test.m4a" //既存のファイルの場合
-        let url = URL(fileURLWithPath: filePath) //URL(fileURLWithPath: sound!.dataPath)
+        let filePath = NSHomeDirectory() + "/Documents/temp_data.m4a" //_"+getNowClockString()+".m4a"
+        let url = URL(fileURLWithPath: filePath) 
         
         // 再生と録音の機能をアクティブにする
         let session = AVAudioSession.sharedInstance()
@@ -44,6 +44,13 @@ class RecordViewController: ViewController {
             fatalError("初期設定にエラー")
         }
         // 初期化ここまで
+    }
+    
+    func getNowClockString() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd_HHmmss"
+        let now = Date()
+        return formatter.string(from: now)
     }
     
     @IBAction func buttonTapped(_ sender : Any) {
