@@ -12,13 +12,13 @@ import RealmSwift
 class DatabaseAccessManager{
     //singleton
     static let sharedInstance = DatabaseAccessManager()
-    let sound: Sound
+    let sound: Sound!
     
     init (){
         sound = Sound()
     }
     
-    func register()
+    func add()
     {
         if sound.id == 0 {
             return
@@ -33,7 +33,7 @@ class DatabaseAccessManager{
     }
     
     //TODO: 拡張に耐えられないので要リファクタリング
-    func createSoundData(filePath: String, dataName: String, userId: Int, tags: [String])
+    func create(filePath: String, dataName: String, userId: Int, tags: [String])
     {
         // Tags型オブジェクトに変換してList<Tag>に格納
         let tagsList = List<Tag>()

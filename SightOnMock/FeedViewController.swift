@@ -14,6 +14,7 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
     
     @IBOutlet weak var tableView: UITableView!
     var audioPlayer:AVAudioPlayer!
+    let realm = try! Realm()
     var sounds:Results<Sound>!
     
     override func viewDidLoad() {
@@ -25,8 +26,7 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         print("\(audioPath)")
         
         //DBから読み込んで表示する場合
-        let realm = try! Realm()
-        sounds = realm.objects(Sound.self).filter("userId == 1") //%@, val 非Optional型はnilが入らない
+        sounds = realm.objects(Sound.self).filter("user_id == 1") //%@, val 非Optional型はnilが入らない
         //var soundUrls = sounds.filter( {(x: Sound) -> URL in return URL(fileURLWithPath: x.file_path)})
         
         
@@ -53,7 +53,7 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return sounds.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -61,16 +61,17 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FeedListItem") as! FeedListItemTableViewCell
             
-            let url = URL(fileURLWithPath: sounds[indexPath.row].file_path)
-            do{
-                audioPlayer = try AVAudioPlayer(contentsOf: url)
-                
-            }catch{
-                print("Error: cannot play audioPlayer")
-            }
-            
+            //let url = URL(fileURLWithPath: sounds[indexPath.row].file_path)
+            cell.titleLabel.text = "\(sounds[indexPath.row].sound_name)"
+//            do{
+//                audioPlayer = try AVAudioPlayer(contentsOf: url)
+//                
+//            }catch{
+//                print("Error: cannot play audioPlayer")
+//            }
+//            
             //サンプル
-            cell.titleLabel.text = "\(indexPath.row)"
+            //cell.titleLabel.text = "\(indexPath.row)"
             let image:UIImage = UIImage(named:"sample")!
             cell.photo = UIImageView(image:image)
             
@@ -80,8 +81,8 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
     }
     
     //あるセルを押したら再生
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
         if audioPlayer.isPlaying {
             audioPlayer.stop()
         }
@@ -92,13 +93,15 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
     
     // 音楽再生が成功した時に呼ばれるメソッド
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool)
-    {}
+    {
+        
+    }
     // デコード中にエラーが起きた時に呼ばれるメソッド
     func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error: Error?)
-    {}
+    {
+        print("Error")
+    }
     
-    
-
     /*
     // MARK: - Navigation
 

@@ -30,7 +30,12 @@ class RecordViewController: ViewController, AVAudioPlayerDelegate {
     func initRecorder()
     {
         // 録音ファイルを指定する
+<<<<<<< HEAD
+        filePath = NSHomeDirectory() + "/Documents/temp_data.m4a" 
+        //filePath = Bundle.main.path(forResource: "yurakucho_muzhirushi", ofType:"m4a")!
+=======
         filePath = NSHomeDirectory() + "/Documents/temp_data_"+getNowClockString()+".m4a"
+>>>>>>> 814a220567b9bf0dbff2c6d9f0fca94f5beacafc
         let url = URL(fileURLWithPath: filePath)
         
         // 再生と録音の機能をアクティブにする
