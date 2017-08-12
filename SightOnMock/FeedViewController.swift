@@ -14,7 +14,6 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
     
     @IBOutlet weak var tableView: UITableView!
     var audioPlayer:AVAudioPlayer!
-    var sounds:Results<Sound>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +24,8 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         print("\(audioPath)")
         
         //DBから読み込んで表示する場合
-        let realm = try! Realm()
-        sounds = realm.objects(Sound.self).filter("userId == 1") //%@, val 非Optional型はnilが入らない
+        //let realm = try! Realm()
+        //sounds = realm.objects(Sound.self).filter("userId == 1") //%@, val 非Optional型はnilが入らない
         //var soundUrls = sounds.filter( {(x: Sound) -> URL in return URL(fileURLWithPath: x.file_path)})
         
         
@@ -61,14 +60,14 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FeedListItem") as! FeedListItemTableViewCell
             
-            let url = URL(fileURLWithPath: sounds[indexPath.row].file_path)
-            do{
-                audioPlayer = try AVAudioPlayer(contentsOf: url)
-                
-            }catch{
-                print("Error: cannot play audioPlayer")
-            }
-            
+//            let url = URL(fileURLWithPath: sounds[indexPath.row].file_path)
+//            do{
+//                audioPlayer = try AVAudioPlayer(contentsOf: url)
+//                
+//            }catch{
+//                print("Error: cannot play audioPlayer")
+//            }
+//            
             //サンプル
             cell.titleLabel.text = "\(indexPath.row)"
             let image:UIImage = UIImage(named:"sample")!
@@ -92,10 +91,14 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
     
     // 音楽再生が成功した時に呼ばれるメソッド
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool)
-    {}
+    {
+        
+    }
     // デコード中にエラーが起きた時に呼ばれるメソッド
     func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error: Error?)
-    {}
+    {
+        print("Error")
+    }
     
     
 

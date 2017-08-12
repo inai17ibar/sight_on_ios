@@ -9,12 +9,17 @@
 import UIKit
 import AVFoundation
 
-class RecordViewController: ViewController {
+class RecordViewController: ViewController, AVAudioPlayerDelegate {
 
     @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var playButton: UIButton!
     
     var audioRecorder:AVAudioRecorder!
     var filePath:String!
+    var audioPlayer:AVAudioPlayer!
+    
+    let dataManager = TemporaryDataManager()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,13 +64,37 @@ class RecordViewController: ViewController {
         if(audioRecorder.isRecording){
             audioRecorder.stop()
             print("stop recording")
-            let dataManager = TemporaryDataManager()
             dataManager.saveDataPath(path: filePath)
         }
         else{
             audioRecorder.record()
             print("start recording")
         }
+    }
+    
+    @IBAction func playButtonTapped(_ sender : Any) {
+        
+        audioRecorder.stop()
+        print("play")
+        let path = dataManager.loadDataPath()
+        let url = URL(fileURLWithPath: path)
+        do{
+            // AVAudioPlayerのインスタンス化
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            // AVAudioPlayerのデリゲートをセット
+            audioPlayer.delegate = self
+            
+            if audioPlayer.isPlaying {
+                audioPlayer.stop()
+            }
+            else{
+                audioPlayer.play()
+            }
+        }
+        catch{
+            print("Error: cannot init audioPlayer")
+        }
+       
     }
 
     override func didReceiveMemoryWarning() {
