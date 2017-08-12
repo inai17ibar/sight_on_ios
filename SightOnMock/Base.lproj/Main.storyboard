@@ -38,7 +38,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oNp-Bq-EvE" userLabel="RecordButton">
-                                <rect key="frame" x="0.0" y="469" width="359" height="30"/>
+                                <rect key="frame" x="0.0" y="469" width="375" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Record Button">
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -101,9 +101,8 @@
                                     <segue destination="gsK-b6-Z4x" kind="show" id="GtH-7p-gH5"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KVi-gL-m5p">
-                                <rect key="frame" x="0.0" y="508" width="375" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KVi-gL-m5p">
+                                <rect key="frame" x="157" y="516" width="60" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Button">
                                     <color key="titleColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -118,9 +117,11 @@
                             <constraint firstItem="WUO-od-wKe" firstAttribute="centerX" secondItem="Qp7-Cf-vvT" secondAttribute="centerX" id="OKS-Cu-EIt"/>
                             <constraint firstItem="WUO-od-wKe" firstAttribute="centerY" secondItem="Qp7-Cf-vvT" secondAttribute="centerY" constant="300" id="UJe-fF-CAC"/>
                             <constraint firstItem="A8c-tD-dpC" firstAttribute="width" secondItem="Qp7-Cf-vvT" secondAttribute="width" id="W2a-fu-GdK"/>
+                            <constraint firstItem="KVi-gL-m5p" firstAttribute="centerX" secondItem="Qp7-Cf-vvT" secondAttribute="centerX" id="fdp-du-DAu"/>
                             <constraint firstItem="WUO-od-wKe" firstAttribute="width" secondItem="Qp7-Cf-vvT" secondAttribute="width" id="ic1-gw-ah8"/>
                             <constraint firstItem="A8c-tD-dpC" firstAttribute="centerY" secondItem="Qp7-Cf-vvT" secondAttribute="centerY" id="n5a-Li-4sn"/>
                             <constraint firstItem="A8c-tD-dpC" firstAttribute="centerX" secondItem="Qp7-Cf-vvT" secondAttribute="centerX" id="tLR-bB-pNo"/>
+                            <constraint firstItem="KVi-gL-m5p" firstAttribute="centerY" secondItem="Qp7-Cf-vvT" secondAttribute="centerY" constant="200" id="wIl-kI-rO3"/>
                         </constraints>
                     </view>
                     <connections>
@@ -260,7 +261,7 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="@UserNameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NxL-t3-ByS">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="@UserLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NxL-t3-ByS">
                                                     <rect key="frame" x="260" y="8" width="107" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
@@ -303,9 +304,9 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="photo" destination="ATb-Ra-z15" id="g1q-1O-bhn"/>
-                                            <outlet property="tag_name" destination="Sv8-Ck-pTo" id="3mx-2V-gqw"/>
-                                            <outlet property="title_name" destination="USI-Qw-W8k" id="Pil-xs-Loh"/>
-                                            <outlet property="user_name" destination="NxL-t3-ByS" id="ChK-zC-yje"/>
+                                            <outlet property="tagLabel" destination="Sv8-Ck-pTo" id="xyz-pz-s4D"/>
+                                            <outlet property="titleLabel" destination="USI-Qw-W8k" id="pg0-oK-ule"/>
+                                            <outlet property="userLabel" destination="NxL-t3-ByS" id="6BK-GL-HGB"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

@@ -14,13 +14,14 @@ class RecordViewController: ViewController {
     @IBOutlet weak var button: UIButton!
     
     var audioRecorder:AVAudioRecorder!
+    var filePath:String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         // 初期化ここから
         // 録音ファイルを指定する
-        let filePath = NSHomeDirectory() + "/Documents/temp_data.m4a" //_"+getNowClockString()+".m4a"
+        filePath = NSHomeDirectory() + "/Documents/temp_data.m4a" //_"+getNowClockString()+".m4a"
         let url = URL(fileURLWithPath: filePath) 
         
         // 再生と録音の機能をアクティブにする
@@ -58,6 +59,8 @@ class RecordViewController: ViewController {
         if(audioRecorder.isRecording){
             audioRecorder.stop()
             print("stop recording")
+            let dataManager = TemporaryDataManager()
+            dataManager.saveDataPath(path: filePath)
         }
         else{
             audioRecorder.record()

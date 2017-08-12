@@ -14,7 +14,13 @@ class PostViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        //仮のDBの初期化ボタン
+//        let accessor = DatabaseAccessManager()
+//        
+//        let audioPath1 = Bundle.main.path(forResource: "yurakucho_muzhirusi", ofType:"m4a")!
+//        accessor.createSoundData(filePath: audioPath1, dataName: "有楽町", userId: 1, tags: ["night", "cool", "refresh"])
+//        let audioPath2 = Bundle.main.path(forResource: "near_road", ofType:"wav")!
+//        accessor.createSoundData(filePath: audioPath2, dataName: "道路", userId: 1, tags: ["road", "buzy"])
     }
 
     override func didReceiveMemoryWarning() {

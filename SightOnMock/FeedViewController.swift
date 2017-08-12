@@ -14,23 +14,23 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
     
     @IBOutlet weak var tableView: UITableView!
     var audioPlayer:AVAudioPlayer!
-
+    var sounds:Results<Sound>!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        // 新規オブジェクトをインサート
-
+        //既存データでの読み込みテスト
         let audioPath = Bundle.main.path(forResource: "yurakucho_muzhirusi", ofType:"m4a")!
-        //createSoundData(soundId: 1, titleName: "test1", userId: 1, userName: "wakeke",
-        //                    tags: ["night", "cool", "refresh"], created: Date().timeIntervalSince1970, updated: Date().timeIntervalSince1970, dataPath: audioPath)
-        
-        //let realm = try! Realm()
-        //let sound = realm.objects(Sound.self).filter("soundId == 1")[0] //%@, val 非Optional型はnilが入らない
-        let audioUrl = URL(fileURLWithPath: audioPath) //sound.dataPath)
-        //print("\(sound.dataPath)")
+        let audioUrl = URL(fileURLWithPath: audioPath)
         print("\(audioPath)")
         
+        //DBから読み込んで表示する場合
+        let realm = try! Realm()
+        sounds = realm.objects(Sound.self).filter("userId == 1") //%@, val 非Optional型はnilが入らない
+        //var soundUrls = sounds.filter( {(x: Sound) -> URL in return URL(fileURLWithPath: x.file_path)})
+        
+        
+        //TODO: 要シングルトン化
         // auido を再生するプレイヤーを作成する
         do{
             // AVAudioPlayerのインスタンス化
@@ -41,8 +41,6 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         catch{
             print("Error: cannot init audioPlayer")
         }
-        
-        //audioPlayer.prepareToPlay()
     }
 
     override func didReceiveMemoryWarning() {
@@ -63,7 +61,16 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FeedListItem") as! FeedListItemTableViewCell
             
-            cell.title_name.text = "\(indexPath.row)"
+            let url = URL(fileURLWithPath: sounds[indexPath.row].file_path)
+            do{
+                audioPlayer = try AVAudioPlayer(contentsOf: url)
+                
+            }catch{
+                print("Error: cannot play audioPlayer")
+            }
+            
+            //サンプル
+            cell.titleLabel.text = "\(indexPath.row)"
             let image:UIImage = UIImage(named:"sample")!
             cell.photo = UIImageView(image:image)
             
@@ -72,6 +79,7 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         return UITableViewCell()
     }
     
+    //あるセルを押したら再生
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if audioPlayer.isPlaying {
@@ -89,34 +97,7 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
     func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error: Error?)
     {}
     
-    func createSoundData(soundId: Int, titleName: String, userId: Int, userName: String, tags: [String], created: Double, updated: Double, dataPath: String) {
-        
-        // Tags型オブジェクトに変換してList<Tag>に格納
-        let tagsList = List<Tag>()
-        for tag in tags {
-            let newTag = Tag()
-            newTag.tagName = tag
-            tagsList.append(newTag)
-        }
-        
-        let realm = try! Realm()
-        
-        // Sound型オブジェクトの作成
-        let sound = Sound()
-        sound.titleName = titleName
-        sound.userId = userId //realm.objects(Sound.self).count
-        sound.userName = userName
-        sound.tags.append(objectsIn: tagsList)
-        sound.created = created
-        sound.updated = updated
-        sound.dataPath = dataPath
-        sound.save()
-        
-        // Realmへのオブジェクトの書き込み
-        try! realm.write {
-            realm.add(sound)
-        }
-    }
+    
 
     /*
     // MARK: - Navigation
