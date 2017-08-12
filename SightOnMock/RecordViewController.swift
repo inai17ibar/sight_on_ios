@@ -24,10 +24,14 @@ class RecordViewController: ViewController, AVAudioPlayerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        // 初期化ここから
+        initRecorder()
+    }
+    
+    func initRecorder()
+    {
         // 録音ファイルを指定する
-        filePath = NSHomeDirectory() + "/Documents/temp_data.m4a" //_"+getNowClockString()+".m4a"
-        let url = URL(fileURLWithPath: filePath) 
+        filePath = NSHomeDirectory() + "/Documents/temp_data_"+getNowClockString()+".m4a"
+        let url = URL(fileURLWithPath: filePath)
         
         // 再生と録音の機能をアクティブにする
         let session = AVAudioSession.sharedInstance()
@@ -36,20 +40,18 @@ class RecordViewController: ViewController, AVAudioPlayerDelegate {
         
         // 録音の詳細設定
         let recordSetting : [String : AnyObject] = [
-            AVFormatIDKey : UInt(kAudioFormatAppleLossless) as AnyObject, 
+            AVFormatIDKey : UInt(kAudioFormatAppleLossless) as AnyObject,
             AVEncoderAudioQualityKey : AVAudioQuality.min.rawValue as AnyObject,
             AVEncoderBitRateKey : 16 as AnyObject,
             AVNumberOfChannelsKey: 2 as AnyObject,
             AVSampleRateKey: 44100.0 as AnyObject
         ]
         
-        // 仕上げ
         do {
             audioRecorder = try AVAudioRecorder(url: url, settings: recordSetting)
         } catch {
             fatalError("初期設定にエラー")
         }
-        // 初期化ここまで
     }
     
     func getNowClockString() -> String {
@@ -61,45 +63,62 @@ class RecordViewController: ViewController, AVAudioPlayerDelegate {
     
     @IBAction func buttonTapped(_ sender : Any) {
         
-        if(audioRecorder.isRecording){
-            audioRecorder.stop()
+        if(audioRecorder.isRecording)
+        {
             print("stop recording")
-            dataManager.saveDataPath(path: filePath)
+            button.setTitle("Record", for: .normal)
+            audioRecorder.stop()
+            saveRecordData()
+            
+            initPlayer(url: URL(fileURLWithPath: dataManager.loadDataPath()))
         }
         else{
-            audioRecorder.record()
             print("start recording")
+            button.setTitle("Now recording...", for: .normal)
+            audioRecorder.record()
         }
+    }
+    
+    func saveRecordData()
+    {
+        dataManager.saveDataPath(path: filePath)
     }
     
     @IBAction func playButtonTapped(_ sender : Any) {
         
-        audioRecorder.stop()
-        print("play")
-        let path = dataManager.loadDataPath()
-        let url = URL(fileURLWithPath: path)
+        if audioPlayer.isPlaying {
+            audioPlayer.stop()
+            playButton.setTitle("Play", for: .normal)
+        }
+        else{
+            print("play")
+            audioPlayer.play()
+            playButton.setTitle("Playing...", for: .normal)
+        }
+    }
+    
+    func initPlayer(url: URL)
+    {
         do{
             // AVAudioPlayerのインスタンス化
             audioPlayer = try AVAudioPlayer(contentsOf: url)
             // AVAudioPlayerのデリゲートをセット
             audioPlayer.delegate = self
-            
-            if audioPlayer.isPlaying {
-                audioPlayer.stop()
-            }
-            else{
-                audioPlayer.play()
-            }
         }
         catch{
             print("Error: cannot init audioPlayer")
         }
-       
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // デコード中にエラーが起きた時に呼ばれるメソッド
+    func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error: Error?)
+    {
+        print("Error")
     }
     
     /*

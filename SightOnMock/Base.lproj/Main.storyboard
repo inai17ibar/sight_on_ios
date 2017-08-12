@@ -66,7 +66,8 @@
                         </subviews>
                         <color key="backgroundColor" red="0.15800479054450989" green="0.15815737843513489" blue="0.15802845358848572" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="oNp-Bq-EvE" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="200" id="0wF-8I-yy2"/>
+                            <constraint firstItem="oNp-Bq-EvE" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="100" id="0wF-8I-yy2"/>
+                            <constraint firstItem="XXF-Ma-ogs" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="4UK-aI-YFd"/>
                             <constraint firstItem="7EW-kk-TbH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4yh-Go-egJ"/>
                             <constraint firstItem="7EW-kk-TbH" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="60m-hO-auO"/>
                             <constraint firstItem="XXF-Ma-ogs" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="200" id="8bJ-vU-lGR"/>
@@ -115,9 +116,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KVi-gL-m5p">
-                                <rect key="frame" x="157" y="516" width="60" height="36"/>
+                                <rect key="frame" x="167" y="516" width="40" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="post">
                                     <color key="titleColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
