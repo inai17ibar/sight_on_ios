@@ -21,8 +21,9 @@ class RecordViewController: ViewController {
         // Do any additional setup after loading the view.
         // 初期化ここから
         // 録音ファイルを指定する
-        filePath = NSHomeDirectory() + "/Documents/temp_data.m4a" //_"+getNowClockString()+".m4a"
-        let url = URL(fileURLWithPath: filePath) 
+        filePath = NSHomeDirectory() + "/Documents/temp_data.m4a" 
+        //filePath = Bundle.main.path(forResource: "yurakucho_muzhirushi", ofType:"m4a")!
+        let url = URL(fileURLWithPath: filePath)
         
         // 再生と録音の機能をアクティブにする
         let session = AVAudioSession.sharedInstance()

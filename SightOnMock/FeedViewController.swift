@@ -20,7 +20,7 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         super.viewDidLoad()
 
         //既存データでの読み込みテスト
-        let audioPath = Bundle.main.path(forResource: "yurakucho_muzhirusi", ofType:"m4a")!
+        let audioPath = Bundle.main.path(forResource: "/Documents/temp_data", ofType:"m4a")!
         let audioUrl = URL(fileURLWithPath: audioPath)
         print("\(audioPath)")
         
