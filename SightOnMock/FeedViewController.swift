@@ -21,12 +21,12 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         super.viewDidLoad()
 
         //既存データでの読み込みテスト
-        let audioPath = Bundle.main.path(forResource: "/Documents/temp_data", ofType:"m4a")!
-        let audioUrl = URL(fileURLWithPath: audioPath)
-        print("\(audioPath)")
+        //let audioPath = Bundle.main.path(forResource: "/Documents/temp_data", ofType:"m4a")!
+        //let audioUrl = URL(fileURLWithPath: audioPath)
+        //print("\(audioPath)")
         
         //DBから読み込んで表示する場合
-        sounds = realm.objects(Sound.self).filter("user_id == 1") //%@, val 非Optional型はnilが入らない
+        sounds = realm.objects(Sound.self).filter("user_id == 1")
         //var soundUrls = sounds.filter( {(x: Sound) -> URL in return URL(fileURLWithPath: x.file_path)})
         
         
@@ -34,7 +34,7 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         // auido を再生するプレイヤーを作成する
         do{
             // AVAudioPlayerのインスタンス化
-            audioPlayer = try AVAudioPlayer(contentsOf: audioUrl)
+            audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sounds[0].file_path))
             // AVAudioPlayerのデリゲートをセット
             audioPlayer.delegate = self
         }
@@ -63,13 +63,7 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
             
             //let url = URL(fileURLWithPath: sounds[indexPath.row].file_path)
             cell.titleLabel.text = "\(sounds[indexPath.row].sound_name)"
-//            do{
-//                audioPlayer = try AVAudioPlayer(contentsOf: url)
-//                
-//            }catch{
-//                print("Error: cannot play audioPlayer")
-//            }
-//            
+    
             //サンプル
             //cell.titleLabel.text = "\(indexPath.row)"
             let image:UIImage = UIImage(named:"sample")!
