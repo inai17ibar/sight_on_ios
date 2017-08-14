@@ -92,6 +92,8 @@ class RecordViewController: ViewController, AVAudioPlayerDelegate {
         }
         else{
             print("play")
+            //音量
+            audioPlayer.volume = 2.0
             audioPlayer.play()
             playButton.setTitle("Playing...", for: .normal)
         }
@@ -113,6 +115,12 @@ class RecordViewController: ViewController, AVAudioPlayerDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    //再生終了時の呼び出しメソッド
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool)
+    {
+        playButton.setTitle("Finish", for: .normal)
     }
     
     // デコード中にエラーが起きた時に呼ばれるメソッド

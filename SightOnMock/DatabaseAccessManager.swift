@@ -12,7 +12,7 @@ import RealmSwift
 class DatabaseAccessManager{
     //singleton
     static let sharedInstance = DatabaseAccessManager()
-    let sound: Sound!
+    var sound: Sound!
     
     init (){
         sound = Sound()
@@ -35,6 +35,7 @@ class DatabaseAccessManager{
     //TODO: 拡張に耐えられないので要リファクタリング
     func create(filePath: String, dataName: String, userId: Int, tags: [String])
     {
+        sound = Sound()
         // Tags型オブジェクトに変換してList<Tag>に格納
         let tagsList = List<Tag>()
         for tag in tags {
@@ -49,5 +50,22 @@ class DatabaseAccessManager{
         sound.tags.append(objectsIn: tagsList)
         sound.file_path = filePath
         sound.save()
+    }
+    
+    func extractByUserId(number: Int) -> Results<Sound>
+    {
+        let realm = try! Realm()
+        
+        //DBから読み込んで表示する場合
+        return realm.objects(Sound.self).filter("user_id == %@", number)
+    }
+    
+    func deleteAll()
+    {
+        let realm = try! Realm()
+        //DBの初期化
+        try! realm.write {
+            realm.deleteAll()
+        }
     }
 }
