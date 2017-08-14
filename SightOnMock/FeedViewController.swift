@@ -80,10 +80,10 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
             let cell = tableView.dequeueReusableCell(withIdentifier: "FeedListItem") as! FeedListItemTableViewCell
             
             cell.titleLabel.text = "\(sounds[indexPath.row].sound_name)"
-//            var tags_text = Array(sounds[indexPath.row].tags).reduce("") {
-//                (joined: String, x: Tag) -> String in return joined + x.tagName
-//            }
-//            cell.tagLabel.text = "\(tags_text)"
+            let tags_text = Array(sounds[indexPath.row].tags).reduce("") {
+                (joined: String, x: Tag) -> String in return joined + " #" + x.tagName
+            }
+            cell.tagLabel.text = "\(tags_text)"
 //            
             //サンプル
             let image:UIImage = UIImage(named:"sample")!
