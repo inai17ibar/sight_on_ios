@@ -173,6 +173,20 @@
                                     <segue destination="1J9-8H-C0P" kind="show" id="8fh-05-aQp"/>
                                 </connections>
                             </button>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="15000" minValue="100" maxValue="20000" translatesAutoresizingMaskIntoConstraints="NO" id="x6d-LF-MU7">
+                                <rect key="frame" x="126" y="465" width="118" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="sliderDelayChangedWithSender:" destination="h1Q-YG-fGP" eventType="valueChanged" id="PKN-zt-kIX"/>
+                                </connections>
+                            </slider>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Cut off frequency " borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XXA-6c-N4g">
+                                <rect key="frame" x="116" y="427" width="139" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -186,6 +200,7 @@
                     </view>
                     <connections>
                         <outlet property="button" destination="31T-dK-dw1" id="S2c-wi-3wL"/>
+                        <outlet property="sliderDelay" destination="x6d-LF-MU7" id="9Az-ev-CxS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PLO-Qn-lNc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -219,6 +234,20 @@
                                     <segue destination="Yi1-cS-iMR" kind="show" id="4hp-d4-DJn"/>
                                 </connections>
                             </button>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Eng-Ca-7Lb">
+                                <rect key="frame" x="80" y="423" width="214" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="sliderReverbChangedWithSender:" destination="1J9-8H-C0P" eventType="valueChanged" id="FBU-33-7EI"/>
+                                </connections>
+                            </slider>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="reverb" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QAJ-Hv-DJG">
+                                <rect key="frame" x="153" y="369" width="69" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -232,11 +261,12 @@
                     </view>
                     <connections>
                         <outlet property="button" destination="umn-3B-mca" id="AD5-7q-Ty6"/>
+                        <outlet property="sliderReverb" destination="Eng-Ca-7Lb" id="30d-ff-GON"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xu5-tx-0Tt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1292" y="105"/>
+            <point key="canvasLocation" x="1292" y="104.7976011994003"/>
         </scene>
         <!--Feed View Controller-->
         <scene sceneID="2bS-GP-nkg">

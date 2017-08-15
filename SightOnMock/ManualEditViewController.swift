@@ -15,7 +15,8 @@ import AudioToolbox
 class ManualEditViewController: ViewController {
 
     @IBOutlet weak var button: UIButton!
-    
+    @IBOutlet weak var sliderReverb: UISlider!
+
     let temp_data = TemporaryDataManager()
     //var player: AVAudioPlayer?
     // インスタンス変数
@@ -24,7 +25,9 @@ class ManualEditViewController: ViewController {
     var player = AVAudioPlayerNode()
     //revebNodeの準備
     var reverb = AVAudioUnitReverb()
-    
+    //AVAudioUnitDelayの準備
+    var delay = AVAudioUnitDelay()
+
     //var filePath: String!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,12 +51,20 @@ class ManualEditViewController: ViewController {
             try! audioFile.read(into: audioFileBuffer)
             // reverbの設定
             reverb.loadFactoryPreset(.largeHall2)
+            reverb.wetDryMix = 0
             
+            //Delayの設定
+            // 高域側のカットオフ周波数
+            //audioFile.processingFormat.sampleRate
+            delay.lowPassCutoff = 15000;    // Range: 10 -> (samplerate/2)
+            delay.delayTime = 0;
+            delay.feedback = 0;
             // AudioEngineにnodeを設定
             engine.attach(player)
             engine.attach(reverb)
-            
-            engine.connect(player, to: reverb, format: audioFile.processingFormat)
+            engine.attach(delay)
+            engine.connect(player, to: delay, format: audioFile.processingFormat)
+            engine.connect(delay, to: reverb, format: audioFile.processingFormat)
             engine.connect(reverb, to: engine.outputNode, format: audioFile.processingFormat)
             
             engine.prepare()
@@ -86,7 +97,9 @@ class ManualEditViewController: ViewController {
         self.player.stop()
     }
     
-
+    @IBAction func sliderReverbChanged(sender: UISlider) {
+        reverb.wetDryMix = sliderReverb.value
+    }
     /*
     // MARK: - Navigation
 

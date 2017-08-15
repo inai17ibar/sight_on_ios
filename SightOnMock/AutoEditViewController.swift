@@ -15,7 +15,7 @@ import AudioToolbox
 class AutoEditViewController: ViewController {
     
     @IBOutlet weak var button: UIButton!
-    
+    @IBOutlet weak var sliderDelay: UISlider!
     let temp_data = TemporaryDataManager()
     //var player: AVAudioPlayer?
     // インスタンス変数
@@ -23,39 +23,38 @@ class AutoEditViewController: ViewController {
     //playerNodeの準備
     var player = AVAudioPlayerNode()
     //revebNodeの準備
-    var reverb = AVAudioUnitReverb()
+    //var reverb = AVAudioUnitReverb()
+    //AVAudioUnitDelayの準備
+    var delay = AVAudioUnitDelay()
+    var audiolength = 0
     
-    //var filePath: String!
     override func viewDidLoad() {
         super.viewDidLoad()
         let file_path = temp_data.loadDataPath()
         print(file_path)
-        //filePath = NSHomeDirectory() + "/Documents/temp_data.m4a"
-        //let audioUrl = URL(fileURLWithPath: file_path)
-        //let asset = AVAsset(url: URL(fileURLWithPath: filePath))
         let fileUrl = URL(fileURLWithPath: file_path)        // オーディオファイルの読み込み
         
         do {
             let audioFile = try AVAudioFile(forReading: fileUrl)
-            // initializing the AVAudioPCMBuffer
-            //let format = AVAudioFormat(commonFormat: .pcmFormatFloat32, sampleRate: audioFile.fileFormat.sampleRate, channels: 1, interleaved: false)
-            //let buf = AVAudioPCMBuffer(pcmFormat: format, frameCapacity: 1024)
-            //try! audioFile.read(into: buf)
-            
             let audioFormat = audioFile.processingFormat
             let audioFrameCount = UInt32(audioFile.length)
+            print(audioFile.length)
+            print(audioFrameCount)
             let audioFileBuffer = AVAudioPCMBuffer(pcmFormat: audioFormat, frameCapacity: audioFrameCount)
             try! audioFile.read(into: audioFileBuffer)
-            /*
-            // reverbの設定
-            reverb.loadFactoryPreset(.largeHall2)
-            
+            audiolength = Int(audioFile.length)
+            //Delayの設定
+            // 高域側のカットオフ周波数
+            //audioFile.processingFormat.sampleRate
+            delay.lowPassCutoff = 15000;    // Range: 10 -> (samplerate/2)
+            delay.delayTime = 0;
+            delay.feedback = 0;
             // AudioEngineにnodeを設定
             engine.attach(player)
-            engine.attach(reverb)
+            engine.attach(delay)
             
-            engine.connect(player, to: reverb, format: audioFile.processingFormat)
-            engine.connect(reverb, to: engine.outputNode, format: audioFile.processingFormat)
+            engine.connect(player, to: delay, format: audioFile.processingFormat)
+            engine.connect(delay, to: engine.outputNode, format: audioFile.processingFormat)
             
             engine.prepare()
             do{
@@ -73,7 +72,7 @@ class AutoEditViewController: ViewController {
             
             // 再生開始
             self.player.play()
-             */
+ 
         } catch let error {
             print(error)
         }
@@ -85,9 +84,51 @@ class AutoEditViewController: ViewController {
     }
    
     @IBAction func buttonTapped(_ sender : Any) {
-        //self.player.stop()
-    }
+        let file_path = temp_data.loadDataPath()
+        print(file_path)
+        let fileUrl = URL(fileURLWithPath: file_path)
+        let format = AVAudioFormat(commonFormat: .pcmFormatFloat32  , sampleRate: 44100, channels: 1 , interleaved: true)
+        /*do{
+        let audioFile_write = try AVAudioFile(forWriting: fileUrl, settings: format.settings)
+        //var audioPlayerNode = AVAudioPlayerNode() //or your Time pitch unit if pitch changed
 
+        engine.outputNode.installTap(onBus: 0, bufferSize: 4096, format: nil) { (buffer, when) in
+            
+            if (audioFile_write.length) < (audiolength){//Let us know when to stop saving the file, otherwise saving infinitely
+                audioFile_write.write(from: buffer)//let's write the buffer result into our file
+                
+            }else{
+                self.engine.outputNode.removeTap(onBus: 0)//if we dont remove it, will keep on tapping infinitely
+            }
+
+        }
+        }catch let error {
+            print("AVAudioFile error:", error)
+        }
+        */
+        
+        /*do{
+            let audioFile_write = try AVAudioFile(forWriting: fileUrl, settings: format.settings)
+        }catch let error {
+            print("AVAudioFile error:", error)
+        }
+        self.player.installTap(onBus: 0, bufferSize:AVAudioFrameCount(audiolength), format: player.outputFormat(forBus: 0), block: {(buffer, time) in
+        let channels = UnsafeArray(start: buffer.floatChannelData, length: Int(buffer.format.channelCount))
+        let floats = UnsafeArray(start: channels[0], length: Int(buffer.frameLength))
+            
+            for var i = 0; i < Int(self.audioBuffer.frameLength); i+=Int(self.engine.outputNode.outputFormatForBus(0).channelCount)
+            {
+                // process
+                audioFile_write.write(from: buffer)
+            }
+        })
+ */
+        self.player.stop()
+        
+    }
+    @IBAction func sliderDelayChanged(sender: UISlider) {
+        delay.lowPassCutoff = sliderDelay.value
+    }
     /*
     // MARK: - Navigation
 
