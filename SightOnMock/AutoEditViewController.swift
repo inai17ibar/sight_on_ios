@@ -46,6 +46,7 @@ class AutoEditViewController: ViewController {
             let audioFrameCount = UInt32(audioFile.length)
             let audioFileBuffer = AVAudioPCMBuffer(pcmFormat: audioFormat, frameCapacity: audioFrameCount)
             try! audioFile.read(into: audioFileBuffer)
+            /*
             // reverbの設定
             reverb.loadFactoryPreset(.largeHall2)
             
@@ -72,6 +73,7 @@ class AutoEditViewController: ViewController {
             
             // 再生開始
             self.player.play()
+             */
         } catch let error {
             print(error)
         }
@@ -83,7 +85,7 @@ class AutoEditViewController: ViewController {
     }
    
     @IBAction func buttonTapped(_ sender : Any) {
-        self.player.stop()
+        //self.player.stop()
     }
 
     /*

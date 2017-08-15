@@ -215,6 +215,7 @@
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="30"/>
                                 <state key="normal" title="Next"/>
                                 <connections>
+                                    <action selector="buttonTapped:" destination="1J9-8H-C0P" eventType="touchDown" id="iCV-sE-4mT"/>
                                     <segue destination="Yi1-cS-iMR" kind="show" id="4hp-d4-DJn"/>
                                 </connections>
                             </button>
@@ -229,6 +230,9 @@
                             <constraint firstItem="4Sc-ug-9g3" firstAttribute="width" secondItem="3Vr-Ey-XMA" secondAttribute="width" id="tcz-it-TkP"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="button" destination="umn-3B-mca" id="AD5-7q-Ty6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xu5-tx-0Tt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
