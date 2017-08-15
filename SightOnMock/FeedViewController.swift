@@ -27,7 +27,9 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         //let audioUrl = URL(fileURLWithPath: audioPath)
         //print("\(audioPath)")
         
-        setDefaultDataset()
+        if database.extractByUserId(number: 1).count > 5 {
+            setDefaultDataset()
+        }
         sounds = database.extractByUserId(number: 1)
         
         //var soundUrls = sounds.filter( {(x: Sound) -> URL in return URL(fileURLWithPath: x.file_path)})
@@ -56,6 +58,7 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         let audioPath1 = Bundle.main.path(forResource: "yurakucho_muzhirusi", ofType:"m4a")!
         database.create(filePath: audioPath1, dataName: "有楽町", userId: 1, tags: ["night", "cool", "refresh"])
         database.add()
+        
         let audioPath2 = Bundle.main.path(forResource: "near_road", ofType:"wav")!
         database.create(filePath: audioPath2, dataName: "道路", userId: 1, tags: ["road", "buzy"])
         database.add()
@@ -81,7 +84,8 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
             
             cell.titleLabel.text = "\(sounds[indexPath.row].sound_name)"
             let tags_text = Array(sounds[indexPath.row].tags).reduce("") {
-                (joined: String, x: Tag) -> String in return joined + " #" + x.tagName
+                (joined: String, x: Tag) -> String
+                in return joined + " #" + x.tagName
             }
             cell.tagLabel.text = "\(tags_text)"
 //            

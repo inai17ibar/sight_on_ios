@@ -30,7 +30,7 @@ class RecordViewController: ViewController, AVAudioPlayerDelegate {
     func initRecorder()
     {
         // 録音ファイルを指定する
-        filePath = NSHomeDirectory() + "/Documents/temp_data_"+getNowClockString()+".m4a"
+        filePath = NSHomeDirectory() + "/Documents/temp_data_"+getNowClockString()+".wav"
         let url = URL(fileURLWithPath: filePath)
         
         // 再生と録音の機能をアクティブにする
@@ -40,7 +40,9 @@ class RecordViewController: ViewController, AVAudioPlayerDelegate {
         
         // 録音の詳細設定
         let recordSetting : [String : AnyObject] = [
-            AVFormatIDKey : UInt(kAudioFormatAppleLossless) as AnyObject,
+            //AVFormatIDKey : UInt(kAudioFormatAppleLossless) as AnyObject,
+            AVFormatIDKey : UInt(kAudioFormatALaw) as AnyObject,
+            
             AVEncoderAudioQualityKey : AVAudioQuality.min.rawValue as AnyObject,
             AVEncoderBitRateKey : 16 as AnyObject,
             AVNumberOfChannelsKey: 2 as AnyObject,
@@ -69,7 +71,6 @@ class RecordViewController: ViewController, AVAudioPlayerDelegate {
             button.setTitle("Record", for: .normal)
             audioRecorder.stop()
             saveRecordData()
-            
             initPlayer(url: URL(fileURLWithPath: dataManager.loadDataPath()))
         }
         else{
@@ -85,6 +86,10 @@ class RecordViewController: ViewController, AVAudioPlayerDelegate {
     }
     
     @IBAction func playButtonTapped(_ sender : Any) {
+        
+        if audioPlayer == nil{
+            return
+        }
         
         if audioPlayer.isPlaying {
             audioPlayer.stop()
