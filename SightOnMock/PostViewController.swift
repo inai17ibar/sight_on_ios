@@ -29,7 +29,7 @@ class PostViewController: ViewController {
         let file_path = temp_data.loadDataPath()
         //let url = URL(fileURLWithPath: file_path)
         print("post")
-        database.create(filePath: file_path, dataName: "テスト", userId: 1, tags:["fun", "happy", "hot"])
+        database.create(file_path, dataName: "テスト", userId: 1, tags:["fun", "happy", "hot"])
         database.add()
     }
 

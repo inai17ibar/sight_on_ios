@@ -27,17 +27,17 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         //let audioUrl = URL(fileURLWithPath: audioPath)
         //print("\(audioPath)")
         
-        if database.extractByUserId(number: 1).count > 5 {
+        if database.extractByUserId(1).count > 5 {
             setDefaultDataset()
         }
-        sounds = database.extractByUserId(number: 1)
+        sounds = database.extractByUserId(1)
         
         //var soundUrls = sounds.filter( {(x: Sound) -> URL in return URL(fileURLWithPath: x.file_path)})
     
-        initAudioPlayer(url: URL(fileURLWithPath: sounds[0].file_path))
+        initAudioPlayer(URL(fileURLWithPath: sounds[0].file_path))
     }
     
-    func initAudioPlayer(url :URL)
+    func initAudioPlayer(_ url :URL)
     {
         // audio を再生するプレイヤーを作成する
         do{
@@ -56,11 +56,11 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         database.deleteAll()
         
         let audioPath1 = Bundle.main.path(forResource: "yurakucho_muzhirusi", ofType:"m4a")!
-        database.create(filePath: audioPath1, dataName: "有楽町", userId: 1, tags: ["night", "cool", "refresh"])
+        database.create(audioPath1, dataName: "有楽町", userId: 1, tags: ["night", "cool", "refresh"])
         database.add()
         
         let audioPath2 = Bundle.main.path(forResource: "near_road", ofType:"wav")!
-        database.create(filePath: audioPath2, dataName: "道路", userId: 1, tags: ["road", "buzy"])
+        database.create(audioPath2, dataName: "道路", userId: 1, tags: ["road", "buzy"])
         database.add()
     }
 
@@ -101,7 +101,7 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
     //あるセルを押したら再生
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        initAudioPlayer(url: URL(fileURLWithPath: sounds[indexPath.row].file_path))
+        initAudioPlayer(URL(fileURLWithPath: sounds[indexPath.row].file_path))
         
         if audioPlayer.isPlaying {
             audioPlayer.stop()

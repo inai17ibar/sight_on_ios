@@ -11,7 +11,7 @@ import UIKit
 class TemporaryDataManager {
     //singleton
     static let sharedInstance = TemporaryDataManager()
-    private var filePath: String
+    fileprivate var filePath: String
     let userDefaults = UserDefaults.standard
     
     init()
@@ -20,21 +20,21 @@ class TemporaryDataManager {
         filePath = ""
     }
     
-    public func saveDataPath(path :String)
+    open func saveDataPath(_ path :String)
     {
         let userDefault = UserDefaults.standard
         // キーを指定してオブジェクトを保存
         userDefault.set(path, forKey: "Key")
     }
     
-    public func loadDataPath() -> String
+    open func loadDataPath() -> String
     {
         return userDefaults.string(forKey: "Key")!
     }
     // Keyを指定して読み込み(使用イメージ)
     //let filePath: String = loadDataPath()
     
-    public func deleteData(path :String)
+    open func deleteData(_ path :String)
     {
         userDefaults.removeObject(forKey: "Key")
         //TODOpathのファイルを削除する処理

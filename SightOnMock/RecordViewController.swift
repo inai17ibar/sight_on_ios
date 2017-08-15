@@ -82,7 +82,7 @@ class RecordViewController: ViewController, AVAudioPlayerDelegate {
     
     func saveRecordData()
     {
-        dataManager.saveDataPath(path: filePath)
+        dataManager.saveDataPath(filePath)
     }
     
     @IBAction func playButtonTapped(_ sender : Any) {

@@ -27,10 +27,8 @@
 		0C4BB7071F3E8198001CA4A2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB7061F3E8198001CA4A2 /* User.swift */; };
 		0C4BB7091F3E845A001CA4A2 /* DatabaseAccessManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB7081F3E845A001CA4A2 /* DatabaseAccessManager.swift */; };
 		0C4BB70C1F3EA598001CA4A2 /* near_road.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0C4BB70B1F3EA598001CA4A2 /* near_road.wav */; };
-		0C9198151F401343002234FF /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C9198141F401343002234FF /* Realm.framework */; };
 		0C9198161F40134A002234FF /* Pods_SightOnMockTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCC753F3904B908C76D3381B /* Pods_SightOnMockTests.framework */; };
 		0C9198171F40134F002234FF /* Pods_SightOnMockUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90938FFE72B1733A10128717 /* Pods_SightOnMockUITests.framework */; };
-		0C9198191F401355002234FF /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C9198181F401355002234FF /* RealmSwift.framework */; };
 		0C978E1A1F375F46003E2232 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C978E191F375F46003E2232 /* Sound.swift */; };
 		0C978E1E1F377269003E2232 /* yurakucho_muzhirusi.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0C978E1D1F377269003E2232 /* yurakucho_muzhirusi.m4a */; };
 		0C978E201F377300003E2232 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C978E1F1F377300003E2232 /* AVFoundation.framework */; };
@@ -40,6 +38,9 @@
 		0CF2EB6B1F35E391003DD9D2 /* sight_on_icon_dark_mat.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CF2EB6A1F35E391003DD9D2 /* sight_on_icon_dark_mat.png */; };
 		5F17B0A539692C2F54EA8C34 /* Pods_SightOnMockUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90938FFE72B1733A10128717 /* Pods_SightOnMockUITests.framework */; };
 		C62BF457D007FABD1210B0E4 /* Pods_SightOnMockTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCC753F3904B908C76D3381B /* Pods_SightOnMockTests.framework */; };
+		E69396211F429BF6004C3784 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E69396201F429BF6004C3784 /* Realm.framework */; };
+		E69396231F429BFA004C3784 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E69396221F429BFA004C3784 /* RealmSwift.framework */; };
+		EEEE9BDEFBA9A651BDE61166 /* Pods_SightOnMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 160064C8895113388812E218 /* Pods_SightOnMock.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,8 @@
 		8A540E7FF74955A668E85C79 /* Pods-SightOnMockTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SightOnMockTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SightOnMockTests/Pods-SightOnMockTests.debug.xcconfig"; sourceTree = "<group>"; };
 		90938FFE72B1733A10128717 /* Pods_SightOnMockUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SightOnMockUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CD91C51691DA76DD6DF48C1 /* Pods-SightOnMock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SightOnMock.release.xcconfig"; path = "Pods/Target Support Files/Pods-SightOnMock/Pods-SightOnMock.release.xcconfig"; sourceTree = "<group>"; };
+		E69396201F429BF6004C3784 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = "Pods/../build/Release-iphoneos/Realm/Realm.framework"; sourceTree = "<group>"; };
+		E69396221F429BFA004C3784 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = "Pods/../build/Debug-iphoneos/RealmSwift/RealmSwift.framework"; sourceTree = "<group>"; };
 		FCC753F3904B908C76D3381B /* Pods_SightOnMockTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SightOnMockTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -111,12 +114,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C9198151F401343002234FF /* Realm.framework in Frameworks */,
-				0C9198191F401355002234FF /* RealmSwift.framework in Frameworks */,
+				E69396231F429BFA004C3784 /* RealmSwift.framework in Frameworks */,
+				E69396211F429BF6004C3784 /* Realm.framework in Frameworks */,
 				0C012CAE1F3754F500E8EFC8 /* Pods_SightOnMock.framework in Frameworks */,
 				0C9198171F40134F002234FF /* Pods_SightOnMockUITests.framework in Frameworks */,
 				0C9198161F40134A002234FF /* Pods_SightOnMockTests.framework in Frameworks */,
 				0C978E201F377300003E2232 /* AVFoundation.framework in Frameworks */,
+				EEEE9BDEFBA9A651BDE61166 /* Pods_SightOnMock.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +281,8 @@
 		15E9702848637B3EB55A3099 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E69396221F429BFA004C3784 /* RealmSwift.framework */,
+				E69396201F429BF6004C3784 /* Realm.framework */,
 				0C9198181F401355002234FF /* RealmSwift.framework */,
 				0C9198141F401343002234FF /* Realm.framework */,
 				0C978E1F1F377300003E2232 /* AVFoundation.framework */,
@@ -777,6 +783,11 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = N33FTEJ7J3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Release-iphoneos/Realm",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/RealmSwift",
+				);
 				INFOPLIST_FILE = SightOnMock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.self.SightOnProject;
@@ -794,6 +805,11 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = N33FTEJ7J3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Release-iphoneos/Realm",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/RealmSwift",
+				);
 				INFOPLIST_FILE = SightOnMock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.self.SightOnProject;

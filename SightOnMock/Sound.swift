@@ -40,7 +40,7 @@ class Sound: Object {
     }
     
     // 新しいIDを採番します。
-    private func createNewId() -> Int {
+    fileprivate func createNewId() -> Int {
         let realm = try! Realm()
         return (realm.objects(type(of: self).self).sorted(byKeyPath: "id", ascending: false).first?.id ?? 0) + 1
     }

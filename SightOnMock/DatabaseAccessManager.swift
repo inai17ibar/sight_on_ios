@@ -33,7 +33,7 @@ class DatabaseAccessManager{
     }
     
     //TODO: 拡張に耐えられないので要リファクタリング
-    func create(filePath: String, dataName: String, userId: Int, tags: [String])
+    func create(_ filePath: String, dataName: String, userId: Int, tags: [String])
     {
         sound = Sound()
         // Tags型オブジェクトに変換してList<Tag>に格納
@@ -52,7 +52,7 @@ class DatabaseAccessManager{
         sound.save()
     }
     
-    func extractByUserId(number: Int) -> Results<Sound>
+    func extractByUserId(_ number: Int) -> Results<Sound>
     {
         let realm = try! Realm()
         
