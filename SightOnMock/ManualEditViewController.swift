@@ -32,13 +32,16 @@ class ManualEditViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let file_path = temp_data.loadDataPath()
-        print(file_path)
+        print("preparing")
+
+        //print(file_path)
         //filePath = NSHomeDirectory() + "/Documents/temp_data.m4a"
         //let audioUrl = URL(fileURLWithPath: file_path)
         //let asset = AVAsset(url: URL(fileURLWithPath: filePath))
-        let fileUrl = URL(fileURLWithPath: file_path)        // オーディオファイルの読み込み
-        
+        //let fileUrl = URL(fileURLWithPath: file_path)        // オーディオファイルの読み込み
+        let fileUrl = URL(fileURLWithPath: file_path.substring(to: file_path.index(file_path.endIndex, offsetBy: -4))+"_autoedit.wav")
         do {
+            print(fileUrl)
             let audioFile = try AVAudioFile(forReading: fileUrl)
             // initializing the AVAudioPCMBuffer
             //let format = AVAudioFormat(commonFormat: .pcmFormatFloat32, sampleRate: audioFile.fileFormat.sampleRate, channels: 1, interleaved: false)
@@ -48,7 +51,10 @@ class ManualEditViewController: ViewController {
             let audioFormat = audioFile.processingFormat
             let audioFrameCount = UInt32(audioFile.length)
             let audioFileBuffer = AVAudioPCMBuffer(pcmFormat: audioFormat, frameCapacity: audioFrameCount)
+            
             try! audioFile.read(into: audioFileBuffer)
+            
+
             // reverbの設定
             reverb.loadFactoryPreset(.largeHall2)
             reverb.wetDryMix = 0

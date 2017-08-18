@@ -15,6 +15,7 @@ end
 target 'SightOnMock' do
   use_frameworks!
   pod 'RealmSwift'# Pods for SampleLocation
+  pod 'Charts'
 
   target 'SightOnMockTests' do
     inherit! :search_paths

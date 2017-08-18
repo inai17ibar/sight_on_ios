@@ -170,7 +170,6 @@
                                 <state key="normal" title="Next"/>
                                 <connections>
                                     <action selector="buttonTapped:" destination="h1Q-YG-fGP" eventType="touchDown" id="FUk-fc-JdZ"/>
-                                    <segue destination="1J9-8H-C0P" kind="show" id="8fh-05-aQp"/>
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="15000" minValue="100" maxValue="20000" translatesAutoresizingMaskIntoConstraints="NO" id="x6d-LF-MU7">
@@ -187,6 +186,24 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C8u-9v-H0U" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="67" y="54" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fhc-9f-SiF" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="67" y="216" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1HM-Jd-JaT">
+                                <rect key="frame" x="259" y="426" width="51" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Update"/>
+                                <connections>
+                                    <action selector="updateButtonTapped:" destination="h1Q-YG-fGP" eventType="touchUpInside" id="kfc-RX-RNg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -201,6 +218,9 @@
                     <connections>
                         <outlet property="button" destination="31T-dK-dw1" id="S2c-wi-3wL"/>
                         <outlet property="sliderDelay" destination="x6d-LF-MU7" id="9Az-ev-CxS"/>
+                        <outlet property="updatebutton" destination="1HM-Jd-JaT" id="9pg-9u-ysV"/>
+                        <outlet property="waveChart" destination="C8u-9v-H0U" id="kHO-tJ-gPg"/>
+                        <outlet property="waveChartAutoEdit" destination="fhc-9f-SiF" id="ycu-6c-ojh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PLO-Qn-lNc" userLabel="First Responder" sceneMemberID="firstResponder"/>
