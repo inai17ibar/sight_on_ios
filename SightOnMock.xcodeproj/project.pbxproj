@@ -38,6 +38,15 @@
 		0CF2EB6B1F35E391003DD9D2 /* sight_on_icon_dark_mat.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CF2EB6A1F35E391003DD9D2 /* sight_on_icon_dark_mat.png */; };
 		5F17B0A539692C2F54EA8C34 /* Pods_SightOnMockUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90938FFE72B1733A10128717 /* Pods_SightOnMockUITests.framework */; };
 		C62BF457D007FABD1210B0E4 /* Pods_SightOnMockTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCC753F3904B908C76D3381B /* Pods_SightOnMockTests.framework */; };
+		E61543991F474E7C007537DA /* AcousticModelEnglish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E61543961F474E7C007537DA /* AcousticModelEnglish.bundle */; };
+		E615439A1F474E7C007537DA /* AcousticModelEnglish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E61543961F474E7C007537DA /* AcousticModelEnglish.bundle */; };
+		E615439B1F474E7C007537DA /* AcousticModelEnglish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E61543961F474E7C007537DA /* AcousticModelEnglish.bundle */; };
+		E615439C1F474E7C007537DA /* OpenEars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E61543971F474E7C007537DA /* OpenEars.framework */; };
+		E615439D1F474E7C007537DA /* OpenEars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E61543971F474E7C007537DA /* OpenEars.framework */; };
+		E615439E1F474E7C007537DA /* OpenEars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E61543971F474E7C007537DA /* OpenEars.framework */; };
+		E615439F1F474E7C007537DA /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E61543981F474E7C007537DA /* Slt.framework */; };
+		E61543A01F474E7C007537DA /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E61543981F474E7C007537DA /* Slt.framework */; };
+		E61543A11F474E7C007537DA /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E61543981F474E7C007537DA /* Slt.framework */; };
 		E69396211F429BF6004C3784 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E69396201F429BF6004C3784 /* Realm.framework */; };
 		E69396231F429BFA004C3784 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E69396221F429BFA004C3784 /* RealmSwift.framework */; };
 		EEEE9BDEFBA9A651BDE61166 /* Pods_SightOnMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 160064C8895113388812E218 /* Pods_SightOnMock.framework */; };
@@ -104,6 +113,10 @@
 		8A540E7FF74955A668E85C79 /* Pods-SightOnMockTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SightOnMockTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SightOnMockTests/Pods-SightOnMockTests.debug.xcconfig"; sourceTree = "<group>"; };
 		90938FFE72B1733A10128717 /* Pods_SightOnMockUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SightOnMockUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CD91C51691DA76DD6DF48C1 /* Pods-SightOnMock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SightOnMock.release.xcconfig"; path = "Pods/Target Support Files/Pods-SightOnMock/Pods-SightOnMock.release.xcconfig"; sourceTree = "<group>"; };
+		E61543941F474916007537DA /* OpenEarsHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OpenEarsHeader.h; path = /Users/sighton/dev/sight_on_ios/SightOnMock/OpenEarsHeader.h; sourceTree = "<absolute>"; };
+		E61543961F474E7C007537DA /* AcousticModelEnglish.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AcousticModelEnglish.bundle; sourceTree = "<group>"; };
+		E61543971F474E7C007537DA /* OpenEars.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OpenEars.framework; sourceTree = "<group>"; };
+		E61543981F474E7C007537DA /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Slt.framework; sourceTree = "<group>"; };
 		E69396201F429BF6004C3784 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = "Pods/../build/Release-iphoneos/Realm/Realm.framework"; sourceTree = "<group>"; };
 		E69396221F429BFA004C3784 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = "Pods/../build/Debug-iphoneos/RealmSwift/RealmSwift.framework"; sourceTree = "<group>"; };
 		FCC753F3904B908C76D3381B /* Pods_SightOnMockTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SightOnMockTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,6 +130,8 @@
 				E69396231F429BFA004C3784 /* RealmSwift.framework in Frameworks */,
 				E69396211F429BF6004C3784 /* Realm.framework in Frameworks */,
 				0C012CAE1F3754F500E8EFC8 /* Pods_SightOnMock.framework in Frameworks */,
+				E615439F1F474E7C007537DA /* Slt.framework in Frameworks */,
+				E615439C1F474E7C007537DA /* OpenEars.framework in Frameworks */,
 				0C9198171F40134F002234FF /* Pods_SightOnMockUITests.framework in Frameworks */,
 				0C9198161F40134A002234FF /* Pods_SightOnMockTests.framework in Frameworks */,
 				0C978E201F377300003E2232 /* AVFoundation.framework in Frameworks */,
@@ -128,7 +143,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E61543A01F474E7C007537DA /* Slt.framework in Frameworks */,
 				C62BF457D007FABD1210B0E4 /* Pods_SightOnMockTests.framework in Frameworks */,
+				E615439D1F474E7C007537DA /* OpenEars.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,7 +153,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E61543A11F474E7C007537DA /* Slt.framework in Frameworks */,
 				5F17B0A539692C2F54EA8C34 /* Pods_SightOnMockUITests.framework in Frameworks */,
+				E615439E1F474E7C007537DA /* OpenEars.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,6 +165,7 @@
 		0C39288F1F23727300397EDD = {
 			isa = PBXGroup;
 			children = (
+				E61543941F474916007537DA /* OpenEarsHeader.h */,
 				0C39289A1F23727300397EDD /* SightOnMock */,
 				0C3928AF1F23727300397EDD /* SightOnMockTests */,
 				0C3928BA1F23727300397EDD /* SightOnMockUITests */,
@@ -281,6 +301,7 @@
 		15E9702848637B3EB55A3099 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E61543951F474E7C007537DA /* Framework */,
 				E69396221F429BFA004C3784 /* RealmSwift.framework */,
 				E69396201F429BF6004C3784 /* Realm.framework */,
 				0C9198181F401355002234FF /* RealmSwift.framework */,
@@ -305,6 +326,16 @@
 				1628E6B18334240124B99AB4 /* Pods-SightOnMockUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		E61543951F474E7C007537DA /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				E61543961F474E7C007537DA /* AcousticModelEnglish.bundle */,
+				E61543971F474E7C007537DA /* OpenEars.framework */,
+				E61543981F474E7C007537DA /* Slt.framework */,
+			);
+			path = Framework;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -396,6 +427,7 @@
 					};
 					0C3928B61F23727300397EDD = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = N33FTEJ7J3;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 0C3928971F23727300397EDD;
@@ -430,6 +462,7 @@
 				0C3928A61F23727300397EDD /* LaunchScreen.storyboard in Resources */,
 				0CF2EB681F35E304003DD9D2 /* sight_on_splash.png in Resources */,
 				0CF2EB6B1F35E391003DD9D2 /* sight_on_icon_dark_mat.png in Resources */,
+				E61543991F474E7C007537DA /* AcousticModelEnglish.bundle in Resources */,
 				0C3928A31F23727300397EDD /* Assets.xcassets in Resources */,
 				0C978E1E1F377269003E2232 /* yurakucho_muzhirusi.m4a in Resources */,
 				0C404CD31F389F590080F4EB /* sight_on_splash_ipad.png in Resources */,
@@ -443,6 +476,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E615439A1F474E7C007537DA /* AcousticModelEnglish.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,6 +484,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E615439B1F474E7C007537DA /* AcousticModelEnglish.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -789,12 +824,14 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Release-iphoneos/Realm",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/RealmSwift",
+					"$(PROJECT_DIR)/Framework",
 				);
 				INFOPLIST_FILE = SightOnMock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.self.SightOnProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = /Users/sighton/dev/sight_on_ios/SightOnMock/OpenEarsHeader.h;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -811,12 +848,14 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Release-iphoneos/Realm",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/RealmSwift",
+					"$(PROJECT_DIR)/Framework",
 				);
 				INFOPLIST_FILE = SightOnMock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.self.SightOnProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = /Users/sighton/dev/sight_on_ios/SightOnMock/OpenEarsHeader.h;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -827,6 +866,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Framework",
+				);
 				INFOPLIST_FILE = SightOnMockTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.self.SightOnMockTests;
@@ -842,6 +885,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Framework",
+				);
 				INFOPLIST_FILE = SightOnMockTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.self.SightOnMockTests;
@@ -856,10 +903,17 @@
 			baseConfigurationReference = 46C723F4E70C2241757DF438 /* Pods-SightOnMockUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = N33FTEJ7J3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Framework",
+				);
 				INFOPLIST_FILE = SightOnMockUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.self.SightOnMockUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = SightOnMock;
 			};
@@ -870,10 +924,17 @@
 			baseConfigurationReference = 1628E6B18334240124B99AB4 /* Pods-SightOnMockUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = N33FTEJ7J3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Framework",
+				);
 				INFOPLIST_FILE = SightOnMockUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.self.SightOnMockUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = SightOnMock;
 			};
