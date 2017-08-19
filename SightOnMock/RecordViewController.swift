@@ -72,6 +72,7 @@ class RecordViewController: ViewController, AVAudioPlayerDelegate {
             audioRecorder.stop()
             saveRecordData()
             initPlayer(url: URL(fileURLWithPath: dataManager.loadDataPath()))
+            //dataManager.saveEditDataPath(filePath.substring(to: filePath.index(filePath.endIndex, offsetBy: -4))+"_autoedit.wav")
         }
         else{
             print("start recording")

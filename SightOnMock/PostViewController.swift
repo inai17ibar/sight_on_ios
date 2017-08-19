@@ -39,7 +39,19 @@ class PostViewController: ViewController {
         postButton.setTitle("finish posted", for: .normal)
         //強制遷移をつける？
     }
-    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        if UIDevice.current.orientation.isLandscape {
+            print("Post Landscape")
+            gotoManual()
+        } else {
+            print("Post Portrait")
+        }
+    }
+    func gotoManual(){
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ManualEdit")
+        self.present(nextViewController, animated:true, completion:nil)
+    }
     /*
     // MARK: - Navigation
 

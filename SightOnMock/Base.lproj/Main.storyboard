@@ -92,7 +92,7 @@
         <!--Post View Controller-->
         <scene sceneID="TKx-I9-Qe2">
             <objects>
-                <viewController storyboardIdentifier="Post" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Yi1-cS-iMR" userLabel="Post View Controller" customClass="PostViewController" customModule="SightOnMock" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Post" title="PostViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Yi1-cS-iMR" userLabel="Post View Controller" customClass="PostViewController" customModule="SightOnMock" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YZ8-zS-6xL"/>
                         <viewControllerLayoutGuide type="bottom" id="Yd2-Fs-EcK"/>
@@ -230,7 +230,7 @@
         <!--Manual Edit View Controller-->
         <scene sceneID="8ex-DO-aVg">
             <objects>
-                <viewController storyboardIdentifier="ManualEditViewController" id="1J9-8H-C0P" userLabel="Manual Edit View Controller" customClass="ManualEditViewController" customModule="SightOnMock" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ManualEdit" id="1J9-8H-C0P" userLabel="Manual Edit View Controller" customClass="ManualEditViewController" customModule="SightOnMock" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OMz-hf-kKV"/>
                         <viewControllerLayoutGuide type="bottom" id="cd0-p7-llg"/>
@@ -251,7 +251,6 @@
                                 <state key="normal" title="Next"/>
                                 <connections>
                                     <action selector="buttonTapped:" destination="1J9-8H-C0P" eventType="touchDown" id="iCV-sE-4mT"/>
-                                    <segue destination="Yi1-cS-iMR" kind="show" id="4hp-d4-DJn"/>
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Eng-Ca-7Lb">

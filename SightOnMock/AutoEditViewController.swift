@@ -12,6 +12,7 @@ import Foundation
 import AudioUnit
 import AudioToolbox
 import Charts
+
 class AutoEditViewController: ViewController {
     let lmGenerator = OELanguageModelGenerator()
     let words = ["word", "Statement", "other word", "A PHRASE"] // These can be lowercase, uppercase, or mixed-case.
@@ -33,8 +34,9 @@ class AutoEditViewController: ViewController {
     //var reverb = AVAudioUnitReverb()
     //AVAudioUnitDelayの準備
     var delay = AVAudioUnitDelay()
+    
+    //その他の変数の準備
     var audiolength = 0
-
     var audioFormat = AVAudioFormat()
     
     //読み込みfile関係
@@ -117,43 +119,11 @@ class AutoEditViewController: ViewController {
    
     @IBAction func buttonTapped(_ sender : Any) {
         saveaudiofile_()
-        print("end of this story")
-        
-
     }
-   /*
-    func saveaudiofile(){
-        let fileUrl_write = URL(fileURLWithPath: file_path.substring(to: file_path.index(file_path.endIndex, offsetBy: -4))+"_autoedit.wav")
-        //print(fileUrl_write)
-        do{
-            let audioFile_write = try AVAudioFile(forWriting: fileUrl_write, settings: audioFormat.settings)
-            let outputnode = engine.outputNode;
 
-            outputnode.installTap(onBus: 0, bufferSize: (AVAudioFrameCount(audiolength)), format: audioFormat,  block: {buffer, when in
-                if Int(audioFile_write.length) < self.audiolength{//Let us know when to stop saving the file, otherwise saving infinitely
-                    do{
-                        //try audioFile_write.write(from: buffer)
-                        print(audioFile_write.length)
-                    }catch let error{
-                        print("Buffer error", error)
-                    }
-                }else{
-                    outputnode.removeTap(onBus: 0)//if we dont remove it, will keep on tapping infinitely
-                    print("Save done")
-                    print(audioFile_write)
-                    self.player.stop()
-                    self.engine.stop()
-                }
-            })
-
-        }catch let error {
-            print("AVAudioFile error:", error)
-        }
-
-    }
- */
     func saveaudiofile_(){
-        let fileUrl_write = URL(fileURLWithPath: file_path.substring(to: file_path.index(file_path.endIndex, offsetBy: -4))+"_autoedit.wav")
+        let save_file_path = TemporaryDataManager().loadDataPath()
+        let fileUrl_write = URL(fileURLWithPath: save_file_path)
         //print(fileUrl_write)
         var goFlag=false
         do{
@@ -183,12 +153,20 @@ class AutoEditViewController: ViewController {
             usleep(200000)
         }
         
-        print("go to next")
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ManualEditViewController")
-        self.present(nextViewController, animated:true, completion:nil)
+
+        if UIDevice.current.orientation == UIDeviceOrientation.landscapeLeft || UIDevice.current.orientation == UIDeviceOrientation.landscapeRight{
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ManualEdit")
+            self.present(nextViewController, animated:true, completion:nil)
+        } else {
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Post")
+            self.present(nextViewController, animated:true, completion:nil)
+        }
         
+
     }
+    
     @IBAction func sliderDelayChanged(sender: UISlider) {
         delay.lowPassCutoff = sliderDelay.value
         
@@ -198,12 +176,9 @@ class AutoEditViewController: ViewController {
         var goFlag=false
         delay.installTap(onBus: 0, bufferSize: AVAudioFrameCount(audiolength), format: audioFormat, block: {buffer, when in
             if Int(tmpArray.count) < self.audiolength{//Let us know when to stop saving the file, otherwise saving infinitely
-                do{
-                    try tmpArray += Array(UnsafeBufferPointer(start: buffer.floatChannelData?[0], count:Int(buffer.frameLength)))
-                    print(tmpArray.count)
-                }catch let error{
-                    print("Buffer error", error)
-                }
+            tmpArray += Array(UnsafeBufferPointer(start: buffer.floatChannelData?[0], count:Int(buffer.frameLength)))
+            print(tmpArray.count)
+       
             }else{
                 self.delay.removeTap(onBus: 0)//if we dont remove it, will keep on tapping infinitely
                 goFlag = true;
