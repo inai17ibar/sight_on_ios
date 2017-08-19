@@ -20,6 +20,15 @@ class RecordViewController: ViewController, AVAudioPlayerDelegate {
     
     let dataManager = TemporaryDataManager()
 
+    private let feedbackGenerator: Any? = {
+        if #available(iOS 10.0, *) {
+            let generator: UIImpactFeedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
+            generator.prepare()
+            return generator
+        } else {
+            return nil
+        }
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,6 +74,11 @@ class RecordViewController: ViewController, AVAudioPlayerDelegate {
     
     @IBAction func buttonTapped(_ sender : Any) {
         
+        if #available(iOS 10.0, *), let generator = feedbackGenerator as? UIImpactFeedbackGenerator {
+            generator.impactOccurred()
+            print("on haptic!")
+        }
+        
         if(audioRecorder.isRecording)
         {
             print("stop recording")
@@ -98,7 +112,7 @@ class RecordViewController: ViewController, AVAudioPlayerDelegate {
         else{
             print("play")
             //音量
-            audioPlayer.volume = 2.0
+            audioPlayer.volume = 3.0
             audioPlayer.play()
             playButton.setTitle("Playing...", for: .normal)
         }
