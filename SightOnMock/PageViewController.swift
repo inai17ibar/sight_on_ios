@@ -27,7 +27,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         //全ページを配列に格納
         pageViewControllers = [recordViewController,feedViewController]
         //UIPageViewControllerに表示対象を設定
-        setViewControllers([pageViewControllers[0]], direction: .forward, animated: false, completion: nil)
+        setViewControllers([pageViewControllers[1]], direction: .forward, animated: false, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {

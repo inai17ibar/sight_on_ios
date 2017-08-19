@@ -22,22 +22,19 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //既存データでの読み込みテスト
-        //let audioPath = Bundle.main.path(forResource: "/Documents/temp_data", ofType:"m4a")!
-        //let audioUrl = URL(fileURLWithPath: audioPath)
-        //print("\(audioPath)")
-        
-        if database.extractByUserId(1).count > 5 {
+        //Realmの登録内容の初期化
+        if (database.extractByUserId(1).count > 5 || database.extractByUserId(1).count == 0) {
             setDefaultDataset()
         }
         sounds = database.extractByUserId(1)
         
         //var soundUrls = sounds.filter( {(x: Sound) -> URL in return URL(fileURLWithPath: x.file_path)})
     
-        initAudioPlayer(URL(fileURLWithPath: sounds[0].file_path))
+        print(sounds[0].file_path)
+        initAudioPlayer(url: URL(fileURLWithPath: sounds[0].file_path))
     }
     
-    func initAudioPlayer(_ url :URL)
+    func initAudioPlayer( url :URL)
     {
         // audio を再生するプレイヤーを作成する
         do{
@@ -88,7 +85,7 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
                 in return joined + " #" + x.tagName
             }
             cell.tagLabel.text = "\(tags_text)"
-//            
+            
             //サンプル
             let image:UIImage = UIImage(named:"sample")!
             cell.photo = UIImageView(image:image)
@@ -101,7 +98,7 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
     //あるセルを押したら再生
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        initAudioPlayer(URL(fileURLWithPath: sounds[indexPath.row].file_path))
+        initAudioPlayer(url: URL(fileURLWithPath: sounds[indexPath.row].file_path))
         
         if audioPlayer.isPlaying {
             audioPlayer.stop()
@@ -129,12 +126,12 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
     // 音楽再生が成功した時に呼ばれるメソッド
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool)
     {
-        
+        print("Success to play")
     }
     // デコード中にエラーが起きた時に呼ばれるメソッド
     func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error: Error?)
     {
-        print("Error")
+        print("Error on audioPlayer Decording")
     }
     
     /*

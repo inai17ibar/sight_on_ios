@@ -27,6 +27,7 @@
 		0C4BB7071F3E8198001CA4A2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB7061F3E8198001CA4A2 /* User.swift */; };
 		0C4BB7091F3E845A001CA4A2 /* DatabaseAccessManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB7081F3E845A001CA4A2 /* DatabaseAccessManager.swift */; };
 		0C4BB70C1F3EA598001CA4A2 /* near_road.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0C4BB70B1F3EA598001CA4A2 /* near_road.wav */; };
+		0C8E85C31F484FB200DF559F /* RecordBackgroundImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C8E85C21F484FB200DF559F /* RecordBackgroundImage.png */; };
 		0C9198161F40134A002234FF /* Pods_SightOnMockTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCC753F3904B908C76D3381B /* Pods_SightOnMockTests.framework */; };
 		0C9198171F40134F002234FF /* Pods_SightOnMockUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90938FFE72B1733A10128717 /* Pods_SightOnMockUITests.framework */; };
 		0C978E1A1F375F46003E2232 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C978E191F375F46003E2232 /* Sound.swift */; };
@@ -87,6 +88,7 @@
 		0C4BB7061F3E8198001CA4A2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0C4BB7081F3E845A001CA4A2 /* DatabaseAccessManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseAccessManager.swift; sourceTree = "<group>"; };
 		0C4BB70B1F3EA598001CA4A2 /* near_road.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = near_road.wav; sourceTree = "<group>"; };
+		0C8E85C21F484FB200DF559F /* RecordBackgroundImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RecordBackgroundImage.png; sourceTree = "<group>"; };
 		0C9198141F401343002234FF /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = "../../Library/Developer/Xcode/DerivedData/SightOnMock-fkgespoavkjeucdizymdfvxtojxa/Build/Products/Debug-iphoneos/Realm/Realm.framework"; sourceTree = "<group>"; };
 		0C9198181F401355002234FF /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = "../../Library/Developer/Xcode/DerivedData/SightOnMock-fkgespoavkjeucdizymdfvxtojxa/Build/Products/Debug-iphoneos/RealmSwift/RealmSwift.framework"; sourceTree = "<group>"; };
 		0C978E191F375F46003E2232 /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 		0CF2EB691F35E370003DD9D2 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				0C8E85C21F484FB200DF559F /* RecordBackgroundImage.png */,
 				0CF2EB671F35E304003DD9D2 /* sight_on_splash.png */,
 				0C404CD21F389F590080F4EB /* sight_on_splash_ipad.png */,
 				0CF2EB6A1F35E391003DD9D2 /* sight_on_icon_dark_mat.png */,
@@ -435,6 +438,7 @@
 				0C404CD31F389F590080F4EB /* sight_on_splash_ipad.png in Resources */,
 				0C3928A11F23727300397EDD /* Main.storyboard in Resources */,
 				0C4BB70C1F3EA598001CA4A2 /* near_road.wav in Resources */,
+				0C8E85C31F484FB200DF559F /* RecordBackgroundImage.png in Resources */,
 				0CF2EB661F35DC02003DD9D2 /* sample1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
