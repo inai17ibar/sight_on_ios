@@ -40,16 +40,23 @@ class PostViewController: ViewController {
         //強制遷移をつける？
     }
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        var className = "\(self)"
+        className = className.components(separatedBy: ".").last!
+        className = className.components(separatedBy: ":").first!
+        print(className )
+        //print(className == "AutoEditViewController" )
         if UIDevice.current.orientation.isLandscape {
-            print("Post Landscape")
+            //print("Post Landscape")
             gotoManual()
         } else {
-            print("Post Portrait")
+            //print("Post Portrait")
         }
     }
     func gotoManual(){
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ManualEdit")
+        //let nextViewController =  ViewController(nibName: ManualEditViewController, bundle: nil)
         self.present(nextViewController, animated:true, completion:nil)
     }
     /*

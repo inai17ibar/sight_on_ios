@@ -46,7 +46,7 @@ class AutoEditViewController: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         do {
             let audioFile = try AVAudioFile(forReading: fileUrl)
             audioFormat = audioFile.processingFormat
@@ -158,10 +158,12 @@ class AutoEditViewController: ViewController {
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ManualEdit")
             self.present(nextViewController, animated:true, completion:nil)
+            //self.navigationController?.pushViewController(nextViewController, animated: true)
         } else {
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Post")
             self.present(nextViewController, animated:true, completion:nil)
+            //self.navigationController?.pushViewController(nextViewController, animated: true)
         }
         
 

@@ -36,7 +36,7 @@ class ManualEditViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         do {
-            print(fileUrl)
+            //print(fileUrl)
             let audioFile = try AVAudioFile(forReading: fileUrl)
             self.audioFormat = audioFile.processingFormat
             // initializing the AVAudioPCMBuffer
@@ -80,7 +80,7 @@ class ManualEditViewController: ViewController {
              })*/
             self.player.scheduleBuffer(audioFileBuffer, at: nil, options:.loops, completionHandler: { () -> Void in
                 // 再生が終了すると呼ばれる
-                print("Completion")
+                //print("Completion")
             })
             
             // 再生開始
@@ -105,15 +105,21 @@ class ManualEditViewController: ViewController {
         reverb.wetDryMix = sliderReverb.value
     }
     
+
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        var className = "\(self)"
+        className = className.components(separatedBy: ".").last!
+        className = className.components(separatedBy: ":").first!
+        print(className )
+        //print(className == "AutoEditViewController" )
         if UIDevice.current.orientation.isLandscape {
-            print("manual Landscape")
+            //print("Post Landscape")
         } else {
-            print("manual Portrait")
+            //print("Post Portrait")
             gotoPost()
         }
     }
-    
     
     func gotoPost(){
         let save_file_path = file_path
@@ -126,14 +132,14 @@ class ManualEditViewController: ViewController {
                 if Int(audioFile_write.length) < self.audiolength{//Let us know when to stop saving the file, otherwise saving infinitely
                     do{
                         try audioFile_write.write(from: buffer)
-                        print(audioFile_write.length)
+                        //print(audioFile_write.length)
                     }catch let error{
                         print("Buffer error", error)
                     }
                 }else{
                     self.reverb.removeTap(onBus: 0)//if we dont remove it, will keep on tapping infinitely
                     //audioFile_write=nil
-                    print("Save done")
+                    //print("Save done")
                     self.player.stop()
                     self.engine.stop()
                     goFlag = true;
