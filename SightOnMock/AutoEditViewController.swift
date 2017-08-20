@@ -11,11 +11,19 @@ import AVFoundation
 import Foundation
 import AudioUnit
 import AudioToolbox
+import Charts
 
 class AutoEditViewController: ViewController {
+    let lmGenerator = OELanguageModelGenerator()
+    let words = ["word", "Statement", "other word", "A PHRASE"] // These can be lowercase, uppercase, or mixed-case.
+    let name = "NameIWantForMyLanguageModelFiles"
+    //let err: Error! = lmGenerator.generateLanguageModel(from: words, withFilesNamed: name, forAcousticModelAtPath: OEAcousticModel.path(toModel: "AcousticModelEnglish"))
     
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var sliderDelay: UISlider!
+    @IBOutlet weak var waveChart: LineChartView!
+    @IBOutlet weak var waveChartAutoEdit: LineChartView!
+    @IBOutlet weak var updatebutton: UIButton!
     let temp_data = TemporaryDataManager()
     //var player: AVAudioPlayer?
     // インスタンス変数
@@ -26,27 +34,51 @@ class AutoEditViewController: ViewController {
     //var reverb = AVAudioUnitReverb()
     //AVAudioUnitDelayの準備
     var delay = AVAudioUnitDelay()
+    
+    //その他の変数の準備
     var audiolength = 0
+    var audioFormat = AVAudioFormat()
+    
+    //読み込みfile関係
+    let file_path = TemporaryDataManager().loadDataPath()
+    let fileUrl = URL(fileURLWithPath: TemporaryDataManager().loadDataPath())        // オーディオファイルの読み込み
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let file_path = temp_data.loadDataPath()
-        print(file_path)
-        let fileUrl = URL(fileURLWithPath: file_path)        // オーディオファイルの読み込み
-        
+
         do {
             let audioFile = try AVAudioFile(forReading: fileUrl)
-            let audioFormat = audioFile.processingFormat
+            audioFormat = audioFile.processingFormat
             let audioFrameCount = UInt32(audioFile.length)
-            print(audioFile.length)
-            print(audioFrameCount)
             let audioFileBuffer = AVAudioPCMBuffer(pcmFormat: audioFormat, frameCapacity: audioFrameCount)
             try! audioFile.read(into: audioFileBuffer)
-            audiolength = Int(audioFile.length)
+            // this makes a copy, you might not want that
+            let floatArray = Array(UnsafeBufferPointer(start: audioFileBuffer.floatChannelData?[0], count:Int(audioFileBuffer.frameLength)))
+            var plotEntry = [ChartDataEntry]()
+            audiolength = Int(audioFrameCount)
+            for i in 0..<audiolength{
+                if i%100==0{
+                    let val = ChartDataEntry(x:Double(i)/audioFormat.sampleRate, y:Double(floatArray[i]))
+                    plotEntry.append(val)
+                }
+            }
+            let line1 = LineChartDataSet(values: plotEntry, label: "wave")
+            line1.drawCirclesEnabled = false
+            line1.colors = [NSUIColor.blue]
+            let data = LineChartData()
+            data.addDataSet(line1)
+            waveChart.data = data
+            waveChart.xAxis.drawGridLinesEnabled = false
+            waveChart.leftAxis.drawLabelsEnabled = false
+            waveChart.rightAxis.drawLabelsEnabled = false
+            waveChart.chartDescription?.text = "raw wave"
+            waveChart.legend.enabled = false
+            print(audiolength)
             //Delayの設定
             // 高域側のカットオフ周波数
             //audioFile.processingFormat.sampleRate
-            delay.lowPassCutoff = 15000;    // Range: 10 -> (samplerate/2)
+            delay.lowPassCutoff = 100;    // Range: 10 -> (samplerate/2)
             delay.delayTime = 0;
             delay.feedback = 0;
             // AudioEngineにnodeを設定
@@ -65,17 +97,19 @@ class AutoEditViewController: ViewController {
                 // 再生が終了すると呼ばれる
                 print("Completion")
             })*/
-            self.player.scheduleBuffer(audioFileBuffer, at: nil, options:.loops, completionHandler: { () -> Void in
+            self.player.scheduleBuffer(audioFileBuffer, at: nil, options:.loops,  completionHandler: { () -> Void in
                 // 再生が終了すると呼ばれる
                 print("Completion")
                 })
-            
             // 再生開始
+            
             self.player.play()
- 
-        } catch let error {
+            
+            //
+          } catch let error {
             print(error)
         }
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -84,50 +118,96 @@ class AutoEditViewController: ViewController {
     }
    
     @IBAction func buttonTapped(_ sender : Any) {
-        let file_path = temp_data.loadDataPath()
-        print(file_path)
-        let fileUrl = URL(fileURLWithPath: file_path)
-        let format = AVAudioFormat(commonFormat: .pcmFormatFloat32  , sampleRate: 44100, channels: 1 , interleaved: true)
-        /*do{
-        let audioFile_write = try AVAudioFile(forWriting: fileUrl, settings: format.settings)
-        //var audioPlayerNode = AVAudioPlayerNode() //or your Time pitch unit if pitch changed
-
-        engine.outputNode.installTap(onBus: 0, bufferSize: 4096, format: nil) { (buffer, when) in
-            
-            if (audioFile_write.length) < (audiolength){//Let us know when to stop saving the file, otherwise saving infinitely
-                audioFile_write.write(from: buffer)//let's write the buffer result into our file
-                
-            }else{
-                self.engine.outputNode.removeTap(onBus: 0)//if we dont remove it, will keep on tapping infinitely
-            }
-
-        }
-        }catch let error {
-            print("AVAudioFile error:", error)
-        }
-        */
-        
-        /*do{
-            let audioFile_write = try AVAudioFile(forWriting: fileUrl, settings: format.settings)
-        }catch let error {
-            print("AVAudioFile error:", error)
-        }
-        self.player.installTap(onBus: 0, bufferSize:AVAudioFrameCount(audiolength), format: player.outputFormat(forBus: 0), block: {(buffer, time) in
-        let channels = UnsafeArray(start: buffer.floatChannelData, length: Int(buffer.format.channelCount))
-        let floats = UnsafeArray(start: channels[0], length: Int(buffer.frameLength))
-            
-            for var i = 0; i < Int(self.audioBuffer.frameLength); i+=Int(self.engine.outputNode.outputFormatForBus(0).channelCount)
-            {
-                // process
-                audioFile_write.write(from: buffer)
-            }
-        })
- */
-        self.player.stop()
-        
+        saveaudiofile_()
     }
+
+    func saveaudiofile_(){
+        let save_file_path = TemporaryDataManager().loadDataPath()
+        let fileUrl_write = URL(fileURLWithPath: save_file_path)
+        //print(fileUrl_write)
+        var goFlag=false
+        do{
+            let audioFile_write = try AVAudioFile(forWriting: fileUrl_write, settings: audioFormat.settings)
+            delay.installTap(onBus: 0, bufferSize: AVAudioFrameCount(audiolength), format: audioFormat, block: {buffer, when in
+                if Int(audioFile_write.length) < self.audiolength{//Let us know when to stop saving the file, otherwise saving infinitely
+                    do{
+                        try audioFile_write.write(from: buffer)
+                        print(audioFile_write.length)
+                    }catch let error{
+                        print("Buffer error", error)
+                    }
+                }else{
+                    self.delay.removeTap(onBus: 0)//if we dont remove it, will keep on tapping infinitely
+                    //audioFile_write=nil
+                    print("Save done")
+                    self.player.stop()
+                    self.engine.stop()
+                    goFlag = true;
+                }
+                
+            })
+        }catch let error {
+            print("AVAudioFile error:", error)
+        }
+        while(!goFlag){
+            usleep(200000)
+        }
+        
+
+        if UIDevice.current.orientation == UIDeviceOrientation.landscapeLeft || UIDevice.current.orientation == UIDeviceOrientation.landscapeRight{
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ManualEdit")
+            self.present(nextViewController, animated:true, completion:nil)
+            //self.navigationController?.pushViewController(nextViewController, animated: true)
+        } else {
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Post")
+            self.present(nextViewController, animated:true, completion:nil)
+            //self.navigationController?.pushViewController(nextViewController, animated: true)
+        }
+        
+
+    }
+    
     @IBAction func sliderDelayChanged(sender: UISlider) {
         delay.lowPassCutoff = sliderDelay.value
+        
+    }
+    @IBAction func updateButtonTapped(_ sender : Any) {
+        var tmpArray = [Float]()
+        var goFlag=false
+        delay.installTap(onBus: 0, bufferSize: AVAudioFrameCount(audiolength), format: audioFormat, block: {buffer, when in
+            if Int(tmpArray.count) < self.audiolength{//Let us know when to stop saving the file, otherwise saving infinitely
+            tmpArray += Array(UnsafeBufferPointer(start: buffer.floatChannelData?[0], count:Int(buffer.frameLength)))
+            print(tmpArray.count)
+       
+            }else{
+                self.delay.removeTap(onBus: 0)//if we dont remove it, will keep on tapping infinitely
+                goFlag = true;
+            }
+            
+        })
+        while(!goFlag){
+            usleep(200000)
+        }
+        var plotEntry = [ChartDataEntry]()
+        for i in 0..<audiolength{
+            if i%100==0{
+                let val = ChartDataEntry(x:Double(i)/audioFormat.sampleRate, y:Double(tmpArray[i]))
+                plotEntry.append(val)
+            }
+        }
+        let line1 = LineChartDataSet(values: plotEntry, label: "wave")
+        line1.drawCirclesEnabled = false
+        line1.colors = [NSUIColor.red]
+        let data = LineChartData()
+        data.addDataSet(line1)
+        waveChartAutoEdit.data = data
+        waveChartAutoEdit.xAxis.drawGridLinesEnabled = false
+        waveChartAutoEdit.leftAxis.drawLabelsEnabled = false
+        waveChartAutoEdit.rightAxis.drawLabelsEnabled = false
+        waveChartAutoEdit.chartDescription?.text = "after edit wave"
+        waveChartAutoEdit.legend.enabled = false
     }
     /*
     // MARK: - Navigation

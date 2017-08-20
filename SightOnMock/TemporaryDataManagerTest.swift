@@ -24,7 +24,7 @@ class TemporaryDataManagerTest: XCTestCase {
     let dataManager = TemporaryDataManager()
     
     func test_loadDataPath() {
-        dataManager.saveDataPath(path: "/Document/test.txt")
+        dataManager.saveDataPath("/Document/test.txt")
         XCTAssertEqual(dataManager.loadDataPath(), "/Document/test.txt")
     }
     

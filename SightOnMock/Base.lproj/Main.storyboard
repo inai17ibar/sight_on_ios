@@ -106,7 +106,7 @@
         <!--Post View Controller-->
         <scene sceneID="TKx-I9-Qe2">
             <objects>
-                <viewController storyboardIdentifier="Post" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Yi1-cS-iMR" userLabel="Post View Controller" customClass="PostViewController" customModule="SightOnMock" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Post" title="PostViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Yi1-cS-iMR" userLabel="Post View Controller" customClass="PostViewController" customModule="SightOnMock" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YZ8-zS-6xL"/>
                         <viewControllerLayoutGuide type="bottom" id="Yd2-Fs-EcK"/>
@@ -163,7 +163,80 @@
         <!--Auto Edit View Controller-->
         <scene sceneID="2tR-u9-upa">
             <objects>
-                <viewController storyboardIdentifier="AutoEdit" useStoryboardIdentifierAsRestorationIdentifier="YES" id="h1Q-YG-fGP" userLabel="Auto Edit View Controller" customClass="AutoEditViewController" customModule="SightOnMock" customModuleProvider="target" sceneMemberID="viewController"/>
+                <viewController storyboardIdentifier="AutoEdit" useStoryboardIdentifierAsRestorationIdentifier="YES" id="h1Q-YG-fGP" userLabel="Auto Edit View Controller" customClass="AutoEditViewController" customModule="SightOnMock" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="m2M-xD-i6w"/>
+                        <viewControllerLayoutGuide type="bottom" id="TTi-fw-iG9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bcw-Jn-VRS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="AutoEdit View" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uqP-zX-HZH">
+                                <rect key="frame" x="82" y="323" width="210" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="31T-dK-dw1">
+                                <rect key="frame" x="128" y="554" width="119" height="30"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="30"/>
+                                <state key="normal" title="Next"/>
+                                <connections>
+                                    <action selector="buttonTapped:" destination="h1Q-YG-fGP" eventType="touchDown" id="FUk-fc-JdZ"/>
+                                </connections>
+                            </button>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="15000" minValue="100" maxValue="20000" translatesAutoresizingMaskIntoConstraints="NO" id="x6d-LF-MU7">
+                                <rect key="frame" x="126" y="465" width="118" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="sliderDelayChangedWithSender:" destination="h1Q-YG-fGP" eventType="valueChanged" id="PKN-zt-kIX"/>
+                                </connections>
+                            </slider>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Cut off frequency " borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XXA-6c-N4g">
+                                <rect key="frame" x="116" y="427" width="139" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C8u-9v-H0U" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="67" y="54" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fhc-9f-SiF" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="67" y="216" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1HM-Jd-JaT">
+                                <rect key="frame" x="259" y="426" width="51" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Update"/>
+                                <connections>
+                                    <action selector="updateButtonTapped:" destination="h1Q-YG-fGP" eventType="touchUpInside" id="kfc-RX-RNg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="31T-dK-dw1" firstAttribute="width" secondItem="bcw-Jn-VRS" secondAttribute="width" id="CQ5-eY-XYl"/>
+                            <constraint firstItem="uqP-zX-HZH" firstAttribute="width" secondItem="bcw-Jn-VRS" secondAttribute="width" id="e8Y-kS-9cW"/>
+                            <constraint firstItem="31T-dK-dw1" firstAttribute="centerX" secondItem="bcw-Jn-VRS" secondAttribute="centerX" constant="5" id="fSx-dj-L8X"/>
+                            <constraint firstItem="uqP-zX-HZH" firstAttribute="centerX" secondItem="bcw-Jn-VRS" secondAttribute="centerX" id="i9H-Yd-t4h"/>
+                            <constraint firstItem="31T-dK-dw1" firstAttribute="centerY" secondItem="bcw-Jn-VRS" secondAttribute="centerY" constant="300" id="iPM-VJ-bVA"/>
+                            <constraint firstItem="uqP-zX-HZH" firstAttribute="centerY" secondItem="bcw-Jn-VRS" secondAttribute="centerY" id="qCI-V9-r4M"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="button" destination="31T-dK-dw1" id="S2c-wi-3wL"/>
+                        <outlet property="sliderDelay" destination="x6d-LF-MU7" id="9Az-ev-CxS"/>
+                        <outlet property="updatebutton" destination="1HM-Jd-JaT" id="9pg-9u-ysV"/>
+                        <outlet property="waveChart" destination="C8u-9v-H0U" id="kHO-tJ-gPg"/>
+                        <outlet property="waveChartAutoEdit" destination="fhc-9f-SiF" id="ycu-6c-ojh"/>
+                    </connections>
+                </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PLO-Qn-lNc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="406" y="105"/>
@@ -171,7 +244,7 @@
         <!--Manual Edit View Controller-->
         <scene sceneID="8ex-DO-aVg">
             <objects>
-                <viewController storyboardIdentifier="ManualEditViewController" id="1J9-8H-C0P" userLabel="Manual Edit View Controller" customClass="ManualEditViewController" customModule="SightOnMock" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ManualEdit" id="1J9-8H-C0P" userLabel="Manual Edit View Controller" customClass="ManualEditViewController" customModule="SightOnMock" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OMz-hf-kKV"/>
                         <viewControllerLayoutGuide type="bottom" id="cd0-p7-llg"/>
@@ -192,7 +265,6 @@
                                 <state key="normal" title="Next"/>
                                 <connections>
                                     <action selector="buttonTapped:" destination="1J9-8H-C0P" eventType="touchDown" id="iCV-sE-4mT"/>
-                                    <segue destination="Yi1-cS-iMR" kind="show" id="4hp-d4-DJn"/>
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Eng-Ca-7Lb">

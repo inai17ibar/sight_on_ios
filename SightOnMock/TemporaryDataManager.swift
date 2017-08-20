@@ -31,6 +31,18 @@ class TemporaryDataManager {
     {
         return userDefaults.string(forKey: "Key")!
     }
+    
+    /*open func saveEditDataPath(_ path :String)
+    {
+        let userDefault = UserDefaults.standard
+        // キーを指定してオブジェクトを保存
+        userDefault.set(path, forKey: "Key")
+    }
+    
+    open func loadEditDataPath() -> String
+    {
+        return userDefaults.string(forKey: "Key")!
+    }*/
     // Keyを指定して読み込み(使用イメージ)
     //let filePath: String = loadDataPath()
     
