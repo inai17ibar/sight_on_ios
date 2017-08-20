@@ -33,8 +33,40 @@ class ManualEditViewController: ViewController {
     let file_path = TemporaryDataManager().loadDataPath()
     let fileUrl = URL(fileURLWithPath: TemporaryDataManager().loadDataPath())
     //var filePath: String!
+    var currentControllerName = "Anonymous"
     override func viewDidLoad() {
         super.viewDidLoad()
+        do {
+            //print(fileUrl)
+            let audioFile = try AVAudioFile(forReading: fileUrl)
+            self.audioFormat = audioFile.processingFormat
+
+            
+            // reverbの設定
+            reverb.loadFactoryPreset(.largeHall2)
+            reverb.wetDryMix = 0
+            
+            //Delayの設定
+            // 高域側のカットオフ周波数
+            //audioFile.processingFormat.sampleRate
+            delay.lowPassCutoff = 15000;    // Range: 10 -> (samplerate/2)
+            delay.delayTime = 0;
+            delay.feedback = 0;
+            // AudioEngineにnodeを設定
+            player.reset()
+            engine.reset()
+            engine.attach(player)
+            engine.attach(reverb)
+            engine.attach(delay)
+            engine.connect(player, to: delay, format: audioFile.processingFormat)
+            engine.connect(delay, to: reverb, format: audioFile.processingFormat)
+            engine.connect(reverb, to: engine.outputNode, format: audioFile.processingFormat)
+        } catch let error {
+            print(error)
+        }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         do {
             //print(fileUrl)
             let audioFile = try AVAudioFile(forReading: fileUrl)
@@ -49,26 +81,6 @@ class ManualEditViewController: ViewController {
             let audioFileBuffer = AVAudioPCMBuffer(pcmFormat: audioFormat, frameCapacity: audioFrameCount)
             audiolength = Int(audioFrameCount)
             try! audioFile.read(into: audioFileBuffer)
-            
-
-            // reverbの設定
-            reverb.loadFactoryPreset(.largeHall2)
-            reverb.wetDryMix = 0
-            
-            //Delayの設定
-            // 高域側のカットオフ周波数
-            //audioFile.processingFormat.sampleRate
-            delay.lowPassCutoff = 15000;    // Range: 10 -> (samplerate/2)
-            delay.delayTime = 0;
-            delay.feedback = 0;
-            // AudioEngineにnodeを設定
-            engine.attach(player)
-            engine.attach(reverb)
-            engine.attach(delay)
-            engine.connect(player, to: delay, format: audioFile.processingFormat)
-            engine.connect(delay, to: reverb, format: audioFile.processingFormat)
-            engine.connect(reverb, to: engine.outputNode, format: audioFile.processingFormat)
-            
             engine.prepare()
             do{
                 try! engine.start()
@@ -111,7 +123,7 @@ class ManualEditViewController: ViewController {
         var className = "\(self)"
         className = className.components(separatedBy: ".").last!
         className = className.components(separatedBy: ":").first!
-        print(className)
+        print("current:"+className)
         if UIDevice.current.orientation.isLandscape{
             //print("Post Landscape")
         } else {
@@ -159,11 +171,21 @@ class ManualEditViewController: ViewController {
         //let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Post")
         //self.present(nextViewController, animated:true, completion:nil)
         //_ = navigationController?.popViewController(animated: true)
-        if let controllersOnNavStack = self.navigationController?.viewControllers{
-            let n = controllersOnNavStack.count
-            print(n)
+        print(currentControllerName)
+        if currentControllerName == "AutoEdit"{
+            print("auto->manual->post")
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Post") as! PostViewController
+            nextViewController.currentControllerName = "ManualEdit"
+            self.present(nextViewController, animated:true, completion:nil)
+        }else if(currentControllerName == "Post"){
+            print("manual->post")
+            self.dismiss(animated: true, completion: nil)
+            /*let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Post") as! PostViewController
+            nextViewController.currentControllerName = "ManualEdit"
+            self.present(nextViewController, animated:true, completion:nil)*/
         }
-        self.dismiss(animated: true, completion: nil)
 
     }
     /*

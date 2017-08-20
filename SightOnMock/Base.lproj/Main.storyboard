@@ -92,14 +92,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUO-od-wKe">
-                                <rect key="frame" x="0.0" y="576" width="375" height="48"/>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="30"/>
-                                <state key="normal" title="Next"/>
-                                <connections>
-                                    <segue destination="gsK-b6-Z4x" kind="show" id="GtH-7p-gH5"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KVi-gL-m5p">
                                 <rect key="frame" x="167" y="516" width="40" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -110,20 +102,26 @@
                                     <action selector="buttonTapped:" destination="Yi1-cS-iMR" eventType="touchUpInside" id="G5H-iY-G89"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bsX-SL-uYe">
+                                <rect key="frame" x="160" y="580" width="54" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Dismiss"/>
+                                <connections>
+                                    <action selector="dismissButtonTapped:" destination="Yi1-cS-iMR" eventType="touchUpInside" id="RhV-5l-4L0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="WUO-od-wKe" firstAttribute="centerX" secondItem="Qp7-Cf-vvT" secondAttribute="centerX" id="OKS-Cu-EIt"/>
-                            <constraint firstItem="WUO-od-wKe" firstAttribute="centerY" secondItem="Qp7-Cf-vvT" secondAttribute="centerY" constant="300" id="UJe-fF-CAC"/>
                             <constraint firstItem="A8c-tD-dpC" firstAttribute="width" secondItem="Qp7-Cf-vvT" secondAttribute="width" id="W2a-fu-GdK"/>
                             <constraint firstItem="KVi-gL-m5p" firstAttribute="centerX" secondItem="Qp7-Cf-vvT" secondAttribute="centerX" id="fdp-du-DAu"/>
-                            <constraint firstItem="WUO-od-wKe" firstAttribute="width" secondItem="Qp7-Cf-vvT" secondAttribute="width" id="ic1-gw-ah8"/>
                             <constraint firstItem="A8c-tD-dpC" firstAttribute="centerY" secondItem="Qp7-Cf-vvT" secondAttribute="centerY" id="n5a-Li-4sn"/>
                             <constraint firstItem="A8c-tD-dpC" firstAttribute="centerX" secondItem="Qp7-Cf-vvT" secondAttribute="centerX" id="tLR-bB-pNo"/>
                             <constraint firstItem="KVi-gL-m5p" firstAttribute="centerY" secondItem="Qp7-Cf-vvT" secondAttribute="centerY" constant="200" id="wIl-kI-rO3"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="dismissButton" destination="bsX-SL-uYe" id="RdC-bg-b4b"/>
                         <outlet property="postButton" destination="KVi-gL-m5p" id="urn-vc-FrO"/>
                     </connections>
                 </viewController>
@@ -230,14 +228,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="umn-3B-mca">
-                                <rect key="frame" x="0.0" y="542" width="375" height="48"/>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="30"/>
-                                <state key="normal" title="Next"/>
-                                <connections>
-                                    <action selector="buttonTapped:" destination="1J9-8H-C0P" eventType="touchDown" id="iCV-sE-4mT"/>
-                                </connections>
-                            </button>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Eng-Ca-7Lb">
                                 <rect key="frame" x="80" y="423" width="214" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -255,16 +245,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="umn-3B-mca" firstAttribute="centerY" secondItem="3Vr-Ey-XMA" secondAttribute="centerY" constant="300" id="Ray-kl-jAB"/>
-                            <constraint firstItem="umn-3B-mca" firstAttribute="width" secondItem="3Vr-Ey-XMA" secondAttribute="width" id="awF-QQ-vZG"/>
-                            <constraint firstItem="umn-3B-mca" firstAttribute="centerX" secondItem="3Vr-Ey-XMA" secondAttribute="centerX" id="efp-wX-igC"/>
                             <constraint firstItem="4Sc-ug-9g3" firstAttribute="centerY" secondItem="3Vr-Ey-XMA" secondAttribute="centerY" id="ej7-1A-ubW"/>
                             <constraint firstItem="4Sc-ug-9g3" firstAttribute="centerX" secondItem="3Vr-Ey-XMA" secondAttribute="centerX" id="sCm-oY-yi5"/>
                             <constraint firstItem="4Sc-ug-9g3" firstAttribute="width" secondItem="3Vr-Ey-XMA" secondAttribute="width" id="tcz-it-TkP"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="button" destination="umn-3B-mca" id="AD5-7q-Ty6"/>
                         <outlet property="sliderReverb" destination="Eng-Ca-7Lb" id="30d-ff-GON"/>
                     </connections>
                 </viewController>

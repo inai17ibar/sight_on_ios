@@ -18,7 +18,7 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
     let database = DatabaseAccessManager()
     let realm = try! Realm()
     var sounds:Results<Sound>!
-    
+    var currentControllerName = "Anonymous"
     override func viewDidLoad() {
         super.viewDidLoad()
 

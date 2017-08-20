@@ -118,6 +118,7 @@ class AutoEditViewController: ViewController {
     }
    
     @IBAction func buttonTapped(_ sender : Any) {
+
         saveaudiofile_()
     }
 
@@ -155,13 +156,17 @@ class AutoEditViewController: ViewController {
         
 
         if UIDevice.current.orientation == UIDeviceOrientation.landscapeLeft || UIDevice.current.orientation == UIDeviceOrientation.landscapeRight{
+            //let nextViewController = ManualEditViewController()
+            
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ManualEdit")
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ManualEdit") as! ManualEditViewController
+            nextViewController.currentControllerName = "AutoEdit"
             self.present(nextViewController, animated:true, completion:nil)
             //self.navigationController?.pushViewController(nextViewController, animated: true)
         } else {
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Post")
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Post") as! PostViewController
+            nextViewController.currentControllerName = "AutoEdit"
             self.present(nextViewController, animated:true, completion:nil)
             //self.navigationController?.pushViewController(nextViewController, animated: true)
         }

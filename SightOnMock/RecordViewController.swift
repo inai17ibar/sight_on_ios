@@ -18,7 +18,8 @@ class RecordViewController: ViewController{
 
     let dataManager = TemporaryDataManager()
     var soundPlayer:SoundPlayer!
-
+    var currentControllerName = "Anonymous"
+    
     private let feedbackGenerator: Any? = {
         if #available(iOS 10.0, *) {
             let generator: UIImpactFeedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)

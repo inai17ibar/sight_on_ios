@@ -11,12 +11,17 @@ import UIKit
 class PostViewController: ViewController {
 
     @IBOutlet weak var postButton: UIButton!
-    
+    @IBOutlet weak var dismissButton: UIButton!
     let temp_data = TemporaryDataManager()
     let database = DatabaseAccessManager()
+    var currentControllerName = "Anonymous"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("hello world")
     }
     
     override func didReceiveMemoryWarning() {
@@ -31,12 +36,19 @@ class PostViewController: ViewController {
         print("post")
         database.create(file_path, dataName: "テスト", userId: 1, tags:["fun", "happy", "hot"])
         database.add()
+        //self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
     }
 
     @IBAction func buttonTapped(_ sender : Any)
     {
         post()
         postButton.setTitle("finish posted", for: .normal)
+        self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
+        //強制遷移をつける？
+    }
+    @IBAction func dismissButtonTapped(_ sender : Any)
+    {
+        self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
         //強制遷移をつける？
     }
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -44,7 +56,7 @@ class PostViewController: ViewController {
         var className = "\(self)"
         className = className.components(separatedBy: ".").last!
         className = className.components(separatedBy: ":").first!
-        print(className )
+        print("current:"+className)
         //print(className == "AutoEditViewController" )
         if UIDevice.current.orientation.isLandscape && (className == "PostViewController"){
             //print("Post Landscape")
@@ -55,18 +67,20 @@ class PostViewController: ViewController {
 
     }
     func gotoManual(){
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ManualEdit")
-        //let nextViewController =  ViewController(nibName: ManualEditViewController, bundle: nil)
-        if let controllersOnNavStack = self.navigationController?.viewControllers{
-            let n = controllersOnNavStack.count
-            print(n)
+        print(currentControllerName)
+        if currentControllerName == "AutoEdit"{
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ManualEdit") as! ManualEditViewController
+            nextViewController.currentControllerName = "Post"
+            self.present(nextViewController, animated:true, completion:nil)
+        }else if(currentControllerName == "ManualEdit") {
+            self.dismiss(animated: true, completion: nil)
+            /*let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ManualEdit") as! ManualEditViewController
+            nextViewController.currentControllerName = "Post"
+            self.present(nextViewController, animated:true, completion:nil)
+ */
         }
-        self.present(nextViewController, animated:true, completion:nil)
-        
-        //_ = navigationController?.popViewController(animated: true)
-        //    self.dismiss(animated: true, completion: nil)
-        
     }
     /*
     // MARK: - Navigation
