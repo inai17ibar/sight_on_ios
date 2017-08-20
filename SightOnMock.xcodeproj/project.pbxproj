@@ -199,7 +199,6 @@
 		0C39289A1F23727300397EDD /* SightOnMock */ = {
 			isa = PBXGroup;
 			children = (
-				0C20966D1F497BF5003290DE /* OpenEarsHeader.h */,
 				0C978E1C1F37661F003E2232 /* SoundData */,
 				0C978E181F375F27003E2232 /* Model */,
 				0CF2EB691F35E370003DD9D2 /* Image */,
@@ -273,6 +272,7 @@
 		0CD7CA0C1F4020D0006559B7 /* Edit */ = {
 			isa = PBXGroup;
 			children = (
+				0C20966D1F497BF5003290DE /* OpenEarsHeader.h */,
 				0C3928CD1F23792C00397EDD /* AutoEditViewController.swift */,
 				0C3928CF1F23794300397EDD /* ManualEditViewController.swift */,
 			);
