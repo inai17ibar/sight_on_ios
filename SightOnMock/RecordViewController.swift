@@ -9,10 +9,9 @@
 import UIKit
 import AVFoundation
 
-class RecordViewController: ViewController, SoundPlayerDelegate {
+class RecordViewController: ViewController{
 
     @IBOutlet weak var button: UIButton!
-    @IBOutlet weak var playButton: UIButton!
 
     var audioRecorder:AVAudioRecorder!
     var filePath:String!
@@ -34,7 +33,6 @@ class RecordViewController: ViewController, SoundPlayerDelegate {
         super.viewDidLoad()
 
         soundPlayer = SoundPlayer()
-        soundPlayer.delegate = self
 
         initRecorder()
     }
@@ -91,7 +89,10 @@ class RecordViewController: ViewController, SoundPlayerDelegate {
 
             //いつ初期化するのがいいか？？
             soundPlayer.initPlayer(url: URL(fileURLWithPath: dataManager.loadDataPath()))
-            soundPlayer.delegate = self
+
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "AutoEdit")
+            self.present(nextViewController, animated:true, completion:nil)
         }
         else{
             print("start recording")
@@ -106,27 +107,13 @@ class RecordViewController: ViewController, SoundPlayerDelegate {
         dataManager.saveDataPath(filePath)
     }
 
-    @IBAction func playButtonTapped(_ sender : Any) {
 
-        if soundPlayer.isPlaying() {
-            soundPlayer.stop()
-        }
-        else{
-            soundPlayer.play()
-        }
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
-    //なぜか動いていない
-    func updateMessage(text: String)
-    {
-        print(text)
-        playButton.setTitle(text, for: .normal)
-    }
 
     func updatePlayBtnsTitle(text: String)
     {

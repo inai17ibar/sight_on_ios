@@ -38,16 +38,6 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="33v-f2-IWw">
-                                <rect key="frame" x="0.0" y="609.5" width="375" height="48"/>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="30"/>
-                                <state key="normal" title="Next">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="h1Q-YG-fGP" kind="show" id="VTc-cM-96N"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oNp-Bq-EvE" userLabel="RecordButton">
                                 <rect key="frame" x="0.0" y="413" width="375" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
@@ -58,45 +48,26 @@
                                     <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchDown" id="Xwc-KV-UOj"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XXF-Ma-ogs">
-                                <rect key="frame" x="165" y="513" width="46" height="68"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Play">
-                                    <color key="titleColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="playButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sDy-ZW-i0M"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.15800479054450989" green="0.15815737843513489" blue="0.15802845358848572" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="oNp-Bq-EvE" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="100" id="0wF-8I-yy2"/>
                             <constraint firstItem="e5F-55-t3Y" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="35F-UH-70F"/>
-                            <constraint firstItem="XXF-Ma-ogs" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="4UK-aI-YFd"/>
                             <constraint firstItem="7EW-kk-TbH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4yh-Go-egJ"/>
                             <constraint firstItem="7EW-kk-TbH" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="60m-hO-auO"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="e5F-55-t3Y" secondAttribute="bottom" id="6Fp-4R-xZa"/>
-                            <constraint firstItem="XXF-Ma-ogs" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="150" id="8bJ-vU-lGR"/>
                             <constraint firstItem="7EW-kk-TbH" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Bxs-cc-Mcm"/>
                             <constraint firstItem="e5F-55-t3Y" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="H5m-4i-9J4"/>
-                            <constraint firstItem="XXF-Ma-ogs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Mjg-AD-cSU"/>
                             <constraint firstItem="oNp-Bq-EvE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OgM-qq-rJC"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="33v-f2-IWw" secondAttribute="bottom" constant="10" id="VKJ-7O-ZOS"/>
-                            <constraint firstItem="33v-f2-IWw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="YZ7-gA-yio"/>
-                            <constraint firstItem="33v-f2-IWw" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="300" id="abM-Dr-4py"/>
                             <constraint firstAttribute="trailing" secondItem="e5F-55-t3Y" secondAttribute="trailing" id="czw-O6-KN7"/>
                             <constraint firstItem="e5F-55-t3Y" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="hZI-mv-xVT"/>
-                            <constraint firstItem="33v-f2-IWw" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="kKw-28-uPv"/>
                             <constraint firstAttribute="trailing" secondItem="e5F-55-t3Y" secondAttribute="trailing" id="pZf-14-ONS"/>
                             <constraint firstItem="oNp-Bq-EvE" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="qAv-Nr-o9B"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="33v-f2-IWw" secondAttribute="bottom" constant="10" id="qaK-hG-BbE"/>
                             <constraint firstItem="e5F-55-t3Y" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="wr3-l4-ksO"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="button" destination="oNp-Bq-EvE" id="TtZ-9F-Ykv"/>
-                        <outlet property="playButton" destination="XXF-Ma-ogs" id="uPH-6n-cCK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
