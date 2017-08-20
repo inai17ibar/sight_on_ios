@@ -94,6 +94,7 @@ class RecordViewController: ViewController, SoundPlayerDelegate {
         }
         else{
             print("start recording")
+            initRecorder()
             button.setTitle("Now recording...", for: .normal)
             audioRecorder.record()
         }
