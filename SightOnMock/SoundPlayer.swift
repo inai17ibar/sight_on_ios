@@ -9,48 +9,46 @@
 import UIKit
 import AVFoundation
 
-protocol SoundPlayerDelegate {
+protocol SoundPlayerDelegate: class {
     func updateMessage(text: String)
     func updatePlayBtnsTitle(text: String)
 }
 
 class SoundPlayer: NSObject, AVAudioPlayerDelegate {
     
-    var delegate: SoundPlayerDelegate!
+    weak var delegate: SoundPlayerDelegate? = nil
     
     //singleton
     //static let sharedInstance = SoundPlayer()
-    var audioPlayer:AVAudioPlayer!
+    var audioPlayer = AVAudioPlayer()
     var playingUrl:URL?
     var hasInit:Bool!
     
     override init()
     {
-        
+        // 再生と録音の機能をアクティブにする
+        let session = AVAudioSession.sharedInstance()
+        try! session.setCategory(AVAudioSessionCategoryPlayback) //SoloAmbient
+        try! session.setActive(true)
     }
     
     public func initPlayer(url: URL)
     {
-        playingUrl = url
-        
-        // 再生と録音の機能をアクティブにする
-        let session = AVAudioSession.sharedInstance()
-        try! session.setCategory(AVAudioSessionCategorySoloAmbient)
-        try! session.setActive(true)
-        
         do{
             // AVAudioPlayerのインスタンス化
             audioPlayer = try AVAudioPlayer(contentsOf: url)
+            //print("set audio url")
             // AVAudioPlayerのデリゲートをセット
             audioPlayer.delegate = self
             //setting
-            audioPlayer.volume = 5.0
+            audioPlayer.volume = 1.0
+            audioPlayer.prepareToPlay()
             
             //delegate?.updatePlayBtnsTitle(text: "Play")
             print("init player")
+            playingUrl = url
             hasInit = true
-        }
-        catch{
+        }catch{
             print("Error: cannot init audioPlayer")
             hasInit = false
         }
@@ -73,14 +71,14 @@ class SoundPlayer: NSObject, AVAudioPlayerDelegate {
         }
         print("play")
         audioPlayer.play()
-        delegate?.updatePlayBtnsTitle(text: "Stop")
+        self.delegate?.updatePlayBtnsTitle(text: "Stop")
     }
     
     public func stop()
     {
         print("stop")
         audioPlayer.stop()
-        delegate?.updatePlayBtnsTitle(text: "Play")
+        self.delegate?.updatePlayBtnsTitle(text: "Play")
     }
     
     public func isPlaying() -> Bool
@@ -105,8 +103,7 @@ class SoundPlayer: NSObject, AVAudioPlayerDelegate {
     //再生終了時の呼び出しメソッド
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool)
     {
-        //delegate?.updateMessage("")
-        delegate.updatePlayBtnsTitle(text: "Finish")
+        self.delegate?.updatePlayBtnsTitle(text: "Finish")
         print("finish")
     }
     

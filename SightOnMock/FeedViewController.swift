@@ -23,8 +23,9 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         super.viewDidLoad()
 
         //Realmの登録内容の初期化
-        //if (database.extractByUserId(1).count > 5 || database.extractByUserId(1).count == 0) {
-        setDefaultDataset()
+        //if (database.extractByUserId(1).count > 6) {
+            setDefaultDataset() //デプロイするたびにPathが変わるので．．．
+        //}
         sounds = database.extractByUserId(1)
 
         soundPlayer = SoundPlayer()
@@ -40,8 +41,8 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         database.create(audioPath, dataName: "有楽町", userId: 1, tags: ["night", "cool", "refresh"])
         database.add()
         
-        audioPath = Bundle.main.path(forResource: "near_road", ofType:"wav")!
-        database.create(audioPath, dataName: "道路", userId: 1, tags: ["road", "buzy"])
+        audioPath = Bundle.main.path(forResource: "washroom", ofType:"wav")!
+        database.create(audioPath, dataName: "洗面所", userId: 1, tags: ["water", "healing"])
         database.add()
         
         audioPath = Bundle.main.path(forResource: "akihabara_lunch", ofType:"m4a")!
@@ -101,7 +102,8 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         print(indexPath.row)
         //soundPlayer.initPlayer(url: URL(fileURLWithPath: sounds[indexPath.row].file_path))
         let seleted_url = URL(fileURLWithPath: sounds[indexPath.row].file_path)
-        //print(sounds[indexPath.row].file_path)
+        print(sounds[indexPath.row].file_path)
+        print(seleted_url)
         if (soundPlayer.getSoundURL() == seleted_url){
             //プレイヤーの曲がセット済みのとき
             if soundPlayer.isPlaying(){
@@ -152,5 +154,4 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         // Pass the selected object to the new view controller.
     }
     */
-
 }

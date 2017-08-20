@@ -37,7 +37,7 @@
 		0CA1988E1F48AEA000E9525A /* on_the_bridge.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0CA1988B1F48AEA000E9525A /* on_the_bridge.m4a */; };
 		0CA1988F1F48AEA000E9525A /* on_stair.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0CA1988C1F48AEA000E9525A /* on_stair.m4a */; };
 		0CA198901F48AEA000E9525A /* ginza_east.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0CA1988D1F48AEA000E9525A /* ginza_east.m4a */; };
-		0CA198921F48AF5100E9525A /* near_road.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0CA198911F48AF5100E9525A /* near_road.wav */; };
+		0CA198961F495E0B00E9525A /* washroom.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0CA198951F495E0B00E9525A /* washroom.wav */; };
 		0CF2EB601F358603003DD9D2 /* FeedListItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF2EB5F1F358603003DD9D2 /* FeedListItemTableViewCell.swift */; };
 		0CF2EB661F35DC02003DD9D2 /* sample1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0CF2EB651F35DC02003DD9D2 /* sample1.jpg */; };
 		0CF2EB681F35E304003DD9D2 /* sight_on_splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CF2EB671F35E304003DD9D2 /* sight_on_splash.png */; };
@@ -102,7 +102,7 @@
 		0CA1988B1F48AEA000E9525A /* on_the_bridge.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = on_the_bridge.m4a; sourceTree = "<group>"; };
 		0CA1988C1F48AEA000E9525A /* on_stair.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = on_stair.m4a; sourceTree = "<group>"; };
 		0CA1988D1F48AEA000E9525A /* ginza_east.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = ginza_east.m4a; sourceTree = "<group>"; };
-		0CA198911F48AF5100E9525A /* near_road.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = near_road.wav; sourceTree = "<group>"; };
+		0CA198951F495E0B00E9525A /* washroom.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = washroom.wav; sourceTree = "<group>"; };
 		0CF2EB5F1F358603003DD9D2 /* FeedListItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedListItemTableViewCell.swift; sourceTree = "<group>"; };
 		0CF2EB651F35DC02003DD9D2 /* sample1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample1.jpg; sourceTree = "<group>"; };
 		0CF2EB671F35E304003DD9D2 /* sight_on_splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sight_on_splash.png; sourceTree = "<group>"; };
@@ -238,7 +238,7 @@
 		0C978E1C1F37661F003E2232 /* SoundData */ = {
 			isa = PBXGroup;
 			children = (
-				0CA198911F48AF5100E9525A /* near_road.wav */,
+				0CA198951F495E0B00E9525A /* washroom.wav */,
 				0CA198891F48A98400E9525A /* akihabara_lunch.m4a */,
 				0C978E1D1F377269003E2232 /* yurakucho_muzhirusi.m4a */,
 				0CA1988B1F48AEA000E9525A /* on_the_bridge.m4a */,
@@ -452,7 +452,7 @@
 				0C3928A61F23727300397EDD /* LaunchScreen.storyboard in Resources */,
 				0CA198901F48AEA000E9525A /* ginza_east.m4a in Resources */,
 				0CF2EB681F35E304003DD9D2 /* sight_on_splash.png in Resources */,
-				0CA198921F48AF5100E9525A /* near_road.wav in Resources */,
+				0CA198961F495E0B00E9525A /* washroom.wav in Resources */,
 				0CF2EB6B1F35E391003DD9D2 /* sight_on_icon_dark_mat.png in Resources */,
 				0C3928A31F23727300397EDD /* Assets.xcassets in Resources */,
 				0CA1988E1F48AEA000E9525A /* on_the_bridge.m4a in Resources */,

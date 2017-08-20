@@ -91,6 +91,7 @@ class RecordViewController: ViewController, SoundPlayerDelegate {
             
             //いつ初期化するのがいいか？？
             soundPlayer.initPlayer(url: URL(fileURLWithPath: dataManager.loadDataPath()))
+            soundPlayer.delegate = self
         }
         else{
             print("start recording")
@@ -123,6 +124,7 @@ class RecordViewController: ViewController, SoundPlayerDelegate {
     //なぜか動いていない
     func updateMessage(text: String)
     {
+        print(text)
         playButton.setTitle(text, for: .normal)
     }
     
