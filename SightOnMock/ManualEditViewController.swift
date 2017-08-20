@@ -111,14 +111,16 @@ class ManualEditViewController: ViewController {
         var className = "\(self)"
         className = className.components(separatedBy: ".").last!
         className = className.components(separatedBy: ":").first!
-        print(className )
-        //print(className == "AutoEditViewController" )
-        if UIDevice.current.orientation.isLandscape {
+        print(className)
+        if UIDevice.current.orientation.isLandscape{
             //print("Post Landscape")
         } else {
             //print("Post Portrait")
-            gotoPost()
+            if (className == "ManualEditViewController"){
+                gotoPost()
+            }
         }
+
     }
     
     func gotoPost(){
@@ -153,9 +155,16 @@ class ManualEditViewController: ViewController {
             usleep(200000)
         }
         
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Post")
-        self.present(nextViewController, animated:true, completion:nil)
+        //let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        //let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Post")
+        //self.present(nextViewController, animated:true, completion:nil)
+        //_ = navigationController?.popViewController(animated: true)
+        if let controllersOnNavStack = self.navigationController?.viewControllers{
+            let n = controllersOnNavStack.count
+            print(n)
+        }
+        self.dismiss(animated: true, completion: nil)
+
     }
     /*
     // MARK: - Navigation
