@@ -78,7 +78,7 @@ class AutoEditViewController: ViewController {
             //Delayの設定
             // 高域側のカットオフ周波数
             //audioFile.processingFormat.sampleRate
-            delay.lowPassCutoff = 100;    // Range: 10 -> (samplerate/2)
+            delay.lowPassCutoff = 10000;    // Range: 10 -> (samplerate/2)
             delay.delayTime = 0;
             delay.feedback = 0;
             // AudioEngineにnodeを設定
