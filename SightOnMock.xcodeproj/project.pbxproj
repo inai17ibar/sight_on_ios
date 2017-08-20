@@ -42,6 +42,7 @@
 		0CF2EB661F35DC02003DD9D2 /* sample1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0CF2EB651F35DC02003DD9D2 /* sample1.jpg */; };
 		0CF2EB681F35E304003DD9D2 /* sight_on_splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CF2EB671F35E304003DD9D2 /* sight_on_splash.png */; };
 		0CF2EB6B1F35E391003DD9D2 /* sight_on_icon_dark_mat.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CF2EB6A1F35E391003DD9D2 /* sight_on_icon_dark_mat.png */; };
+		410C3A73847DDCA6CC1FA2E3 /* Pods_SightOnMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 160064C8895113388812E218 /* Pods_SightOnMock.framework */; };
 		5F17B0A539692C2F54EA8C34 /* Pods_SightOnMockUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90938FFE72B1733A10128717 /* Pods_SightOnMockUITests.framework */; };
 		C62BF457D007FABD1210B0E4 /* Pods_SightOnMockTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCC753F3904B908C76D3381B /* Pods_SightOnMockTests.framework */; };
 		E61543991F474E7C007537DA /* AcousticModelEnglish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E61543961F474E7C007537DA /* AcousticModelEnglish.bundle */; };
@@ -77,6 +78,7 @@
 /* Begin PBXFileReference section */
 		0C012CAD1F3754F500E8EFC8 /* Pods_SightOnMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_SightOnMock.framework; path = "../../Library/Developer/Xcode/DerivedData/SightOnMock-fkgespoavkjeucdizymdfvxtojxa/Build/Products/Debug-iphonesimulator/Pods_SightOnMock.framework"; sourceTree = "<group>"; };
 		0C13AE621F3D9AFD00C7847F /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		0C20966D1F497BF5003290DE /* OpenEarsHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenEarsHeader.h; sourceTree = "<group>"; };
 		0C3928981F23727300397EDD /* SightOnMock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SightOnMock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C39289B1F23727300397EDD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C39289D1F23727300397EDD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -124,7 +126,6 @@
 		8A540E7FF74955A668E85C79 /* Pods-SightOnMockTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SightOnMockTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SightOnMockTests/Pods-SightOnMockTests.debug.xcconfig"; sourceTree = "<group>"; };
 		90938FFE72B1733A10128717 /* Pods_SightOnMockUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SightOnMockUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CD91C51691DA76DD6DF48C1 /* Pods-SightOnMock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SightOnMock.release.xcconfig"; path = "Pods/Target Support Files/Pods-SightOnMock/Pods-SightOnMock.release.xcconfig"; sourceTree = "<group>"; };
-		E61543941F474916007537DA /* OpenEarsHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OpenEarsHeader.h; path = /Users/sighton/dev/sight_on_ios/SightOnMock/OpenEarsHeader.h; sourceTree = "<absolute>"; };
 		E61543961F474E7C007537DA /* AcousticModelEnglish.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AcousticModelEnglish.bundle; sourceTree = "<group>"; };
 		E61543971F474E7C007537DA /* OpenEars.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OpenEars.framework; sourceTree = "<group>"; };
 		E61543981F474E7C007537DA /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Slt.framework; sourceTree = "<group>"; };
@@ -146,6 +147,7 @@
 				0C9198171F40134F002234FF /* Pods_SightOnMockUITests.framework in Frameworks */,
 				0C9198161F40134A002234FF /* Pods_SightOnMockTests.framework in Frameworks */,
 				0C978E201F377300003E2232 /* AVFoundation.framework in Frameworks */,
+				410C3A73847DDCA6CC1FA2E3 /* Pods_SightOnMock.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,7 +177,6 @@
 		0C39288F1F23727300397EDD = {
 			isa = PBXGroup;
 			children = (
-				E61543941F474916007537DA /* OpenEarsHeader.h */,
 				0C39289A1F23727300397EDD /* SightOnMock */,
 				0C3928AF1F23727300397EDD /* SightOnMockTests */,
 				0C3928BA1F23727300397EDD /* SightOnMockUITests */,
@@ -198,6 +199,7 @@
 		0C39289A1F23727300397EDD /* SightOnMock */ = {
 			isa = PBXGroup;
 			children = (
+				0C20966D1F497BF5003290DE /* OpenEarsHeader.h */,
 				0C978E1C1F37661F003E2232 /* SoundData */,
 				0C978E181F375F27003E2232 /* Model */,
 				0CF2EB691F35E370003DD9D2 /* Image */,
@@ -599,7 +601,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		97D0A82CC75D8EFF3D97DC79 /* [CP] Embed Pods Frameworks */ = {
@@ -632,7 +634,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		CA8C9A66AE41D03F84ADD05B /* [CP] Check Pods Manifest.lock */ = {
@@ -650,7 +652,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		D413E93AE2380228AF99E506 /* [CP] Copy Pods Resources */ = {
@@ -858,7 +860,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = edu.self.SightOnProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = /Users/sighton/dev/sight_on_ios/SightOnMock/OpenEarsHeader.h;
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -882,7 +884,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = edu.self.SightOnProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = /Users/sighton/dev/sight_on_ios/SightOnMock/OpenEarsHeader.h;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

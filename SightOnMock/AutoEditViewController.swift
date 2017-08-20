@@ -14,7 +14,7 @@ import AudioToolbox
 import Charts
 
 class AutoEditViewController: ViewController {
-    let lmGenerator = OELanguageModelGenerator()
+    //let lmGenerator = OELanguageModelGenerator()
     let words = ["word", "Statement", "other word", "A PHRASE"] // These can be lowercase, uppercase, or mixed-case.
     let name = "NameIWantForMyLanguageModelFiles"
     //let err: Error! = lmGenerator.generateLanguageModel(from: words, withFilesNamed: name, forAcousticModelAtPath: OEAcousticModel.path(toModel: "AcousticModelEnglish"))
