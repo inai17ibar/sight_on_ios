@@ -34,7 +34,7 @@ class TemporaryDataManager {
     // Keyを指定して読み込み(使用イメージ)
     //let filePath: String = loadDataPath()
     
-    open func deleteData(_ path :String)
+    open func deleteData()
     {
         userDefaults.removeObject(forKey: "Key")
         //TODOpathのファイルを削除する処理

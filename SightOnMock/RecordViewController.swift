@@ -9,17 +9,17 @@
 import UIKit
 import AVFoundation
 
-class RecordViewController: ViewController, AVAudioPlayerDelegate {
+class RecordViewController: ViewController, SoundPlayerDelegate {
 
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var playButton: UIButton!
     
     var audioRecorder:AVAudioRecorder!
     var filePath:String!
-    var audioPlayer:AVAudioPlayer!
     
     let dataManager = TemporaryDataManager()
-
+    var soundPlayer:SoundPlayer!
+    
     private let feedbackGenerator: Any? = {
         if #available(iOS 10.0, *) {
             let generator: UIImpactFeedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
@@ -32,7 +32,10 @@ class RecordViewController: ViewController, AVAudioPlayerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+     
+        soundPlayer = SoundPlayer()
+        soundPlayer.delegate = self
+        
         initRecorder()
     }
     
@@ -61,7 +64,7 @@ class RecordViewController: ViewController, AVAudioPlayerDelegate {
         do {
             audioRecorder = try AVAudioRecorder(url: url, settings: recordSetting)
         } catch {
-            fatalError("初期設定にエラー")
+            fatalError("cannot init AudioRecorder")
         }
     }
     
@@ -85,7 +88,9 @@ class RecordViewController: ViewController, AVAudioPlayerDelegate {
             button.setTitle("Record", for: .normal)
             audioRecorder.stop()
             saveRecordData()
-            initPlayer(url: URL(fileURLWithPath: dataManager.loadDataPath()))
+            
+            //いつ初期化するのがいいか？？
+            soundPlayer.initPlayer(url: URL(fileURLWithPath: dataManager.loadDataPath()))
         }
         else{
             print("start recording")
@@ -101,33 +106,11 @@ class RecordViewController: ViewController, AVAudioPlayerDelegate {
     
     @IBAction func playButtonTapped(_ sender : Any) {
         
-        if audioPlayer == nil{
-            return
-        }
-        
-        if audioPlayer.isPlaying {
-            audioPlayer.stop()
-            playButton.setTitle("Play", for: .normal)
+        if soundPlayer.isPlaying() {
+            soundPlayer.stop()
         }
         else{
-            print("play")
-            //音量
-            audioPlayer.volume = 3.0
-            audioPlayer.play()
-            playButton.setTitle("Playing...", for: .normal)
-        }
-    }
-    
-    func initPlayer(url: URL)
-    {
-        do{
-            // AVAudioPlayerのインスタンス化
-            audioPlayer = try AVAudioPlayer(contentsOf: url)
-            // AVAudioPlayerのデリゲートをセット
-            audioPlayer.delegate = self
-        }
-        catch{
-            print("Error: cannot init audioPlayer")
+            soundPlayer.play()
         }
     }
 
@@ -136,16 +119,15 @@ class RecordViewController: ViewController, AVAudioPlayerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    //再生終了時の呼び出しメソッド
-    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool)
+    //なぜか動いていない
+    func updateMessage(text: String)
     {
-        playButton.setTitle("Finish", for: .normal)
+        playButton.setTitle(text, for: .normal)
     }
     
-    // デコード中にエラーが起きた時に呼ばれるメソッド
-    func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error: Error?)
+    func updatePlayBtnsTitle(text: String)
     {
-        print("Error")
+        //messageLabel.text = text
     }
     
     /*

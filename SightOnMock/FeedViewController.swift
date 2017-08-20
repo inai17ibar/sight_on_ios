@@ -10,11 +10,11 @@ import UIKit
 import AVFoundation
 import RealmSwift
 
-class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSource, AVAudioPlayerDelegate{
+class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSource, SoundPlayerDelegate{
     
     @IBOutlet weak var tableView: UITableView!
-    var audioPlayer:AVAudioPlayer!
     
+    var soundPlayer :SoundPlayer!
     let database = DatabaseAccessManager()
     let realm = try! Realm()
     var sounds:Results<Sound>!
@@ -23,41 +23,41 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         super.viewDidLoad()
 
         //Realmの登録内容の初期化
-        if (database.extractByUserId(1).count > 5 || database.extractByUserId(1).count == 0) {
-            setDefaultDataset()
-        }
+        //if (database.extractByUserId(1).count > 5 || database.extractByUserId(1).count == 0) {
+        setDefaultDataset()
         sounds = database.extractByUserId(1)
-        
-        //var soundUrls = sounds.filter( {(x: Sound) -> URL in return URL(fileURLWithPath: x.file_path)})
-    
-        print(sounds[0].file_path)
-        initAudioPlayer(url: URL(fileURLWithPath: sounds[0].file_path))
-    }
-    
-    func initAudioPlayer( url :URL)
-    {
-        // audio を再生するプレイヤーを作成する
-        do{
-            // AVAudioPlayerのインスタンス化
-            audioPlayer = try AVAudioPlayer(contentsOf: url)
-            // AVAudioPlayerのデリゲートをセット
-            audioPlayer.delegate = self
-        }
-        catch{
-            print("Error: cannot init audioPlayer")
-        }
+
+        soundPlayer = SoundPlayer()
+        soundPlayer.delegate = self
+        soundPlayer.initPlayer(url: URL(fileURLWithPath: sounds[0].file_path))
     }
     
     func setDefaultDataset()
     {
         database.deleteAll()
         
-        let audioPath1 = Bundle.main.path(forResource: "yurakucho_muzhirusi", ofType:"m4a")!
-        database.create(audioPath1, dataName: "有楽町", userId: 1, tags: ["night", "cool", "refresh"])
+        var audioPath = Bundle.main.path(forResource: "yurakucho_muzhirusi", ofType:"m4a")!
+        database.create(audioPath, dataName: "有楽町", userId: 1, tags: ["night", "cool", "refresh"])
         database.add()
         
-        let audioPath2 = Bundle.main.path(forResource: "near_road", ofType:"wav")!
-        database.create(audioPath2, dataName: "道路", userId: 1, tags: ["road", "buzy"])
+        audioPath = Bundle.main.path(forResource: "near_road", ofType:"wav")!
+        database.create(audioPath, dataName: "道路", userId: 1, tags: ["road", "buzy"])
+        database.add()
+        
+        audioPath = Bundle.main.path(forResource: "akihabara_lunch", ofType:"m4a")!
+        database.create(audioPath, dataName: "秋葉原", userId: 1, tags: ["lunch"])
+        database.add()
+        
+        audioPath = Bundle.main.path(forResource: "on_the_bridge", ofType:"m4a")!
+        database.create(audioPath, dataName: "橋の上", userId: 1, tags: ["wind"])
+        database.add()
+        
+        audioPath = Bundle.main.path(forResource: "ginza_east", ofType:"m4a")!
+        database.create(audioPath, dataName: "東銀座", userId: 1, tags: ["talking"])
+        database.add()
+        
+        audioPath = Bundle.main.path(forResource: "on_stair", ofType:"m4a")!
+        database.create(audioPath, dataName: "階段", userId: 1, tags: ["tonton"])
         database.add()
     }
 
@@ -86,7 +86,7 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
             }
             cell.tagLabel.text = "\(tags_text)"
             
-            //サンプル
+            //サンプル画像
             let image:UIImage = UIImage(named:"sample")!
             cell.photo = UIImageView(image:image)
             
@@ -98,21 +98,31 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
     //あるセルを押したら再生
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        initAudioPlayer(url: URL(fileURLWithPath: sounds[indexPath.row].file_path))
-        
-        if audioPlayer.isPlaying {
-            audioPlayer.stop()
+        print(indexPath.row)
+        //soundPlayer.initPlayer(url: URL(fileURLWithPath: sounds[indexPath.row].file_path))
+        let seleted_url = URL(fileURLWithPath: sounds[indexPath.row].file_path)
+        //print(sounds[indexPath.row].file_path)
+        if (soundPlayer.getSoundURL() == seleted_url){
+            //プレイヤーの曲がセット済みのとき
+            if soundPlayer.isPlaying(){
+                soundPlayer.stop()
+            }else{
+                soundPlayer.play()
+            }
         }
         else{
-            audioPlayer.play()
+            //プレイヤーに曲がセット済みでないとき
+            soundPlayer.play(url: seleted_url)
         }
+        
+        // 選択を解除しておく
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     //あるセルをスワイプしたら
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         //closure
         let deleteButton: UITableViewRowAction = UITableViewRowAction(style: .normal, title: "Delete") { (action, index) -> Void in
-            //self.array.remove(at: indexPath.row)
             try! self.realm.write{
                 self.realm.delete(self.sounds[indexPath.row])
             }
@@ -123,15 +133,14 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         return [deleteButton]
     }
     
-    // 音楽再生が成功した時に呼ばれるメソッド
-    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool)
+    func updateMessage(text: String)
     {
-        print("Success to play")
+        
     }
-    // デコード中にエラーが起きた時に呼ばれるメソッド
-    func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error: Error?)
+    
+    func updatePlayBtnsTitle(text: String)
     {
-        print("Error on audioPlayer Decording")
+        
     }
     
     /*
