@@ -62,10 +62,15 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
                 in return joined + " #" + x.tagName
             }
             cell.tagLabel.text = "\(tags_text)"
-            
+
+            // 動いていない
             //サンプル画像
-            let image:UIImage = UIImage(named:"sample")!
-            cell.photo = UIImageView(image:image)
+//            let image:UIImage = UIImage(named:"sample")!
+//            let imageView = UIImageView(image:image)
+//            
+//            imageView.layer.cornerRadius = 30
+//            
+//            cell.photo = imageView
             
             return cell
         }

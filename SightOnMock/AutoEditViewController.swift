@@ -43,6 +43,15 @@ class AutoEditViewController: ViewController {
     let file_path = TemporaryDataManager().loadDataPath()
     let fileUrl = URL(fileURLWithPath: TemporaryDataManager().loadDataPath())        // オーディオファイルの読み込み
 
+    private let feedbackGenerator: Any? = {
+        if #available(iOS 10.0, *) {
+            let generator: UIImpactFeedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
+            generator.prepare()
+            return generator
+        } else {
+            return nil
+        }
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -123,6 +132,10 @@ class AutoEditViewController: ViewController {
     }
    
     @IBAction func buttonTapped(_ sender : Any) {
+        if #available(iOS 10.0, *), let generator = feedbackGenerator as? UIImpactFeedbackGenerator {
+            generator.impactOccurred()
+            print("on haptic!")
+        }
 
         saveaudiofile_()
     }

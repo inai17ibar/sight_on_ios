@@ -16,6 +16,16 @@ class PostViewController: ViewController {
     let database = DatabaseAccessManager()
     var currentControllerName = "Anonymous"
     
+    private let feedbackGenerator: Any? = {
+        if #available(iOS 10.0, *) {
+            let generator: UIImpactFeedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
+            generator.prepare()
+            return generator
+        } else {
+            return nil
+        }
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -33,13 +43,26 @@ class PostViewController: ViewController {
         let file_path = temp_data.loadDataPath()
         //let url = URL(fileURLWithPath: file_path)
         print("post")
-        database.create(file_path, dataName: "録音した音", userId: 1, tags:["fun", "happy", "hot"])
+        database.create(file_path, dataName: "新しい音_"+getNowClockString(), userId: 1, tags:["fun", "happy", "hot"])
         database.add()
         //self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
     }
+    
+    func getNowClockString() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd_HHmmss"
+        let now = Date()
+        return formatter.string(from: now)
+    }
+
 
     @IBAction func buttonTapped(_ sender : Any)
     {
+        if #available(iOS 10.0, *), let generator = feedbackGenerator as? UIImpactFeedbackGenerator {
+            generator.impactOccurred()
+            print("on haptic!")
+        }
+        
         post()
         //postButton.setTitle("finish posted", for: .normal)
         self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)

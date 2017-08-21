@@ -34,7 +34,6 @@ class RecordViewController: ViewController{
         super.viewDidLoad()
 
         soundPlayer = SoundPlayer()
-
         initRecorder()
     }
 
