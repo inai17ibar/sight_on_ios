@@ -19,47 +19,23 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
     let realm = try! Realm()
     var sounds:Results<Sound>!
     var currentControllerName = "Anonymous"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        //Realmの登録内容の初期化
-        //if (database.extractByUserId(1).count > 6) {
-            setDefaultDataset() //デプロイするたびにPathが変わるので．．．
-        //}
+    }
+    
+    //画面に来る度，毎回呼び出される
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         sounds = database.extractByUserId(1)
-
+        print("load local data ...")
         soundPlayer = SoundPlayer()
         soundPlayer.delegate = self
         soundPlayer.initPlayer(url: URL(fileURLWithPath: sounds[0].file_path))
-    }
-    
-    func setDefaultDataset()
-    {
-        database.deleteAll()
         
-        var audioPath = Bundle.main.path(forResource: "yurakucho_muzhirusi", ofType:"m4a")!
-        database.create(audioPath, dataName: "有楽町", userId: 1, tags: ["night", "cool", "refresh"])
-        database.add()
-        
-        audioPath = Bundle.main.path(forResource: "washroom", ofType:"wav")!
-        database.create(audioPath, dataName: "洗面所", userId: 1, tags: ["water", "healing"])
-        database.add()
-        
-        audioPath = Bundle.main.path(forResource: "akihabara_lunch", ofType:"m4a")!
-        database.create(audioPath, dataName: "秋葉原", userId: 1, tags: ["lunch"])
-        database.add()
-        
-        audioPath = Bundle.main.path(forResource: "on_the_bridge", ofType:"m4a")!
-        database.create(audioPath, dataName: "橋の上", userId: 1, tags: ["wind"])
-        database.add()
-        
-        audioPath = Bundle.main.path(forResource: "ginza_east", ofType:"m4a")!
-        database.create(audioPath, dataName: "東銀座", userId: 1, tags: ["talking"])
-        database.add()
-        
-        audioPath = Bundle.main.path(forResource: "on_stair", ofType:"m4a")!
-        database.create(audioPath, dataName: "階段", userId: 1, tags: ["tonton"])
-        database.add()
+        //Now reload the tableView
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {

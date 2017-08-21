@@ -33,7 +33,7 @@ class PostViewController: ViewController {
         let file_path = temp_data.loadDataPath()
         //let url = URL(fileURLWithPath: file_path)
         print("post")
-        database.create(file_path, dataName: "テスト", userId: 1, tags:["fun", "happy", "hot"])
+        database.create(file_path, dataName: "録音した音", userId: 1, tags:["fun", "happy", "hot"])
         database.add()
         //self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
     }
@@ -41,12 +41,13 @@ class PostViewController: ViewController {
     @IBAction func buttonTapped(_ sender : Any)
     {
         post()
-        postButton.setTitle("finish posted", for: .normal)
+        //postButton.setTitle("finish posted", for: .normal)
         self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
         //強制遷移をつける？
     }
     @IBAction func dismissButtonTapped(_ sender : Any)
     {
+        print("dismiss")
         self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
         //強制遷移をつける？
     }

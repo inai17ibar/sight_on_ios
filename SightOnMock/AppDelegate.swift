@@ -12,11 +12,42 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    let database = DatabaseAccessManager()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        // ここに初期化処理を書く
+        setDefaultDataset() //Realmの登録内容の初期化
         return true
+    }
+    
+    func setDefaultDataset()
+    {
+        database.deleteAll()
+        
+        var audioPath = Bundle.main.path(forResource: "yurakucho_muzhirusi", ofType:"m4a")!
+        database.create(audioPath, dataName: "有楽町", userId: 1, tags: ["night", "cool", "refresh"])
+        database.add()
+        
+        audioPath = Bundle.main.path(forResource: "washroom", ofType:"wav")!
+        database.create(audioPath, dataName: "洗面所", userId: 1, tags: ["water", "healing"])
+        database.add()
+        
+        audioPath = Bundle.main.path(forResource: "akihabara_lunch", ofType:"m4a")!
+        database.create(audioPath, dataName: "秋葉原", userId: 1, tags: ["lunch"])
+        database.add()
+        
+        audioPath = Bundle.main.path(forResource: "on_the_bridge", ofType:"m4a")!
+        database.create(audioPath, dataName: "橋の上", userId: 1, tags: ["wind"])
+        database.add()
+        
+        audioPath = Bundle.main.path(forResource: "ginza_east", ofType:"m4a")!
+        database.create(audioPath, dataName: "東銀座", userId: 1, tags: ["talking"])
+        database.add()
+        
+        audioPath = Bundle.main.path(forResource: "on_stair", ofType:"m4a")!
+        database.create(audioPath, dataName: "階段", userId: 1, tags: ["tonton"])
+        database.add()
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
