@@ -47,6 +47,11 @@ class AutoEditViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // 再生と録音の機能をアクティブにする
+        let session = AVAudioSession.sharedInstance()
+        try! session.setCategory(AVAudioSessionCategoryPlayback) //SoloAmbient
+        try! session.setActive(true)
+        
         do {
             let audioFile = try AVAudioFile(forReading: fileUrl)
             audioFormat = audioFile.processingFormat
