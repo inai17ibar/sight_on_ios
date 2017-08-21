@@ -160,18 +160,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="31T-dK-dw1">
-                                <rect key="frame" x="0.0" y="567" width="375" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="30"/>
-                                <state key="normal" title="Next">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="buttonTapped:" destination="h1Q-YG-fGP" eventType="touchDown" id="FUk-fc-JdZ"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LSe-8U-JFe" userLabel="Wave View">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="467"/>
                                 <subviews>
@@ -211,10 +199,10 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ILW-Jy-1T8" userLabel="View2">
-                                                                <rect key="frame" x="0.0" y="56" width="375" height="56"/>
+                                                                <rect key="frame" x="0.0" y="56" width="375" height="75"/>
                                                                 <subviews>
                                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10000" minValue="500" maxValue="20000" translatesAutoresizingMaskIntoConstraints="NO" id="x6d-LF-MU7">
-                                                                        <rect key="frame" x="28" y="13" width="319" height="31"/>
+                                                                        <rect key="frame" x="28" y="22.5" width="319" height="31"/>
                                                                         <connections>
                                                                             <action selector="sliderDelayChangedWithSender:" destination="h1Q-YG-fGP" eventType="valueChanged" id="PKN-zt-kIX"/>
                                                                         </connections>
@@ -229,10 +217,10 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e4Z-cQ-8WF" userLabel="View3">
-                                                                <rect key="frame" x="0.0" y="112" width="375" height="75"/>
+                                                                <rect key="frame" x="0.0" y="131" width="375" height="56"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1HM-Jd-JaT">
-                                                                        <rect key="frame" x="162" y="22" width="51" height="30"/>
+                                                                        <rect key="frame" x="162" y="-0.5" width="51" height="56"/>
                                                                         <state key="normal" title="Update">
                                                                             <color key="titleColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                         </state>
@@ -247,13 +235,15 @@
                                                                     <constraint firstItem="1HM-Jd-JaT" firstAttribute="centerY" secondItem="e4Z-cQ-8WF" secondAttribute="centerY" id="R4o-us-zc4"/>
                                                                     <constraint firstAttribute="trailing" secondItem="1HM-Jd-JaT" secondAttribute="trailing" constant="162" id="XQL-Kx-d8A"/>
                                                                     <constraint firstItem="1HM-Jd-JaT" firstAttribute="leading" secondItem="e4Z-cQ-8WF" secondAttribute="leading" constant="162" id="tKl-Va-xtP"/>
+                                                                    <constraint firstItem="1HM-Jd-JaT" firstAttribute="height" secondItem="e4Z-cQ-8WF" secondAttribute="height" id="w0n-fz-sUi"/>
                                                                 </constraints>
                                                             </view>
                                                         </subviews>
                                                         <constraints>
                                                             <constraint firstItem="Wl9-4J-119" firstAttribute="height" secondItem="Ldy-B8-ilv" secondAttribute="height" multiplier="0.3" id="1je-p0-V3w"/>
+                                                            <constraint firstItem="e4Z-cQ-8WF" firstAttribute="height" secondItem="Ldy-B8-ilv" secondAttribute="height" multiplier="0.2" priority="999" id="7YZ-mv-BVa"/>
                                                             <constraint firstItem="Wl9-4J-119" firstAttribute="width" secondItem="Ldy-B8-ilv" secondAttribute="width" id="7sO-5I-yGf"/>
-                                                            <constraint firstItem="ILW-Jy-1T8" firstAttribute="height" secondItem="Ldy-B8-ilv" secondAttribute="height" multiplier="0.3" id="9YV-JG-ezz"/>
+                                                            <constraint firstItem="ILW-Jy-1T8" firstAttribute="height" secondItem="Ldy-B8-ilv" secondAttribute="height" multiplier="0.4" id="9YV-JG-ezz"/>
                                                             <constraint firstItem="Wl9-4J-119" firstAttribute="centerX" secondItem="Ldy-B8-ilv" secondAttribute="centerX" id="Mzm-je-dhm"/>
                                                             <constraint firstItem="ILW-Jy-1T8" firstAttribute="centerX" secondItem="Ldy-B8-ilv" secondAttribute="centerX" id="URN-P4-uSl"/>
                                                             <constraint firstItem="e4Z-cQ-8WF" firstAttribute="centerX" secondItem="Ldy-B8-ilv" secondAttribute="centerX" id="mv4-GO-Xnk"/>
@@ -291,13 +281,31 @@
                                     <constraint firstItem="jgB-Kk-F0s" firstAttribute="centerY" secondItem="LSe-8U-JFe" secondAttribute="centerY" id="a54-si-3Yn"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="31T-dK-dw1">
+                                <rect key="frame" x="0.0" y="567" width="375" height="100"/>
+                                <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="100" id="1He-mL-iLa"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="oPn-Fx-fbn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="30"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonTapped:" destination="h1Q-YG-fGP" eventType="touchDown" id="FUk-fc-JdZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="LSe-8U-JFe" firstAttribute="top" secondItem="m2M-xD-i6w" secondAttribute="bottom" constant="-20" id="L2p-Nf-bgK"/>
+                            <constraint firstItem="31T-dK-dw1" firstAttribute="centerX" secondItem="bcw-Jn-VRS" secondAttribute="centerX" id="MDM-2r-evc"/>
                             <constraint firstItem="LSe-8U-JFe" firstAttribute="centerX" secondItem="bcw-Jn-VRS" secondAttribute="centerX" id="NS5-TX-zSU"/>
-                            <constraint firstItem="LSe-8U-JFe" firstAttribute="top" secondItem="m2M-xD-i6w" secondAttribute="bottom" constant="-20" id="XDm-kH-baG"/>
+                            <constraint firstItem="31T-dK-dw1" firstAttribute="width" secondItem="bcw-Jn-VRS" secondAttribute="width" id="a6U-Q3-3qc"/>
                             <constraint firstItem="LSe-8U-JFe" firstAttribute="height" secondItem="bcw-Jn-VRS" secondAttribute="height" constant="-200" id="aIS-Vj-z2x"/>
                             <constraint firstItem="LSe-8U-JFe" firstAttribute="width" secondItem="bcw-Jn-VRS" secondAttribute="width" id="dKA-rv-dq5"/>
+                            <constraint firstItem="TTi-fw-iG9" firstAttribute="top" secondItem="31T-dK-dw1" secondAttribute="bottom" id="mdj-kU-NF8"/>
                         </constraints>
                     </view>
                     <connections>
