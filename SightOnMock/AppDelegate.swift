@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         database.create(audioPath, dataName: "階段", userId: 1, tags: ["tonton"])
         database.add()
         
-        audioPath = Bundle.main.path(forResource: "India", ofType:"wav")!
+        /*audioPath = Bundle.main.path(forResource: "India", ofType:"wav")!
         database.create(audioPath, dataName: "インドの街", userId: 1, tags: ["night", "India", "dangerous"])
         database.add()
         audioPath = Bundle.main.path(forResource: "India", ofType:"wav")!
@@ -57,7 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         database.add()
         audioPath = Bundle.main.path(forResource: "India", ofType:"wav")!
         database.create(audioPath, dataName: "ケチャダンス", userId: 1, tags: ["kecak", "dance"])
-        database.add()
+        database.add()*/
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
