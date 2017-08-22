@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setDefaultDataset()
     {
         database.deleteAll()
-        
+
         var audioPath = Bundle.main.path(forResource: "yurakucho_muzhirusi", ofType:"m4a")!
         database.create(audioPath, dataName: "有楽町", userId: 1, tags: ["night", "cool", "refresh"])
         database.add()
@@ -47,6 +47,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         audioPath = Bundle.main.path(forResource: "on_stair", ofType:"m4a")!
         database.create(audioPath, dataName: "階段", userId: 1, tags: ["tonton"])
+        database.add()
+        
+        audioPath = Bundle.main.path(forResource: "India", ofType:"wav")!
+        database.create(audioPath, dataName: "インドの街", userId: 1, tags: ["night", "India", "dangerous"])
+        database.add()
+        audioPath = Bundle.main.path(forResource: "India", ofType:"wav")!
+        database.create(audioPath, dataName: "エレベーター", userId: 1, tags: ["elevator"])
+        database.add()
+        audioPath = Bundle.main.path(forResource: "India", ofType:"wav")!
+        database.create(audioPath, dataName: "ケチャダンス", userId: 1, tags: ["kecak", "dance"])
         database.add()
     }
 

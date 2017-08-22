@@ -368,7 +368,10 @@
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRX-OM-h9I" userLabel="Button l1">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="188" height="151"/>
                                                                                 <color key="backgroundColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
-                                                                                <state key="normal" title="Button"/>
+                                                                                <state key="normal" title="Soft reverb"/>
+                                                                                <connections>
+                                                                                    <action selector="button1Tapped:" destination="1J9-8H-C0P" eventType="touchUpInside" id="bLo-XM-yim"/>
+                                                                                </connections>
                                                                             </button>
                                                                         </subviews>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -384,7 +387,7 @@
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bpA-kB-TEb" userLabel="Button l2">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="188" height="150"/>
-                                                                                <state key="normal" title="Button"/>
+                                                                                <state key="normal" title="Effect 3"/>
                                                                             </button>
                                                                         </subviews>
                                                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -400,7 +403,7 @@
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1yg-tu-qr9" userLabel="Button l3">
                                                                                 <rect key="frame" x="0.0" y="-0.5" width="188" height="151"/>
-                                                                                <state key="normal" title="Button"/>
+                                                                                <state key="normal" title="Effect 5"/>
                                                                             </button>
                                                                         </subviews>
                                                                         <color key="backgroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -450,7 +453,10 @@
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yym-dj-mdH" userLabel="Button r1">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="187" height="151"/>
                                                                                 <color key="backgroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                                                <state key="normal" title="Button"/>
+                                                                                <state key="normal" title="Hard reverb"/>
+                                                                                <connections>
+                                                                                    <action selector="button2Tapped:" destination="1J9-8H-C0P" eventType="touchUpInside" id="0Ev-V0-bWo"/>
+                                                                                </connections>
                                                                             </button>
                                                                         </subviews>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -466,7 +472,7 @@
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W6s-iY-ufH" userLabel="Button r2">
                                                                                 <rect key="frame" x="0.0" y="60" width="187" height="30"/>
-                                                                                <state key="normal" title="Button"/>
+                                                                                <state key="normal" title="Effect 4"/>
                                                                             </button>
                                                                         </subviews>
                                                                         <color key="backgroundColor" red="0.49582231989999997" green="0.49192096530000001" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
@@ -481,7 +487,10 @@
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mcy-Ha-G7m" userLabel="Button r3">
                                                                                 <rect key="frame" x="0.0" y="-0.5" width="187" height="151"/>
-                                                                                <state key="normal" title="Button"/>
+                                                                                <state key="normal" title="Reset"/>
+                                                                                <connections>
+                                                                                    <action selector="button6Tapped:" destination="1J9-8H-C0P" eventType="touchUpInside" id="4Sy-28-Xvz"/>
+                                                                                </connections>
                                                                             </button>
                                                                         </subviews>
                                                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -543,7 +552,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FcO-Fc-UuM" userLabel="View1">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                                         <subviews>
-                                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="reverb" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QAJ-Hv-DJG">
+                                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="status" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QAJ-Hv-DJG">
                                                                 <rect key="frame" x="50" y="10" width="275" height="30"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -620,6 +629,7 @@
                     </view>
                     <connections>
                         <outlet property="sliderReverb" destination="Eng-Ca-7Lb" id="30d-ff-GON"/>
+                        <outlet property="status" destination="QAJ-Hv-DJG" id="eHk-n9-EhA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xu5-tx-0Tt" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -14,7 +14,7 @@ import AudioToolbox
 
 class ManualEditViewController: ViewController {
 
-    @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var status: UITextField!
     @IBOutlet weak var sliderReverb: UISlider!
     let temp_data = TemporaryDataManager()
     //var player: AVAudioPlayer?
@@ -108,10 +108,21 @@ class ManualEditViewController: ViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func buttonTapped(_ sender : Any) {
-        gotoPost()
-        print("end of this story")
+
+    @IBAction func button1Tapped(_ sender : Any){
+        reverb.wetDryMix = 40
+        status.text="soft reverb"
     }
+    @IBAction func button2Tapped(_ sender : Any) {
+        reverb.wetDryMix = 100
+        status.text="hard reverb"
+    }
+
+    @IBAction func button6Tapped(_ sender : Any) {
+        reverb.wetDryMix = 0
+        status.text="status"
+     }
+    
     
     @IBAction func sliderReverbChanged(sender: UISlider) {
         reverb.wetDryMix = sliderReverb.value
@@ -129,6 +140,7 @@ class ManualEditViewController: ViewController {
         } else {
             //print("Post Portrait")
             if (className == "ManualEditViewController"){
+                status.text="processing..."
                 gotoPost()
             }
         }
@@ -141,6 +153,7 @@ class ManualEditViewController: ViewController {
         //print(fileUrl_write)
         var goFlag=false
         do{
+            
             let audioFile_write = try AVAudioFile(forWriting: fileUrl_write, settings: audioFormat.settings)
             reverb.installTap(onBus: 0, bufferSize: AVAudioFrameCount(audiolength), format: audioFormat, block: {buffer, when in
                 if Int(audioFile_write.length) < self.audiolength{//Let us know when to stop saving the file, otherwise saving infinitely
