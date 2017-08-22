@@ -95,7 +95,7 @@ class AutoEditViewController: ViewController {
             //Delayの設定
             // 高域側のカットオフ周波数
             //audioFile.processingFormat.sampleRate
-            delay.lowPassCutoff = 10000;    // Range: 10 -> (samplerate/2)
+            delay.lowPassCutoff = 4000;    // Range: 10 -> (samplerate/2)
             delay.delayTime = 0;
             delay.feedback = 0;
             // AudioEngineにnodeを設定
@@ -121,14 +121,17 @@ class AutoEditViewController: ViewController {
             // 再生開始
             
             self.player.play()
-            
             //
           } catch let error {
-            print(error)
+           print(error)
         }
-
+      
     }
-
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+         saveaudiofile_() 
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
