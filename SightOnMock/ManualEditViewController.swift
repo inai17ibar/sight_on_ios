@@ -36,6 +36,9 @@ class ManualEditViewController: ViewController {
     var currentControllerName = "Anonymous"
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
+        tap.numberOfTapsRequired = 2
+        view.addGestureRecognizer(tap)
         do {
             //print(fileUrl)
             let audioFile = try AVAudioFile(forReading: fileUrl)
@@ -200,6 +203,11 @@ class ManualEditViewController: ViewController {
             self.present(nextViewController, animated:true, completion:nil)*/
         }
 
+    }
+    func doubleTapped() {
+        // do something cool here
+        print("ダブルタップ")
+        self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
     }
     /*
     // MARK: - Navigation

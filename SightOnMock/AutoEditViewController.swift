@@ -55,7 +55,10 @@ class AutoEditViewController: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
+        tap.numberOfTapsRequired = 2
+        view.addGestureRecognizer(tap)
         // 再生と録音の機能をアクティブにする
         let session = AVAudioSession.sharedInstance()
         try! session.setCategory(AVAudioSessionCategoryPlayback) //SoloAmbient
@@ -250,6 +253,12 @@ class AutoEditViewController: ViewController {
         waveChartAutoEdit.rightAxis.drawLabelsEnabled = false
         waveChartAutoEdit.chartDescription?.text = "after edit wave"
         waveChartAutoEdit.legend.enabled = false
+    }
+    
+    func doubleTapped() {
+        // do something cool here
+        print("ダブルタップ")
+        self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
     }
     /*
     // MARK: - Navigation
