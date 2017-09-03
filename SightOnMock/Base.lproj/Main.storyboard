@@ -35,40 +35,40 @@
                             <imageView userInteractionEnabled="NO" alpha="0.45000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RecordBackgroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="e5F-55-t3Y">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recorder" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7EW-kk-TbH">
-                                <rect key="frame" x="0.0" y="116.5" width="375" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oNp-Bq-EvE" userLabel="RecordButton">
-                                <rect key="frame" x="0.0" y="517" width="375" height="150"/>
-                                <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="0.2597121147260274" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="JOr-zS-X6l"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Record">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oNp-Bq-EvE" userLabel="RecordButton">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.1994060359589041" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name=".HiraKakuInterface-W3" family=".Hiragino Kaku Gothic Interface" pointSize="24"/>
+                                <state key="normal" title="画面をダブルタップすると再生できます">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchDown" id="Xwc-KV-UOj"/>
                                 </connections>
                             </button>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5D-bu-c5w">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="barTintColor" red="0.15800479049999999" green="0.15815737839999999" blue="0.15802845360000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="20"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="レコード画面．この画面ではマイクを使って音声を録音できます．画面の全体が1つのボタンになっています．タップすると音声の再生を開始します．停止するときはもう一度画面をタップしてください．右から左にスワイプすると，レコード画面に移動できます" id="JLk-kP-KPh"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="0.15800479054450989" green="0.15815737843513489" blue="0.15802845358848572" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="e5F-55-t3Y" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="35F-UH-70F"/>
-                            <constraint firstItem="7EW-kk-TbH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4yh-Go-egJ"/>
-                            <constraint firstItem="7EW-kk-TbH" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="60m-hO-auO"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="e5F-55-t3Y" secondAttribute="bottom" id="6Fp-4R-xZa"/>
                             <constraint firstItem="e5F-55-t3Y" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="8lv-yi-sf2"/>
-                            <constraint firstItem="7EW-kk-TbH" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-200" id="Bxs-cc-Mcm"/>
                             <constraint firstItem="e5F-55-t3Y" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="DUd-x1-b9m"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="oNp-Bq-EvE" secondAttribute="bottom" id="EaF-h3-1Aq" userLabel="Bottom Layout Guide.top = RecordButton.bottom"/>
                             <constraint firstAttribute="trailing" secondItem="e5F-55-t3Y" secondAttribute="trailing" id="MSY-of-cUD"/>
                             <constraint firstItem="oNp-Bq-EvE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OgM-qq-rJC"/>
                             <constraint firstAttribute="trailing" secondItem="e5F-55-t3Y" secondAttribute="trailing" id="czw-O6-KN7"/>
+                            <constraint firstItem="oNp-Bq-EvE" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="dbq-qh-vhR"/>
                             <constraint firstAttribute="trailing" secondItem="e5F-55-t3Y" secondAttribute="trailing" id="pZf-14-ONS"/>
                             <constraint firstItem="oNp-Bq-EvE" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="qAv-Nr-o9B"/>
                             <constraint firstItem="e5F-55-t3Y" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="wr3-l4-ksO"/>
@@ -80,7 +80,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="405.60000000000002" y="-670.61469265367316"/>
+            <point key="canvasLocation" x="1292" y="-670.61469265367316"/>
         </scene>
         <!--Post View Controller-->
         <scene sceneID="TKx-I9-Qe2">
@@ -108,15 +108,6 @@
                                     <action selector="dismissButtonTapped:" destination="Yi1-cS-iMR" eventType="touchUpInside" id="RhV-5l-4L0"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="portrait: Post mode &lt;=&gt; landscape : Edit mode" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A8c-tD-dpC">
-                                <rect key="frame" x="0.0" y="283.5" width="375" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="xfW-vP-TFQ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KVi-gL-m5p">
                                 <rect key="frame" x="0.0" y="467" width="375" height="100"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -134,12 +125,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="A8c-tD-dpC" firstAttribute="width" secondItem="Qp7-Cf-vvT" secondAttribute="width" id="2wg-2K-306"/>
                             <constraint firstItem="KVi-gL-m5p" firstAttribute="centerX" secondItem="Qp7-Cf-vvT" secondAttribute="centerX" id="BTp-Z6-Iyg"/>
                             <constraint firstItem="bsX-SL-uYe" firstAttribute="top" secondItem="KVi-gL-m5p" secondAttribute="bottom" id="XmP-eD-Xo0"/>
-                            <constraint firstItem="A8c-tD-dpC" firstAttribute="centerY" secondItem="Qp7-Cf-vvT" secondAttribute="centerY" id="m7B-4F-SYC"/>
                             <constraint firstItem="KVi-gL-m5p" firstAttribute="width" secondItem="Qp7-Cf-vvT" secondAttribute="width" id="mBK-kE-hN4"/>
-                            <constraint firstItem="A8c-tD-dpC" firstAttribute="centerX" secondItem="Qp7-Cf-vvT" secondAttribute="centerX" id="nuG-fF-sYi"/>
                             <constraint firstItem="bsX-SL-uYe" firstAttribute="width" secondItem="Qp7-Cf-vvT" secondAttribute="width" id="oA5-OC-wrW"/>
                             <constraint firstItem="bsX-SL-uYe" firstAttribute="bottom" secondItem="Yd2-Fs-EcK" secondAttribute="top" id="tZ5-TM-o4l"/>
                             <constraint firstItem="bsX-SL-uYe" firstAttribute="centerX" secondItem="Qp7-Cf-vvT" secondAttribute="centerX" id="xw8-py-9X3"/>
@@ -769,13 +757,13 @@
                             </tableView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uKR-fK-TaK">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="barTintColor" red="0.15800479054450989" green="0.15815737843513489" blue="0.15802845358848572" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textAttributes key="titleTextAttributes">
                                     <fontDescription key="fontDescription" type="italicSystem" pointSize="20"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="SightOn" id="dcs-Ad-vgC"/>
+                                    <navigationItem title="フィード画面．この画面では録音した音声を再生できます．最新の音声からリストで並んでいます．項目をタップすると音声を再生します．左から右にスワイプすると，レコード画面に移動できます" id="dcs-Ad-vgC"/>
                                 </items>
                             </navigationBar>
                         </subviews>
@@ -793,7 +781,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="91k-SS-nZ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-375.19999999999999" y="-669.71514242878561"/>
+            <point key="canvasLocation" x="406" y="-670"/>
         </scene>
     </scenes>
     <resources>

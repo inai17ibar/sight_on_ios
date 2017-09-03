@@ -97,7 +97,8 @@ class RecordViewController: ViewController{
         else{
             print("start recording")
             initRecorder()
-            button.setTitle("Now recording...", for: .normal)
+            let instruction_text = "録音中です．ダブルタップで録音を終了します．"
+            button.setTitle(instruction_text, for: .normal)
             audioRecorder.record()
         }
     }

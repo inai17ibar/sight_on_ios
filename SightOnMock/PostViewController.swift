@@ -64,15 +64,13 @@ class PostViewController: ViewController {
         }
         
         post()
-        //postButton.setTitle("finish posted", for: .normal)
+
         self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
-        //強制遷移をつける？
     }
     @IBAction func dismissButtonTapped(_ sender : Any)
     {
         print("dismiss")
         self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
-        //強制遷移をつける？
     }
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
