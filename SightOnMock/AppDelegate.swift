@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,7 +19,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         // ここに初期化処理を書く
         setDefaultDataset() //Realmの登録内容の初期化
+        firstInstruction()
         return true
+    }
+    
+    func firstInstruction()
+    {
+        let talker = AVSpeechSynthesizer()
+        let utterance = AVSpeechUtterance(string: "サイトオンのアプリでは．簡単な操作で音の録音と再生ができます。画面の上端の見出し部分をタッチすると，その画面のヘルプを読み上げます")
+        utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
+        talker.speak(utterance)
     }
     
     func setDefaultDataset()

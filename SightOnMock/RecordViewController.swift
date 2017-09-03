@@ -34,9 +34,37 @@ class RecordViewController: ViewController{
         super.viewDidLoad()
 
         soundPlayer = SoundPlayer()
-        initRecorder()
+        //initRecorder()
+        disactiveRecorder()
     }
 
+    func disactiveRecorder()
+    {
+        // 録音ファイルを指定する
+        filePath = NSHomeDirectory() + "/Documents/temp_data_"+getNowClockString()+".wav"
+        let url = URL(fileURLWithPath: filePath)
+        
+        // 録音の詳細設定
+        let recordSetting : [String : AnyObject] = [
+            AVFormatIDKey : UInt(kAudioFormatALaw) as AnyObject,
+            AVEncoderAudioQualityKey : AVAudioQuality.min.rawValue as AnyObject,
+            AVEncoderBitRateKey : 16 as AnyObject,
+            AVNumberOfChannelsKey: 2 as AnyObject,
+            AVSampleRateKey: 44100.0 as AnyObject
+        ]
+        
+        // 再生と録音の機能をアクティブにする
+        let session = AVAudioSession.sharedInstance()
+        try! session.setCategory(AVAudioSessionCategorySoloAmbient)
+        try! session.setActive(true)
+        
+        do {
+            audioRecorder = try AVAudioRecorder(url: url, settings: recordSetting)
+        } catch {
+            fatalError("cannot init AudioRecorder")
+        }
+    }
+    
     func initRecorder()
     {
         // 録音ファイルを指定する
@@ -45,14 +73,12 @@ class RecordViewController: ViewController{
 
         // 再生と録音の機能をアクティブにする
         let session = AVAudioSession.sharedInstance()
-        try! session.setCategory(AVAudioSessionCategoryPlayAndRecord)
+        try! session.setCategory(AVAudioSessionCategoryPlayAndRecord) //AVAudioSessionCategoryRecord これにすると音をフィードバックを使えるかわりに音声にノイズが入る
         try! session.setActive(true)
 
         // 録音の詳細設定
         let recordSetting : [String : AnyObject] = [
-            //AVFormatIDKey : UInt(kAudioFormatAppleLossless) as AnyObject,
             AVFormatIDKey : UInt(kAudioFormatALaw) as AnyObject,
-
             AVEncoderAudioQualityKey : AVAudioQuality.min.rawValue as AnyObject,
             AVEncoderBitRateKey : 16 as AnyObject,
             AVNumberOfChannelsKey: 2 as AnyObject,
@@ -77,19 +103,19 @@ class RecordViewController: ViewController{
 
         if #available(iOS 10.0, *), let generator = feedbackGenerator as? UIImpactFeedbackGenerator {
             generator.impactOccurred()
-            print("on haptic!")
+            //print("on haptic!")
         }
 
         if(audioRecorder.isRecording)
         {
             print("stop recording")
-            button.setTitle("Record", for: .normal)
+            button.setTitle("録音停止．投稿画面に移動します.", for: .normal)
             audioRecorder.stop()
             saveRecordData()
+            
+            disactiveRecorder()
 
-            //いつ初期化するのがいいか？？
-            soundPlayer.initPlayer(url: URL(fileURLWithPath: dataManager.loadDataPath()))
-
+            //soundPlayer.initPlayer(url: URL(fileURLWithPath: dataManager.loadDataPath()))
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "AutoEdit")
             self.present(nextViewController, animated:true, completion:nil)
@@ -97,7 +123,7 @@ class RecordViewController: ViewController{
         else{
             print("start recording")
             initRecorder()
-            let instruction_text = "録音中です．ダブルタップで録音を終了します．"
+            let instruction_text = "録音中．ダブルタップで録音を終了します．"
             button.setTitle(instruction_text, for: .normal)
             audioRecorder.record()
         }
@@ -108,29 +134,13 @@ class RecordViewController: ViewController{
         dataManager.saveDataPath(filePath)
     }
 
-
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
-
     func updatePlayBtnsTitle(text: String)
     {
         //messageLabel.text = text
     }
-
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

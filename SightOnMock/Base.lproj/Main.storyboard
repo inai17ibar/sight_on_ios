@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -51,10 +50,10 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="barTintColor" red="0.15800479049999999" green="0.15815737839999999" blue="0.15802845360000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textAttributes key="titleTextAttributes">
-                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="20"/>
+                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="16"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="レコード画面．この画面ではマイクを使って音声を録音できます．画面の全体が1つのボタンになっています．タップすると音声の再生を開始します．停止するときはもう一度画面をタップしてください．右から左にスワイプすると，レコード画面に移動できます" id="JLk-kP-KPh"/>
+                                    <navigationItem title="録音画面。この画面ではマイクを使って音声を録音できます．画面の全体が1つのボタンになっています。タップすると音声の再生を開始します。停止するときはもう一度画面をタップしてください。右から左にスワイプすると，レコード画面に移動できます" id="JLk-kP-KPh"/>
                                 </items>
                             </navigationBar>
                         </subviews>
@@ -97,13 +96,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bsX-SL-uYe">
-                                <rect key="frame" x="0.0" y="567" width="375" height="100"/>
+                                <rect key="frame" x="0.0" y="587" width="375" height="80"/>
                                 <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="DbC-Jn-CU8"/>
+                                    <constraint firstAttribute="height" constant="80" id="DbC-Jn-CU8"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Dismiss">
+                                <state key="normal" title="キャンセルボタン．ダブルタップで音声の保存をキャンセルします．">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -111,23 +110,32 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KVi-gL-m5p">
-                                <rect key="frame" x="0.0" y="467" width="375" height="100"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="523"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="5ir-hs-G3k"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Post">
+                                <state key="normal" title="保存ボタン．ダブルタップすると音声データを保存します．">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="buttonTapped:" destination="Yi1-cS-iMR" eventType="touchUpInside" id="G5H-iY-G89"/>
                                 </connections>
                             </button>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jLs-C3-h6V">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="barTintColor" red="0.15800479049999999" green="0.15815737839999999" blue="0.15802845360000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="16"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="保存画面。この画面では，先ほど録音した音声の保存ができます。保存するときは，画面をタップしてください。画面の中心部をタップすると音声を保存します。画面の下端をタップすると音声の保存をキャンセルします。" id="h7z-aL-Yem"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.15800479054450989" green="0.15815737843513489" blue="0.15802845358848572" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="KVi-gL-m5p" firstAttribute="centerX" secondItem="Qp7-Cf-vvT" secondAttribute="centerX" id="BTp-Z6-Iyg"/>
+                            <constraint firstItem="KVi-gL-m5p" firstAttribute="height" secondItem="Qp7-Cf-vvT" secondAttribute="height" constant="-144" id="D1N-fs-s74"/>
                             <constraint firstItem="bsX-SL-uYe" firstAttribute="top" secondItem="KVi-gL-m5p" secondAttribute="bottom" id="XmP-eD-Xo0"/>
                             <constraint firstItem="KVi-gL-m5p" firstAttribute="width" secondItem="Qp7-Cf-vvT" secondAttribute="width" id="mBK-kE-hN4"/>
                             <constraint firstItem="bsX-SL-uYe" firstAttribute="width" secondItem="Qp7-Cf-vvT" secondAttribute="width" id="oA5-OC-wrW"/>
@@ -655,33 +663,35 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k3Q-Tj-3vv" userLabel="Text View">
                                                     <rect key="frame" x="80" y="0.0" width="287" height="80"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TitleLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="USI-Qw-W8k">
-                                                            <rect key="frame" x="5" y="8" width="79" height="21.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="音声タイトル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="USI-Qw-W8k">
+                                                            <rect key="frame" x="5" y="8" width="98" height="19.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#TagLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sv8-Ck-pTo">
-                                                            <rect key="frame" x="5" y="57.5" width="59" height="14.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#音声タグ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sv8-Ck-pTo">
+                                                            <rect key="frame" x="5" y="56" width="66" height="17"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@ユーザ名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NxL-t3-ByS">
+                                                            <rect key="frame" x="209" y="5" width="70" height="17"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="bottom" secondItem="Sv8-Ck-pTo" secondAttribute="bottom" constant="8" id="Ela-7Q-D3E"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Sv8-Ck-pTo" secondAttribute="bottom" constant="7" id="Ela-7Q-D3E"/>
+                                                        <constraint firstAttribute="trailing" secondItem="NxL-t3-ByS" secondAttribute="trailing" constant="8" id="KtR-q4-Afn"/>
                                                         <constraint firstItem="USI-Qw-W8k" firstAttribute="top" secondItem="k3Q-Tj-3vv" secondAttribute="top" constant="8" id="LHm-rz-P7j"/>
                                                         <constraint firstItem="Sv8-Ck-pTo" firstAttribute="leading" secondItem="k3Q-Tj-3vv" secondAttribute="leading" constant="5" id="nUR-3f-kAQ"/>
                                                         <constraint firstItem="USI-Qw-W8k" firstAttribute="leading" secondItem="k3Q-Tj-3vv" secondAttribute="leading" constant="5" id="piL-Ea-5KA"/>
+                                                        <constraint firstItem="NxL-t3-ByS" firstAttribute="top" secondItem="k3Q-Tj-3vv" secondAttribute="top" constant="5" id="xBs-nW-a3l"/>
                                                     </constraints>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@UserNameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NxL-t3-ByS">
-                                                    <rect key="frame" x="260.5" y="16" width="101.5" height="14.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7FU-Ln-cJI">
                                                     <rect key="frame" x="242" y="43" width="128" height="32"/>
                                                     <subviews>
@@ -691,21 +701,7 @@
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s9c-vr-Ro8" userLabel="View2">
                                                             <rect key="frame" x="32" y="0.0" width="32" height="32"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gB-5t-Abv">
-                                                                    <rect key="frame" x="0.0" y="-0.5" width="32" height="32"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                    <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <constraints>
-                                                                <constraint firstItem="9gB-5t-Abv" firstAttribute="centerY" secondItem="s9c-vr-Ro8" secondAttribute="centerY" id="A3M-Vg-eVR"/>
-                                                                <constraint firstItem="9gB-5t-Abv" firstAttribute="centerX" secondItem="s9c-vr-Ro8" secondAttribute="centerX" id="DRn-Sm-rdH"/>
-                                                                <constraint firstItem="9gB-5t-Abv" firstAttribute="height" secondItem="s9c-vr-Ro8" secondAttribute="height" id="TUw-a3-VEJ"/>
-                                                                <constraint firstItem="9gB-5t-Abv" firstAttribute="width" secondItem="s9c-vr-Ro8" secondAttribute="width" id="ipj-Fx-fYq"/>
-                                                            </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mGf-Yf-fKO" userLabel="View3">
                                                             <rect key="frame" x="64" y="0.0" width="32" height="32"/>
@@ -730,7 +726,6 @@
                                                 <constraint firstItem="k3Q-Tj-3vv" firstAttribute="width" secondItem="zvU-g6-WYf" secondAttribute="width" constant="-88" id="EoP-L1-AhZ"/>
                                                 <constraint firstItem="ATb-Ra-z15" firstAttribute="centerY" secondItem="zvU-g6-WYf" secondAttribute="centerY" id="FAr-V6-ha7"/>
                                                 <constraint firstItem="k3Q-Tj-3vv" firstAttribute="top" secondItem="zvU-g6-WYf" secondAttribute="top" id="FOg-1B-NIK"/>
-                                                <constraint firstItem="NxL-t3-ByS" firstAttribute="trailing" secondItem="zvU-g6-WYf" secondAttribute="trailingMargin" constant="-5" id="OGF-Si-v4L"/>
                                                 <constraint firstItem="k3Q-Tj-3vv" firstAttribute="height" secondItem="zvU-g6-WYf" secondAttribute="height" id="Ruq-g5-uXy"/>
                                                 <constraint firstItem="ATb-Ra-z15" firstAttribute="top" secondItem="zvU-g6-WYf" secondAttribute="top" constant="8" id="WwA-sG-t5Y"/>
                                                 <constraint firstItem="k3Q-Tj-3vv" firstAttribute="centerY" secondItem="zvU-g6-WYf" secondAttribute="centerY" id="XMA-WR-WOL"/>
@@ -738,7 +733,6 @@
                                                 <constraint firstAttribute="trailing" secondItem="k3Q-Tj-3vv" secondAttribute="trailing" constant="8" id="dMz-g7-OYg"/>
                                                 <constraint firstAttribute="trailing" secondItem="7FU-Ln-cJI" secondAttribute="trailing" constant="5" id="eW0-wt-eOh"/>
                                                 <constraint firstAttribute="bottom" secondItem="ATb-Ra-z15" secondAttribute="bottom" constant="8" id="g0u-3O-5cc"/>
-                                                <constraint firstItem="NxL-t3-ByS" firstAttribute="top" secondItem="zvU-g6-WYf" secondAttribute="topMargin" constant="8" id="ok1-aC-eMU"/>
                                                 <constraint firstAttribute="bottom" secondItem="k3Q-Tj-3vv" secondAttribute="bottom" id="pO4-AK-xBW"/>
                                                 <constraint firstItem="ATb-Ra-z15" firstAttribute="width" secondItem="zvU-g6-WYf" secondAttribute="height" multiplier="64:79" id="uHL-Cj-igw"/>
                                             </constraints>
@@ -762,7 +756,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="barTintColor" red="0.15800479054450989" green="0.15815737843513489" blue="0.15802845358848572" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textAttributes key="titleTextAttributes">
-                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="20"/>
+                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="16"/>
                                 </textAttributes>
                                 <items>
                                     <navigationItem title="フィード画面．この画面では録音した音声を再生できます．最新の音声からリストで並んでいます．項目をタップすると音声を再生します．左から右にスワイプすると，レコード画面に移動できます" id="dcs-Ad-vgC"/>
@@ -783,7 +777,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="91k-SS-nZ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="406" y="-670"/>
+            <point key="canvasLocation" x="405.60000000000002" y="-670.61469265367316"/>
         </scene>
     </scenes>
     <resources>

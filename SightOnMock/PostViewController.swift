@@ -60,15 +60,21 @@ class PostViewController: ViewController {
     {
         if #available(iOS 10.0, *), let generator = feedbackGenerator as? UIImpactFeedbackGenerator {
             generator.impactOccurred()
-            print("on haptic!")
+            //print("on haptic!")
         }
         
+        postButton.setTitle("保存されました．フィード画面に移動します.", for: .normal)
         post()
 
         self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
     }
     @IBAction func dismissButtonTapped(_ sender : Any)
     {
+        if #available(iOS 10.0, *), let generator = feedbackGenerator as? UIImpactFeedbackGenerator {
+            generator.impactOccurred()
+            //print("on haptic!")
+        }
+        dismissButton.setTitle("保存をキャンセルしました．録音画面に戻ります.", for: .normal)
         print("dismiss")
         self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
     }
