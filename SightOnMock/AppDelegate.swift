@@ -36,27 +36,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         database.deleteAll()
 
         var audioPath = Bundle.main.path(forResource: "yurakucho_muzhirusi", ofType:"m4a")!
-        database.create(audioPath, dataName: "有楽町", userId: 1, tags: ["night", "cool", "refresh"])
+        database.create(audioPath, dataName: "2017年06月08日 有楽町", userId: 1, tags: ["夜", "BGM"])
         database.add()
         
         audioPath = Bundle.main.path(forResource: "washroom", ofType:"wav")!
-        database.create(audioPath, dataName: "洗面所", userId: 1, tags: ["water", "healing"])
+        database.create(audioPath, dataName: "2017年06月09日 洗面所", userId: 1, tags: ["水", "癒やし"])
         database.add()
         
         audioPath = Bundle.main.path(forResource: "akihabara_lunch", ofType:"m4a")!
-        database.create(audioPath, dataName: "秋葉原", userId: 1, tags: ["lunch"])
+        database.create(audioPath, dataName: "2017年06月11日 秋葉原", userId: 1, tags: ["ランチ"])
         database.add()
         
         audioPath = Bundle.main.path(forResource: "on_the_bridge", ofType:"m4a")!
-        database.create(audioPath, dataName: "橋の上", userId: 1, tags: ["wind"])
+        database.create(audioPath, dataName: "2017年06月11日 橋の上", userId: 1, tags: ["風"])
         database.add()
         
         audioPath = Bundle.main.path(forResource: "ginza_east", ofType:"m4a")!
-        database.create(audioPath, dataName: "東銀座", userId: 1, tags: ["talking"])
+        database.create(audioPath, dataName: "2017年06月18日 東銀座", userId: 1, tags: ["話し声", "信号"])
         database.add()
         
         audioPath = Bundle.main.path(forResource: "on_stair", ofType:"m4a")!
-        database.create(audioPath, dataName: "階段", userId: 1, tags: ["tonton"])
+        database.create(audioPath, dataName: "2017年06月20日 大崎", userId: 1, tags: ["階段"])
         database.add()
         
         /*audioPath = Bundle.main.path(forResource: "India", ofType:"wav")!
