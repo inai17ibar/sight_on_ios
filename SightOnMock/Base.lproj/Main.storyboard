@@ -35,8 +35,8 @@
                             <imageView userInteractionEnabled="NO" alpha="0.45000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RecordBackgroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="e5F-55-t3Y">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oNp-Bq-EvE" userLabel="RecordButton">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oNp-Bq-EvE" userLabel="RecordButton">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.1994060359589041" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name=".HiraKakuInterface-W3" family=".Hiragino Kaku Gothic Interface" pointSize="24"/>
                                 <state key="normal" title="画面をダブルタップすると再生できます">
@@ -48,7 +48,7 @@
                             </button>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5D-bu-c5w">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="barTintColor" red="0.15800479049999999" green="0.15815737839999999" blue="0.15802845360000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textAttributes key="titleTextAttributes">
                                     <fontDescription key="fontDescription" type="italicSystem" pointSize="20"/>
@@ -63,17 +63,19 @@
                             <constraint firstItem="e5F-55-t3Y" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="35F-UH-70F"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="e5F-55-t3Y" secondAttribute="bottom" id="6Fp-4R-xZa"/>
                             <constraint firstItem="e5F-55-t3Y" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="8lv-yi-sf2"/>
+                            <constraint firstItem="oNp-Bq-EvE" firstAttribute="leading" secondItem="e5F-55-t3Y" secondAttribute="leading" id="8xW-dH-VAU"/>
                             <constraint firstItem="e5F-55-t3Y" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="DUd-x1-b9m"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="oNp-Bq-EvE" secondAttribute="bottom" id="EaF-h3-1Aq" userLabel="Bottom Layout Guide.top = RecordButton.bottom"/>
+                            <constraint firstItem="oNp-Bq-EvE" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="IYX-gX-hsn"/>
+                            <constraint firstItem="oNp-Bq-EvE" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="LUX-p5-Wgo"/>
                             <constraint firstAttribute="trailing" secondItem="e5F-55-t3Y" secondAttribute="trailing" id="MSY-of-cUD"/>
-                            <constraint firstItem="oNp-Bq-EvE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OgM-qq-rJC"/>
+                            <constraint firstItem="oNp-Bq-EvE" firstAttribute="height" secondItem="e5F-55-t3Y" secondAttribute="height" id="Rhc-k1-2XK"/>
+                            <constraint firstItem="oNp-Bq-EvE" firstAttribute="trailing" secondItem="e5F-55-t3Y" secondAttribute="trailing" id="YTd-u3-9T2"/>
                             <constraint firstAttribute="trailing" secondItem="e5F-55-t3Y" secondAttribute="trailing" id="czw-O6-KN7"/>
-                            <constraint firstItem="oNp-Bq-EvE" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="dbq-qh-vhR"/>
                             <constraint firstAttribute="trailing" secondItem="e5F-55-t3Y" secondAttribute="trailing" id="pZf-14-ONS"/>
-                            <constraint firstItem="oNp-Bq-EvE" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="qAv-Nr-o9B"/>
                             <constraint firstItem="e5F-55-t3Y" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="wr3-l4-ksO"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="button" destination="oNp-Bq-EvE" id="TtZ-9F-Ykv"/>
                     </connections>
@@ -637,7 +639,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XKm-w6-J7c">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="62" width="375" height="623"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FeedListItem" rowHeight="80" id="Ge3-SQ-EOy" userLabel="FeedListItem" customClass="FeedListItemTableViewCell" customModule="SightOnMock" customModuleProvider="target">
@@ -757,7 +759,7 @@
                             </tableView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uKR-fK-TaK">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="barTintColor" red="0.15800479054450989" green="0.15815737843513489" blue="0.15802845358848572" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textAttributes key="titleTextAttributes">
                                     <fontDescription key="fontDescription" type="italicSystem" pointSize="20"/>
@@ -770,8 +772,8 @@
                         <color key="backgroundColor" red="0.15800479054450989" green="0.15815737843513489" blue="0.15802845358848572" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="XKm-w6-J7c" firstAttribute="centerX" secondItem="iR6-ot-mhX" secondAttribute="centerX" id="I3T-pZ-1vP"/>
-                            <constraint firstItem="XKm-w6-J7c" firstAttribute="height" secondItem="iR6-ot-mhX" secondAttribute="height" constant="-64" id="dYv-ww-DIc"/>
-                            <constraint firstItem="XKm-w6-J7c" firstAttribute="centerY" secondItem="iR6-ot-mhX" secondAttribute="centerY" constant="32" id="j5V-oL-qKT"/>
+                            <constraint firstItem="XKm-w6-J7c" firstAttribute="height" secondItem="iR6-ot-mhX" secondAttribute="height" constant="-44" id="dYv-ww-DIc" userLabel="Table View.height = height - 64"/>
+                            <constraint firstItem="XKm-w6-J7c" firstAttribute="centerY" secondItem="iR6-ot-mhX" secondAttribute="centerY" constant="40" id="j5V-oL-qKT" userLabel="Table View.centerY = centerY + 40"/>
                             <constraint firstItem="XKm-w6-J7c" firstAttribute="width" secondItem="iR6-ot-mhX" secondAttribute="width" id="kiq-ce-cYp"/>
                         </constraints>
                     </view>
