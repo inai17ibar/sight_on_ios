@@ -66,7 +66,10 @@ class PostViewController: ViewController {
         postButton.setTitle("保存されました．フィード画面に移動します.", for: .normal)
         post()
 
-        self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
+        //self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "PageViewController") as! PageViewController
+        self.present(nextViewController, animated:true, completion:nil)
     }
     @IBAction func dismissButtonTapped(_ sender : Any)
     {
@@ -76,7 +79,10 @@ class PostViewController: ViewController {
         }
         dismissButton.setTitle("保存をキャンセルしました．録音画面に戻ります.", for: .normal)
         print("dismiss")
-        self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
+
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "PageViewController") as! PageViewController
+        self.present(nextViewController, animated:true, completion:nil)
     }
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
