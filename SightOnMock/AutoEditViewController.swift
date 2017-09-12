@@ -129,7 +129,7 @@ class AutoEditViewController: ViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-         saveaudiofile_() 
+        saveaudiofile_()
     }
     
     override func didReceiveMemoryWarning() {

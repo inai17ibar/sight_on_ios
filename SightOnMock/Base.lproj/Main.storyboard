@@ -287,6 +287,12 @@
                                     <constraint firstItem="jgB-Kk-F0s" firstAttribute="centerY" secondItem="LSe-8U-JFe" secondAttribute="centerY" id="a54-si-3Yn"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="編集中。まもなく処理が終わります！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yFh-vT-rFZ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -294,6 +300,10 @@
                             <constraint firstItem="LSe-8U-JFe" firstAttribute="centerX" secondItem="bcw-Jn-VRS" secondAttribute="centerX" id="NS5-TX-zSU"/>
                             <constraint firstItem="LSe-8U-JFe" firstAttribute="width" secondItem="bcw-Jn-VRS" secondAttribute="width" id="dKA-rv-dq5"/>
                             <constraint firstItem="LSe-8U-JFe" firstAttribute="height" secondItem="bcw-Jn-VRS" secondAttribute="height" constant="-100" id="ers-8J-gYr"/>
+                            <constraint firstItem="yFh-vT-rFZ" firstAttribute="centerY" secondItem="bcw-Jn-VRS" secondAttribute="centerY" id="jPz-7T-iSX"/>
+                            <constraint firstItem="yFh-vT-rFZ" firstAttribute="height" secondItem="bcw-Jn-VRS" secondAttribute="height" id="jVE-Ey-Pgf"/>
+                            <constraint firstItem="yFh-vT-rFZ" firstAttribute="width" secondItem="bcw-Jn-VRS" secondAttribute="width" id="tvv-tQ-8Bw"/>
+                            <constraint firstItem="yFh-vT-rFZ" firstAttribute="centerX" secondItem="bcw-Jn-VRS" secondAttribute="centerX" id="u4l-zF-EMr"/>
                         </constraints>
                     </view>
                     <connections>
@@ -305,7 +315,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PLO-Qn-lNc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2074" y="-671"/>
+            <point key="canvasLocation" x="2072.8000000000002" y="-671.51424287856082"/>
         </scene>
         <!--Manual Edit View Controller-->
         <scene sceneID="8ex-DO-aVg">
