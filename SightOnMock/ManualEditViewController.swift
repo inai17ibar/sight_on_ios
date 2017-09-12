@@ -13,9 +13,10 @@ import AudioUnit
 import AudioToolbox
 
 class ManualEditViewController: ViewController {
+    @IBOutlet weak var button: UIButton!
+    let buttonLabel: [String] = ["Raw", "Reverb1", "Reverb2", "Reverb3"]
+    var buttonidx=0
 
-    @IBOutlet weak var status: UITextField!
-    @IBOutlet weak var sliderReverb: UISlider!
     let temp_data = TemporaryDataManager()
     //var player: AVAudioPlayer?
     // インスタンス変数
@@ -113,24 +114,12 @@ class ManualEditViewController: ViewController {
     
 
     @IBAction func button1Tapped(_ sender : Any){
-        reverb.wetDryMix = 40
-        status.text="soft reverb"
-    }
-    @IBAction func button2Tapped(_ sender : Any) {
-        reverb.wetDryMix = 100
-        status.text="hard reverb"
+
     }
 
-    @IBAction func button6Tapped(_ sender : Any) {
-        reverb.wetDryMix = 0
-        status.text="status"
-     }
     
     
-    @IBAction func sliderReverbChanged(sender: UISlider) {
-        reverb.wetDryMix = sliderReverb.value
-    }
-    
+
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
@@ -143,7 +132,6 @@ class ManualEditViewController: ViewController {
         } else {
             //print("Post Portrait")
             if (className == "ManualEditViewController"){
-                status.text="processing..."
                 gotoPost()
             }
         }
@@ -204,10 +192,49 @@ class ManualEditViewController: ViewController {
         }
 
     }
+    
+    @IBAction func buttonTapped(_ sender : Any) {
+        buttonidx += 1;
+        if buttonidx>=buttonLabel.count{
+            buttonidx=0;
+        }
+        button.setTitle(buttonLabel[buttonidx], for: .normal)
+        switch buttonidx {
+        case 0:
+            reverb.wetDryMix = 0
+        case 1:
+            reverb.wetDryMix = 40
+        case 2:
+            reverb.wetDryMix = 70
+        case 3:
+            reverb.wetDryMix = 100
+        default:
+            reverb.wetDryMix = 0
+        }
+
+    }
     func doubleTapped() {
         // do something cool here
-        print("ダブルタップ")
-        self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
+      /*  print("ダブルタップ")
+        buttonidx += 1;
+        if buttonidx>=buttonLabel.count{
+            buttonidx=0;
+        }
+        switch buttonidx {
+        case 0:
+            reverb.wetDryMix = 0
+        case 1:
+            reverb.wetDryMix = 40
+        case 2:
+            reverb.wetDryMix = 70
+        case 3:
+            reverb.wetDryMix = 100
+        default:
+            reverb.wetDryMix = 0
+        }
+        button.setTitle(buttonLabel[buttonidx], for: .normal)
+ */
+        //self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
     }
     /*
     // MARK: - Navigation
