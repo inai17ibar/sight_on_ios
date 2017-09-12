@@ -31,11 +31,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.45000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RecordBackgroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="e5F-55-t3Y">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oNp-Bq-EvE" userLabel="RecordButton">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="522"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.1994060359589041" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name=".HiraKakuInterface-W3" family=".Hiragino Kaku Gothic Interface" pointSize="24"/>
                                 <state key="normal" title="画面をダブルタップすると録音できます">
@@ -45,36 +42,27 @@
                                     <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchDown" id="Xwc-KV-UOj"/>
                                 </connections>
                             </button>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5D-bu-c5w">
+                            <navigationBar contentMode="scaleToFill" ambiguous="YES" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5D-bu-c5w">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="barTintColor" red="0.15800479049999999" green="0.15815737839999999" blue="0.15802845360000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textAttributes key="titleTextAttributes">
                                     <fontDescription key="fontDescription" type="italicSystem" pointSize="16"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="録音画面。この画面ではマイクを使って音声を録音できます．画面の全体が1つのボタンになっています。タップすると音声の再生を開始します。停止するときはもう一度画面をタップしてください。右から左にスワイプすると，レコード画面に移動できます" id="JLk-kP-KPh"/>
+                                    <navigationItem title="録音画面。この画面ではマイクを使って音声を録音できます．画面の全体がひとつのボタンになっています。タップすると音声の再生を開始します。停止するときはもう一度画面をタップしてください。右から左にスワイプすると，レコード画面に移動できます" id="JLk-kP-KPh"/>
                                 </items>
                             </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="0.15800479054450989" green="0.15815737843513489" blue="0.15802845358848572" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="e5F-55-t3Y" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="35F-UH-70F"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="e5F-55-t3Y" secondAttribute="bottom" id="6Fp-4R-xZa"/>
-                            <constraint firstItem="e5F-55-t3Y" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="8lv-yi-sf2"/>
-                            <constraint firstItem="oNp-Bq-EvE" firstAttribute="leading" secondItem="e5F-55-t3Y" secondAttribute="leading" id="8xW-dH-VAU"/>
-                            <constraint firstItem="e5F-55-t3Y" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="DUd-x1-b9m"/>
+                            <constraint firstItem="oNp-Bq-EvE" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" constant="-145" id="8do-17-Y35"/>
                             <constraint firstItem="oNp-Bq-EvE" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="IYX-gX-hsn"/>
-                            <constraint firstItem="oNp-Bq-EvE" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="LUX-p5-Wgo"/>
-                            <constraint firstAttribute="trailing" secondItem="e5F-55-t3Y" secondAttribute="trailing" id="MSY-of-cUD"/>
-                            <constraint firstItem="oNp-Bq-EvE" firstAttribute="height" secondItem="e5F-55-t3Y" secondAttribute="height" id="Rhc-k1-2XK"/>
-                            <constraint firstItem="oNp-Bq-EvE" firstAttribute="trailing" secondItem="e5F-55-t3Y" secondAttribute="trailing" id="YTd-u3-9T2"/>
-                            <constraint firstAttribute="trailing" secondItem="e5F-55-t3Y" secondAttribute="trailing" id="czw-O6-KN7"/>
-                            <constraint firstAttribute="trailing" secondItem="e5F-55-t3Y" secondAttribute="trailing" id="pZf-14-ONS"/>
-                            <constraint firstItem="e5F-55-t3Y" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="wr3-l4-ksO"/>
+                            <constraint firstItem="S5D-bu-c5w" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="ZVJ-3J-BJk"/>
+                            <constraint firstItem="S5D-bu-c5w" firstAttribute="bottom" secondItem="oNp-Bq-EvE" secondAttribute="top" id="nc0-he-rUP"/>
+                            <constraint firstItem="oNp-Bq-EvE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nkc-Wu-UOQ"/>
+                            <constraint firstItem="S5D-bu-c5w" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="poh-Y8-8kE"/>
                         </constraints>
                     </view>
-                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="button" destination="oNp-Bq-EvE" id="TtZ-9F-Ykv"/>
                     </connections>
@@ -95,6 +83,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <navigationBar contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jLs-C3-h6V">
+                                <rect key="frame" x="0.0" y="20" width="375.5" height="44"/>
+                                <color key="barTintColor" red="0.15800479049999999" green="0.15815737839999999" blue="0.15802845360000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="16"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="保存画面。この画面では，先ほど録音した音声の保存ができます。保存するときは，画面をタップしてください。画面の中心部をタップすると音声を保存します。画面の下端をタップすると音声の保存をキャンセルします。" id="h7z-aL-Yem"/>
+                                </items>
+                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bvN-2K-nqu">
+                                <rect key="frame" x="188" y="65" width="187.5" height="522"/>
+                                <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="編集ボタン．ダブルタップすると音声データに効果を追加します。">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="editbuttonTapped:" destination="Yi1-cS-iMR" eventType="touchUpInside" id="vzc-lS-qlX"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bsX-SL-uYe">
                                 <rect key="frame" x="0.0" y="587" width="375" height="80"/>
                                 <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -110,47 +119,44 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KVi-gL-m5p">
-                                <rect key="frame" x="0.0" y="64" width="375" height="523"/>
+                                <rect key="frame" x="0.0" y="65" width="187.5" height="522"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="保存ボタン．ダブルタップすると音声データを保存します．">
+                                <state key="normal" title="投稿ボタン．ダブルタップすると音声データを保存します。">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="buttonTapped:" destination="Yi1-cS-iMR" eventType="touchUpInside" id="G5H-iY-G89"/>
                                 </connections>
                             </button>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jLs-C3-h6V">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <color key="barTintColor" red="0.15800479049999999" green="0.15815737839999999" blue="0.15802845360000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <textAttributes key="titleTextAttributes">
-                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="16"/>
-                                </textAttributes>
-                                <items>
-                                    <navigationItem title="保存画面。この画面では，先ほど録音した音声の保存ができます。保存するときは，画面をタップしてください。画面の中心部をタップすると音声を保存します。画面の下端をタップすると音声の保存をキャンセルします。" id="h7z-aL-Yem"/>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="0.15800479054450989" green="0.15815737843513489" blue="0.15802845358848572" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="KVi-gL-m5p" firstAttribute="centerX" secondItem="Qp7-Cf-vvT" secondAttribute="centerX" id="BTp-Z6-Iyg"/>
-                            <constraint firstItem="KVi-gL-m5p" firstAttribute="height" secondItem="Qp7-Cf-vvT" secondAttribute="height" constant="-144" id="D1N-fs-s74"/>
+                            <constraint firstItem="jLs-C3-h6V" firstAttribute="width" secondItem="Qp7-Cf-vvT" secondAttribute="width" id="3J8-5t-YPH"/>
+                            <constraint firstItem="KVi-gL-m5p" firstAttribute="height" secondItem="Qp7-Cf-vvT" secondAttribute="height" constant="-145" id="6vp-No-ZAN"/>
+                            <constraint firstItem="jLs-C3-h6V" firstAttribute="top" secondItem="YZ8-zS-6xL" secondAttribute="bottom" id="AaE-3y-rqn"/>
+                            <constraint firstItem="KVi-gL-m5p" firstAttribute="centerX" secondItem="Qp7-Cf-vvT" secondAttribute="centerX" multiplier="0.5" id="BTp-Z6-Iyg"/>
                             <constraint firstItem="bsX-SL-uYe" firstAttribute="bottom" secondItem="Yd2-Fs-EcK" secondAttribute="top" id="GQu-B1-OVD"/>
+                            <constraint firstItem="jLs-C3-h6V" firstAttribute="leading" secondItem="KVi-gL-m5p" secondAttribute="leading" id="Ghr-AQ-nz9"/>
+                            <constraint firstItem="bvN-2K-nqu" firstAttribute="centerX" secondItem="Qp7-Cf-vvT" secondAttribute="centerX" multiplier="1.5" id="KSK-ps-2KS"/>
+                            <constraint firstItem="bvN-2K-nqu" firstAttribute="height" secondItem="Qp7-Cf-vvT" secondAttribute="height" constant="-145" id="XbG-iG-NEi"/>
                             <constraint firstItem="bsX-SL-uYe" firstAttribute="top" secondItem="KVi-gL-m5p" secondAttribute="bottom" id="XmP-eD-Xo0"/>
-                            <constraint firstItem="KVi-gL-m5p" firstAttribute="width" secondItem="Qp7-Cf-vvT" secondAttribute="width" id="mBK-kE-hN4"/>
+                            <constraint firstItem="bvN-2K-nqu" firstAttribute="width" secondItem="Qp7-Cf-vvT" secondAttribute="width" multiplier="0.5" id="dgK-5G-wpP"/>
+                            <constraint firstItem="KVi-gL-m5p" firstAttribute="width" secondItem="Qp7-Cf-vvT" secondAttribute="width" multiplier="0.5" id="mBK-kE-hN4"/>
+                            <constraint firstItem="bsX-SL-uYe" firstAttribute="top" secondItem="bvN-2K-nqu" secondAttribute="bottom" id="nye-t7-7Aw"/>
                             <constraint firstItem="bsX-SL-uYe" firstAttribute="width" secondItem="Qp7-Cf-vvT" secondAttribute="width" id="oA5-OC-wrW"/>
                             <constraint firstItem="bsX-SL-uYe" firstAttribute="centerX" secondItem="Qp7-Cf-vvT" secondAttribute="centerX" id="xw8-py-9X3"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="Editbutton" destination="bvN-2K-nqu" id="C2N-vJ-Mma"/>
                         <outlet property="dismissButton" destination="bsX-SL-uYe" id="RdC-bg-b4b"/>
                         <outlet property="postButton" destination="KVi-gL-m5p" id="urn-vc-FrO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CJA-wd-G4g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2208.8000000000002" y="104.7976011994003"/>
+            <point key="canvasLocation" x="2926" y="-671"/>
         </scene>
         <!--Auto Edit View Controller-->
         <scene sceneID="2tR-u9-upa">
@@ -164,20 +170,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="31T-dK-dw1">
-                                <rect key="frame" x="0.0" y="567" width="375" height="100"/>
-                                <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="1He-mL-iLa"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="30"/>
-                                <state key="normal" title="Next">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="buttonTapped:" destination="h1Q-YG-fGP" eventType="touchDown" id="FUk-fc-JdZ"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LSe-8U-JFe" userLabel="Wave View">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="567"/>
                                 <subviews>
@@ -200,21 +192,7 @@
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wl9-4J-119" userLabel="View1">
                                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="51"/>
-                                                                <subviews>
-                                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Cut off frequency " borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XXA-6c-N4g">
-                                                                        <rect key="frame" x="50" y="10.5" width="275" height="30"/>
-                                                                        <nil key="textColor"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits"/>
-                                                                    </textField>
-                                                                </subviews>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                <constraints>
-                                                                    <constraint firstItem="XXA-6c-N4g" firstAttribute="centerX" secondItem="Wl9-4J-119" secondAttribute="centerX" id="0zF-BO-yjq"/>
-                                                                    <constraint firstItem="XXA-6c-N4g" firstAttribute="leading" secondItem="Wl9-4J-119" secondAttribute="leading" constant="50" id="DCp-qT-sHw"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="XXA-6c-N4g" secondAttribute="trailing" constant="50" id="JzU-rn-65p"/>
-                                                                    <constraint firstItem="XXA-6c-N4g" firstAttribute="centerY" secondItem="Wl9-4J-119" secondAttribute="centerY" id="agf-0t-n7Z"/>
-                                                                </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ILW-Jy-1T8" userLabel="View2">
                                                                 <rect key="frame" x="0.0" y="51" width="375" height="51"/>
@@ -313,16 +291,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="LSe-8U-JFe" firstAttribute="centerY" secondItem="bcw-Jn-VRS" secondAttribute="centerY" constant="-50" id="3mn-cH-gsJ"/>
-                            <constraint firstItem="31T-dK-dw1" firstAttribute="centerX" secondItem="bcw-Jn-VRS" secondAttribute="centerX" id="MDM-2r-evc"/>
                             <constraint firstItem="LSe-8U-JFe" firstAttribute="centerX" secondItem="bcw-Jn-VRS" secondAttribute="centerX" id="NS5-TX-zSU"/>
-                            <constraint firstItem="31T-dK-dw1" firstAttribute="width" secondItem="bcw-Jn-VRS" secondAttribute="width" id="a6U-Q3-3qc"/>
                             <constraint firstItem="LSe-8U-JFe" firstAttribute="width" secondItem="bcw-Jn-VRS" secondAttribute="width" id="dKA-rv-dq5"/>
                             <constraint firstItem="LSe-8U-JFe" firstAttribute="height" secondItem="bcw-Jn-VRS" secondAttribute="height" constant="-100" id="ers-8J-gYr"/>
-                            <constraint firstItem="TTi-fw-iG9" firstAttribute="top" secondItem="31T-dK-dw1" secondAttribute="bottom" id="mdj-kU-NF8"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="button" destination="31T-dK-dw1" id="S2c-wi-3wL"/>
                         <outlet property="sliderDelay" destination="x6d-LF-MU7" id="9Az-ev-CxS"/>
                         <outlet property="updatebutton" destination="1HM-Jd-JaT" id="9pg-9u-ysV"/>
                         <outlet property="waveChart" destination="C8u-9v-H0U" id="kHO-tJ-gPg"/>
@@ -331,7 +305,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PLO-Qn-lNc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="405.60000000000002" y="104.7976011994003"/>
+            <point key="canvasLocation" x="2074" y="-671"/>
         </scene>
         <!--Manual Edit View Controller-->
         <scene sceneID="8ex-DO-aVg">
@@ -378,7 +352,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xu5-tx-0Tt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1292" y="104.7976011994003"/>
+            <point key="canvasLocation" x="406" y="893"/>
         </scene>
         <!--Feed View Controller-->
         <scene sceneID="2bS-GP-nkg">
@@ -467,9 +441,8 @@
                                     <outlet property="delegate" destination="7n7-tz-EaD" id="P0s-Uj-pwu"/>
                                 </connections>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uKR-fK-TaK">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <navigationBar contentMode="scaleToFill" ambiguous="YES" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uKR-fK-TaK">
+                                <rect key="frame" x="0.0" y="20" width="388" height="44"/>
                                 <color key="barTintColor" red="0.15800479054450989" green="0.15815737843513489" blue="0.15802845358848572" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textAttributes key="titleTextAttributes">
                                     <fontDescription key="fontDescription" type="italicSystem" pointSize="16"/>
@@ -481,6 +454,8 @@
                         </subviews>
                         <color key="backgroundColor" red="0.15800479054450989" green="0.15815737843513489" blue="0.15802845358848572" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="uKR-fK-TaK" firstAttribute="width" secondItem="iR6-ot-mhX" secondAttribute="width" id="1JC-Td-6qc"/>
+                            <constraint firstItem="uKR-fK-TaK" firstAttribute="top" secondItem="LiD-uE-P3u" secondAttribute="bottom" id="BlR-82-Tgr"/>
                             <constraint firstItem="XKm-w6-J7c" firstAttribute="centerX" secondItem="iR6-ot-mhX" secondAttribute="centerX" id="I3T-pZ-1vP"/>
                             <constraint firstItem="XKm-w6-J7c" firstAttribute="height" secondItem="iR6-ot-mhX" secondAttribute="height" constant="-44" id="dYv-ww-DIc" userLabel="Table View.height = height - 64"/>
                             <constraint firstItem="XKm-w6-J7c" firstAttribute="centerY" secondItem="iR6-ot-mhX" secondAttribute="centerY" constant="40" id="j5V-oL-qKT" userLabel="Table View.centerY = centerY + 40"/>
@@ -497,7 +472,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="RecordBackgroundImage" width="375" height="667"/>
         <image name="sample" width="2048" height="1152"/>
     </resources>
     <color key="tintColor" red="0.15800479054450989" green="0.15815737843513489" blue="0.15802845358848572" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
