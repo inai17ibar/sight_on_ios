@@ -94,7 +94,7 @@ class RecordViewController: ViewController{
 
     func getNowClockString() -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "MMdd"
+        formatter.dateFormat = "yyyyMMdd_HHmmss"
         let now = Date()
         return formatter.string(from: now)
     }
