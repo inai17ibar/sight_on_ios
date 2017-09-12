@@ -113,6 +113,30 @@ class ManualEditViewController: ViewController {
     }
     
 
+    @IBAction func button1Tapped(_ sender : Any){
+
+    }
+
+    
+    
+
+
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        var className = "\(self)"
+        className = className.components(separatedBy: ".").last!
+        className = className.components(separatedBy: ":").first!
+        print("current:"+className)
+        if UIDevice.current.orientation.isLandscape{
+            //print("Post Landscape")
+        } else {
+            //print("Post Portrait")
+            if (className == "ManualEditViewController"){
+                gotoPost()
+            }
+        }
+
+    }
     
     func gotoPost(){
         let save_file_path = file_path
@@ -147,6 +171,26 @@ class ManualEditViewController: ViewController {
             usleep(200000)
         }
         
+        //let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        //let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Post")
+        //self.present(nextViewController, animated:true, completion:nil)
+        //_ = navigationController?.popViewController(animated: true)
+        print(currentControllerName)
+        if currentControllerName == "AutoEdit"{
+            print("auto->manual->post")
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Post") as! PostViewController
+            nextViewController.currentControllerName = "ManualEdit"
+            self.present(nextViewController, animated:true, completion:nil)
+        }else if(currentControllerName == "Post"){
+            print("manual->post")
+            self.dismiss(animated: true, completion: nil)
+            /*let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Post") as! PostViewController
+            nextViewController.currentControllerName = "ManualEdit"
+            self.present(nextViewController, animated:true, completion:nil)*/
+        }
+
     }
     
     @IBAction func buttonTapped(_ sender : Any) {

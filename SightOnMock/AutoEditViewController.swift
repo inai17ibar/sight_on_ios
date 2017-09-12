@@ -177,10 +177,44 @@ class AutoEditViewController: ViewController {
         while(!goFlag){
             usleep(200000)
         }
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Post") as! PostViewController
-        nextViewController.currentControllerName = "AutoEdit"
-        self.present(nextViewController, animated:true, completion:nil)
+        
+        
+        let theAppDelegate = UIApplication.shared
+            let orientation = theAppDelegate.statusBarOrientation
+            
+            if orientation.isPortrait {
+                print("goint to post")
+                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Post") as! PostViewController
+                nextViewController.currentControllerName = "AutoEdit"
+                self.present(nextViewController, animated:true, completion:nil)
+            } else {
+                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ManualEdit") as! ManualEditViewController
+                nextViewController.currentControllerName = "AutoEdit"
+                self.present(nextViewController, animated:true, completion:nil)
+            }
+    
+
+ 
+        /*if UIDevice.current.orientation == UIDeviceOrientation.landscapeLeft || UIDevice.current.orientation == UIDeviceOrientation.landscapeRight{
+            print("goint to manual")
+            //let nextViewController = ManualEditViewController()
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ManualEdit") as! ManualEditViewController
+            nextViewController.currentControllerName = "AutoEdit"
+            self.present(nextViewController, animated:true, completion:nil)
+            //self.navigationController?.pushViewController(nextViewController, animated: true)
+        } else {
+            print("goint to post")
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Post") as! PostViewController
+            nextViewController.currentControllerName = "AutoEdit"
+            self.present(nextViewController, animated:true, completion:nil)
+            //self.navigationController?.pushViewController(nextViewController, animated: true)
+        }*/
+        
+
     }
     
     @IBAction func sliderDelayChanged(sender: UISlider) {
