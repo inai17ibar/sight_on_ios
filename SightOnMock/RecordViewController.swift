@@ -37,7 +37,12 @@ class RecordViewController: ViewController{
         //initRecorder()
         disactiveRecorder()
     }
-
+    override func viewWillAppear(_ animated: Bool) {
+    let talker = AVSpeechSynthesizer()
+    let utterance = AVSpeechUtterance(string: "録音画面です。")
+    utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
+    talker.speak(utterance)
+    }
     func disactiveRecorder()
     {
         // 録音ファイルを指定する
@@ -120,6 +125,10 @@ class RecordViewController: ViewController{
             disactiveRecorder()
             
             //soundPlayer.initPlayer(url: URL(fileURLWithPath: dataManager.loadDataPath()))
+        let talker = AVSpeechSynthesizer()
+        let utterance = AVSpeechUtterance(string: "アプリが音を編集しています。間も無く投稿画面に移動します。")
+        utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
+        talker.speak(utterance)
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "AutoEdit")
             self.present(nextViewController, animated:true, completion:nil)

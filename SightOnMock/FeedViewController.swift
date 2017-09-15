@@ -36,6 +36,7 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         
         //Now reload the tableView
         self.tableView.reloadData()
+
     }
 
     override func didReceiveMemoryWarning() {

@@ -97,11 +97,11 @@
                                 <rect key="frame" x="188" y="65" width="187.5" height="522"/>
                                 <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="編集ボタン．ダブルタップすると音声データに効果を追加します。">
+                                <state key="normal" title="投稿ボタン．ダブルタップすると音声データを保存します。">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="editbuttonTapped:" destination="Yi1-cS-iMR" eventType="touchUpInside" id="vzc-lS-qlX"/>
+                                    <action selector="buttonTapped:" destination="Yi1-cS-iMR" eventType="touchUpInside" id="TSO-Fh-IRj"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bsX-SL-uYe">
@@ -122,11 +122,11 @@
                                 <rect key="frame" x="0.0" y="65" width="187.5" height="522"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="投稿ボタン．ダブルタップすると音声データを保存します。">
+                                <state key="normal" title="編集ボタン．ダブルタップすると音声データに効果を追加します。">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="buttonTapped:" destination="Yi1-cS-iMR" eventType="touchUpInside" id="G5H-iY-G89"/>
+                                    <action selector="editbuttonTapped:" destination="Yi1-cS-iMR" eventType="touchUpInside" id="Vfc-pc-Prv"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -149,9 +149,9 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="Editbutton" destination="bvN-2K-nqu" id="C2N-vJ-Mma"/>
+                        <outlet property="Editbutton" destination="KVi-gL-m5p" id="V4B-qB-Ozz"/>
                         <outlet property="dismissButton" destination="bsX-SL-uYe" id="RdC-bg-b4b"/>
-                        <outlet property="postButton" destination="KVi-gL-m5p" id="urn-vc-FrO"/>
+                        <outlet property="postButton" destination="bvN-2K-nqu" id="Eg2-MD-e97"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CJA-wd-G4g" userLabel="First Responder" sceneMemberID="firstResponder"/>
