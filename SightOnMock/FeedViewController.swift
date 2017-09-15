@@ -62,15 +62,6 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
                 in return joined + x.tagName + ", "
             }
             cell.tagLabel.text = "\(tags_text)"
-
-            // 動いていない
-            //サンプル画像
-//            let image:UIImage = UIImage(named:"sample")!
-//            let imageView = UIImageView(image:image)
-//            
-//            imageView.layer.cornerRadius = 30
-//            
-//            cell.photo = imageView
             
             return cell
         }
@@ -101,21 +92,7 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         // 選択を解除しておく
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
-    //あるセルをスワイプしたら
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        //closure
-        let deleteButton: UITableViewRowAction = UITableViewRowAction(style: .normal, title: "Delete") { (action, index) -> Void in
-            try! self.realm.write{
-                self.realm.delete(self.sounds[indexPath.row])
-            }
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        }
-        deleteButton.backgroundColor = UIColor.red
         
-        return [deleteButton]
-    }
-    
     func updateMessage(text: String)
     {
         

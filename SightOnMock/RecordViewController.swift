@@ -106,27 +106,24 @@ class RecordViewController: ViewController{
             //print("on haptic!")
         }
 
-        if(audioRecorder.isRecording)
-        {
-            print("stop recording")
-            button.setTitle("録音停止．投稿画面に移動します.", for: .normal)
+            print("start recording")
+            initRecorder()
+            let instruction_text = ""
+            button.setTitle(instruction_text, for: .normal)
+            audioRecorder.record()
+            
+            sleep(5)
+            
             audioRecorder.stop()
             saveRecordData()
             
             disactiveRecorder()
-
+            
             //soundPlayer.initPlayer(url: URL(fileURLWithPath: dataManager.loadDataPath()))
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "AutoEdit")
             self.present(nextViewController, animated:true, completion:nil)
-        }
-        else{
-            print("start recording")
-            initRecorder()
-            let instruction_text = "録音中．ダブルタップで録音を終了します．"
-            button.setTitle(instruction_text, for: .normal)
-            audioRecorder.record()
-        }
+       
     }
 
     func saveRecordData()
