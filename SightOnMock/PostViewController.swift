@@ -106,6 +106,10 @@ class PostViewController: ViewController {
         } catch let error {
             print(error)
         }
+        let talker = AVSpeechSynthesizer()
+        let utterance = AVSpeechUtterance(string: "投稿編集画面です。")
+        utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
+        talker.speak(utterance)
     }
     
     override func didReceiveMemoryWarning() {
@@ -171,8 +175,11 @@ class PostViewController: ViewController {
             generator.impactOccurred()
             //print("on haptic!")
         }
-        
-        postButton.setTitle("保存されました．フィード画面に移動します.", for: .normal)
+        let talker = AVSpeechSynthesizer()
+        let utterance = AVSpeechUtterance(string: "保存されました。フィード画面に移動します。")
+        utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
+        talker.speak(utterance)
+        //postButton.setTitle("保存されました。フィード画面に移動します。", for: .normal)
         post()
 
         //self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)

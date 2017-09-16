@@ -104,7 +104,6 @@ class AutoEditViewController: ViewController {
             
             engine.connect(player, to: delay, format: audioFile.processingFormat)
             engine.connect(delay, to: engine.outputNode, format: audioFile.processingFormat)
-            
             engine.prepare()
             do{
                 try! engine.start()
@@ -142,7 +141,7 @@ class AutoEditViewController: ViewController {
             generator.impactOccurred()
             print("on haptic!")
         }
-
+        
         saveaudiofile_()
     }
 
