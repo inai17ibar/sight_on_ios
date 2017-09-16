@@ -42,14 +42,14 @@
                                     <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchDown" id="Xwc-KV-UOj"/>
                                 </connections>
                             </button>
-                            <navigationBar contentMode="scaleToFill" ambiguous="YES" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5D-bu-c5w">
+                            <navigationBar contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5D-bu-c5w">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <color key="barTintColor" red="0.15800479049999999" green="0.15815737839999999" blue="0.15802845360000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textAttributes key="titleTextAttributes">
                                     <fontDescription key="fontDescription" type="italicSystem" pointSize="16"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="録音画面。この画面ではマイクを使って音声を録音できます．画面の全体がひとつのボタンになっています。タップすると音声の再生を開始します。停止するときはもう一度画面をタップしてください。右から左にスワイプすると，レコード画面に移動できます" id="JLk-kP-KPh"/>
+                                    <navigationItem title="録音画面。この画面ではマイクを使って音声を録音できます．画面の全体がひとつのボタンになっています。タップすると音声の再生を開始します。停止するときはもう一度画面をタップしてください。右から左にスワイプすると，フィード画面に移動できます" id="JLk-kP-KPh"/>
                                 </items>
                             </navigationBar>
                         </subviews>
@@ -58,6 +58,7 @@
                             <constraint firstItem="oNp-Bq-EvE" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" constant="-145" id="8do-17-Y35"/>
                             <constraint firstItem="oNp-Bq-EvE" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="IYX-gX-hsn"/>
                             <constraint firstItem="S5D-bu-c5w" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="ZVJ-3J-BJk"/>
+                            <constraint firstItem="S5D-bu-c5w" firstAttribute="leading" secondItem="oNp-Bq-EvE" secondAttribute="leading" id="Zv2-Vn-Qz7"/>
                             <constraint firstItem="S5D-bu-c5w" firstAttribute="bottom" secondItem="oNp-Bq-EvE" secondAttribute="top" id="nc0-he-rUP"/>
                             <constraint firstItem="oNp-Bq-EvE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nkc-Wu-UOQ"/>
                             <constraint firstItem="S5D-bu-c5w" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="poh-Y8-8kE"/>
@@ -394,13 +395,13 @@
                                                     <rect key="frame" x="80" y="0.0" width="287" height="80"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="音声タイトル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="USI-Qw-W8k">
-                                                            <rect key="frame" x="5" y="8" width="98" height="19.5"/>
+                                                            <rect key="frame" x="5" y="8" width="98" height="20"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="音声タグ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sv8-Ck-pTo">
-                                                            <rect key="frame" x="5" y="56" width="57.5" height="17"/>
+                                                            <rect key="frame" x="5" y="56" width="58" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -451,14 +452,14 @@
                                     <outlet property="delegate" destination="7n7-tz-EaD" id="P0s-Uj-pwu"/>
                                 </connections>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" ambiguous="YES" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uKR-fK-TaK">
-                                <rect key="frame" x="0.0" y="20" width="388" height="44"/>
+                            <navigationBar contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uKR-fK-TaK">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <color key="barTintColor" red="0.15800479054450989" green="0.15815737843513489" blue="0.15802845358848572" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textAttributes key="titleTextAttributes">
                                     <fontDescription key="fontDescription" type="italicSystem" pointSize="16"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="フィード画面．この画面では録音した音声を再生できます．最新の音声からリストで並んでいます．項目をタップすると音声を再生します．左から右にスワイプすると，レコード画面に移動できます" id="dcs-Ad-vgC"/>
+                                    <navigationItem title="フィード画面．この画面では録音した音声を再生できます．最新の音声からリストで並んでいます．項目をタップすると音声を再生します．左から右にスワイプすると，録音画面に移動できます" id="dcs-Ad-vgC"/>
                                 </items>
                             </navigationBar>
                         </subviews>
@@ -470,6 +471,7 @@
                             <constraint firstItem="XKm-w6-J7c" firstAttribute="height" secondItem="iR6-ot-mhX" secondAttribute="height" constant="-44" id="dYv-ww-DIc" userLabel="Table View.height = height - 64"/>
                             <constraint firstItem="XKm-w6-J7c" firstAttribute="centerY" secondItem="iR6-ot-mhX" secondAttribute="centerY" constant="40" id="j5V-oL-qKT" userLabel="Table View.centerY = centerY + 40"/>
                             <constraint firstItem="XKm-w6-J7c" firstAttribute="width" secondItem="iR6-ot-mhX" secondAttribute="width" id="kiq-ce-cYp"/>
+                            <constraint firstItem="uKR-fK-TaK" firstAttribute="leading" secondItem="XKm-w6-J7c" secondAttribute="leading" id="v02-e6-e3t"/>
                         </constraints>
                     </view>
                     <connections>

@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 import RealmSwift
 
-class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSource, SoundPlayerDelegate{
+class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSource, SoundPlayerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     

@@ -34,7 +34,6 @@ class RecordViewController: ViewController{
         super.viewDidLoad()
 
         soundPlayer = SoundPlayer()
-        //initRecorder()
         disactiveRecorder()
     }
 
@@ -105,25 +104,24 @@ class RecordViewController: ViewController{
             generator.impactOccurred()
             //print("on haptic!")
         }
-
-            print("start recording")
-            initRecorder()
-            let instruction_text = ""
-            button.setTitle(instruction_text, for: .normal)
-            audioRecorder.record()
+        
+        print("start recording")
+        initRecorder()
+        let instruction_text = ""
+        button.setTitle(instruction_text, for: .normal)
+        audioRecorder.record()
             
-            sleep(5)
+        sleep(5) //仮説：Feedbackがないから重く感じる？
             
-            audioRecorder.stop()
-            saveRecordData()
+        audioRecorder.stop()
+        saveRecordData()
             
-            disactiveRecorder()
+        disactiveRecorder()
             
-            //soundPlayer.initPlayer(url: URL(fileURLWithPath: dataManager.loadDataPath()))
-            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "AutoEdit")
-            self.present(nextViewController, animated:true, completion:nil)
-       
+        //soundPlayer.initPlayer(url: URL(fileURLWithPath: dataManager.loadDataPath()))
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "AutoEdit")
+        self.present(nextViewController, animated:true, completion:nil)
     }
 
     func saveRecordData()

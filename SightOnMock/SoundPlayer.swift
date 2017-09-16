@@ -18,10 +18,10 @@ class SoundPlayer: NSObject, AVAudioPlayerDelegate {
     
     weak var delegate: SoundPlayerDelegate? = nil
     
-    //singleton
-    //static let sharedInstance = SoundPlayer()
     var audioPlayer = AVAudioPlayer()
+    
     var playingUrl:URL?
+    
     var hasInit:Bool!
     
     override init()

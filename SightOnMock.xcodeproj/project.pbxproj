@@ -26,7 +26,6 @@
 		0C4BB7051F3E6F21001CA4A2 /* TemporaryDataManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB7041F3E6F21001CA4A2 /* TemporaryDataManagerTest.swift */; };
 		0C4BB7071F3E8198001CA4A2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB7061F3E8198001CA4A2 /* User.swift */; };
 		0C4BB7091F3E845A001CA4A2 /* DatabaseAccessManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB7081F3E845A001CA4A2 /* DatabaseAccessManager.swift */; };
-		0C78E2F81F5BDD1C008EB791 /* TtsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C78E2F71F5BDD1C008EB791 /* TtsManager.swift */; };
 		0C8E85C31F484FB200DF559F /* RecordBackgroundImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C8E85C21F484FB200DF559F /* RecordBackgroundImage.png */; };
 		0C8E85C51F485C7500DF559F /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8E85C41F485C7500DF559F /* SoundPlayer.swift */; };
 		0C9198161F40134A002234FF /* Pods_SightOnMockTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCC753F3904B908C76D3381B /* Pods_SightOnMockTests.framework */; };
@@ -103,7 +102,6 @@
 		0C4BB7041F3E6F21001CA4A2 /* TemporaryDataManagerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TemporaryDataManagerTest.swift; path = ../SightOnMock/TemporaryDataManagerTest.swift; sourceTree = "<group>"; };
 		0C4BB7061F3E8198001CA4A2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0C4BB7081F3E845A001CA4A2 /* DatabaseAccessManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseAccessManager.swift; sourceTree = "<group>"; };
-		0C78E2F71F5BDD1C008EB791 /* TtsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TtsManager.swift; sourceTree = "<group>"; };
 		0C8E85C21F484FB200DF559F /* RecordBackgroundImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RecordBackgroundImage.png; sourceTree = "<group>"; };
 		0C8E85C41F485C7500DF559F /* SoundPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
 		0C9198141F401343002234FF /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = "../../Library/Developer/Xcode/DerivedData/SightOnMock-fkgespoavkjeucdizymdfvxtojxa/Build/Products/Debug-iphoneos/Realm/Realm.framework"; sourceTree = "<group>"; };
@@ -244,7 +242,6 @@
 				0C4BB7001F3DDCF6001CA4A2 /* TemporaryDataManager.swift */,
 				0C4BB7081F3E845A001CA4A2 /* DatabaseAccessManager.swift */,
 				0C39289B1F23727300397EDD /* AppDelegate.swift */,
-				0C78E2F71F5BDD1C008EB791 /* TtsManager.swift */,
 				0C39289D1F23727300397EDD /* ViewController.swift */,
 			);
 			name = Common;
@@ -682,7 +679,6 @@
 			files = (
 				0C3928D01F23794300397EDD /* ManualEditViewController.swift in Sources */,
 				0C13AE631F3D9AFD00C7847F /* PageViewController.swift in Sources */,
-				0C78E2F81F5BDD1C008EB791 /* TtsManager.swift in Sources */,
 				0C3928CA1F2378EA00397EDD /* RecordViewController.swift in Sources */,
 				0C3928D21F23796200397EDD /* PostViewController.swift in Sources */,
 				0C4BB7011F3DDCF6001CA4A2 /* TemporaryDataManager.swift in Sources */,
