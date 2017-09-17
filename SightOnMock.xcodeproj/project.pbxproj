@@ -204,7 +204,6 @@
 				0CF2EB691F35E370003DD9D2 /* Image */,
 				0C4BB70A1F3E8474001CA4A2 /* Common */,
 				0CF2EB641F35DB1B003DD9D2 /* Record */,
-				0CD7CA0C1F4020D0006559B7 /* Edit */,
 				0CF2EB631F35DAFA003DD9D2 /* Post */,
 				0CF2EB611F35D0E3003DD9D2 /* Feed */,
 				0C13AE621F3D9AFD00C7847F /* PageViewController.swift */,
@@ -269,16 +268,6 @@
 			name = SoundData;
 			sourceTree = "<group>";
 		};
-		0CD7CA0C1F4020D0006559B7 /* Edit */ = {
-			isa = PBXGroup;
-			children = (
-				0C20966D1F497BF5003290DE /* OpenEarsHeader.h */,
-				0C3928CD1F23792C00397EDD /* AutoEditViewController.swift */,
-				0C3928CF1F23794300397EDD /* ManualEditViewController.swift */,
-			);
-			name = Edit;
-			sourceTree = "<group>";
-		};
 		0CF2EB611F35D0E3003DD9D2 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
@@ -291,6 +280,9 @@
 		0CF2EB631F35DAFA003DD9D2 /* Post */ = {
 			isa = PBXGroup;
 			children = (
+				0C20966D1F497BF5003290DE /* OpenEarsHeader.h */,
+				0C3928CD1F23792C00397EDD /* AutoEditViewController.swift */,
+				0C3928CF1F23794300397EDD /* ManualEditViewController.swift */,
 				0C3928D11F23796200397EDD /* PostViewController.swift */,
 			);
 			name = Post;

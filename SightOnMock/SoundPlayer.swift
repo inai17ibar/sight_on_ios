@@ -28,23 +28,18 @@ class SoundPlayer: NSObject, AVAudioPlayerDelegate {
     {
         // 再生と録音の機能をアクティブにする
         let session = AVAudioSession.sharedInstance()
-        try! session.setCategory(AVAudioSessionCategoryPlayback) //SoloAmbient
+        try! session.setCategory(AVAudioSessionCategorySoloAmbient) //AVAudioSessionCategoryPlayback) アプリを落としても再生するときPlayback
         try! session.setActive(true)
     }
     
     public func initPlayer(url: URL)
     {
         do{
-            // AVAudioPlayerのインスタンス化
             audioPlayer = try AVAudioPlayer(contentsOf: url)
-            //print("set audio url")
-            // AVAudioPlayerのデリゲートをセット
             audioPlayer.delegate = self
-            //setting
             audioPlayer.volume = 1.0
             audioPlayer.prepareToPlay()
             
-            //delegate?.updatePlayBtnsTitle(text: "Play")
             print("init player")
             playingUrl = url
             hasInit = true

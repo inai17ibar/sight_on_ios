@@ -35,7 +35,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="522"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.1994060359589041" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name=".HiraKakuInterface-W3" family=".Hiragino Kaku Gothic Interface" pointSize="24"/>
-                                <state key="normal" title="画面をダブルタップすると録音できます">
+                                <state key="normal" title="ダブルタップすると録音を開始します。">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -49,7 +49,7 @@
                                     <fontDescription key="fontDescription" type="italicSystem" pointSize="16"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="録音画面。この画面ではマイクを使って音声を録音できます．画面の全体がひとつのボタンになっています。タップすると音声の再生を開始します。停止するときはもう一度画面をタップしてください。右から左にスワイプすると，フィード画面に移動できます" id="JLk-kP-KPh"/>
+                                    <navigationItem title="録音画面。この画面ではマイクを使って音声を録音できます。画面の中心部はひとつのボタンになっています。ダブルタップすると音声の再生を開始します。もう一度ダブルタップすると録音を終了します。フィード画面に移動するには、３本指で右から左にスワイプしてください。" id="JLk-kP-KPh"/>
                                 </items>
                             </navigationBar>
                         </subviews>
@@ -91,14 +91,14 @@
                                     <fontDescription key="fontDescription" type="italicSystem" pointSize="16"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="保存画面。この画面では，先ほど録音した音声の保存ができます。保存するときは，画面をタップしてください。画面の中心部をタップすると音声を保存します。画面の下端をタップすると音声の保存をキャンセルします。" id="h7z-aL-Yem"/>
+                                    <navigationItem title="投稿画面。先ほど録音した音声の編集と保存ができます。上から編集ボタン、投稿ボタン、キャンセルボタンの順で並んでいます。" id="h7z-aL-Yem"/>
                                 </items>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bvN-2K-nqu">
                                 <rect key="frame" x="188" y="65" width="187.5" height="522"/>
                                 <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="投稿ボタン．ダブルタップすると音声データを保存します。">
+                                <state key="normal" title="投稿ボタン。ダブルタップすると音声データを保存します。">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -112,7 +112,7 @@
                                     <constraint firstAttribute="height" constant="80" id="DbC-Jn-CU8"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="キャンセルボタン．ダブルタップで音声の保存をキャンセルします．">
+                                <state key="normal" title="キャンセルボタン。ダブルタップで音声の保存をキャンセルします。">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -123,7 +123,7 @@
                                 <rect key="frame" x="0.0" y="65" width="187.5" height="522"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="編集ボタン．ダブルタップすると音声データに効果を追加します。">
+                                <state key="normal" title="編集ボタン。ダブルタップすると録音した音声にエフェクトをかけます。">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -400,14 +400,14 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="音声タグ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sv8-Ck-pTo">
-                                                            <rect key="frame" x="5" y="56" width="58" height="17"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sv8-Ck-pTo">
+                                                            <rect key="frame" x="5" y="73" width="0.0" height="0.0"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="わけけ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NxL-t3-ByS">
-                                                            <rect key="frame" x="236" y="8" width="43" height="17"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NxL-t3-ByS">
+                                                            <rect key="frame" x="279" y="8" width="0.0" height="0.0"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -459,7 +459,7 @@
                                     <fontDescription key="fontDescription" type="italicSystem" pointSize="16"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="フィード画面．この画面では録音した音声を再生できます．最新の音声からリストで並んでいます．項目をタップすると音声を再生します．左から右にスワイプすると，録音画面に移動できます" id="dcs-Ad-vgC"/>
+                                    <navigationItem title="フィード画面。この画面では録音した音声を再生できます。最新の音声から順にリストで並んでいます。項目をダブルタップすると音声を再生します。３本指で左から右にスワイプすると、録音画面に移動できます。" id="dcs-Ad-vgC"/>
                                 </items>
                             </navigationBar>
                         </subviews>

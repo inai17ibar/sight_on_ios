@@ -36,7 +36,6 @@ class DatabaseAccessManager{
     func create(_ filePath: String, dataName: String, userId: Int, tags: [String])
     {
         sound = Sound()
-        // Tags型オブジェクトに変換してList<Tag>に格納
         let tagsList = List<Tag>()
         for tag in tags {
             let newTag = Tag()
@@ -52,18 +51,19 @@ class DatabaseAccessManager{
         sound.save()
     }
     
+    //DBから読み込んで表示する場合
     func extractByUserId(_ number: Int) -> Results<Sound>
     {
         let realm = try! Realm()
         
-        //DBから読み込んで表示する場合
+
         return realm.objects(Sound.self).filter("user_id == %@", number)
     }
     
+    //DBの初期化
     func deleteAll()
     {
         let realm = try! Realm()
-        //DBの初期化
         try! realm.write {
             realm.deleteAll()
         }

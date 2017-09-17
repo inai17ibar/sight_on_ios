@@ -112,8 +112,6 @@ class ManualEditViewController: ViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    
     func gotoPost(){
         let save_file_path = file_path
         let fileUrl_write = URL(fileURLWithPath: save_file_path)

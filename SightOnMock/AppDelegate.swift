@@ -15,8 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     let database = DatabaseAccessManager()
 
+    // Override point for customization after application launch.
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         // ここに初期化処理を書く
         setDefaultDataset() //Realmの登録内容の初期化
         firstInstruction()
@@ -27,8 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     {
         let talker = AVSpeechSynthesizer()
         //let utterance = AVSpeechUtterance(string: "サイトオンのアプリでは．簡単な操作で音の録音と再生ができます。画面の上端の見出し部分をタッチすると，その画面のヘルプを読み上げます")
-        let utterance = AVSpeechUtterance(string: "画面の上端をタッチするとヘルプを読み上げます。")
-
+        let utterance = AVSpeechUtterance(string: "画面の上の端をタッチすると、ヘルプを読み上げます。")
         utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
         talker.speak(utterance)
     }
@@ -36,29 +35,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setDefaultDataset()
     {
         database.deleteAll()
-
-        var audioPath = Bundle.main.path(forResource: "yurakucho_muzhirusi", ofType:"m4a")!
-        database.create(audioPath, dataName: "17年08月08日 金沢", userId: 1, tags: ["お祭り", "夜"])
-        database.add()
         
-        audioPath = Bundle.main.path(forResource: "washroom", ofType:"wav")!
-        database.create(audioPath, dataName: "17年06月09日 洗面所", userId: 1, tags: ["水", "癒やし"])
+        //古い順にいれる
+        var audioPath = Bundle.main.path(forResource: "washroom", ofType:"wav")!
+        database.create(audioPath, dataName: "06月09日", userId: 1, tags: ["水", "癒やし"])
         database.add()
         
         audioPath = Bundle.main.path(forResource: "akihabara_lunch", ofType:"m4a")!
-        database.create(audioPath, dataName: "17年06月11日 秋葉原", userId: 1, tags: ["ランチ"])
+        database.create(audioPath, dataName: "06月11日 秋葉原", userId: 1, tags: ["ランチ"])
         database.add()
         
         audioPath = Bundle.main.path(forResource: "on_the_bridge", ofType:"m4a")!
-        database.create(audioPath, dataName: "17年06月11日 橋の上", userId: 1, tags: ["風"])
+        database.create(audioPath, dataName: "06月11日 勝どき", userId: 1, tags: ["風"])
         database.add()
         
         audioPath = Bundle.main.path(forResource: "ginza_east", ofType:"m4a")!
-        database.create(audioPath, dataName: "2017年06月18日 東銀座", userId: 1, tags: ["話し声", "信号"])
+        database.create(audioPath, dataName: "06月18日 東銀座", userId: 1, tags: ["話し声", "信号"])
+        database.add()
+        
+        audioPath = Bundle.main.path(forResource: "yurakucho_muzhirusi", ofType:"m4a")!
+        database.create(audioPath, dataName: "08月08日 有楽町", userId: 1, tags: ["お祭り", "夜"])
         database.add()
         
         audioPath = Bundle.main.path(forResource: "on_stair", ofType:"m4a")!
-        database.create(audioPath, dataName: "2017年06月20日 大崎", userId: 1, tags: ["階段"])
+        database.create(audioPath, dataName: "06月20日 大崎", userId: 1, tags: ["階段"])
         database.add()
         
     }

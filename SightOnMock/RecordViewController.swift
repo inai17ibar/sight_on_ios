@@ -32,16 +32,22 @@ class RecordViewController: ViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //初期化処理
         soundPlayer = SoundPlayer()
         disactiveRecorder()
     }
+    
     override func viewWillAppear(_ animated: Bool) {
-    let talker = AVSpeechSynthesizer()
-    let utterance = AVSpeechUtterance(string: "録音画面です。")
-    utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
-    talker.speak(utterance)
+        //音声の読み上げ
+        let talker = AVSpeechSynthesizer()
+        let utterance = AVSpeechUtterance(string: "録音画面です。")
+        utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
+        talker.speak(utterance)
+        //初期化処理
+        soundPlayer = SoundPlayer()
+        disactiveRecorder()
     }
+    
     func disactiveRecorder()
     {
         // 録音ファイルを指定する
@@ -77,7 +83,7 @@ class RecordViewController: ViewController{
 
         // 再生と録音の機能をアクティブにする
         let session = AVAudioSession.sharedInstance()
-        try! session.setCategory(AVAudioSessionCategoryPlayAndRecord) //AVAudioSessionCategoryRecord これにすると音をフィードバックを使えるかわりに音声にノイズが入る
+        try! session.setCategory(AVAudioSessionCategoryRecord) //AVAudioSessionCategoryPlayAndRecord) //AVAudioSessionCategoryRecord これにすると音をフィードバックを使えるかわりに音声にノイズが入る
         try! session.setActive(true)
 
         // 録音の詳細設定
@@ -107,7 +113,7 @@ class RecordViewController: ViewController{
 
         if #available(iOS 10.0, *), let generator = feedbackGenerator as? UIImpactFeedbackGenerator {
             generator.impactOccurred()
-            //print("on haptic!")
+            print("on haptic!")
         }
 
         print("start recording")
@@ -120,17 +126,20 @@ class RecordViewController: ViewController{
 
         audioRecorder.stop()
         saveRecordData()
-
+        
+        //レコーダーオフ
         disactiveRecorder()
 
-        //soundPlayer.initPlayer(url: URL(fileURLWithPath: dataManager.loadDataPath()))
+        //音声の読み上げ
         let talker = AVSpeechSynthesizer()
-        let utterance = AVSpeechUtterance(string: "アプリが音を編集しています。間も無く投稿画面に移動します。")
+        let utterance = AVSpeechUtterance(string: "録音した音を読み込んでいます。間も無く，投稿画面に移動します。")
         utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
         talker.speak(utterance)
-            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "AutoEdit")
-            self.present(nextViewController, animated:true, completion:nil)
+        
+        //次画面への遷移
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "AutoEdit")
+        self.present(nextViewController, animated:true, completion:nil)
     }
 
     func saveRecordData()

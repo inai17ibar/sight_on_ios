@@ -33,7 +33,6 @@ class PostViewController: ViewController {
         }
     }()
     
-    
     // インスタンス変数
     var engine = AVAudioEngine()
     //playerNodeの準備
@@ -53,10 +52,8 @@ class PostViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         do {
-            //print(fileUrl)
             let audioFile = try AVAudioFile(forReading: fileUrl)
             self.audioFormat = audioFile.processingFormat
-            
             
             // reverbの設定
             reverb.loadFactoryPreset(.largeHall2)
@@ -80,8 +77,8 @@ class PostViewController: ViewController {
         } catch let error {
             print(error)
         }
-
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         do {
@@ -100,12 +97,13 @@ class PostViewController: ViewController {
             // playerにオーディオファイルを設定
             self.player.scheduleBuffer(audioFileBuffer, at: nil, options:.loops, completionHandler: { () -> Void in
             })
-            
             // 再生開始
             self.player.play()
         } catch let error {
             print(error)
         }
+        
+        //音声読み上げ
         let talker = AVSpeechSynthesizer()
         let utterance = AVSpeechUtterance(string: "投稿編集画面です。")
         utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
@@ -117,31 +115,29 @@ class PostViewController: ViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func post()
-    {
-        saveData()
-        let file_path = temp_data.loadDataPath()
-        //let url = URL(fileURLWithPath: file_path)
-        print("post")
-        database.create(file_path, dataName: getNowClockString(), userId: 1, tags:["fun", "happy", "hot"])
-        database.add()
-        //self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
-    }
-    
     func getNowClockString() -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMdd"
         let now = Date()
         return formatter.string(from: now)
     }
+    
+    func post()
+    {
+        saveData()
+        let file_path = temp_data.loadDataPath()
+        database.create(file_path, dataName: getNowClockString(), userId: 1, tags:[""])
+        database.add()
+    }
+    
 
-    func saveData(){
+    func saveData()
+    {
         let save_file_path = file_path
         let fileUrl_write = URL(fileURLWithPath: save_file_path)
-        //print(fileUrl_write)
         var goFlag=false
+        
         do{
-            
             let audioFile_write = try AVAudioFile(forWriting: fileUrl_write, settings: audioFormat.settings)
             reverb.installTap(onBus: 0, bufferSize: AVAudioFrameCount(audiolength), format: audioFormat, block: {buffer, when in
                 if Int(audioFile_write.length) < self.audiolength{//Let us know when to stop saving the file, otherwise saving infinitely
@@ -154,7 +150,6 @@ class PostViewController: ViewController {
                 }else{
                     self.reverb.removeTap(onBus: 0)//if we dont remove it, will keep on tapping infinitely
                     //audioFile_write=nil
-                    //print("Save done")
                     self.player.stop()
                     self.engine.stop()
                     goFlag = true;
@@ -164,38 +159,55 @@ class PostViewController: ViewController {
         }catch let error {
             print("AVAudioFile error:", error)
         }
+        
+        //処理待ちをしている？
         while(!goFlag){
             usleep(200000)
         }
-        
     }
+    
     @IBAction func buttonTapped(_ sender : Any)
     {
         if #available(iOS 10.0, *), let generator = feedbackGenerator as? UIImpactFeedbackGenerator {
             generator.impactOccurred()
             //print("on haptic!")
         }
+        
+        //音声読み上げ
         let talker = AVSpeechSynthesizer()
-        let utterance = AVSpeechUtterance(string: "保存されました。フィード画面に移動します。")
+        let utterance = AVSpeechUtterance(string: "投稿されました。フィード画面に移動します。")
         utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
         talker.speak(utterance)
-        //postButton.setTitle("保存されました。フィード画面に移動します。", for: .normal)
+        
+        //投稿処理
         post()
+        
+        //再生停止
+        self.player.stop()
 
-        //self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
+        //次画面への遷移
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "PageViewController") as! PageViewController
         self.present(nextViewController, animated:true, completion:nil)
     }
+    
     @IBAction func dismissButtonTapped(_ sender : Any)
     {
         if #available(iOS 10.0, *), let generator = feedbackGenerator as? UIImpactFeedbackGenerator {
             generator.impactOccurred()
             //print("on haptic!")
         }
-        dismissButton.setTitle("保存をキャンセルしました．録音画面に戻ります.", for: .normal)
-        print("dismiss")
+        
+        //音声読み上げ
+        let talker = AVSpeechSynthesizer()
+        let utterance = AVSpeechUtterance(string: "保存をキャンセルしました。録音画面に戻ります。")
+        utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
+        talker.speak(utterance)
 
+        //再生停止
+        self.player.stop()
+        
+        //次画面への移動
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "PageViewController") as! PageViewController
         self.present(nextViewController, animated:true, completion:nil)

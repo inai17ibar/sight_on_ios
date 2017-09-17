@@ -28,20 +28,21 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        //画面状態の読み上げ
+        let talker = AVSpeechSynthesizer()
+        let utterance = AVSpeechUtterance(string: "フィード画面です。")
+        utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
+        talker.speak(utterance)
+        
+        //データの更新
         sounds = database.extractByUserId(1)
-        print("load local data ...")
+        //print("load local data ...")
         soundPlayer = SoundPlayer()
         soundPlayer.delegate = self
         soundPlayer.initPlayer(url: URL(fileURLWithPath: sounds[0].file_path))
         
         //Now reload the tableView
         self.tableView.reloadData()
-
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -52,17 +53,18 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         return sounds.count
     }
     
+    //セルのデータの読み出し
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FeedListItem") as! FeedListItemTableViewCell
             
             cell.titleLabel.text = "\(sounds[indexPath.row].sound_name)"
-            let tags_text = Array(sounds[indexPath.row].tags).reduce("タグ ") {
-                (joined: String, x: Tag) -> String
-                in return joined + x.tagName + ", "
-            }
-            cell.tagLabel.text = "\(tags_text)"
+//            let tags_text = Array(sounds[indexPath.row].tags).reduce("タグ： ") {
+//                (joined: String, x: Tag) -> String
+//                in return joined + x.tagName + ", "
+//            }
+//            cell.tagLabel.text = "\(tags_text)"
             
             return cell
         }
@@ -103,6 +105,12 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
     {
         
     }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
     
     /*
     // MARK: - Navigation

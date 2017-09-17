@@ -118,9 +118,8 @@ class AutoEditViewController: ViewController {
                 print("Completion")
                 })
             // 再生開始
-            
             self.player.play()
-            //
+
           } catch let error {
            print(error)
         }
