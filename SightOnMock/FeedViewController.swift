@@ -83,7 +83,6 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
                 let utterance = AVSpeechUtterance(string: "再生停止")
                 utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
                 talker.speak(utterance)
-                
                 soundPlayer.stop()
                 // 選択を解除しておく
                 tableView.deselectRow(at: indexPath, animated: true)
@@ -94,7 +93,7 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
                 let utterance = AVSpeechUtterance(string: "再生")
                 utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
                 talker.speak(utterance)
-                
+                sleep(2)
                 soundPlayer.play()
             }
         }
