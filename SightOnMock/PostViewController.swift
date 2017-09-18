@@ -228,12 +228,32 @@ class PostViewController: ViewController {
         Editbutton.setTitle(buttonLabel[buttonidx], for: .normal)
         switch buttonidx {
         case 0:
+            //音声読み上げ
+            let talker = AVSpeechSynthesizer()
+            let utterance = AVSpeechUtterance(string: "オリジナル")
+            utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
+            talker.speak(utterance)
             reverb.wetDryMix = 0
         case 1:
+            //音声読み上げ
+            let talker = AVSpeechSynthesizer()
+            let utterance = AVSpeechUtterance(string: "リバーブ1")
+            utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
+            talker.speak(utterance)
             reverb.wetDryMix = 40
         case 2:
+            //音声読み上げ
+            let talker = AVSpeechSynthesizer()
+            let utterance = AVSpeechUtterance(string: "リバーブ2")
+            utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
+            talker.speak(utterance)
             reverb.wetDryMix = 70
         case 3:
+            //音声読み上げ
+            let talker = AVSpeechSynthesizer()
+            let utterance = AVSpeechUtterance(string: "リバーブ3")
+            utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
+            talker.speak(utterance)
             reverb.wetDryMix = 100
         default:
             reverb.wetDryMix = 0

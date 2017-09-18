@@ -123,20 +123,16 @@ class RecordViewController: ViewController{
             print("on haptic!")
         }
         
-        //TODO: 要リファクタリング
+        //録音開始
         print("start recording")
         initRecorder()
         button.setTitle("", for: .normal)
         audioRecorder.record()
+        sleep(5)
 
-        sleep(5) //仮説：Feedbackがないから重く感じる？
-
+        //録音停止，データを一時保存
         audioRecorder.stop()
         saveRecordData()
-        
-        //レコーダーオフ
-        //disactiveRecorder()
-
         
         //音声の読み上げ
         let talker = AVSpeechSynthesizer()
