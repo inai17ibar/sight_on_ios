@@ -84,8 +84,6 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
                 utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
                 talker.speak(utterance)
                 soundPlayer.stop()
-                // 選択を解除しておく
-                tableView.deselectRow(at: indexPath, animated: true)
             }
             else{
                 //音声読み上げ
@@ -93,6 +91,7 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
                 let utterance = AVSpeechUtterance(string: "再生")
                 utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
                 talker.speak(utterance)
+                
                 sleep(2)
                 soundPlayer.play()
             }
@@ -104,11 +103,14 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
             utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
             talker.speak(utterance)
             
+            sleep(2)
             //プレイヤーに曲がセット済みでないとき
             soundPlayer.play(url: seleted_url)
         }
+        // 選択を解除しておく
+        tableView.deselectRow(at: indexPath, animated: true)
     }
-        
+    
     func updateMessage(text: String)
     {
         
