@@ -74,19 +74,35 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         print(indexPath.row)
-        //soundPlayer.initPlayer(url: URL(fileURLWithPath: sounds[indexPath.row].file_path))
         let seleted_url = URL(fileURLWithPath: sounds[indexPath.row].file_path)
-        print(sounds[indexPath.row].file_path)
-        print(seleted_url)
         if (soundPlayer.getSoundURL() == seleted_url){
             //プレイヤーの曲がセット済みのとき
             if soundPlayer.isPlaying(){
+                //音声読み上げ
+                let talker = AVSpeechSynthesizer()
+                let utterance = AVSpeechUtterance(string: "再生停止")
+                utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
+                talker.speak(utterance)
+                
                 soundPlayer.stop()
             }else{
+                //音声読み上げ
+                let talker = AVSpeechSynthesizer()
+                let utterance = AVSpeechUtterance(string: "再生")
+                utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
+                talker.speak(utterance)
+                
                 soundPlayer.play()
+                
             }
         }
         else{
+            //音声読み上げ
+            let talker = AVSpeechSynthesizer()
+            let utterance = AVSpeechUtterance(string: "再生")
+            utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
+            talker.speak(utterance)
+            
             //プレイヤーに曲がセット済みでないとき
             soundPlayer.play(url: seleted_url)
         }

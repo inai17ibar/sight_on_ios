@@ -46,6 +46,7 @@ class RecordViewController: ViewController{
         //初期化処理
         //soundPlayer = SoundPlayer()
         disactiveRecorder()
+        //button.accessibilityActivate()
     }
     
     func disactiveRecorder()
@@ -82,7 +83,7 @@ class RecordViewController: ViewController{
 
         // 再生と録音の機能をアクティブにする
         let session = AVAudioSession.sharedInstance()
-        try! session.setCategory(AVAudioSessionCategoryRecord) //AVAudioSessionCategoryPlayAndRecord) //AVAudioSessionCategoryRecord これにすると音をフィードバックを使えるかわりに音声にノイズが入る
+        try! session.setCategory(AVAudioSessionCategoryPlayAndRecord) //AVAudioSessionCategoryPlayAndRecord) //AVAudioSessionCategoryRecord これにすると音をフィードバックを使えるかわりに音声にノイズが入る
         try! session.setActive(true)
 
         // 録音の詳細設定
@@ -112,11 +113,16 @@ class RecordViewController: ViewController{
     //録音ボタンタップ
     @IBAction func buttonTapped(_ sender : Any) {
 
+        //一時的にVOをオフ
+        button.accessibilityLabel = ""
+        button.accessibilityHint = ""
+        //読み上げ中でなければこれで読み上げが録音にはいらない
+        
         if #available(iOS 10.0, *), let generator = feedbackGenerator as? UIImpactFeedbackGenerator {
             generator.impactOccurred()
             print("on haptic!")
         }
-
+        
         //TODO: 要リファクタリング
         print("start recording")
         initRecorder()
@@ -134,7 +140,7 @@ class RecordViewController: ViewController{
         
         //音声の読み上げ
         let talker = AVSpeechSynthesizer()
-        let utterance = AVSpeechUtterance(string: "録音した音を読み込んでいます。間も無く，投稿画面に移動します。")
+        let utterance = AVSpeechUtterance(string: "録音した音を読み込んでいます。まもなく，投稿画面に移動します。")
         utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
         talker.speak(utterance)
         
