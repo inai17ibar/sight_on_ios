@@ -36,7 +36,6 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         
         //データの更新
         sounds = database.extractByUserId(1)
-        //print("load local data ...")
         soundPlayer = SoundPlayer()
         soundPlayer.delegate = self
         soundPlayer.initPlayer(url: URL(fileURLWithPath: sounds[0].file_path))

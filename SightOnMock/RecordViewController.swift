@@ -33,8 +33,8 @@ class RecordViewController: ViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         //初期化処理
-        soundPlayer = SoundPlayer()
-        disactiveRecorder()
+        //soundPlayer = SoundPlayer() Willよりさきによばれるため
+        //disactiveRecorder()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,13 +44,12 @@ class RecordViewController: ViewController{
         utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
         talker.speak(utterance)
         //初期化処理
-        soundPlayer = SoundPlayer()
+        //soundPlayer = SoundPlayer()
         disactiveRecorder()
     }
     
     func disactiveRecorder()
     {
-        // 録音ファイルを指定する
         filePath = NSHomeDirectory() + "/Documents/temp_data_"+getNowClockString()+".wav"
         let url = URL(fileURLWithPath: filePath)
 
@@ -63,7 +62,7 @@ class RecordViewController: ViewController{
             AVSampleRateKey: 44100.0 as AnyObject
         ]
 
-        // 再生と録音の機能をアクティブにする
+        // 録音の機能をオフにする
         let session = AVAudioSession.sharedInstance()
         try! session.setCategory(AVAudioSessionCategorySoloAmbient)
         try! session.setActive(true)
@@ -94,7 +93,8 @@ class RecordViewController: ViewController{
             AVNumberOfChannelsKey: 2 as AnyObject,
             AVSampleRateKey: 44100.0 as AnyObject
         ]
-
+        
+        print("success init AudioRecorder")
         do {
             audioRecorder = try AVAudioRecorder(url: url, settings: recordSetting)
         } catch {
@@ -104,11 +104,12 @@ class RecordViewController: ViewController{
 
     func getNowClockString() -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "MMdd"
+        formatter.dateFormat = "yyyyMMdd_HHmmss"
         let now = Date()
         return formatter.string(from: now)
     }
 
+    //録音ボタンタップ
     @IBAction func buttonTapped(_ sender : Any) {
 
         if #available(iOS 10.0, *), let generator = feedbackGenerator as? UIImpactFeedbackGenerator {
@@ -116,10 +117,10 @@ class RecordViewController: ViewController{
             print("on haptic!")
         }
 
+        //TODO: 要リファクタリング
         print("start recording")
         initRecorder()
-        let instruction_text = ""
-        button.setTitle(instruction_text, for: .normal)
+        button.setTitle("", for: .normal)
         audioRecorder.record()
 
         sleep(5) //仮説：Feedbackがないから重く感じる？
@@ -128,8 +129,9 @@ class RecordViewController: ViewController{
         saveRecordData()
         
         //レコーダーオフ
-        disactiveRecorder()
+        //disactiveRecorder()
 
+        
         //音声の読み上げ
         let talker = AVSpeechSynthesizer()
         let utterance = AVSpeechUtterance(string: "録音した音を読み込んでいます。間も無く，投稿画面に移動します。")

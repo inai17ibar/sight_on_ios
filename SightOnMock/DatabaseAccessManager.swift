@@ -55,8 +55,7 @@ class DatabaseAccessManager{
     func extractByUserId(_ number: Int) -> Results<Sound>
     {
         let realm = try! Realm()
-        
-
+    
         return realm.objects(Sound.self).filter("user_id == %@", number)
     }
     

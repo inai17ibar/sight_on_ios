@@ -14,7 +14,7 @@ import AudioToolbox
 
 class ManualEditViewController: ViewController {
     @IBOutlet weak var button: UIButton!
-    let buttonLabel: [String] = ["Raw", "Reverb1", "Reverb2", "Reverb3"]
+    let buttonLabel: [String] = ["オリジナル", "リバーブ1", "リバーブ2", "リバーブ3"]
     var buttonidx=0
 
     let temp_data = TemporaryDataManager()
@@ -45,7 +45,6 @@ class ManualEditViewController: ViewController {
             let audioFile = try AVAudioFile(forReading: fileUrl)
             self.audioFormat = audioFile.processingFormat
 
-            
             // reverbの設定
             reverb.loadFactoryPreset(.largeHall2)
             reverb.wetDryMix = 0
@@ -69,6 +68,7 @@ class ManualEditViewController: ViewController {
             print(error)
         }
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         do {

@@ -14,7 +14,7 @@ import AudioToolbox
 
 class PostViewController: ViewController {
     @IBOutlet weak var Editbutton: UIButton!
-    let buttonLabel: [String] = ["Raw", "Reverb1", "Reverb2", "Reverb3"]
+    let buttonLabel: [String] = ["オリジナル", "リバーブ1", "リバーブ2", "リバーブ3"]
     var buttonidx=0
     
     @IBOutlet weak var postButton: UIButton!
@@ -51,6 +51,7 @@ class PostViewController: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //プレイヤーの初期化
         do {
             let audioFile = try AVAudioFile(forReading: fileUrl)
             self.audioFormat = audioFile.processingFormat
@@ -81,6 +82,7 @@ class PostViewController: ViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        //再生の準備
         do {
             //print(fileUrl)
             let audioFile = try AVAudioFile(forReading: fileUrl)
@@ -117,7 +119,7 @@ class PostViewController: ViewController {
     
     func getNowClockString() -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "MMdd"
+        formatter.dateFormat = "MM月dd日"
         let now = Date()
         return formatter.string(from: now)
     }
@@ -128,6 +130,7 @@ class PostViewController: ViewController {
         let file_path = temp_data.loadDataPath()
         database.create(file_path, dataName: getNowClockString(), userId: 1, tags:[""])
         database.add()
+        temp_data.deleteData()
     }
     
 
@@ -200,9 +203,12 @@ class PostViewController: ViewController {
         
         //音声読み上げ
         let talker = AVSpeechSynthesizer()
-        let utterance = AVSpeechUtterance(string: "保存をキャンセルしました。録音画面に戻ります。")
+        let utterance = AVSpeechUtterance(string: "投稿をキャンセルしました。録音画面に戻ります。")
         utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
         talker.speak(utterance)
+        
+        //一時データ削除
+        temp_data.deleteData()
 
         //再生停止
         self.player.stop()
@@ -213,7 +219,8 @@ class PostViewController: ViewController {
         self.present(nextViewController, animated:true, completion:nil)
     }
     
-    @IBAction func editbuttonTapped(_ sender : Any) {
+    @IBAction func editbuttonTapped(_ sender : Any)
+    {
         buttonidx += 1;
         if buttonidx>=buttonLabel.count{
             buttonidx=0;

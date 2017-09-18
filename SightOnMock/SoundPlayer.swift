@@ -40,7 +40,7 @@ class SoundPlayer: NSObject, AVAudioPlayerDelegate {
             audioPlayer.volume = 1.0
             audioPlayer.prepareToPlay()
             
-            print("init player")
+            print("[SoundPlayer] init player")
             playingUrl = url
             hasInit = true
         }catch{
@@ -64,14 +64,14 @@ class SoundPlayer: NSObject, AVAudioPlayerDelegate {
         if !hasInit {
             return
         }
-        print("play")
+        print("[SoundPlayer] play")
         audioPlayer.play()
         self.delegate?.updatePlayBtnsTitle(text: "Stop")
     }
     
     public func stop()
     {
-        print("stop")
+        print("[SoundPlayer] stop")
         audioPlayer.stop()
         self.delegate?.updatePlayBtnsTitle(text: "Play")
     }
@@ -99,12 +99,12 @@ class SoundPlayer: NSObject, AVAudioPlayerDelegate {
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool)
     {
         self.delegate?.updatePlayBtnsTitle(text: "Finish")
-        print("finish")
+        print("[SoundPlayer] finish")
     }
     
     // デコード中にエラーが起きた時に呼ばれるメソッド
     func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error: Error?)
     {
-        print("Decoding Error on audioPlayer")
+        print("[SoundPlayer] Decoding Error on audioPlayer")
     }
 }

@@ -115,7 +115,7 @@ class AutoEditViewController: ViewController {
             })*/
             self.player.scheduleBuffer(audioFileBuffer, at: nil, options:.loops,  completionHandler: { () -> Void in
                 // 再生が終了すると呼ばれる
-                print("Completion")
+                print("[AutoEdit] Complete")
                 })
             // 再生開始
             self.player.play()
@@ -162,7 +162,7 @@ class AutoEditViewController: ViewController {
                 }else{
                     self.delay.removeTap(onBus: 0)//if we dont remove it, will keep on tapping infinitely
                     //audioFile_write=nil
-                    print("Save done")
+                    print("[AutoEdit] Save done")
                     self.player.stop()
                     self.engine.stop()
                     goFlag = true;
@@ -222,11 +222,13 @@ class AutoEditViewController: ViewController {
         waveChartAutoEdit.legend.enabled = false
     }
     
+    //????
     func doubleTapped() {
         // do something cool here
         print("ダブルタップ")
         self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
     }
+    
     /*
     // MARK: - Navigation
 

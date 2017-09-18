@@ -25,6 +25,7 @@ class TemporaryDataManager {
         let userDefault = UserDefaults.standard
         // キーを指定してオブジェクトを保存
         userDefault.set(path, forKey: "Key")
+        print("Save temporary data.")
     }
     
     open func loadDataPath() -> String
@@ -38,7 +39,7 @@ class TemporaryDataManager {
     open func deleteData()
     {
         userDefaults.removeObject(forKey: "Key")
-        //TODOpathのファイルを削除する処理
+        //TODO: pathのファイルを削除する処理
         print("Delete temporary data.")
     }
 }
