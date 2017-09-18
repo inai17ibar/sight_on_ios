@@ -46,7 +46,6 @@ class RecordViewController: ViewController{
         //初期化処理
         //soundPlayer = SoundPlayer()
         disactiveRecorder()
-        //button.accessibilityActivate()
     }
     
     func disactiveRecorder()
@@ -114,6 +113,7 @@ class RecordViewController: ViewController{
     @IBAction func buttonTapped(_ sender : Any) {
 
         //一時的にVOをオフ
+        button.setTitle("録音中", for: .normal)
         button.accessibilityLabel = ""
         button.accessibilityHint = ""
         //読み上げ中でなければこれで読み上げが録音にはいらない
@@ -126,10 +126,10 @@ class RecordViewController: ViewController{
         //録音開始
         print("start recording")
         initRecorder()
-        button.setTitle("", for: .normal)
         audioRecorder.record()
-        sleep(5)
 
+        sleep(5)
+        
         //録音停止，データを一時保存
         audioRecorder.stop()
         saveRecordData()

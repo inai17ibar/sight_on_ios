@@ -132,7 +132,6 @@ class PostViewController: ViewController {
         database.add()
         temp_data.deleteData()
     }
-    
 
     func saveData()
     {
@@ -169,8 +168,12 @@ class PostViewController: ViewController {
         }
     }
     
+    //投稿ボタンをおしたとき
     @IBAction func buttonTapped(_ sender : Any)
     {
+        postButton.accessibilityLabel = ""
+        postButton.accessibilityHint = ""
+        
         if #available(iOS 10.0, *), let generator = feedbackGenerator as? UIImpactFeedbackGenerator {
             generator.impactOccurred()
             //print("on haptic!")
@@ -196,6 +199,9 @@ class PostViewController: ViewController {
     
     @IBAction func dismissButtonTapped(_ sender : Any)
     {
+        dismissButton.accessibilityLabel = ""
+        dismissButton.accessibilityHint = ""
+        
         if #available(iOS 10.0, *), let generator = feedbackGenerator as? UIImpactFeedbackGenerator {
             generator.impactOccurred()
             //print("on haptic!")

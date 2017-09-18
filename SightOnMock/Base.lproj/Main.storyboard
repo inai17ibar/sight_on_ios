@@ -17,7 +17,7 @@
                 <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="gsK-b6-Z4x" customClass="PageViewController" customModule="SightOnMock" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6qn-nR-ZSZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1137" y="-670"/>
+            <point key="canvasLocation" x="-689" y="-671"/>
         </scene>
         <!--Record View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -32,8 +32,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oNp-Bq-EvE" userLabel="RecordButton">
-                                <rect key="frame" x="0.0" y="64" width="375" height="522"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.1994060359589041" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="539"/>
+                                <color key="backgroundColor" red="0.43618792295455933" green="0.57603985071182251" blue="0.687816321849823" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <accessibility key="accessibilityConfiguration" identifier="ダブルタップすると録音を開始します。" label="録音"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                 <state key="normal" title="録音">
@@ -56,7 +56,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.15800479054450989" green="0.15815737843513489" blue="0.15802845358848572" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="oNp-Bq-EvE" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" constant="-145" id="8do-17-Y35"/>
+                            <constraint firstItem="oNp-Bq-EvE" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" constant="-128" id="8do-17-Y35"/>
                             <constraint firstItem="oNp-Bq-EvE" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="IYX-gX-hsn"/>
                             <constraint firstItem="S5D-bu-c5w" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="ZVJ-3J-BJk"/>
                             <constraint firstItem="S5D-bu-c5w" firstAttribute="leading" secondItem="oNp-Bq-EvE" secondAttribute="leading" id="Zv2-Vn-Qz7"/>
@@ -96,14 +96,14 @@
                                 </items>
                             </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="o1Y-Ao-qAm">
-                                <rect key="frame" x="0.0" y="64" width="375" height="522"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="539"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u7a-fy-iG0" userLabel="View1">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="209"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="216"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KVi-gL-m5p" userLabel="Edit Button">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="209"/>
-                                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="216"/>
+                                                <color key="backgroundColor" red="0.77783495187759399" green="0.78552955389022827" blue="0.78859740495681763" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <accessibility key="accessibilityConfiguration" hint="ダブルタップすると録音した音声にエフェクトをかけます。" label="編集"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                                 <state key="normal" title="編集">
@@ -123,11 +123,11 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dv3-jL-bMd" userLabel="View2">
-                                        <rect key="frame" x="0.0" y="209" width="375" height="209"/>
+                                        <rect key="frame" x="0.0" y="216" width="375" height="215.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bvN-2K-nqu">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="209"/>
-                                                <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="215.5"/>
+                                                <color key="backgroundColor" red="0.43618792295455933" green="0.57603985071182251" blue="0.687816321849823" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <accessibility key="accessibilityConfiguration" hint="ダブルタップすると音声データを保存します。" label="投稿"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                                 <state key="normal" title="投稿">
@@ -147,10 +147,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Do4-T2-UDJ" userLabel="View3">
-                                        <rect key="frame" x="0.0" y="418" width="375" height="104"/>
+                                        <rect key="frame" x="0.0" y="431.5" width="375" height="107.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bsX-SL-uYe">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="104"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="107.5"/>
                                                 <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <accessibility key="accessibilityConfiguration" hint="ダブルタップで音声の保存をキャンセルします。" label="キャンセル"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
@@ -185,7 +185,7 @@
                         <color key="backgroundColor" red="0.15800479054450989" green="0.15815737843513489" blue="0.15802845358848572" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="jLs-C3-h6V" firstAttribute="width" secondItem="Qp7-Cf-vvT" secondAttribute="width" id="3J8-5t-YPH"/>
-                            <constraint firstItem="o1Y-Ao-qAm" firstAttribute="height" secondItem="Qp7-Cf-vvT" secondAttribute="height" constant="-145" id="9tI-Vl-hwK"/>
+                            <constraint firstItem="o1Y-Ao-qAm" firstAttribute="height" secondItem="Qp7-Cf-vvT" secondAttribute="height" constant="-128" id="9tI-Vl-hwK"/>
                             <constraint firstItem="jLs-C3-h6V" firstAttribute="top" secondItem="YZ8-zS-6xL" secondAttribute="bottom" id="AaE-3y-rqn"/>
                             <constraint firstItem="o1Y-Ao-qAm" firstAttribute="width" secondItem="Qp7-Cf-vvT" secondAttribute="width" id="OJ4-S4-gig"/>
                             <constraint firstItem="jLs-C3-h6V" firstAttribute="centerX" secondItem="Qp7-Cf-vvT" secondAttribute="centerX" id="ULR-wm-3eQ"/>
@@ -216,34 +216,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LSe-8U-JFe" userLabel="Wave View">
-                                <rect key="frame" x="0.0" y="64" width="375" height="522"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="539"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jgB-Kk-F0s">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="522"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="539"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C8u-9v-H0U" customClass="LineChartView" customModule="Charts">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="157"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="162"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fhc-9f-SiF" customClass="LineChartView" customModule="Charts">
-                                                <rect key="frame" x="0.0" y="157" width="375" height="157"/>
+                                                <rect key="frame" x="0.0" y="162" width="375" height="162"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R9i-Bm-Gnh" userLabel="Input View">
-                                                <rect key="frame" x="0.0" y="314" width="375" height="157"/>
+                                                <rect key="frame" x="0.0" y="324" width="375" height="161.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ldy-B8-ilv">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="157"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="161.5"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wl9-4J-119" userLabel="View1">
-                                                                <rect key="frame" x="0.0" y="0.0" width="375" height="47"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="375" height="48.5"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ILW-Jy-1T8" userLabel="View2">
-                                                                <rect key="frame" x="0.0" y="47" width="375" height="47"/>
+                                                                <rect key="frame" x="0.0" y="48.5" width="375" height="48.5"/>
                                                                 <subviews>
                                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10000" minValue="500" maxValue="20000" translatesAutoresizingMaskIntoConstraints="NO" id="x6d-LF-MU7">
-                                                                        <rect key="frame" x="28" y="8.5" width="319" height="31"/>
+                                                                        <rect key="frame" x="28" y="10" width="319" height="31"/>
                                                                         <connections>
                                                                             <action selector="sliderDelayChangedWithSender:" destination="h1Q-YG-fGP" eventType="valueChanged" id="PKN-zt-kIX"/>
                                                                         </connections>
@@ -258,10 +258,10 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e4Z-cQ-8WF" userLabel="View3">
-                                                                <rect key="frame" x="0.0" y="94" width="375" height="31"/>
+                                                                <rect key="frame" x="0.0" y="97" width="375" height="32"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1HM-Jd-JaT">
-                                                                        <rect key="frame" x="50" y="0.5" width="275" height="30"/>
+                                                                        <rect key="frame" x="50" y="1" width="275" height="30"/>
                                                                         <state key="normal" title="Update">
                                                                             <color key="titleColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                         </state>
@@ -279,7 +279,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jhe-uJ-ekF" userLabel="View4">
-                                                                <rect key="frame" x="0.0" y="125" width="375" height="32"/>
+                                                                <rect key="frame" x="0.0" y="129" width="375" height="32.5"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             </view>
                                                         </subviews>
@@ -307,7 +307,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="biX-XN-f46" userLabel="Empty View">
-                                                <rect key="frame" x="0.0" y="471" width="375" height="51"/>
+                                                <rect key="frame" x="0.0" y="485.5" width="375" height="53.5"/>
                                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
                                         </subviews>
@@ -332,10 +332,14 @@
                                     <constraint firstItem="jgB-Kk-F0s" firstAttribute="centerY" secondItem="LSe-8U-JFe" secondAttribute="centerY" id="a54-si-3Yn"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PoT-q6-ygT" userLabel="Cover View">
+                                <rect key="frame" x="0.0" y="64" width="375" height="539"/>
+                                <color key="backgroundColor" red="0.77783495187759399" green="0.78552955389022827" blue="0.78859740495681763" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ノイズ処理中" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yFh-vT-rFZ" userLabel="Text View">
-                                <rect key="frame" x="0.0" y="353.5" width="375" height="24"/>
+                                <rect key="frame" x="0.0" y="323.5" width="375" height="21.5"/>
                                 <accessibility key="accessibilityConfiguration" label="編集中。"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -353,13 +357,17 @@
                         <color key="backgroundColor" red="0.15800479054450989" green="0.15815737843513489" blue="0.15802845358848572" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="zcN-yR-fab" firstAttribute="bottom" secondItem="LSe-8U-JFe" secondAttribute="top" id="5EC-YH-d5G"/>
+                            <constraint firstItem="PoT-q6-ygT" firstAttribute="width" secondItem="bcw-Jn-VRS" secondAttribute="width" id="C6u-Cd-BAk"/>
+                            <constraint firstItem="PoT-q6-ygT" firstAttribute="height" secondItem="bcw-Jn-VRS" secondAttribute="height" constant="-128" id="DPD-4O-Tdg"/>
+                            <constraint firstItem="PoT-q6-ygT" firstAttribute="centerX" secondItem="bcw-Jn-VRS" secondAttribute="centerX" id="EEM-eo-7yY"/>
+                            <constraint firstItem="PoT-q6-ygT" firstAttribute="top" secondItem="LSe-8U-JFe" secondAttribute="top" id="KiT-iy-GGe"/>
                             <constraint firstItem="LSe-8U-JFe" firstAttribute="centerX" secondItem="bcw-Jn-VRS" secondAttribute="centerX" id="NS5-TX-zSU"/>
                             <constraint firstItem="zcN-yR-fab" firstAttribute="top" secondItem="m2M-xD-i6w" secondAttribute="bottom" id="Sll-Ef-BD9"/>
                             <constraint firstItem="LSe-8U-JFe" firstAttribute="width" secondItem="bcw-Jn-VRS" secondAttribute="width" id="dKA-rv-dq5"/>
-                            <constraint firstItem="LSe-8U-JFe" firstAttribute="height" secondItem="bcw-Jn-VRS" secondAttribute="height" constant="-145" id="ers-8J-gYr" userLabel="Wave View.height = height - 145"/>
+                            <constraint firstItem="LSe-8U-JFe" firstAttribute="height" secondItem="bcw-Jn-VRS" secondAttribute="height" constant="-128" id="ers-8J-gYr"/>
                             <constraint firstItem="zcN-yR-fab" firstAttribute="trailing" secondItem="LSe-8U-JFe" secondAttribute="trailing" id="h5x-5D-211"/>
                             <constraint firstItem="zcN-yR-fab" firstAttribute="leading" secondItem="LSe-8U-JFe" secondAttribute="leading" id="hx0-tn-wsB"/>
-                            <constraint firstItem="yFh-vT-rFZ" firstAttribute="centerY" secondItem="bcw-Jn-VRS" secondAttribute="centerY" constant="32" id="jPz-7T-iSX"/>
+                            <constraint firstItem="yFh-vT-rFZ" firstAttribute="centerY" secondItem="bcw-Jn-VRS" secondAttribute="centerY" id="jPz-7T-iSX"/>
                             <constraint firstItem="yFh-vT-rFZ" firstAttribute="width" secondItem="bcw-Jn-VRS" secondAttribute="width" id="tvv-tQ-8Bw"/>
                             <constraint firstItem="yFh-vT-rFZ" firstAttribute="centerX" secondItem="bcw-Jn-VRS" secondAttribute="centerX" id="u4l-zF-EMr"/>
                         </constraints>
@@ -420,7 +428,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xu5-tx-0Tt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="406" y="893"/>
+            <point key="canvasLocation" x="406" y="139"/>
         </scene>
         <!--Feed View Controller-->
         <scene sceneID="2bS-GP-nkg">
