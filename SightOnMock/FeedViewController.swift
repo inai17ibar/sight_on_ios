@@ -44,6 +44,10 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         self.tableView.reloadData()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        soundPlayer.stop()
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
