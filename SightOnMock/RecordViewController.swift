@@ -32,9 +32,6 @@ class RecordViewController: ViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //初期化処理
-        //soundPlayer = SoundPlayer() Willよりさきによばれるため
-        //disactiveRecorder()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,7 +41,7 @@ class RecordViewController: ViewController{
         utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
         talker.speak(utterance)
         //初期化処理
-        //soundPlayer = SoundPlayer()
+        button.setTitle("録音開始", for: .normal)
         disactiveRecorder()
     }
     
@@ -114,6 +111,7 @@ class RecordViewController: ViewController{
 
         //一時的にVOをオフ
         button.setTitle("録音中", for: .normal)
+        button.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1.0)
         button.accessibilityLabel = ""
         button.accessibilityHint = ""
         //読み上げ中でなければこれで読み上げが録音にはいらない
@@ -127,23 +125,28 @@ class RecordViewController: ViewController{
         print("start recording")
         initRecorder()
         audioRecorder.record()
-
-        sleep(5)
         
-        //録音停止，データを一時保存
-        audioRecorder.stop()
-        saveRecordData()
-        
-        //音声の読み上げ
-        let talker = AVSpeechSynthesizer()
-        let utterance = AVSpeechUtterance(string: "録音した音を読み込んでいます。まもなく，投稿画面に移動します。")
-        utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
-        talker.speak(utterance)
-        
-        //次画面への遷移
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "AutoEdit")
-        self.present(nextViewController, animated:true, completion:nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+            // n秒後に実行したい処理
+            print("finish recording")
+            self.button.setTitle("録音終了", for: .normal)
+            self.button.backgroundColor = UIColor(red: 198/255, green: 200/255, blue: 201/255, alpha: 1.0)
+            //録音停止，データを一時保存
+            self.audioRecorder.stop()
+            self.saveRecordData()
+            
+            //音声の読み上げ
+            let talker = AVSpeechSynthesizer()
+            let utterance = AVSpeechUtterance(string: "録音を完了しました。まもなく，投稿画面に移動します。")
+            //let utterance = AVSpeechUtterance(string: "録音した音を読み込んでいます。まもなく，投稿画面に移動します。")
+            utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
+            talker.speak(utterance)
+            
+            //次画面への遷移
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "AutoEdit")
+            self.present(nextViewController, animated:true, completion:nil)
+        }
     }
 
     func saveRecordData()
