@@ -59,6 +59,7 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
             let cell = tableView.dequeueReusableCell(withIdentifier: "FeedListItem") as! FeedListItemTableViewCell
             
             cell.titleLabel.text = "\(sounds[indexPath.row].sound_name)"
+            
 //            let tags_text = Array(sounds[indexPath.row].tags).reduce("タグ： ") {
 //                (joined: String, x: Tag) -> String
 //                in return joined + x.tagName + ", "
@@ -73,9 +74,11 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
     //あるセルを押したら再生
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        print(indexPath.row)
+        //print(indexPath.row)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FeedListItem") as! FeedListItemTableViewCell
         let seleted_url = URL(fileURLWithPath: sounds[indexPath.row].file_path)
-        if (soundPlayer.getSoundURL() == seleted_url){
+        if (soundPlayer.getSoundURL() == seleted_url)
+        {
             //プレイヤーの曲がセット済みのとき
             if soundPlayer.isPlaying(){
                 //音声読み上げ
@@ -83,26 +86,43 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
                 let utterance = AVSpeechUtterance(string: "再生停止")
                 utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
                 talker.speak(utterance)
+                
+                sleep(2)
                 soundPlayer.stop()
+                cell.titleLabel.isAccessibilityElement = true
+                cell.isAccessibilityElement = true
             }
             else{
+                //cell.titleLabel.Accde
+                cell.titleLabel.isAccessibilityElement = false
+                cell.isAccessibilityElement = false
+                
                 //音声読み上げ
                 let talker = AVSpeechSynthesizer()
                 let utterance = AVSpeechUtterance(string: "再生")
                 utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
                 talker.speak(utterance)
                 
+                //cell.titleLabel.text = ""
+                //cell.titleLabel.access = ""
+                //cell.titleLabel.accessibilityLabel = ""
+                //cell.titleLabel.accessibilityHint = ""
                 sleep(2)
                 soundPlayer.play()
             }
         }
         else{
+            cell.titleLabel.isAccessibilityElement = false
+            cell.isAccessibilityElement = false
+            
             //音声読み上げ
             let talker = AVSpeechSynthesizer()
             let utterance = AVSpeechUtterance(string: "再生")
             utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
             talker.speak(utterance)
             
+            //cell.titleLabel.accessibilityLabel = ""
+            //cell.titleLabel.accessibilityHint = ""
             sleep(2)
             //プレイヤーに曲がセット済みでないとき
             soundPlayer.play(url: seleted_url)
