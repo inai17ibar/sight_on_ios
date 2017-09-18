@@ -50,19 +50,32 @@
                                     <fontDescription key="fontDescription" type="italicSystem" pointSize="16"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="録音画面。この画面ではマイクを使って音声を録音できます。画面の中心部はひとつのボタンになっています。ダブルタップすると音声の再生を開始します。もう一度ダブルタップすると録音を終了します。フィード画面に移動するには、３本指で右から左にスワイプしてください。" id="JLk-kP-KPh"/>
+                                    <navigationItem id="JLk-kP-KPh"/>
                                 </items>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="録音画面" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3c3-Vr-9mY">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <accessibility key="accessibilityConfiguration" hint="この画面ではマイクを使って音声を録音できます。画面の中心部はひとつのボタンになっています。ダブルタップすると音声の再生を開始します。もう一度ダブルタップすると録音を終了します。フィード画面に移動するには、３本指で右から左にスワイプしてください。" label="録音画面"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="16"/>
+                                <color key="textColor" red="0.94183665510000003" green="0.94253760580000001" blue="0.94536536930000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.15800479054450989" green="0.15815737843513489" blue="0.15802845358848572" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="oNp-Bq-EvE" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" constant="-128" id="8do-17-Y35"/>
+                            <constraint firstItem="3c3-Vr-9mY" firstAttribute="height" secondItem="S5D-bu-c5w" secondAttribute="height" id="98U-42-a5K"/>
                             <constraint firstItem="oNp-Bq-EvE" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="IYX-gX-hsn"/>
+                            <constraint firstItem="3c3-Vr-9mY" firstAttribute="trailing" secondItem="S5D-bu-c5w" secondAttribute="trailing" id="THi-j0-mwV"/>
+                            <constraint firstItem="3c3-Vr-9mY" firstAttribute="top" secondItem="S5D-bu-c5w" secondAttribute="top" id="UnR-Xa-Rda"/>
                             <constraint firstItem="S5D-bu-c5w" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="ZVJ-3J-BJk"/>
                             <constraint firstItem="S5D-bu-c5w" firstAttribute="leading" secondItem="oNp-Bq-EvE" secondAttribute="leading" id="Zv2-Vn-Qz7"/>
+                            <constraint firstItem="3c3-Vr-9mY" firstAttribute="width" secondItem="S5D-bu-c5w" secondAttribute="width" id="b70-ol-YbR"/>
+                            <constraint firstItem="3c3-Vr-9mY" firstAttribute="bottom" secondItem="S5D-bu-c5w" secondAttribute="bottom" id="n0S-7G-eAo"/>
                             <constraint firstItem="S5D-bu-c5w" firstAttribute="bottom" secondItem="oNp-Bq-EvE" secondAttribute="top" id="nc0-he-rUP"/>
                             <constraint firstItem="oNp-Bq-EvE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nkc-Wu-UOQ"/>
                             <constraint firstItem="S5D-bu-c5w" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="poh-Y8-8kE"/>
+                            <constraint firstItem="3c3-Vr-9mY" firstAttribute="leading" secondItem="S5D-bu-c5w" secondAttribute="leading" id="uB1-oo-3Jv"/>
                         </constraints>
                     </view>
                     <connections>
@@ -92,7 +105,7 @@
                                     <fontDescription key="fontDescription" type="italicSystem" pointSize="16"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="投稿画面。先ほど録音した音声の編集と保存ができます。上から編集ボタン、投稿ボタン、キャンセルボタンの順で並んでいます。" id="h7z-aL-Yem"/>
+                                    <navigationItem id="h7z-aL-Yem"/>
                                 </items>
                             </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="o1Y-Ao-qAm">
@@ -181,6 +194,13 @@
                                     <constraint firstItem="Dv3-jL-bMd" firstAttribute="width" secondItem="o1Y-Ao-qAm" secondAttribute="width" id="uSz-9L-14C"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="投稿画面" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ljG-VV-57e">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <accessibility key="accessibilityConfiguration" hint="先ほど録音した音声の編集と保存ができます。上から編集ボタン、投稿ボタン、キャンセルボタンの順で並んでいます。" label="投稿画面"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="16"/>
+                                <color key="textColor" red="0.94183665510000003" green="0.94253760580000001" blue="0.94536536930000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.15800479054450989" green="0.15815737843513489" blue="0.15802845358848572" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -190,7 +210,11 @@
                             <constraint firstItem="o1Y-Ao-qAm" firstAttribute="width" secondItem="Qp7-Cf-vvT" secondAttribute="width" id="OJ4-S4-gig"/>
                             <constraint firstItem="jLs-C3-h6V" firstAttribute="centerX" secondItem="Qp7-Cf-vvT" secondAttribute="centerX" id="ULR-wm-3eQ"/>
                             <constraint firstItem="o1Y-Ao-qAm" firstAttribute="centerX" secondItem="Qp7-Cf-vvT" secondAttribute="centerX" id="V4s-wE-WbG"/>
+                            <constraint firstItem="ljG-VV-57e" firstAttribute="height" secondItem="jLs-C3-h6V" secondAttribute="height" id="YdG-Io-hzu"/>
+                            <constraint firstItem="ljG-VV-57e" firstAttribute="centerY" secondItem="jLs-C3-h6V" secondAttribute="centerY" id="ZHA-ZC-1Sy"/>
+                            <constraint firstItem="ljG-VV-57e" firstAttribute="centerX" secondItem="jLs-C3-h6V" secondAttribute="centerX" id="aKL-ju-ZIN"/>
                             <constraint firstItem="o1Y-Ao-qAm" firstAttribute="top" secondItem="jLs-C3-h6V" secondAttribute="bottom" id="dNh-8E-eUy"/>
+                            <constraint firstItem="ljG-VV-57e" firstAttribute="width" secondItem="jLs-C3-h6V" secondAttribute="width" id="tWf-OA-zw9"/>
                         </constraints>
                     </view>
                     <connections>
@@ -336,13 +360,6 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="539"/>
                                 <color key="backgroundColor" red="0.77783495187759399" green="0.78552955389022827" blue="0.78859740495681763" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ノイズ処理中" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yFh-vT-rFZ" userLabel="Text View">
-                                <rect key="frame" x="0.0" y="323.5" width="375" height="21.5"/>
-                                <accessibility key="accessibilityConfiguration" label="編集中。"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <navigationBar contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zcN-yR-fab">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <color key="barTintColor" red="0.15800479049999999" green="0.15815737839999999" blue="0.15802845360000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -350,9 +367,23 @@
                                     <fontDescription key="fontDescription" type="italicSystem" pointSize="16"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="ノイズ処理画面" id="UfP-m9-Utj"/>
+                                    <navigationItem id="UfP-m9-Utj"/>
                                 </items>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ノイズ処理中" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yFh-vT-rFZ" userLabel="Text View">
+                                <rect key="frame" x="0.0" y="323" width="375" height="21.5"/>
+                                <accessibility key="accessibilityConfiguration" label="編集中。"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ノイズ処理画面" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QrV-Nd-DZN">
+                                <rect key="frame" x="0.0" y="20.5" width="375" height="44"/>
+                                <accessibility key="accessibilityConfiguration" hint="先ほど録音した音声の編集と保存ができます。上から編集ボタン、投稿ボタン、キャンセルボタンの順で並んでいます。" label="投稿画面"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="16"/>
+                                <color key="textColor" red="0.94183665510000003" green="0.94253760580000001" blue="0.94536536930000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.15800479054450989" green="0.15815737843513489" blue="0.15802845358848572" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -360,16 +391,22 @@
                             <constraint firstItem="PoT-q6-ygT" firstAttribute="width" secondItem="bcw-Jn-VRS" secondAttribute="width" id="C6u-Cd-BAk"/>
                             <constraint firstItem="PoT-q6-ygT" firstAttribute="height" secondItem="bcw-Jn-VRS" secondAttribute="height" constant="-128" id="DPD-4O-Tdg"/>
                             <constraint firstItem="PoT-q6-ygT" firstAttribute="centerX" secondItem="bcw-Jn-VRS" secondAttribute="centerX" id="EEM-eo-7yY"/>
+                            <constraint firstItem="QrV-Nd-DZN" firstAttribute="height" secondItem="zcN-yR-fab" secondAttribute="height" id="GTy-vv-Op9"/>
                             <constraint firstItem="PoT-q6-ygT" firstAttribute="top" secondItem="LSe-8U-JFe" secondAttribute="top" id="KiT-iy-GGe"/>
                             <constraint firstItem="LSe-8U-JFe" firstAttribute="centerX" secondItem="bcw-Jn-VRS" secondAttribute="centerX" id="NS5-TX-zSU"/>
+                            <constraint firstItem="yFh-vT-rFZ" firstAttribute="width" secondItem="zcN-yR-fab" secondAttribute="width" id="ORp-RV-utH"/>
                             <constraint firstItem="zcN-yR-fab" firstAttribute="top" secondItem="m2M-xD-i6w" secondAttribute="bottom" id="Sll-Ef-BD9"/>
+                            <constraint firstItem="QrV-Nd-DZN" firstAttribute="width" secondItem="zcN-yR-fab" secondAttribute="width" id="Y3N-gS-hJY"/>
                             <constraint firstItem="LSe-8U-JFe" firstAttribute="width" secondItem="bcw-Jn-VRS" secondAttribute="width" id="dKA-rv-dq5"/>
+                            <constraint firstItem="QrV-Nd-DZN" firstAttribute="centerY" secondItem="zcN-yR-fab" secondAttribute="centerY" id="dot-Jo-f9a"/>
                             <constraint firstItem="LSe-8U-JFe" firstAttribute="height" secondItem="bcw-Jn-VRS" secondAttribute="height" constant="-128" id="ers-8J-gYr"/>
                             <constraint firstItem="zcN-yR-fab" firstAttribute="trailing" secondItem="LSe-8U-JFe" secondAttribute="trailing" id="h5x-5D-211"/>
                             <constraint firstItem="zcN-yR-fab" firstAttribute="leading" secondItem="LSe-8U-JFe" secondAttribute="leading" id="hx0-tn-wsB"/>
+                            <constraint firstItem="yFh-vT-rFZ" firstAttribute="centerX" secondItem="zcN-yR-fab" secondAttribute="centerX" id="jIQ-M6-dfd"/>
                             <constraint firstItem="yFh-vT-rFZ" firstAttribute="centerY" secondItem="bcw-Jn-VRS" secondAttribute="centerY" id="jPz-7T-iSX"/>
                             <constraint firstItem="yFh-vT-rFZ" firstAttribute="width" secondItem="bcw-Jn-VRS" secondAttribute="width" id="tvv-tQ-8Bw"/>
                             <constraint firstItem="yFh-vT-rFZ" firstAttribute="centerX" secondItem="bcw-Jn-VRS" secondAttribute="centerX" id="u4l-zF-EMr"/>
+                            <constraint firstItem="QrV-Nd-DZN" firstAttribute="centerX" secondItem="zcN-yR-fab" secondAttribute="centerX" id="v8X-y6-iHh"/>
                         </constraints>
                     </view>
                     <connections>
@@ -462,7 +499,7 @@
                                                     <rect key="frame" x="98" y="0.0" width="269" height="100"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="音声タイトル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="USI-Qw-W8k">
-                                                            <rect key="frame" x="4" y="12" width="110.5" height="21.5"/>
+                                                            <rect key="frame" x="4" y="12" width="111" height="22"/>
                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -531,18 +568,31 @@
                                     <fontDescription key="fontDescription" type="italicSystem" pointSize="16"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="フィード画面。この画面では録音した音声を再生できます。最新の音声から順にリストで並んでいます。項目をダブルタップすると音声を再生します。３本指で左から右にスワイプすると、録音画面に移動できます。" id="dcs-Ad-vgC"/>
+                                    <navigationItem id="dcs-Ad-vgC"/>
                                 </items>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="フィード画面" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gRm-55-eIr">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <accessibility key="accessibilityConfiguration" hint="この画面では録音した音声を再生できます。最新の音声から順にリストで並んでいます。項目をダブルタップすると音声を再生します。３本指で左から右にスワイプすると、録音画面に移動できます。" label="フィード画面"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="16"/>
+                                <color key="textColor" red="0.94183665510000003" green="0.94253760580000001" blue="0.94536536930000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.15800479054450989" green="0.15815737843513489" blue="0.15802845358848572" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="gRm-55-eIr" firstAttribute="leading" secondItem="uKR-fK-TaK" secondAttribute="leading" id="0zo-O5-ZGr"/>
                             <constraint firstItem="uKR-fK-TaK" firstAttribute="width" secondItem="iR6-ot-mhX" secondAttribute="width" id="1JC-Td-6qc"/>
+                            <constraint firstItem="gRm-55-eIr" firstAttribute="top" secondItem="iR6-ot-mhX" secondAttribute="top" constant="20" id="6ku-Xj-q4L"/>
                             <constraint firstItem="uKR-fK-TaK" firstAttribute="top" secondItem="LiD-uE-P3u" secondAttribute="bottom" id="BlR-82-Tgr"/>
                             <constraint firstItem="XKm-w6-J7c" firstAttribute="centerX" secondItem="iR6-ot-mhX" secondAttribute="centerX" id="I3T-pZ-1vP"/>
+                            <constraint firstItem="gRm-55-eIr" firstAttribute="trailing" secondItem="uKR-fK-TaK" secondAttribute="trailing" id="OH5-NZ-K6b"/>
+                            <constraint firstItem="gRm-55-eIr" firstAttribute="bottom" secondItem="uKR-fK-TaK" secondAttribute="bottom" id="QvH-Or-yLf"/>
+                            <constraint firstItem="gRm-55-eIr" firstAttribute="width" secondItem="uKR-fK-TaK" secondAttribute="width" id="cub-d8-lnF"/>
                             <constraint firstItem="XKm-w6-J7c" firstAttribute="height" secondItem="iR6-ot-mhX" secondAttribute="height" constant="-44" id="dYv-ww-DIc" userLabel="Table View.height = height - 64"/>
                             <constraint firstItem="XKm-w6-J7c" firstAttribute="centerY" secondItem="iR6-ot-mhX" secondAttribute="centerY" constant="40" id="j5V-oL-qKT" userLabel="Table View.centerY = centerY + 40"/>
                             <constraint firstItem="XKm-w6-J7c" firstAttribute="width" secondItem="iR6-ot-mhX" secondAttribute="width" id="kiq-ce-cYp"/>
+                            <constraint firstItem="gRm-55-eIr" firstAttribute="height" secondItem="uKR-fK-TaK" secondAttribute="height" id="twk-rg-eOQ"/>
                             <constraint firstItem="uKR-fK-TaK" firstAttribute="leading" secondItem="XKm-w6-J7c" secondAttribute="leading" id="v02-e6-e3t"/>
                         </constraints>
                     </view>
