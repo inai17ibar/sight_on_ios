@@ -56,7 +56,8 @@ class DatabaseAccessManager{
     {
         let realm = try! Realm()
     
-        return realm.objects(Sound.self).filter("user_id == %@", number)
+        let sortProperties = [SortDescriptor(keyPath: "created_stamp", ascending: false)]
+        return realm.objects(Sound.self).filter("user_id == %@", number).sorted(by: sortProperties)
     }
     
     //DBの初期化

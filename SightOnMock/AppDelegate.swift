@@ -53,14 +53,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         database.create(audioPath, dataName: "06月18日 東銀座", userId: 1, tags: ["話し声", "信号"])
         database.add()
         
-        audioPath = Bundle.main.path(forResource: "yurakucho_muzhirusi", ofType:"m4a")!
-        database.create(audioPath, dataName: "08月08日 有楽町", userId: 1, tags: ["お祭り", "夜"])
-        database.add()
-        
         audioPath = Bundle.main.path(forResource: "on_stair", ofType:"m4a")!
         database.create(audioPath, dataName: "06月20日 大崎", userId: 1, tags: ["階段"])
         database.add()
         
+        audioPath = Bundle.main.path(forResource: "yurakucho_muzhirusi", ofType:"m4a")!
+        database.create(audioPath, dataName: "08月08日 有楽町", userId: 1, tags: ["お祭り", "夜"])
+        database.add()
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
