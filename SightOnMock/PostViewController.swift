@@ -110,6 +110,7 @@ class PostViewController: ViewController {
 //        let utterance = AVSpeechUtterance(string: "投稿編集画面です。")
 //        utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
 //        talker.speak(utterance)
+        //sleep(2)
     }
     
     override func didReceiveMemoryWarning() {
@@ -185,7 +186,7 @@ class PostViewController: ViewController {
         let utterance = AVSpeechUtterance(string: "投稿されました。フィード画面に移動します。")
         utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
         talker.speak(utterance)
-        
+        sleep(3)
         //投稿処理
         post()
         
@@ -213,7 +214,7 @@ class PostViewController: ViewController {
         let utterance = AVSpeechUtterance(string: "投稿をキャンセルしました。録音画面に戻ります。")
         utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
         talker.speak(utterance)
-        
+        sleep(3)
         //一時データ削除
         temp_data.deleteData()
 

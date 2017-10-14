@@ -119,6 +119,7 @@ class RecordViewController: ViewController{
         //読み上げ中でなければこれで読み上げが録音にはいらない
         
         //音声の読み上げ
+        sleep(1)
         let talker = AVSpeechSynthesizer()
         let utterance = AVSpeechUtterance(string: "録音を開始します。")
         utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
@@ -143,7 +144,7 @@ class RecordViewController: ViewController{
             //録音停止，データを一時保存
             self.audioRecorder.stop()
             self.saveRecordData()
-            
+            disactiveRecorder()
             //音声の読み上げ
             //let talker = AVSpeechSynthesizer()
             //let utterance = AVSpeechUtterance(string: "録音を完了しました。まもなく，投稿画面に移動します。")
