@@ -62,7 +62,7 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
             let cell = tableView.dequeueReusableCell(withIdentifier: "FeedListItem") as! FeedListItemTableViewCell
             
             cell.titleLabel.text = "\(sounds[indexPath.row].sound_name)"
-            
+            //print(cell.titleLabel.text as Any )
 //            let tags_text = Array(sounds[indexPath.row].tags).reduce("タグ： ") {
 //                (joined: String, x: Tag) -> String
 //                in return joined + x.tagName + ", "
@@ -86,28 +86,34 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         //Voセルのフォーカスを取れるか？の確認
         print(cell.accessibilityElementIsFocused())
         print(cell.titleLabel.accessibilityElementIsFocused())
-        cell.titleLabel.accessibilityLabel = ""
-        cell.titleLabel.accessibilityHint = ""
+        print(cell.titleLabel.isAccessibilityElement)
+        cell.titleLabel.isAccessibilityElement = false
+        print(cell.titleLabel.isAccessibilityElement)
+        //cell.titleLabel.accessibilityLabel = "" //EnableをかえずLabelとHintだけ消してもタイトルがあるからつぎのときはVOされる
+        //cell.titleLabel.accessibilityHint = ""
         
         if (soundPlayer.getSoundURL() == seleted_url)
         {
             //プレイヤーの曲がセット済みのとき
             if soundPlayer.isPlaying(){
+                //print(cell.titleLabel.text as Any )
+                //cell.titleLabel.isAccessibilityElement = true
+                //cell.isAccessibilityElement = true
+                //print(cell.titleLabel.isAccessibilityElement)
                 //音声読み上げ
                 let talker = AVSpeechSynthesizer()
                 let utterance = AVSpeechUtterance(string: "再生停止")
                 utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
                 talker.speak(utterance)
                 
+                //cell.titleLabel.text = "" //せるがちゃんととれたらタイトルが消えて戻らない
+                //print(cell.titleLabel.text as Any )
+                //cell.titleLabel.accessibilityLabel = ""
+                //cell.titleLabel.accessibilityHint = ""
                 sleep(2)
                 soundPlayer.stop()
-                //cell.titleLabel.isAccessibilityElement = true
-                //cell.isAccessibilityElement = true
             }
             else{
-                //この時点でVOしない要素に設定してもVOされる
-                //cell.titleLabel.isAccessibilityElement = false
-                //cell.isAccessibilityElement = false
                 
                 //音声読み上げ
                 let talker = AVSpeechSynthesizer()
@@ -115,18 +121,11 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
                 utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
                 talker.speak(utterance)
                 
-                //cell.titleLabel.accessibilityLabel = ""
-                //cell.titleLabel.accessibilityHint = ""
-                
-                //VOするまでに遅延が生じる？
                 sleep(2)
                 soundPlayer.play()
             }
         }
         else{
-            //cell.titleLabel.isAccessibilityElement = false
-            //cell.isAccessibilityElement = false
-            
             //音声読み上げ
             let talker = AVSpeechSynthesizer()
             let utterance = AVSpeechUtterance(string: "再生")

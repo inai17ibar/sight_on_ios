@@ -27,9 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     {
         let talker = AVSpeechSynthesizer()
         //let utterance = AVSpeechUtterance(string: "サイトオンのアプリでは．簡単な操作で音の録音と再生ができます。画面の上端の見出し部分をタッチすると，その画面のヘルプを読み上げます")
-        let utterance = AVSpeechUtterance(string: "画面の上の見出しをタッチすると、ヘルプを読み上げます。")
-        utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
-        talker.speak(utterance)
+        //let utterance = AVSpeechUtterance(string: "画面の上の見出しをタッチすると、ヘルプを読み上げます。")
+        //utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
+        //talker.speak(utterance)
     }
     
     func setDefaultDataset()

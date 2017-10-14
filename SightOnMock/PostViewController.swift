@@ -47,7 +47,7 @@ class PostViewController: ViewController {
     //読み込みfile関係
     let file_path = TemporaryDataManager().loadDataPath()
     let fileUrl = URL(fileURLWithPath: TemporaryDataManager().loadDataPath())
-    
+    var isEffected=false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,6 +110,7 @@ class PostViewController: ViewController {
 //        let utterance = AVSpeechUtterance(string: "投稿編集画面です。")
 //        utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
 //        talker.speak(utterance)
+        //sleep(2)
     }
     
     override func didReceiveMemoryWarning() {
@@ -126,7 +127,9 @@ class PostViewController: ViewController {
     
     func post()
     {
+        if(isEffected){
         saveData()
+        }
         let file_path = temp_data.loadDataPath()
         database.create(file_path, dataName: getNowClockString(), userId: 1, tags:[""])
         database.add()
@@ -173,10 +176,9 @@ class PostViewController: ViewController {
     {
         postButton.accessibilityLabel = ""
         postButton.accessibilityHint = ""
-        
         if #available(iOS 10.0, *), let generator = feedbackGenerator as? UIImpactFeedbackGenerator {
             generator.impactOccurred()
-            //print("on haptic!")
+            print("on haptic!")
         }
         
         //音声読み上げ
@@ -184,7 +186,7 @@ class PostViewController: ViewController {
         let utterance = AVSpeechUtterance(string: "投稿されました。フィード画面に移動します。")
         utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
         talker.speak(utterance)
-        
+        sleep(3)
         //投稿処理
         post()
         
@@ -212,7 +214,7 @@ class PostViewController: ViewController {
         let utterance = AVSpeechUtterance(string: "投稿をキャンセルしました。録音画面に戻ります。")
         utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
         talker.speak(utterance)
-        
+        sleep(3)
         //一時データ削除
         temp_data.deleteData()
 
