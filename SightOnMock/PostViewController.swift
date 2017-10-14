@@ -173,10 +173,9 @@ class PostViewController: ViewController {
     {
         postButton.accessibilityLabel = ""
         postButton.accessibilityHint = ""
-        
         if #available(iOS 10.0, *), let generator = feedbackGenerator as? UIImpactFeedbackGenerator {
             generator.impactOccurred()
-            //print("on haptic!")
+            print("on haptic!")
         }
         
         //音声読み上げ

@@ -18,8 +18,9 @@ class RecordViewController: ViewController{
 
     let dataManager = TemporaryDataManager()
     var soundPlayer:SoundPlayer!
-    var currentControllerName = "Anonymous"
 
+    var isRecording = false
+    
     private let feedbackGenerator: Any? = {
         if #available(iOS 10.0, *) {
             let generator: UIImpactFeedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
@@ -109,7 +110,7 @@ class RecordViewController: ViewController{
 
     //録音ボタンタップ
     @IBAction func buttonTapped(_ sender : Any) {
-
+        if isRecording==false{
         //一時的にVOをオフ
         button.setTitle("録音中", for: .normal)
         button.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1.0)
@@ -117,18 +118,25 @@ class RecordViewController: ViewController{
         button.accessibilityHint = ""
         //読み上げ中でなければこれで読み上げが録音にはいらない
         
+        //音声の読み上げ
+        let talker = AVSpeechSynthesizer()
+        let utterance = AVSpeechUtterance(string: "録音を開始します。")
+        utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
+        talker.speak(utterance)
+        sleep(2)
         if #available(iOS 10.0, *), let generator = feedbackGenerator as? UIImpactFeedbackGenerator {
             generator.impactOccurred()
             print("on haptic!")
         }
         
+        isRecording=true;
         //録音開始
         print("start recording")
         initRecorder()
         audioRecorder.record()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-            // n秒後に実行したい処理
+        }
+        else{
+            // 押されたら実行したい処理
             print("finish recording")
             self.button.setTitle("録音終了", for: .normal)
             self.button.backgroundColor = UIColor(red: 198/255, green: 200/255, blue: 201/255, alpha: 1.0)
@@ -137,14 +145,14 @@ class RecordViewController: ViewController{
             self.saveRecordData()
             
             //音声の読み上げ
-            let talker = AVSpeechSynthesizer()
-            let utterance = AVSpeechUtterance(string: "録音を完了しました。まもなく，投稿画面に移動します。")
-            utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
-            talker.speak(utterance)
+            //let talker = AVSpeechSynthesizer()
+            //let utterance = AVSpeechUtterance(string: "録音を完了しました。まもなく，投稿画面に移動します。")
+            //utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
+            //talker.speak(utterance)
             
             //次画面への遷移
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "AutoEdit")
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Post")
             self.present(nextViewController, animated:true, completion:nil)
         }
     }
