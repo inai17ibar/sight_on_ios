@@ -193,7 +193,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CJA-wd-G4g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4230" y="-667"/>
+            <point key="canvasLocation" x="2938" y="-667"/>
         </scene>
         <!--Auto Edit View Controller-->
         <scene sceneID="2tR-u9-upa">
@@ -386,7 +386,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PLO-Qn-lNc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2794" y="-667"/>
+            <point key="canvasLocation" x="2110" y="-667"/>
         </scene>
         <!--録音モード-->
         <scene sceneID="3RA-I7-nQu">
