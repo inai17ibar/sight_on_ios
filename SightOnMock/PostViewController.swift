@@ -47,7 +47,7 @@ class PostViewController: ViewController {
     //読み込みfile関係
     let file_path = TemporaryDataManager().loadDataPath()
     let fileUrl = URL(fileURLWithPath: TemporaryDataManager().loadDataPath())
-    
+    var isEffected=false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -126,7 +126,9 @@ class PostViewController: ViewController {
     
     func post()
     {
+        if(isEffected){
         saveData()
+        }
         let file_path = temp_data.loadDataPath()
         database.create(file_path, dataName: getNowClockString(), userId: 1, tags:[""])
         database.add()
