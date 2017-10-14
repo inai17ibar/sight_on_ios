@@ -193,7 +193,7 @@ class PostViewController: ViewController {
 
         //次画面への遷移
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "PageViewController") as! PageViewController
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
         self.present(nextViewController, animated:true, completion:nil)
     }
     
@@ -221,7 +221,7 @@ class PostViewController: ViewController {
         
         //次画面への移動
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "PageViewController") as! PageViewController
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
         self.present(nextViewController, animated:true, completion:nil)
     }
     

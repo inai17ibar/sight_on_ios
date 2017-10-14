@@ -53,6 +53,7 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //if(sounds.count) { return 0 } non-optional val
         return sounds.count
     }
     

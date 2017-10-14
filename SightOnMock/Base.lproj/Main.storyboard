@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gsK-b6-Z4x">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="TCa-gi-mzr">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,14 +11,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Page View Controller-->
-        <scene sceneID="7rR-Iy-vkK">
-            <objects>
-                <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="gsK-b6-Z4x" customClass="PageViewController" customModule="SightOnMock" customModuleProvider="target" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6qn-nR-ZSZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-689" y="-671"/>
-        </scene>
         <!--Record View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -32,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oNp-Bq-EvE" userLabel="RecordButton">
-                                <rect key="frame" x="0.0" y="64" width="375" height="539"/>
+                                <rect key="frame" x="0.0" y="108" width="375" height="539"/>
                                 <color key="backgroundColor" red="0.43618792295455933" green="0.57603985071182251" blue="0.687816321849823" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <accessibility key="accessibilityConfiguration" identifier="ダブルタップすると録音を開始します。" label="録音。"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
@@ -44,7 +36,7 @@
                                 </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5D-bu-c5w">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
                                 <color key="barTintColor" red="0.15800479049999999" green="0.15815737839999999" blue="0.15802845360000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textAttributes key="titleTextAttributes">
                                     <fontDescription key="fontDescription" type="italicSystem" pointSize="16"/>
@@ -54,7 +46,7 @@
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="録音画面" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3c3-Vr-9mY">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
                                 <accessibility key="accessibilityConfiguration" hint="この画面ではマイクを使って音声を録音できます。画面の中心部はひとつのボタンになっています。ダブルタップすると音声の再生を開始します。もう一度ダブルタップすると録音を終了します。フィード画面に移動するには、３本指で右から左にスワイプしてください。" label="録音画面"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="16"/>
                                 <color key="textColor" red="0.94183665510000003" green="0.94253760580000001" blue="0.94536536930000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -78,13 +70,15 @@
                             <constraint firstItem="3c3-Vr-9mY" firstAttribute="leading" secondItem="S5D-bu-c5w" secondAttribute="leading" id="uB1-oo-3Jv"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="録音" id="U5U-xF-scO"/>
+                    <navigationItem key="navigationItem" id="uLT-CC-ZMf"/>
                     <connections>
                         <outlet property="button" destination="oNp-Bq-EvE" id="TtZ-9F-Ykv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1292" y="-670.61469265367316"/>
+            <point key="canvasLocation" x="1292" y="-667"/>
         </scene>
         <!--Post View Controller-->
         <scene sceneID="TKx-I9-Qe2">
@@ -420,6 +414,23 @@
             </objects>
             <point key="canvasLocation" x="2072.8000000000002" y="-671.51424287856082"/>
         </scene>
+        <!--録音モード-->
+        <scene sceneID="3RA-I7-nQu">
+            <objects>
+                <navigationController id="qH3-s7-yGe" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="録音モード" id="mpD-tr-UGx"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nvM-T5-Fgj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="fUC-oL-BtV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NYq-vj-l8u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="502" y="-667"/>
+        </scene>
         <!--Manual Edit View Controller-->
         <scene sceneID="8ex-DO-aVg">
             <objects>
@@ -465,7 +476,42 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xu5-tx-0Tt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="406" y="139"/>
+            <point key="canvasLocation" x="1814" y="341"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="t3e-fP-rlY">
+            <objects>
+                <tabBarController storyboardIdentifier="TabBarController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TCa-gi-mzr" customClass="TabBarController" customModule="SightOnMock" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="hmx-bG-g9m">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Jzt-T6-x8D" kind="relationship" relationship="viewControllers" id="7x6-9N-mFQ"/>
+                        <segue destination="qH3-s7-yGe" kind="relationship" relationship="viewControllers" id="t3i-Sk-Xed"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wtV-O8-6IX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-396" y="-1032"/>
+        </scene>
+        <!--再生リスト-->
+        <scene sceneID="pmk-p3-ljX">
+            <objects>
+                <navigationController id="Jzt-T6-x8D" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="再生リスト" id="rtk-A8-kmx"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Nlj-6S-Tt9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="7n7-tz-EaD" kind="relationship" relationship="rootViewController" id="oEy-Cp-u3O"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GaZ-vH-Eem" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="502" y="-1415"/>
         </scene>
         <!--Feed View Controller-->
         <scene sceneID="2bS-GP-nkg">
@@ -562,7 +608,7 @@
                                 </connections>
                             </tableView>
                             <navigationBar contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uKR-fK-TaK">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
                                 <color key="barTintColor" red="0.15800479054450989" green="0.15815737843513489" blue="0.15802845358848572" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textAttributes key="titleTextAttributes">
                                     <fontDescription key="fontDescription" type="italicSystem" pointSize="16"/>
@@ -572,7 +618,7 @@
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="フィード画面" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gRm-55-eIr">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
                                 <accessibility key="accessibilityConfiguration" hint="この画面では録音した音声を再生できます。最新の音声から順にリストで並んでいます。項目をダブルタップすると音声を再生します。３本指で左から右にスワイプすると、録音画面に移動できます。" label="フィード画面"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="16"/>
                                 <color key="textColor" red="0.94183665510000003" green="0.94253760580000001" blue="0.94536536930000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -596,13 +642,15 @@
                             <constraint firstItem="uKR-fK-TaK" firstAttribute="leading" secondItem="XKm-w6-J7c" secondAttribute="leading" id="v02-e6-e3t"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="再生リスト" id="HOB-dN-t60"/>
+                    <navigationItem key="navigationItem" id="USf-VN-9AZ"/>
                     <connections>
                         <outlet property="tableView" destination="XKm-w6-J7c" id="2uC-rx-cup"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="91k-SS-nZ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="405.60000000000002" y="-670.61469265367316"/>
+            <point key="canvasLocation" x="1292" y="-1414.5427286356824"/>
         </scene>
     </scenes>
     <resources>
