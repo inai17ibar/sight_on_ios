@@ -36,10 +36,11 @@ class RecordViewController: ViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         //音声の読み上げ
-        let talker = AVSpeechSynthesizer()
-        let utterance = AVSpeechUtterance(string: "録音画面です。")
-        utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
-        talker.speak(utterance)
+//        let talker = AVSpeechSynthesizer()
+//        let utterance = AVSpeechUtterance(string: "録音画面です。")
+//        utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
+//        talker.speak(utterance)
+//        
         //初期化処理
         button.setTitle("録音開始", for: .normal)
         disactiveRecorder()
@@ -138,7 +139,6 @@ class RecordViewController: ViewController{
             //音声の読み上げ
             let talker = AVSpeechSynthesizer()
             let utterance = AVSpeechUtterance(string: "録音を完了しました。まもなく，投稿画面に移動します。")
-            //let utterance = AVSpeechUtterance(string: "録音した音を読み込んでいます。まもなく，投稿画面に移動します。")
             utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
             talker.speak(utterance)
             

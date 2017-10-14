@@ -106,10 +106,10 @@ class PostViewController: ViewController {
         }
         
         //音声読み上げ
-        let talker = AVSpeechSynthesizer()
-        let utterance = AVSpeechUtterance(string: "投稿編集画面です。")
-        utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
-        talker.speak(utterance)
+//        let talker = AVSpeechSynthesizer()
+//        let utterance = AVSpeechUtterance(string: "投稿編集画面です。")
+//        utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
+//        talker.speak(utterance)
     }
     
     override func didReceiveMemoryWarning() {

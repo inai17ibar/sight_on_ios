@@ -18,7 +18,6 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
     let database = DatabaseAccessManager()
     let realm = try! Realm()
     var sounds:Results<Sound>!
-    var currentControllerName = "Anonymous"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,10 +28,10 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         super.viewWillAppear(animated)
         
         //画面状態の読み上げ
-        let talker = AVSpeechSynthesizer()
-        let utterance = AVSpeechUtterance(string: "フィード画面です。")
-        utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
-        talker.speak(utterance)
+//        let talker = AVSpeechSynthesizer()
+//        let utterance = AVSpeechUtterance(string: "再生リストです。")
+//        utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
+//        talker.speak(utterance)
         
         //データの読み出し，更新
         sounds = database.extractByUserId(1)
