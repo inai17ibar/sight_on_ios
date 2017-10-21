@@ -113,7 +113,6 @@ class RecordViewController: ViewController{
 
     //録音ボタンタップ
     @IBAction func buttonTapped(_ sender : Any) {
-        if isRecording==false{
         //一時的にVOをオフ
         button.setTitle("録音中", for: .normal)
         button.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1.0)
@@ -122,12 +121,12 @@ class RecordViewController: ViewController{
         //読み上げ中でなければこれで読み上げが録音にはいらない
         
         //音声の読み上げ
-        sleep(1)
+        /*sleep(1)
         let talker = AVSpeechSynthesizer()
         let utterance = AVSpeechUtterance(string: "録音を開始します。")
         utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
         talker.speak(utterance)
-        sleep(2)
+        sleep(2)*/
         if #available(iOS 10.0, *), let generator = feedbackGenerator as? UIImpactFeedbackGenerator {
             generator.impactOccurred()
             print("on haptic!")
@@ -138,31 +137,40 @@ class RecordViewController: ViewController{
         print("start recording")
         initRecorder()
         audioRecorder.record()
-        }
-        else{
-            // 押されたら実行したい処理
-            print("finish recording")
-            self.button.setTitle("録音終了", for: .normal)
-            self.button.backgroundColor = UIColor(red: 198/255, green: 200/255, blue: 201/255, alpha: 1.0)
-            //録音停止，データを一時保存
-            self.audioRecorder.stop()
-            self.saveRecordData()
-            disactiveRecorder()
-            //音声の読み上げ
-            //let talker = AVSpeechSynthesizer()
-            //let utterance = AVSpeechUtterance(string: "録音を完了しました。まもなく，投稿画面に移動します。")
-            //utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
-            //talker.speak(utterance)
-            
-            //次画面への遷移
-            let storyBoard : UIStoryboard = UIStoryboard(name: "Post", bundle:nil)
-            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Post")
-            //self.dismiss(animated:true, completion:nil)
-            self.present(nextViewController, animated:true, completion:nil)
-            
-        }
+        showAlert()
     }
-
+    func finishrecord(){
+        // 押されたら実行したい処理
+        print("finish recording")
+        self.button.setTitle("録音終了", for: .normal)
+        self.button.backgroundColor = UIColor(red: 198/255, green: 200/255, blue: 201/255, alpha: 1.0)
+        //録音停止，データを一時保存
+        self.audioRecorder.stop()
+        self.saveRecordData()
+        disactiveRecorder()
+        //次画面への遷移
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Post", bundle:nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Post")
+        self.present(nextViewController, animated:true, completion:nil)
+    }
+    func showAlert() {
+        
+        // アラートを作成
+        let alert = UIAlertController(
+            title: "",
+            message: "録音中",
+            preferredStyle: .alert)//.actionSheet
+        // アクションシートの親となる UIView を設定
+        alert.popoverPresentationController?.sourceView = self.view
+        // アラートにボタンをつける
+        alert.addAction(UIAlertAction(title: "録音終了", style: .default, handler: { action in
+            self.finishrecord()
+        }))
+        
+        // アラート表示
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     func saveRecordData()
     {
         dataManager.saveDataPath(filePath)

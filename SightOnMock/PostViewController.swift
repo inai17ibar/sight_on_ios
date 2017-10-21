@@ -186,21 +186,17 @@ class PostViewController: ViewController {
         }
         
         //音声読み上げ
-        let talker = AVSpeechSynthesizer()
+        /*let talker = AVSpeechSynthesizer()
         let utterance = AVSpeechUtterance(string: "投稿されました。")
         utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
         talker.speak(utterance)
-        sleep(3)
+        sleep(3)*/
         //投稿処理
         post()
         
         //再生停止
         self.player.stop()
-
-        //次画面への遷移
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
-        self.present(nextViewController, animated:true, completion:nil)
+        self.showPostAlert()
     }
     
     @IBAction func dismissButtonTapped(_ sender : Any)
@@ -214,21 +210,19 @@ class PostViewController: ViewController {
         }
         
         //音声読み上げ
-        let talker = AVSpeechSynthesizer()
+        /*let talker = AVSpeechSynthesizer()
         let utterance = AVSpeechUtterance(string: "投稿をキャンセルしました。")
         utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
         talker.speak(utterance)
         sleep(3)
+         */
         //一時データ削除
         temp_data.deleteData()
 
         //再生停止
         self.player.stop()
-        
-        //次画面への移動
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
-        self.present(nextViewController, animated:true, completion:nil)
+        self.showDismissAlert()
+
     }
     
     @IBAction func editbuttonTapped(_ sender : Any)
@@ -271,7 +265,45 @@ class PostViewController: ViewController {
             reverb.wetDryMix = 0
         }
     }
-
+    func showPostAlert() {
+        
+        // アラートを作成
+        let alert = UIAlertController(
+            title: "",
+            message: "投稿しました",
+            preferredStyle: .alert)
+        // アクションシートの親となる UIView を設定
+        alert.popoverPresentationController?.sourceView = self.view
+        // アラートにボタンをつける
+        alert.addAction(UIAlertAction(title: "再生リストに戻る", style: .default, handler: { action in
+            self.finishactivity()
+        }))
+        // アラート表示
+        self.present(alert, animated: true, completion: nil)
+    }
+    func showDismissAlert() {
+        
+        // アラートを作成
+        let alert = UIAlertController(
+            title: "",
+            message: "キャンセルしました",
+            preferredStyle: .alert)
+        // アクションシートの親となる UIView を設定
+        alert.popoverPresentationController?.sourceView = self.view
+        // アラートにボタンをつける
+        alert.addAction(UIAlertAction(title: "再生リストに戻る", style: .default, handler: { action in
+            self.finishactivity()
+        }))
+        // アラート表示
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func finishactivity(){
+        //次画面への遷移
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+        self.present(nextViewController, animated:true, completion:nil)
+    }
     /*
     // MARK: - Navigation
 
