@@ -13,6 +13,7 @@ class RecordViewController: ViewController{
 
     @IBOutlet weak var button: UIButton!
 
+
     var audioRecorder:AVAudioRecorder!
     var filePath:String!
 
@@ -33,6 +34,8 @@ class RecordViewController: ViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -152,9 +155,11 @@ class RecordViewController: ViewController{
             //talker.speak(utterance)
             
             //次画面への遷移
-            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Post", bundle:nil)
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Post")
+            //self.dismiss(animated:true, completion:nil)
             self.present(nextViewController, animated:true, completion:nil)
+            
         }
     }
 

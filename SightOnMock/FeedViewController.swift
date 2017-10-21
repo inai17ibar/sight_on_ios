@@ -13,7 +13,7 @@ import RealmSwift
 class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSource, SoundPlayerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
-    
+    @IBOutlet weak var textfield: UIView!
     var soundPlayer :SoundPlayer!
     let database = DatabaseAccessManager()
     let realm = try! Realm()
@@ -21,6 +21,7 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification,  self.textfield);
     }
     
     //画面に来る度，毎回呼び出される
@@ -41,6 +42,7 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         
         //Now reload the tableView
         self.tableView.reloadData()
+        UIAccessibilityPostNotification(UIAccessibilityLayoutChangedNotification, self.navigationController?.navigationBar.topItem)
     }
     
     override func viewWillDisappear(_ animated: Bool) {

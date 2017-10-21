@@ -46,6 +46,7 @@
 		410C3A73847DDCA6CC1FA2E3 /* Pods_SightOnMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 160064C8895113388812E218 /* Pods_SightOnMock.framework */; };
 		5F17B0A539692C2F54EA8C34 /* Pods_SightOnMockUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90938FFE72B1733A10128717 /* Pods_SightOnMockUITests.framework */; };
 		C62BF457D007FABD1210B0E4 /* Pods_SightOnMockTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCC753F3904B908C76D3381B /* Pods_SightOnMockTests.framework */; };
+		E6069C841F9A4C3700908DE6 /* Post.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6069C831F9A4C3700908DE6 /* Post.storyboard */; };
 		E61543991F474E7C007537DA /* AcousticModelEnglish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E61543961F474E7C007537DA /* AcousticModelEnglish.bundle */; };
 		E615439A1F474E7C007537DA /* AcousticModelEnglish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E61543961F474E7C007537DA /* AcousticModelEnglish.bundle */; };
 		E615439B1F474E7C007537DA /* AcousticModelEnglish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E61543961F474E7C007537DA /* AcousticModelEnglish.bundle */; };
@@ -128,6 +129,7 @@
 		8A540E7FF74955A668E85C79 /* Pods-SightOnMockTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SightOnMockTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SightOnMockTests/Pods-SightOnMockTests.debug.xcconfig"; sourceTree = "<group>"; };
 		90938FFE72B1733A10128717 /* Pods_SightOnMockUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SightOnMockUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CD91C51691DA76DD6DF48C1 /* Pods-SightOnMock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SightOnMock.release.xcconfig"; path = "Pods/Target Support Files/Pods-SightOnMock/Pods-SightOnMock.release.xcconfig"; sourceTree = "<group>"; };
+		E6069C831F9A4C3700908DE6 /* Post.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Post.storyboard; sourceTree = "<group>"; };
 		E61543961F474E7C007537DA /* AcousticModelEnglish.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AcousticModelEnglish.bundle; sourceTree = "<group>"; };
 		E61543971F474E7C007537DA /* OpenEars.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OpenEars.framework; sourceTree = "<group>"; };
 		E61543981F474E7C007537DA /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Slt.framework; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 				0C3928A21F23727300397EDD /* Assets.xcassets */,
 				0C3928A41F23727300397EDD /* LaunchScreen.storyboard */,
 				0C3928A71F23727300397EDD /* Info.plist */,
+				E6069C831F9A4C3700908DE6 /* Post.storyboard */,
 			);
 			path = SightOnMock;
 			sourceTree = "<group>";
@@ -489,6 +492,7 @@
 				0C978E1E1F377269003E2232 /* yurakucho_muzhirusi.m4a in Resources */,
 				0C404CD31F389F590080F4EB /* sight_on_splash_ipad.png in Resources */,
 				0C3928A11F23727300397EDD /* Main.storyboard in Resources */,
+				E6069C841F9A4C3700908DE6 /* Post.storyboard in Resources */,
 				0C8E85C31F484FB200DF559F /* RecordBackgroundImage.png in Resources */,
 				0CF2EB661F35DC02003DD9D2 /* sample1.jpg in Resources */,
 				0CA1988F1F48AEA000E9525A /* on_stair.m4a in Resources */,

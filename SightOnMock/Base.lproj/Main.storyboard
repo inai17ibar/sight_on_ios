@@ -54,147 +54,6 @@
             </objects>
             <point key="canvasLocation" x="1292" y="-667.01649175412297"/>
         </scene>
-        <!--Post View Controller-->
-        <scene sceneID="TKx-I9-Qe2">
-            <objects>
-                <viewController storyboardIdentifier="Post" title="PostViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Yi1-cS-iMR" userLabel="Post View Controller" customClass="PostViewController" customModule="SightOnMock" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="YZ8-zS-6xL"/>
-                        <viewControllerLayoutGuide type="bottom" id="Yd2-Fs-EcK"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Qp7-Cf-vvT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jLs-C3-h6V">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <color key="barTintColor" red="0.15800479049999999" green="0.15815737839999999" blue="0.15802845360000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <textAttributes key="titleTextAttributes">
-                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="16"/>
-                                </textAttributes>
-                                <items>
-                                    <navigationItem id="h7z-aL-Yem"/>
-                                </items>
-                            </navigationBar>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="o1Y-Ao-qAm">
-                                <rect key="frame" x="0.0" y="64" width="375" height="539"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u7a-fy-iG0" userLabel="View1">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="216"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KVi-gL-m5p" userLabel="Edit Button">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="216"/>
-                                                <color key="backgroundColor" red="0.77783495187759399" green="0.78552955389022827" blue="0.78859740495681763" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <accessibility key="accessibilityConfiguration" label="編集"/>
-                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
-                                                <state key="normal" title="編集">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="editbuttonTapped:" destination="Yi1-cS-iMR" eventType="touchUpInside" id="Vfc-pc-Prv"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstItem="KVi-gL-m5p" firstAttribute="height" secondItem="u7a-fy-iG0" secondAttribute="height" id="1eY-dd-p8G"/>
-                                            <constraint firstItem="KVi-gL-m5p" firstAttribute="centerX" secondItem="u7a-fy-iG0" secondAttribute="centerX" id="61u-7S-H9a"/>
-                                            <constraint firstItem="KVi-gL-m5p" firstAttribute="centerY" secondItem="u7a-fy-iG0" secondAttribute="centerY" id="Ycu-5x-gtO"/>
-                                            <constraint firstItem="KVi-gL-m5p" firstAttribute="width" secondItem="u7a-fy-iG0" secondAttribute="width" id="deZ-Fo-q4u"/>
-                                        </constraints>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dv3-jL-bMd" userLabel="View2">
-                                        <rect key="frame" x="0.0" y="216" width="375" height="215.5"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bvN-2K-nqu">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="215.5"/>
-                                                <color key="backgroundColor" red="0.43618792295455933" green="0.57603985071182251" blue="0.687816321849823" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <accessibility key="accessibilityConfiguration" label="投稿"/>
-                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
-                                                <state key="normal" title="投稿">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="buttonTapped:" destination="Yi1-cS-iMR" eventType="touchUpInside" id="TSO-Fh-IRj"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstItem="bvN-2K-nqu" firstAttribute="leading" secondItem="Dv3-jL-bMd" secondAttribute="leading" id="FjG-bD-ah4"/>
-                                            <constraint firstItem="bvN-2K-nqu" firstAttribute="top" secondItem="Dv3-jL-bMd" secondAttribute="top" id="VF5-8X-xwg"/>
-                                            <constraint firstItem="bvN-2K-nqu" firstAttribute="width" secondItem="Dv3-jL-bMd" secondAttribute="width" id="brk-8R-QLX"/>
-                                            <constraint firstItem="bvN-2K-nqu" firstAttribute="height" secondItem="Dv3-jL-bMd" secondAttribute="height" id="zzW-Ja-cx0"/>
-                                        </constraints>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Do4-T2-UDJ" userLabel="View3">
-                                        <rect key="frame" x="0.0" y="431.5" width="375" height="107.5"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bsX-SL-uYe">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="107.5"/>
-                                                <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                <accessibility key="accessibilityConfiguration" label="キャンセル"/>
-                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
-                                                <state key="normal" title="キャンセル">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="dismissButtonTapped:" destination="Yi1-cS-iMR" eventType="touchUpInside" id="RhV-5l-4L0"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstItem="bsX-SL-uYe" firstAttribute="top" secondItem="Do4-T2-UDJ" secondAttribute="top" id="2C9-hw-ynP"/>
-                                            <constraint firstItem="bsX-SL-uYe" firstAttribute="width" secondItem="Do4-T2-UDJ" secondAttribute="width" id="IBE-n6-klj"/>
-                                            <constraint firstItem="bsX-SL-uYe" firstAttribute="leading" secondItem="Do4-T2-UDJ" secondAttribute="leading" id="d6X-Sd-GT8"/>
-                                            <constraint firstItem="bsX-SL-uYe" firstAttribute="height" secondItem="Do4-T2-UDJ" secondAttribute="height" id="fBr-3M-55w"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="u7a-fy-iG0" firstAttribute="width" secondItem="o1Y-Ao-qAm" secondAttribute="width" id="2U2-zA-o4d"/>
-                                    <constraint firstItem="Do4-T2-UDJ" firstAttribute="width" secondItem="o1Y-Ao-qAm" secondAttribute="width" id="Jun-ks-fLi"/>
-                                    <constraint firstItem="u7a-fy-iG0" firstAttribute="height" secondItem="o1Y-Ao-qAm" secondAttribute="height" multiplier="0.4" id="LnJ-dp-9nD"/>
-                                    <constraint firstItem="Dv3-jL-bMd" firstAttribute="height" secondItem="o1Y-Ao-qAm" secondAttribute="height" multiplier="0.4" id="WFt-gw-P40"/>
-                                    <constraint firstItem="Do4-T2-UDJ" firstAttribute="centerX" secondItem="o1Y-Ao-qAm" secondAttribute="centerX" id="cRy-qD-Z5U"/>
-                                    <constraint firstItem="Dv3-jL-bMd" firstAttribute="centerX" secondItem="o1Y-Ao-qAm" secondAttribute="centerX" id="g9S-ko-1dT"/>
-                                    <constraint firstItem="Dv3-jL-bMd" firstAttribute="width" secondItem="o1Y-Ao-qAm" secondAttribute="width" id="uSz-9L-14C"/>
-                                </constraints>
-                            </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="投稿画面" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ljG-VV-57e">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <accessibility key="accessibilityConfiguration" label="投稿画面"/>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="16"/>
-                                <color key="textColor" red="0.94183665510000003" green="0.94253760580000001" blue="0.94536536930000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="0.15800479054450989" green="0.15815737843513489" blue="0.15802845358848572" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="jLs-C3-h6V" firstAttribute="width" secondItem="Qp7-Cf-vvT" secondAttribute="width" id="3J8-5t-YPH"/>
-                            <constraint firstItem="o1Y-Ao-qAm" firstAttribute="height" secondItem="Qp7-Cf-vvT" secondAttribute="height" constant="-128" id="9tI-Vl-hwK"/>
-                            <constraint firstItem="jLs-C3-h6V" firstAttribute="top" secondItem="YZ8-zS-6xL" secondAttribute="bottom" id="AaE-3y-rqn"/>
-                            <constraint firstItem="o1Y-Ao-qAm" firstAttribute="width" secondItem="Qp7-Cf-vvT" secondAttribute="width" id="OJ4-S4-gig"/>
-                            <constraint firstItem="jLs-C3-h6V" firstAttribute="centerX" secondItem="Qp7-Cf-vvT" secondAttribute="centerX" id="ULR-wm-3eQ"/>
-                            <constraint firstItem="o1Y-Ao-qAm" firstAttribute="centerX" secondItem="Qp7-Cf-vvT" secondAttribute="centerX" id="V4s-wE-WbG"/>
-                            <constraint firstItem="ljG-VV-57e" firstAttribute="height" secondItem="jLs-C3-h6V" secondAttribute="height" id="YdG-Io-hzu"/>
-                            <constraint firstItem="ljG-VV-57e" firstAttribute="centerY" secondItem="jLs-C3-h6V" secondAttribute="centerY" id="ZHA-ZC-1Sy"/>
-                            <constraint firstItem="ljG-VV-57e" firstAttribute="centerX" secondItem="jLs-C3-h6V" secondAttribute="centerX" id="aKL-ju-ZIN"/>
-                            <constraint firstItem="o1Y-Ao-qAm" firstAttribute="top" secondItem="jLs-C3-h6V" secondAttribute="bottom" id="dNh-8E-eUy"/>
-                            <constraint firstItem="ljG-VV-57e" firstAttribute="width" secondItem="jLs-C3-h6V" secondAttribute="width" id="tWf-OA-zw9"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="Editbutton" destination="KVi-gL-m5p" id="V4B-qB-Ozz"/>
-                        <outlet property="dismissButton" destination="bsX-SL-uYe" id="RdC-bg-b4b"/>
-                        <outlet property="postButton" destination="bvN-2K-nqu" id="Eg2-MD-e97"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CJA-wd-G4g" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2938" y="-667"/>
-        </scene>
         <!--Auto Edit View Controller-->
         <scene sceneID="2tR-u9-upa">
             <objects>
@@ -426,7 +285,6 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="buttonTapped:" destination="Yi1-cS-iMR" eventType="touchUpInside" id="HsU-Lg-niP"/>
                                     <action selector="buttonTapped:" destination="1J9-8H-C0P" eventType="touchUpInside" id="VGl-df-AqP"/>
                                 </connections>
                             </button>
@@ -594,6 +452,7 @@
                     <navigationItem key="navigationItem" title="再生リスト" id="USf-VN-9AZ"/>
                     <connections>
                         <outlet property="tableView" destination="XKm-w6-J7c" id="2uC-rx-cup"/>
+                        <outlet property="textfield" destination="XKm-w6-J7c" id="53f-F9-fuK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="91k-SS-nZ1" userLabel="First Responder" sceneMemberID="firstResponder"/>

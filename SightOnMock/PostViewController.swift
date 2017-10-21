@@ -19,6 +19,7 @@ class PostViewController: ViewController {
     
     @IBOutlet weak var postButton: UIButton!
     @IBOutlet weak var dismissButton: UIButton!
+    @IBOutlet weak var textfield: UINavigationBar!
     let temp_data = TemporaryDataManager()
     let database = DatabaseAccessManager()
     var currentControllerName = "Anonymous"
@@ -51,6 +52,8 @@ class PostViewController: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification,  self.textfield);
+        //UIApplication.shared.keyWindow?.rootViewController?.dismiss(animated: true, completion: nil)
         //プレイヤーの初期化
         do {
             let audioFile = try AVAudioFile(forReading: fileUrl)
@@ -111,6 +114,7 @@ class PostViewController: ViewController {
 //        utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
 //        talker.speak(utterance)
         //sleep(2)
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -183,7 +187,7 @@ class PostViewController: ViewController {
         
         //音声読み上げ
         let talker = AVSpeechSynthesizer()
-        let utterance = AVSpeechUtterance(string: "投稿されました。フィード画面に移動します。")
+        let utterance = AVSpeechUtterance(string: "投稿されました。")
         utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
         talker.speak(utterance)
         sleep(3)
@@ -211,7 +215,7 @@ class PostViewController: ViewController {
         
         //音声読み上げ
         let talker = AVSpeechSynthesizer()
-        let utterance = AVSpeechUtterance(string: "投稿をキャンセルしました。録音画面に戻ります。")
+        let utterance = AVSpeechUtterance(string: "投稿をキャンセルしました。")
         utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
         talker.speak(utterance)
         sleep(3)
@@ -267,6 +271,7 @@ class PostViewController: ViewController {
             reverb.wetDryMix = 0
         }
     }
+
     /*
     // MARK: - Navigation
 
