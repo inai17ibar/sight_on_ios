@@ -136,7 +136,7 @@ class RecordViewController: ViewController{
         //録音開始
         print("start recording")
         initRecorder()
-        audioRecorder.record()
+        //audioRecorder.record()
         showAlert()
     }
     func finishrecord(){
@@ -169,6 +169,7 @@ class RecordViewController: ViewController{
         
         // アラート表示
         self.present(alert, animated: true, completion: nil)
+        self.audioRecorder.record()
     }
     
     func saveRecordData()
