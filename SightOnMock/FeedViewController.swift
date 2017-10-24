@@ -24,6 +24,35 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification,  self.textfield);
         //microphone access
         AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeAudio, completionHandler: {(granted: Bool) in})
+        let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(longTap(_:)))
+        view.addGestureRecognizer(longGesture)
+    }
+    
+    @objc func longTap(_ sender: UIGestureRecognizer){
+        print("Long tap")
+        if sender.state == .ended {
+            print("UIGestureRecognizerStateEnded")
+            //Do Whatever You want on End of Gesture
+            
+        }
+        else if sender.state == .began {
+            print("UIGestureRecognizerStateBegan.")
+            //Do Whatever You want on Began of Gesture
+            showInstantAlert()
+        }
+    }
+    func showInstantAlert() {
+        
+        // アラート作成
+        let alert = UIAlertController(title: "録音画面に移ります", message: "", preferredStyle: .alert)
+        // アラートにボタンをつける
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            print("遷移の処理")
+        }))
+        alert.addAction(UIAlertAction(title: "キャンセル", style: .cancel))
+        // アラート表示
+        self.present(alert, animated: true, completion: nil)
+
     }
     
     //画面に来る度，毎回呼び出される

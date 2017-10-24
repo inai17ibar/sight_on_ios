@@ -169,6 +169,7 @@ class RecordViewController: ViewController{
         
         // アラート表示
         self.present(alert, animated: true, completion: nil)
+        sleep(2)
         self.audioRecorder.record()
     }
     
