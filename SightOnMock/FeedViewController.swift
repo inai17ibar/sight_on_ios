@@ -22,6 +22,8 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification,  self.textfield);
+        //microphone access
+        AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeAudio, completionHandler: {(granted: Bool) in})
     }
     
     //画面に来る度，毎回呼び出される

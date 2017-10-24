@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
 
@@ -15,6 +16,8 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //microphone access
+        //AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeAudio, completionHandler: {(granted: Bool) in})
         //self.view.backgroundColor = UIColor(patternImage:UIImage(named: "backBokashi.png")!)
         //自分自身を指定
         dataSource = self

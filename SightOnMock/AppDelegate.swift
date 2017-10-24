@@ -19,13 +19,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // ここに初期化処理を書く
         setDefaultDataset() //Realmの登録内容の初期化
-        firstInstruction()
+        //firstInstruction()
         return true
     }
     
     func firstInstruction()
     {
-        let talker = AVSpeechSynthesizer()
+        //let talker = AVSpeechSynthesizer()
         //let utterance = AVSpeechUtterance(string: "サイトオンのアプリでは．簡単な操作で音の録音と再生ができます。画面の上端の見出し部分をタッチすると，その画面のヘルプを読み上げます")
         //let utterance = AVSpeechUtterance(string: "画面の上の見出しをタッチすると、ヘルプを読み上げます。")
         //utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
