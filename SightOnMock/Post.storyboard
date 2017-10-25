@@ -64,10 +64,10 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OkQ-05-uxn">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="215.5"/>
-                                                <color key="backgroundColor" red="0.43618792299999998" green="0.57603985069999997" blue="0.68781632179999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <accessibility key="accessibilityConfiguration" label="投稿"/>
+                                                <color key="backgroundColor" red="0.21402174234390259" green="0.53821700811386108" blue="0.81899756193161011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration" label="保存"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
-                                                <state key="normal" title="投稿">
+                                                <state key="normal" title="保存">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>

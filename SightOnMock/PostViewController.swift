@@ -22,7 +22,6 @@ class PostViewController: ViewController {
     @IBOutlet weak var textfield: UINavigationBar!
     let temp_data = TemporaryDataManager()
     let database = DatabaseAccessManager()
-    var currentControllerName = "Anonymous"
     
     private let feedbackGenerator: Any? = {
         if #available(iOS 10.0, *) {
@@ -270,7 +269,7 @@ class PostViewController: ViewController {
         // アラートを作成
         let alert = UIAlertController(
             title: "",
-            message: "投稿しました",
+            message: "保存しました",
             preferredStyle: .alert)
         // アクションシートの親となる UIView を設定
         alert.popoverPresentationController?.sourceView = self.view

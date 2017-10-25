@@ -177,7 +177,7 @@ class AutoEditViewController: ViewController {
         }
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Post") as! PostViewController
-        nextViewController.currentControllerName = "AutoEdit"
+        //nextViewController.currentControllerName = "AutoEdit"
         self.present(nextViewController, animated:true, completion:nil)
     }
     
