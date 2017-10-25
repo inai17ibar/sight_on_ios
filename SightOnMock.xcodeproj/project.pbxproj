@@ -39,6 +39,7 @@
 		0CA1988F1F48AEA000E9525A /* on_stair.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0CA1988C1F48AEA000E9525A /* on_stair.m4a */; };
 		0CA198901F48AEA000E9525A /* ginza_east.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0CA1988D1F48AEA000E9525A /* ginza_east.m4a */; };
 		0CA198961F495E0B00E9525A /* washroom.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0CA198951F495E0B00E9525A /* washroom.wav */; };
+		0CBC0F1B1FA0FA740026C1C1 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBC0F1A1FA0FA740026C1C1 /* HelpViewController.swift */; };
 		0CF2EB601F358603003DD9D2 /* FeedListItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF2EB5F1F358603003DD9D2 /* FeedListItemTableViewCell.swift */; };
 		0CF2EB661F35DC02003DD9D2 /* sample1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0CF2EB651F35DC02003DD9D2 /* sample1.jpg */; };
 		0CF2EB681F35E304003DD9D2 /* sight_on_splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CF2EB671F35E304003DD9D2 /* sight_on_splash.png */; };
@@ -117,6 +118,7 @@
 		0CA1988C1F48AEA000E9525A /* on_stair.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = on_stair.m4a; sourceTree = "<group>"; };
 		0CA1988D1F48AEA000E9525A /* ginza_east.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = ginza_east.m4a; sourceTree = "<group>"; };
 		0CA198951F495E0B00E9525A /* washroom.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = washroom.wav; sourceTree = "<group>"; };
+		0CBC0F1A1FA0FA740026C1C1 /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		0CF2EB5F1F358603003DD9D2 /* FeedListItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedListItemTableViewCell.swift; sourceTree = "<group>"; };
 		0CF2EB651F35DC02003DD9D2 /* sample1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample1.jpg; sourceTree = "<group>"; };
 		0CF2EB671F35E304003DD9D2 /* sight_on_splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sight_on_splash.png; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				0CF2EB611F35D0E3003DD9D2 /* Feed */,
 				0C13AE621F3D9AFD00C7847F /* PageViewController.swift */,
 				0C6DDAD81F91E52600B03CEF /* TabBarController.swift */,
+				0CBC0F1A1FA0FA740026C1C1 /* HelpViewController.swift */,
 				0C39289F1F23727300397EDD /* Main.storyboard */,
 				0C3928A21F23727300397EDD /* Assets.xcassets */,
 				0C3928A41F23727300397EDD /* LaunchScreen.storyboard */,
@@ -687,6 +690,7 @@
 				0C8E85C51F485C7500DF559F /* SoundPlayer.swift in Sources */,
 				0C4BB7071F3E8198001CA4A2 /* User.swift in Sources */,
 				0C3928CE1F23792C00397EDD /* AutoEditViewController.swift in Sources */,
+				0CBC0F1B1FA0FA740026C1C1 /* HelpViewController.swift in Sources */,
 				0C978E1A1F375F46003E2232 /* Sound.swift in Sources */,
 				0C6DDAD91F91E52600B03CEF /* TabBarController.swift in Sources */,
 				0C39289C1F23727300397EDD /* AppDelegate.swift in Sources */,

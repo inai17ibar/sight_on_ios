@@ -463,7 +463,7 @@
         <!--使い方-->
         <scene sceneID="0jQ-su-Iq0">
             <objects>
-                <navigationController id="g0V-Pm-svM" userLabel="使い方" sceneMemberID="viewController">
+                <navigationController id="g0V-Pm-svM" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="使い方" id="QuF-BD-RVP"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Y6a-oG-gKm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -477,10 +477,10 @@
             </objects>
             <point key="canvasLocation" x="502" y="44"/>
         </scene>
-        <!--Record View Controller-->
+        <!--Help View Controller-->
         <scene sceneID="c95-qL-VDE">
             <objects>
-                <viewController storyboardIdentifier="RecordViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9aN-X7-l0s" userLabel="Record View Controller" customClass="RecordViewController" customModule="SightOnMock" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HelpViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9aN-X7-l0s" userLabel="Help View Controller" customClass="HelpViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LEC-6P-UQz"/>
                         <viewControllerLayoutGuide type="bottom" id="EiU-rG-FcR"/>
