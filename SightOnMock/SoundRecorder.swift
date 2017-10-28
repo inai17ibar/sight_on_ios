@@ -1,8 +1,8 @@
 //
-//  SoundPlayer.swift
+//  SoundRecorder.swift
 //  SightOnMock
 //
-//  Created by inatani soichiro on 2017/08/19.
+//  Created by inatani soichiro on 2017/10/28.
 //  Copyright © 2017年 inai17ibar. All rights reserved.
 //
 
@@ -10,95 +10,94 @@ import UIKit
 import AVFoundation
 import os.log
 
-protocol SoundPlayerDelegate: class {
+protocol SoundRecorderDelegate: class {
     func updateMessage(text: String)
     func updatePlayBtnsTitle(text: String)
 }
 
-class SoundPlayer: NSObject, AVAudioPlayerDelegate {
+class SoundRecorder: NSObject, AVAudioPlayerDelegate {
     
     weak var delegate: SoundPlayerDelegate? = nil
     
-    var audioPlayer = AVAudioPlayer()
+    var audioRecorder = AVAudioRecorder()
     
-    var playingUrl:URL?
+    var recordingUrl:URL?
     
     var hasInit:Bool!
+    
+    // 録音の詳細設定
+    let recordSetting : [String : AnyObject] = [
+        AVFormatIDKey : UInt(kAudioFormatALaw) as AnyObject,
+        AVEncoderAudioQualityKey : AVAudioQuality.min.rawValue as AnyObject,
+        AVEncoderBitRateKey : 16 as AnyObject,
+        AVNumberOfChannelsKey: 2 as AnyObject,
+        AVSampleRateKey: 44100.0 as AnyObject
+    ]
     
     // OSLog のインスタンスを生成して
     let log = OSLog(subsystem: "jp.classmethod.SampleMobileApp", category: "UI")
     
     override init()
     {
-
+        
     }
     
-    public func initPlayer(url: URL)
+    public func initRecorder(url: URL)
     {
-        do{
-            audioPlayer = try AVAudioPlayer(contentsOf: url)
-            audioPlayer.delegate = self
-            audioPlayer.volume = 1.0
-            audioPlayer.prepareToPlay()
-            
-            // 再生用の機能をアクティブにする
-            let session = AVAudioSession.sharedInstance()
-            try! session.setCategory(AVAudioSessionCategorySoloAmbient) //AVAudioSessionCategoryPlayback) アプリを落としても再生するときPlayback
-            try! session.setActive(true)
-            
-            os_log("init player", log: log, type: .default)
-            playingUrl = url
+        // 録音の機能をオフにする
+        let session = AVAudioSession.sharedInstance()
+        try! session.setCategory(AVAudioSessionCategorySoloAmbient)
+        try! session.setActive(true)
+        
+        do {
+            audioRecorder = try AVAudioRecorder(url: url, settings: recordSetting)
+            recordingUrl = url
             hasInit = true
-        }catch{
-            os_log("cannot init audioPlayer", log: log, type: .error)
+        } catch {
+            os_log("cannot init audioRecorder", log: log, type: .error)
             hasInit = false
         }
     }
     
-    public func play(url: URL)
+    public func record(url: URL)
     {
-        if url == getSoundURL() && audioPlayer.isPlaying {
+        if url == getSoundURL() {
             os_log("already has playing", log: log, type: .error)
             return
         }
-        initPlayer(url: url)
-        play()
+        initRecorder(url: url)
+        record()
     }
     
-    public func play()
+    public func record()
     {
         if !hasInit {
             return
         }
-        os_log("play", log: log, type: .default)
-        audioPlayer.play()
+        os_log("record", log: log, type: .default)
+        audioRecorder.record()
         self.delegate?.updatePlayBtnsTitle(text: "Stop")
     }
     
     public func stop()
     {
         os_log("stop", log: log, type: .default)
-        audioPlayer.stop()
-        self.delegate?.updatePlayBtnsTitle(text: "Play")
+        audioRecorder.stop()
+        self.delegate?.updatePlayBtnsTitle(text: "Record")
     }
     
     public func isPlaying() -> Bool
     {
-        if playingUrl == nil
+        if recordingUrl == nil
         {
             return false
         }
-        return audioPlayer.isPlaying
+        return audioRecorder.isRecording
     }
     
     public func getSoundURL() -> URL? //nilがはいることを保証する
     {
-        return playingUrl
-    }
-    
-    public func setVolume(volume: Float)
-    {
-        audioPlayer.volume = volume
+        return recordingUrl
     }
     
     //再生終了時の呼び出しメソッド

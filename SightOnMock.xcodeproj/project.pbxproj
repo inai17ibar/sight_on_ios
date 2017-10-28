@@ -27,6 +27,8 @@
 		0C4BB7071F3E8198001CA4A2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB7061F3E8198001CA4A2 /* User.swift */; };
 		0C4BB7091F3E845A001CA4A2 /* DatabaseAccessManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB7081F3E845A001CA4A2 /* DatabaseAccessManager.swift */; };
 		0C6DDAD91F91E52600B03CEF /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6DDAD81F91E52600B03CEF /* TabBarController.swift */; };
+		0C6F78D81FA4BB68008E30A4 /* VoiceTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6F78D71FA4BB68008E30A4 /* VoiceTagViewController.swift */; };
+		0C6F78DA1FA4C11F008E30A4 /* SoundRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6F78D91FA4C11F008E30A4 /* SoundRecorder.swift */; };
 		0C8E85C31F484FB200DF559F /* RecordBackgroundImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C8E85C21F484FB200DF559F /* RecordBackgroundImage.png */; };
 		0C8E85C51F485C7500DF559F /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8E85C41F485C7500DF559F /* SoundPlayer.swift */; };
 		0C9198161F40134A002234FF /* Pods_SightOnMockTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCC753F3904B908C76D3381B /* Pods_SightOnMockTests.framework */; };
@@ -106,6 +108,8 @@
 		0C4BB7061F3E8198001CA4A2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0C4BB7081F3E845A001CA4A2 /* DatabaseAccessManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseAccessManager.swift; sourceTree = "<group>"; };
 		0C6DDAD81F91E52600B03CEF /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		0C6F78D71FA4BB68008E30A4 /* VoiceTagViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoiceTagViewController.swift; sourceTree = "<group>"; };
+		0C6F78D91FA4C11F008E30A4 /* SoundRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundRecorder.swift; sourceTree = "<group>"; };
 		0C8E85C21F484FB200DF559F /* RecordBackgroundImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RecordBackgroundImage.png; sourceTree = "<group>"; };
 		0C8E85C41F485C7500DF559F /* SoundPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
 		0C9198141F401343002234FF /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = "../../Library/Developer/Xcode/DerivedData/SightOnMock-fkgespoavkjeucdizymdfvxtojxa/Build/Products/Debug-iphoneos/Realm/Realm.framework"; sourceTree = "<group>"; };
@@ -247,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				0C8E85C41F485C7500DF559F /* SoundPlayer.swift */,
+				0C6F78D91FA4C11F008E30A4 /* SoundRecorder.swift */,
 				0C4BB7001F3DDCF6001CA4A2 /* TemporaryDataManager.swift */,
 				0C4BB7081F3E845A001CA4A2 /* DatabaseAccessManager.swift */,
 				0C39289B1F23727300397EDD /* AppDelegate.swift */,
@@ -293,6 +298,7 @@
 				0C3928CD1F23792C00397EDD /* AutoEditViewController.swift */,
 				0C3928CF1F23794300397EDD /* ManualEditViewController.swift */,
 				0C3928D11F23796200397EDD /* PostViewController.swift */,
+				0C6F78D71FA4BB68008E30A4 /* VoiceTagViewController.swift */,
 			);
 			name = Post;
 			sourceTree = "<group>";
@@ -685,10 +691,12 @@
 				0C3928D21F23796200397EDD /* PostViewController.swift in Sources */,
 				0C4BB7011F3DDCF6001CA4A2 /* TemporaryDataManager.swift in Sources */,
 				0C39289E1F23727300397EDD /* ViewController.swift in Sources */,
+				0C6F78D81FA4BB68008E30A4 /* VoiceTagViewController.swift in Sources */,
 				0CF2EB601F358603003DD9D2 /* FeedListItemTableViewCell.swift in Sources */,
 				0C3928CC1F23791A00397EDD /* FeedViewController.swift in Sources */,
 				0C8E85C51F485C7500DF559F /* SoundPlayer.swift in Sources */,
 				0C4BB7071F3E8198001CA4A2 /* User.swift in Sources */,
+				0C6F78DA1FA4C11F008E30A4 /* SoundRecorder.swift in Sources */,
 				0C3928CE1F23792C00397EDD /* AutoEditViewController.swift in Sources */,
 				0CBC0F1B1FA0FA740026C1C1 /* HelpViewController.swift in Sources */,
 				0C978E1A1F375F46003E2232 /* Sound.swift in Sources */,

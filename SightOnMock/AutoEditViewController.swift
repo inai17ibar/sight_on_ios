@@ -42,16 +42,6 @@ class AutoEditViewController: ViewController {
     //読み込みfile関係
     let file_path = TemporaryDataManager().loadDataPath()
     let fileUrl = URL(fileURLWithPath: TemporaryDataManager().loadDataPath())        // オーディオファイルの読み込み
-
-    private let feedbackGenerator: Any? = {
-        if #available(iOS 10.0, *) {
-            let generator: UIImpactFeedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
-            generator.prepare()
-            return generator
-        } else {
-            return nil
-        }
-    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()

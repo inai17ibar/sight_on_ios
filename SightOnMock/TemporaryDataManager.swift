@@ -23,8 +23,7 @@ class TemporaryDataManager {
     open func saveDataPath(_ path :String)
     {
         let userDefault = UserDefaults.standard
-        // キーを指定してオブジェクトを保存
-        userDefault.set(path, forKey: "Key")
+        userDefault.set(path, forKey: "Key") // キーを指定してオブジェクトを保存
         print("Save temporary data.")
     }
     

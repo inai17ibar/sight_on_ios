@@ -23,16 +23,6 @@ class PostViewController: ViewController {
     let temp_data = TemporaryDataManager()
     let database = DatabaseAccessManager()
     
-    private let feedbackGenerator: Any? = {
-        if #available(iOS 10.0, *) {
-            let generator: UIImpactFeedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
-            generator.prepare()
-            return generator
-        } else {
-            return nil
-        }
-    }()
-    
     // インスタンス変数
     var engine = AVAudioEngine()
     //playerNodeの準備
@@ -115,13 +105,6 @@ class PostViewController: ViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func getNowClockString() -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MM月dd日"
-        let now = Date()
-        return formatter.string(from: now)
     }
     
     func post()

@@ -20,25 +20,12 @@ class RecordViewController: ViewController{
     var soundPlayer:SoundPlayer!
 
     var isRecording = false
-    
-    private let feedbackGenerator: Any? = {
-        if #available(iOS 10.0, *) {
-            let generator: UIImpactFeedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
-            generator.prepare()
-            return generator
-        } else {
-            return nil
-        }
-    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //初期化処理
         button.setTitle("録音開始", for: .normal)
         disactiveRecorder()
     }
@@ -56,7 +43,7 @@ class RecordViewController: ViewController{
             AVNumberOfChannelsKey: 2 as AnyObject,
             AVSampleRateKey: 44100.0 as AnyObject
         ]
-
+        
         // 録音の機能をオフにする
         let session = AVAudioSession.sharedInstance()
         try! session.setCategory(AVAudioSessionCategorySoloAmbient)
@@ -77,7 +64,7 @@ class RecordViewController: ViewController{
 
         // 再生と録音の機能をアクティブにする
         let session = AVAudioSession.sharedInstance()
-        try! session.setCategory(AVAudioSessionCategoryPlayAndRecord) //AVAudioSessionCategoryPlayAndRecord) //AVAudioSessionCategoryRecord これにすると音をフィードバックを使えるかわりに音声にノイズが入る
+        try! session.setCategory(AVAudioSessionCategoryPlayAndRecord) //AVAudioSessionCategoryRecord これにすると音をフィードバックを使えるかわりに音声にノイズが入る
         try! session.setActive(true)
 
         // 録音の詳細設定
@@ -95,13 +82,6 @@ class RecordViewController: ViewController{
         } catch {
             fatalError("cannot init AudioRecorder")
         }
-    }
-
-    func getNowClockString() -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyyMMdd_HHmmss"
-        let now = Date()
-        return formatter.string(from: now)
     }
 
     //録音ボタンタップ
@@ -129,10 +109,10 @@ class RecordViewController: ViewController{
         //録音開始
         print("start recording")
         initRecorder()
-        //audioRecorder.record()
         showAlert()
     }
-    func finishrecord(){
+    
+    func finishRecord(){
         // 押されたら実行したい処理
         print("finish recording")
         self.button.setTitle("録音終了", for: .normal)
@@ -146,8 +126,8 @@ class RecordViewController: ViewController{
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "PostNavigation")
         self.present(nextViewController, animated:true, completion:nil)
     }
+    
     func showAlert() {
-        
         // アラートを作成
         let alert = UIAlertController(
             title: "",
@@ -157,7 +137,7 @@ class RecordViewController: ViewController{
         alert.popoverPresentationController?.sourceView = self.view
         // アラートにボタンをつける
         alert.addAction(UIAlertAction(title: "録音終了", style: .default, handler: { action in
-            self.finishrecord()
+            self.finishRecord()
         }))
         
         // アラート表示
@@ -174,10 +154,5 @@ class RecordViewController: ViewController{
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-
-    func updatePlayBtnsTitle(text: String)
-    {
-        //messageLabel.text = text
     }
 }

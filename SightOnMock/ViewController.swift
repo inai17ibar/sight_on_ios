@@ -10,6 +10,16 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    let feedbackGenerator: Any? = {
+        if #available(iOS 10.0, *) {
+            let generator: UIImpactFeedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
+            generator.prepare()
+            return generator
+        } else {
+            return nil
+        }
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -64,6 +74,13 @@ class ViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "キャンセル", style: .cancel))
         // アラート表示
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func getNowClockString() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM月dd日"
+        let now = Date()
+        return formatter.string(from: now)
     }
 }
 

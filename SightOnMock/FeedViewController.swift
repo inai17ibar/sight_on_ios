@@ -30,12 +30,6 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        //画面状態の読み上げ
-//        let talker = AVSpeechSynthesizer()
-//        let utterance = AVSpeechUtterance(string: "再生リストです。")
-//        utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
-//        talker.speak(utterance)
-        
         //データの読み出し，更新
         sounds = database.extractByUserId(1)
         soundPlayer = SoundPlayer()
@@ -81,69 +75,75 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
     //あるセルを押したら再生
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
+        //print(indexPath.row)
+        //print(sounds.count)
+        //let reverse_index = (sounds.count - 1) - indexPath.row
         let seleted_url = URL(fileURLWithPath: sounds[indexPath.row].file_path)
-        
-        //print((tableView.dequeueReusableCell(withIdentifier: "FeedListItem", for: indexPath) as! FeedListItemTableViewCell).titleLabel?.text as Any)
         let cell = tableView.cellForRow(at: indexPath) as! FeedListItemTableViewCell
-        print(cell.titleLabel.text as Any)
+
+        print(seleted_url as Any)
         
-        //Voセルのフォーカスを取れるか？の確認
-        print(cell.accessibilityElementIsFocused())
-        print(cell.titleLabel.accessibilityElementIsFocused())
-        print(cell.titleLabel.isAccessibilityElement)
-        cell.titleLabel.isAccessibilityElement = false
-        print(cell.titleLabel.isAccessibilityElement)
-        //cell.titleLabel.accessibilityLabel = "" //EnableをかえずLabelとHintだけ消してもタイトルがあるからつぎのときはVOされる
+        //cell.isAccessibilityElement = false
+        //cell.titleLabel.isAccessibilityElement = false
+        
         //cell.titleLabel.accessibilityHint = ""
+        //print(soundPlayer.getSoundURL() as Any)
         
         if (soundPlayer.getSoundURL() == seleted_url)
         {
-            //プレイヤーの曲がセット済みのとき
+            //曲がセット済みのとき
             if soundPlayer.isPlaying(){
-                //print(cell.titleLabel.text as Any )
-                //cell.titleLabel.isAccessibilityElement = true
-                //cell.isAccessibilityElement = true
-                //print(cell.titleLabel.isAccessibilityElement)
-                //音声読み上げ
-                let talker = AVSpeechSynthesizer()
-                let utterance = AVSpeechUtterance(string: "再生停止")
-                utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
-                talker.speak(utterance)
-                
-                //cell.titleLabel.text = "" //せるがちゃんととれたらタイトルが消えて戻らない
-                //print(cell.titleLabel.text as Any )
-                //cell.titleLabel.accessibilityLabel = ""
-                //cell.titleLabel.accessibilityHint = ""
-                sleep(2)
+                cell.titleLabel.accessibilityLabel = cell.titleLabel.text
+                ttsStopSound()
                 soundPlayer.stop()
+                
+                // 選択を解除
+                tableView.deselectRow(at: indexPath, animated: true)
             }
             else{
-                
-                //音声読み上げ
-                let talker = AVSpeechSynthesizer()
-                let utterance = AVSpeechUtterance(string: "再生")
-                utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
-                talker.speak(utterance)
-                
-                sleep(2)
-                soundPlayer.play()
+                cell.titleLabel.accessibilityLabel = ""
+                ttsPlaySound()
+                soundPlayer.play(url: seleted_url)
             }
         }
         else{
-            //音声読み上げ
-            let talker = AVSpeechSynthesizer()
-            let utterance = AVSpeechUtterance(string: "再生")
-            utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
-            talker.speak(utterance)
-            
-            //cell.titleLabel.accessibilityLabel = ""
-            //cell.titleLabel.accessibilityHint = ""
-            sleep(2)
-            //プレイヤーに曲がセット済みでないとき
+            let cells = tableView.visibleCells as! [FeedListItemTableViewCell]
+            for cell_i in cells
+            {
+                cell_i.titleLabel.accessibilityLabel = cell_i.titleLabel.text
+            }
+            //曲がセットされてないとき
+            cell.titleLabel.accessibilityLabel = ""
+            ttsPlaySound()
             soundPlayer.play(url: seleted_url)
         }
-        // 選択を解除しておく
-        tableView.deselectRow(at: indexPath, animated: true)
+        // 選択を解除しておく(解除しないほうが状態がわかりそう)
+        //tableView.deselectRow(at: indexPath, animated: true)
+        //cell.titleLabel.isAccessibilityElement = true
+        
+        //OSのなどの仕様に依存するので非常に危険
+        //sleep(UInt32(0)) //少し経ってから復活させる //1秒超えるとたいてい外れてしまう
+        //cell.titleLabel.accessibilityLabel = "選択中" //cell.titleLabel.text
+    }
+    
+    private func ttsPlaySound()
+    {
+        let talker = AVSpeechSynthesizer()
+        let utterance = AVSpeechUtterance(string: "再生")
+        utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
+        talker.speak(utterance)
+        
+        sleep(2)
+    }
+    
+    private func ttsStopSound()
+    {
+        let talker = AVSpeechSynthesizer()
+        let utterance = AVSpeechUtterance(string: "再生停止")
+        utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
+        talker.speak(utterance)
+        
+        sleep(2)
     }
     
     func updateMessage(text: String)
@@ -161,14 +161,4 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         // Dispose of any resources that can be recreated.
     }
     
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 }
