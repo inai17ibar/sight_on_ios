@@ -106,14 +106,10 @@ class PostViewController: ViewController {
         } catch let error {
             print(error)
         }
-        
-        //音声読み上げ
-//        let talker = AVSpeechSynthesizer()
-//        let utterance = AVSpeechUtterance(string: "投稿編集画面です。")
-//        utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
-//        talker.speak(utterance)
-        //sleep(2)
-        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.player.stop()
     }
     
     override func didReceiveMemoryWarning() {
@@ -184,12 +180,6 @@ class PostViewController: ViewController {
             print("on haptic!")
         }
         
-        //音声読み上げ
-        /*let talker = AVSpeechSynthesizer()
-        let utterance = AVSpeechUtterance(string: "投稿されました。")
-        utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
-        talker.speak(utterance)
-        sleep(3)*/
         //投稿処理
         post()
         
@@ -208,13 +198,6 @@ class PostViewController: ViewController {
             //print("on haptic!")
         }
         
-        //音声読み上げ
-        /*let talker = AVSpeechSynthesizer()
-        let utterance = AVSpeechUtterance(string: "投稿をキャンセルしました。")
-        utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
-        talker.speak(utterance)
-        sleep(3)
-         */
         //一時データ削除
         temp_data.deleteData()
 
@@ -302,15 +285,7 @@ class PostViewController: ViewController {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
         self.present(nextViewController, animated:true, completion:nil)
+        //TODO: これだとTabBarControllerの先頭にしか飛べない
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
