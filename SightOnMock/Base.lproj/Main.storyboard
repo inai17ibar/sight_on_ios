@@ -39,9 +39,9 @@
                         <color key="backgroundColor" red="0.15800479054450989" green="0.15815737843513489" blue="0.15802845358848572" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="oNp-Bq-EvE" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" constant="-112" id="8do-17-Y35"/>
-                            <constraint firstItem="oNp-Bq-EvE" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="AzN-4W-2Em"/>
                             <constraint firstItem="oNp-Bq-EvE" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="IYX-gX-hsn"/>
                             <constraint firstItem="oNp-Bq-EvE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nkc-Wu-UOQ"/>
+                            <constraint firstItem="oNp-Bq-EvE" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="wGz-gb-PsA"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="録音モード" id="U5U-xF-scO"/>
@@ -470,7 +470,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="9aN-X7-l0s" kind="relationship" relationship="rootViewController" id="mBN-IJ-RjJ"/>
+                        <segue destination="9aN-X7-l0s" kind="relationship" relationship="rootViewController" id="KAT-aM-zG4"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RBu-oG-HvQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -480,7 +480,7 @@
         <!--Help View Controller-->
         <scene sceneID="c95-qL-VDE">
             <objects>
-                <viewController storyboardIdentifier="HelpViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9aN-X7-l0s" userLabel="Help View Controller" customClass="HelpViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HelpViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9aN-X7-l0s" userLabel="Help View Controller" customClass="HelpViewController" customModule="SightOnMock" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LEC-6P-UQz"/>
                         <viewControllerLayoutGuide type="bottom" id="EiU-rG-FcR"/>
@@ -488,14 +488,33 @@
                     <view key="view" contentMode="scaleToFill" id="wDo-OM-Fz0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KD7-OD-BkW">
+                                <rect key="frame" x="0.0" y="-5" width="375" height="629"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <dataDetectorType key="dataDetectorTypes"/>
+                                <connections>
+                                    <outlet property="delegate" destination="9aN-X7-l0s" id="46C-Fn-0cH"/>
+                                </connections>
+                            </webView>
+                        </subviews>
                         <color key="backgroundColor" red="0.96463209390640259" green="0.96474748849868774" blue="0.96459275484085083" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="KD7-OD-BkW" firstAttribute="width" secondItem="wDo-OM-Fz0" secondAttribute="width" id="Agl-3A-ihc"/>
+                            <constraint firstItem="KD7-OD-BkW" firstAttribute="centerX" secondItem="wDo-OM-Fz0" secondAttribute="centerX" id="W2z-R8-8zN"/>
+                            <constraint firstItem="KD7-OD-BkW" firstAttribute="centerY" secondItem="wDo-OM-Fz0" secondAttribute="centerY" constant="-24" id="qVK-vy-68v"/>
+                            <constraint firstItem="KD7-OD-BkW" firstAttribute="height" secondItem="wDo-OM-Fz0" secondAttribute="height" constant="-38" id="zJ3-gF-z2c"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="録音モード" id="8LY-yE-9Z5"/>
                     <navigationItem key="navigationItem" title="アプリの使い方" id="iOI-sS-h79"/>
+                    <connections>
+                        <outlet property="helpWebView" destination="KD7-OD-BkW" id="f7P-bu-KjJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P9D-sb-VPA" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1292" y="44"/>
+            <point key="canvasLocation" x="1292" y="43.628185907046479"/>
         </scene>
     </scenes>
     <resources>

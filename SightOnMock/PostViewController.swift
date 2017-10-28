@@ -247,6 +247,27 @@ class PostViewController: ViewController {
             reverb.wetDryMix = 0
         }
     }
+    func voiceTagAlert() {
+        // アラートを作成
+        let alert = UIAlertController(
+            title: "",
+            message: "音声タグを追加しますか",
+            preferredStyle: .alert)
+        // アクションシートの親となる UIView を設定
+        alert.popoverPresentationController?.sourceView = self.view
+        // アラートにボタンをつける
+        alert.addAction(UIAlertAction(title: "追加する", style: .default, handler: { action in
+            
+            self.showPostAlert()
+        }))
+        alert.addAction(UIAlertAction(title: "追加しない", style: .default, handler: { action in
+            self.showPostAlert()
+        }))
+        // アラート表示
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
     func showPostAlert() {
         
         // アラートを作成
@@ -258,7 +279,7 @@ class PostViewController: ViewController {
         alert.popoverPresentationController?.sourceView = self.view
         // アラートにボタンをつける
         alert.addAction(UIAlertAction(title: "再生リストに戻る", style: .default, handler: { action in
-            self.finishactivity()
+            self.finishActivity()
         }))
         // アラート表示
         self.present(alert, animated: true, completion: nil)
@@ -274,13 +295,13 @@ class PostViewController: ViewController {
         alert.popoverPresentationController?.sourceView = self.view
         // アラートにボタンをつける
         alert.addAction(UIAlertAction(title: "再生リストに戻る", style: .default, handler: { action in
-            self.finishactivity()
+            self.finishActivity()
         }))
         // アラート表示
         self.present(alert, animated: true, completion: nil)
     }
     
-    func finishactivity(){
+    func finishActivity(){
         //次画面への遷移
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController

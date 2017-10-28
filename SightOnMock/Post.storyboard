@@ -129,5 +129,64 @@
             </objects>
             <point key="canvasLocation" x="2936.8000000000002" y="-667.01649175412297"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="SGs-7P-zcI">
+            <objects>
+                <navigationController id="rNf-5r-S3p" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2wg-vu-MWb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="jZw-Rk-axC" kind="relationship" relationship="rootViewController" id="SIv-Ff-zch"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ogT-dA-UIu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1983" y="92"/>
+        </scene>
+        <!--Record View Controller-->
+        <scene sceneID="MEk-3m-it0">
+            <objects>
+                <viewController storyboardIdentifier="VoiceTagViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jZw-Rk-axC" userLabel="Record View Controller" customClass="VoiceTagViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="R7N-1m-ybJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="RwT-Gu-cgD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fhi-ls-mis">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PQS-DS-ASv" userLabel="VoiceTagRecordButton">
+                                <rect key="frame" x="0.0" y="60" width="375" height="607"/>
+                                <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration" label="録音開始"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
+                                <state key="normal" title="タグの録音開始">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonTapped:" destination="jZw-Rk-axC" eventType="touchDown" id="KT0-Zj-pYV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="PQS-DS-ASv" firstAttribute="height" secondItem="fhi-ls-mis" secondAttribute="height" constant="-60" id="N1c-vC-oK2"/>
+                            <constraint firstItem="PQS-DS-ASv" firstAttribute="top" secondItem="R7N-1m-ybJ" secondAttribute="bottom" constant="-4" id="XKv-73-el2"/>
+                            <constraint firstItem="PQS-DS-ASv" firstAttribute="width" secondItem="fhi-ls-mis" secondAttribute="width" id="g8R-At-fiK"/>
+                            <constraint firstItem="PQS-DS-ASv" firstAttribute="centerX" secondItem="fhi-ls-mis" secondAttribute="centerX" id="sdW-wK-mHw"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="録音モード" id="JSq-4S-iEt"/>
+                    <navigationItem key="navigationItem" title="音声タグ入力画面" id="Dd6-6M-1kk"/>
+                    <connections>
+                        <outlet property="button" destination="PQS-DS-ASv" id="HRj-Wn-JT6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7pN-Rf-f4P" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2937" y="91"/>
+        </scene>
     </scenes>
 </document>

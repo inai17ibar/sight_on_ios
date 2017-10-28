@@ -8,28 +8,30 @@
 
 import UIKit
 
-class HelpViewController: UIViewController {
+class HelpViewController: ViewController, UIWebViewDelegate {
 
+    @IBOutlet weak var helpWebView: UIWebView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        self.helpWebView.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        let favoriteURL = NSURL(string: "https://github.com/inai17ibar/sight_on_ios/blob/master/webpage.md")
+        //let favoriteURL = NSURL(string: "http://asahina-laboratory.blogspot.jp/2016/04/swift-nsunknownkeyexception.html")
+        
+        let urlRequest = NSURLRequest(url: favoriteURL! as URL)
+        // urlをネットワーク接続が可能な状態にしている（らしい）
+        //print(favoriteURL as Any)
+        self.helpWebView.loadRequest(urlRequest as URLRequest)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
