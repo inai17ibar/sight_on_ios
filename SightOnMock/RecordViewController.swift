@@ -39,12 +39,6 @@ class RecordViewController: ViewController{
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //音声の読み上げ
-//        let talker = AVSpeechSynthesizer()
-//        let utterance = AVSpeechUtterance(string: "録音画面です。")
-//        utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
-//        talker.speak(utterance)
-//        
         //初期化処理
         button.setTitle("録音開始", for: .normal)
         disactiveRecorder()
@@ -150,7 +144,7 @@ class RecordViewController: ViewController{
         disactiveRecorder()
         //次画面への遷移
         let storyBoard : UIStoryboard = UIStoryboard(name: "Post", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Post")
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "PostNavigation")
         self.present(nextViewController, animated:true, completion:nil)
     }
     func showAlert() {

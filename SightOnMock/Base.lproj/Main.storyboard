@@ -24,8 +24,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oNp-Bq-EvE" userLabel="RecordButton">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                                <color key="backgroundColor" red="0.43618792295455933" green="0.57603985071182251" blue="0.687816321849823" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="555"/>
+                                <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                 <accessibility key="accessibilityConfiguration" label="録音開始"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                 <state key="normal" title="録音開始">
@@ -38,7 +38,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.15800479054450989" green="0.15815737843513489" blue="0.15802845358848572" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="oNp-Bq-EvE" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" constant="-113" id="8do-17-Y35"/>
+                            <constraint firstItem="oNp-Bq-EvE" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" constant="-112" id="8do-17-Y35"/>
                             <constraint firstItem="oNp-Bq-EvE" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="AzN-4W-2Em"/>
                             <constraint firstItem="oNp-Bq-EvE" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="IYX-gX-hsn"/>
                             <constraint firstItem="oNp-Bq-EvE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nkc-Wu-UOQ"/>
@@ -247,10 +247,10 @@
             </objects>
             <point key="canvasLocation" x="-1150" y="44"/>
         </scene>
-        <!--録音モード-->
+        <!--Record Navigation Controller-->
         <scene sceneID="3RA-I7-nQu">
             <objects>
-                <navigationController id="qH3-s7-yGe" sceneMemberID="viewController">
+                <navigationController id="qH3-s7-yGe" userLabel="Record Navigation Controller" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="録音モード" id="mpD-tr-UGx"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="nvM-T5-Fgj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -329,10 +329,10 @@
             </objects>
             <point key="canvasLocation" x="-396" y="-1032"/>
         </scene>
-        <!--再生リスト-->
+        <!--Play Navigation Controller-->
         <scene sceneID="pmk-p3-ljX">
             <objects>
-                <navigationController id="Jzt-T6-x8D" sceneMemberID="viewController">
+                <navigationController id="Jzt-T6-x8D" userLabel="Play Navigation Controller" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="再生リスト" id="rtk-A8-kmx"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Nlj-6S-Tt9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -359,7 +359,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XKm-w6-J7c">
-                                <rect key="frame" x="0.0" y="7" width="375" height="623"/>
+                                <rect key="frame" x="0.0" y="-2" width="375" height="627"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
@@ -444,8 +444,8 @@
                         <color key="backgroundColor" red="0.15800479054450989" green="0.15815737843513489" blue="0.15802845358848572" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="XKm-w6-J7c" firstAttribute="centerX" secondItem="iR6-ot-mhX" secondAttribute="centerX" id="I3T-pZ-1vP"/>
-                            <constraint firstItem="XKm-w6-J7c" firstAttribute="height" secondItem="iR6-ot-mhX" secondAttribute="height" constant="-44" id="dYv-ww-DIc" userLabel="Table View.height = height - 64"/>
-                            <constraint firstItem="XKm-w6-J7c" firstAttribute="centerY" secondItem="iR6-ot-mhX" secondAttribute="centerY" constant="-15" id="j5V-oL-qKT" userLabel="Table View.centerY = centerY + 40"/>
+                            <constraint firstItem="XKm-w6-J7c" firstAttribute="height" secondItem="iR6-ot-mhX" secondAttribute="height" constant="-40" id="dYv-ww-DIc"/>
+                            <constraint firstItem="XKm-w6-J7c" firstAttribute="centerY" secondItem="iR6-ot-mhX" secondAttribute="centerY" constant="-22" id="j5V-oL-qKT" userLabel="Table View.centerY = centerY -22"/>
                             <constraint firstItem="XKm-w6-J7c" firstAttribute="width" secondItem="iR6-ot-mhX" secondAttribute="width" id="kiq-ce-cYp"/>
                         </constraints>
                     </view>
@@ -460,10 +460,10 @@
             </objects>
             <point key="canvasLocation" x="1292" y="-1414.5427286356824"/>
         </scene>
-        <!--使い方-->
+        <!--Help Navigation Controller-->
         <scene sceneID="0jQ-su-Iq0">
             <objects>
-                <navigationController id="g0V-Pm-svM" sceneMemberID="viewController">
+                <navigationController id="g0V-Pm-svM" userLabel="Help Navigation Controller" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="使い方" id="QuF-BD-RVP"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Y6a-oG-gKm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

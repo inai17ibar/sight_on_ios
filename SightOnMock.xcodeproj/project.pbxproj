@@ -216,10 +216,10 @@
 				0C6DDAD81F91E52600B03CEF /* TabBarController.swift */,
 				0CBC0F1A1FA0FA740026C1C1 /* HelpViewController.swift */,
 				0C39289F1F23727300397EDD /* Main.storyboard */,
+				E6069C831F9A4C3700908DE6 /* Post.storyboard */,
 				0C3928A21F23727300397EDD /* Assets.xcassets */,
 				0C3928A41F23727300397EDD /* LaunchScreen.storyboard */,
 				0C3928A71F23727300397EDD /* Info.plist */,
-				E6069C831F9A4C3700908DE6 /* Post.storyboard */,
 			);
 			path = SightOnMock;
 			sourceTree = "<group>";
@@ -232,7 +232,7 @@
 				0C3928B21F23727300397EDD /* Info.plist */,
 			);
 			path = SightOnMockTests;
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
 		0C3928BA1F23727300397EDD /* SightOnMockUITests */ = {
 			isa = PBXGroup;
