@@ -20,7 +20,7 @@ class HelpViewController: ViewController, UIWebViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        let favoriteURL = NSURL(string: "https://github.com/inai17ibar/sight_on_ios/blob/master/webpage.md")
+        let favoriteURL = NSURL(string: "https://sighton.github.io/manual/")
         //let favoriteURL = NSURL(string: "http://asahina-laboratory.blogspot.jp/2016/04/swift-nsunknownkeyexception.html")
         
         let urlRequest = NSURLRequest(url: favoriteURL! as URL)
