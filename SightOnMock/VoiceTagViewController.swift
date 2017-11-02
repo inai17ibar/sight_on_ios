@@ -20,7 +20,7 @@ class VoiceTagViewController: ViewController {
     
     //let dataManager = TemporaryDataManager()
     var soundPlayer:SoundPlayer!
-    
+    var audioPlayer:AVAudioPlayer!
     var isRecording = false
     
     override func viewDidLoad() {
@@ -95,6 +95,9 @@ class VoiceTagViewController: ViewController {
     
     //録音ボタンタップ
     @IBAction func buttonTapped(_ sender : Any) {
+        startRecord()
+    }
+    func startRecord(){
         //一時的にVOをオフ
         recordButton.setTitle("録音中", for: .normal)
         recordButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1.0)
@@ -113,12 +116,11 @@ class VoiceTagViewController: ViewController {
         initRecorder()
         showAlert()
     }
-
     func showAlert() {
         // アラートを作成
         let alert = UIAlertController(
             title: "",
-            message: "録音中",
+            message: "タグ録音中",
             preferredStyle: .alert)//.actionSheet
         // アクションシートの親となる UIView を設定
         alert.popoverPresentationController?.sourceView = self.view
@@ -140,14 +142,44 @@ class VoiceTagViewController: ViewController {
         self.recordButton.backgroundColor = UIColor(red: 198/255, green: 200/255, blue: 201/255, alpha: 1.0)
         //録音停止，音声タグデータを保存
         self.audioRecorder.stop()
-        //self.saveRecordData()
-        disactiveRecorder()
-        self.post()
+        do{
+        try audioPlayer = AVAudioPlayer(contentsOf: self.audioRecorder.url)
+            audioPlayer?.play()
+        }catch{
+            print("error in reading a file")
+        }
         
-        //次画面への遷移
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
-        self.present(nextViewController, animated:true, completion:nil)
+        confirmationAlert()
+        //self.saveRecordData()
+
+    }
+    func confirmationAlert() {
+        // アラートを作成
+        let alert = UIAlertController(
+            title: "",
+            message: "このタグでよろしいですか",
+            preferredStyle: .alert)
+        // アクションシートの親となる UIView を設定
+        alert.popoverPresentationController?.sourceView = self.view
+        // アラートにボタンをつける
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            self.disactiveRecorder()
+            self.post()
+            //次画面への遷移
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+            self.present(nextViewController, animated:true, completion:nil)
+            
+        }))
+        alert.addAction(UIAlertAction(title: "聞き直す", style: .default, handler: { action in
+            self.audioPlayer?.play()
+            self.confirmationAlert()
+        }))
+        alert.addAction(UIAlertAction(title: "取り直す", style: .default, handler: { action in
+            self.startRecord()
+        }))
+        // アラート表示
+        self.present(alert, animated: true, completion: nil)
     }
     
     func post()
