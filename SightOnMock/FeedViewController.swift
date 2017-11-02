@@ -77,21 +77,12 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
     //あるセルを押したら再生
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        //print(indexPath.row)
-        //print(sounds.count)
-        //let reverse_index = (sounds.count - 1) - indexPath.row
         let seleted_url = URL(fileURLWithPath: sounds[indexPath.row].file_path)
         let cell = tableView.cellForRow(at: indexPath) as! FeedListItemTableViewCell
+        let voice_tag_url = URL(fileURLWithPath: sounds[indexPath.row].voice_tags[0].tagFilePath)
 
         print(seleted_url as Any)
-        
-        //cell.isAccessibilityElement = false
-        //cell.titleLabel.isAccessibilityElement = false
-        
-        //cell.titleLabel.accessibilityHint = ""
-        //print(soundPlayer.getSoundURL() as Any)
-        
-        print(URL(fileURLWithPath: sounds[indexPath.row].voice_tags[0].tagFilePath) as Any)
+        print(voice_tag_url as Any)
         
         if (soundPlayer.getSoundURL() == seleted_url)
         {
@@ -107,6 +98,12 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
             else{
                 cell.titleLabel.accessibilityLabel = "再生中" //再生中の要素を示すため
                 ttsPlaySound()
+                //3秒の間ボイスタグを流して
+                if(sounds[indexPath.row].voice_tags[0].tagFilePath != "")
+                {
+                    soundPlayer.play(url: voice_tag_url)
+                    sleep(3)
+                }
                 soundPlayer.play(url: seleted_url)
             }
         }
@@ -119,6 +116,12 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
             //曲がセットされてないとき
             cell.titleLabel.accessibilityLabel = "再生中"
             ttsPlaySound()
+            //3秒の間ボイスタグを流して
+            if(sounds[indexPath.row].voice_tags[0].tagFilePath != "")
+            {
+                soundPlayer.play(url: voice_tag_url)
+                sleep(3)
+            }
             soundPlayer.play(url: seleted_url)
         }
         // 選択を常に解除しておく(解除しないほうが状態がわかりそう)

@@ -35,7 +35,7 @@ class SoundRecorder: NSObject, AVAudioPlayerDelegate {
     ]
     
     // OSLog のインスタンスを生成して
-    let log = OSLog(subsystem: "jp.classmethod.SampleMobileApp", category: "UI")
+    let log = OSLog(subsystem: "sighton", category: "UI")
     
     override init()
     {

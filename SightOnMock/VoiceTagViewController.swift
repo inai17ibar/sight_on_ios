@@ -210,7 +210,7 @@ class VoiceTagViewController: ViewController {
     {
         let sound_file_path = temp_data.loadDataPath()
         print()
-        database.create(sound_file_path, dataName: getNowClockString(), userId: 1, tags:[""], voiceTags: [filePath]) //ここに音声タグの引数追加
+        database.create(sound_file_path, dataName: getNowClockString(), userId: 1, tags:[""], voiceTags: [filePath]) 
         database.add()
         temp_data.deleteData()
     }
