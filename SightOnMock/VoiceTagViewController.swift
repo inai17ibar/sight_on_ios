@@ -145,7 +145,15 @@ class VoiceTagViewController: ViewController {
         do{
         try audioPlayer = AVAudioPlayer(contentsOf: self.audioRecorder.url)
             audioPlayer?.numberOfLoops = -1
-            audioPlayer?.play()
+            
+            
+            let seconds = 1.0//Time To Delay
+            let dispatchTime: DispatchTime = DispatchTime.now() + Double(Int64(seconds * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+            DispatchQueue.main.asyncAfter(deadline: dispatchTime, execute: {
+                self.audioPlayer?.play()
+            })
+
+            
         }catch{
             print("error in reading a file")
         }
