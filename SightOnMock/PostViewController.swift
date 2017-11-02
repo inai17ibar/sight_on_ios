@@ -113,7 +113,7 @@ class PostViewController: ViewController {
         saveData()
         }
         let file_path = temp_data.loadDataPath()
-        database.create(file_path, dataName: getNowClockString(), userId: 1, tags:[""])
+        database.create(file_path, dataName: getNowClockString(), userId: 1, tags:[""], voiceTags: [""])
         database.add()
         temp_data.deleteData()
     }
@@ -163,12 +163,10 @@ class PostViewController: ViewController {
             print("on haptic!")
         }
         
-        //投稿処理
-        post()
-        
         //再生停止
         self.player.stop()
-        self.showPostAlert()
+        //self.showPostAlert()
+        self.voiceTagAlert()
     }
     
     @IBAction func dismissButtonTapped(_ sender : Any)
@@ -178,7 +176,7 @@ class PostViewController: ViewController {
         
         if #available(iOS 10.0, *), let generator = feedbackGenerator as? UIImpactFeedbackGenerator {
             generator.impactOccurred()
-            //print("on haptic!")
+            print("on haptic!")
         }
         
         //一時データ削除
@@ -230,6 +228,7 @@ class PostViewController: ViewController {
             reverb.wetDryMix = 0
         }
     }
+    
     func voiceTagAlert() {
         // アラートを作成
         let alert = UIAlertController(
@@ -240,19 +239,18 @@ class PostViewController: ViewController {
         alert.popoverPresentationController?.sourceView = self.view
         // アラートにボタンをつける
         alert.addAction(UIAlertAction(title: "追加する", style: .default, handler: { action in
-            
-            self.showPostAlert()
+            self.jumpVoiceTagActivity()
         }))
         alert.addAction(UIAlertAction(title: "追加しない", style: .default, handler: { action in
+            //投稿処理
+            self.post()
             self.showPostAlert()
         }))
         // アラート表示
         self.present(alert, animated: true, completion: nil)
     }
     
-    
     func showPostAlert() {
-        
         // アラートを作成
         let alert = UIAlertController(
             title: "",
@@ -267,8 +265,8 @@ class PostViewController: ViewController {
         // アラート表示
         self.present(alert, animated: true, completion: nil)
     }
+    
     func showDismissAlert() {
-        
         // アラートを作成
         let alert = UIAlertController(
             title: "",
@@ -282,6 +280,13 @@ class PostViewController: ViewController {
         }))
         // アラート表示
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func jumpVoiceTagActivity(){
+        //次画面への遷移
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Post", bundle:nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "VoiceTagNavigation")
+        self.present(nextViewController, animated:true, completion:nil)
     }
     
     func finishActivity(){

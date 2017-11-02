@@ -16,7 +16,7 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
     @IBOutlet weak var textfield: UIView!
     var soundPlayer :SoundPlayer!
     let database = DatabaseAccessManager()
-    let realm = try! Realm()
+    var realm: Realm!
     var sounds:Results<Sound>!
     
     override func viewDidLoad() {
@@ -29,6 +29,8 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
     //画面に来る度，毎回呼び出される
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        realm = try! Realm()
         
         //データの読み出し，更新
         sounds = database.extractByUserId(1)
@@ -89,6 +91,8 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         //cell.titleLabel.accessibilityHint = ""
         //print(soundPlayer.getSoundURL() as Any)
         
+        print(URL(fileURLWithPath: sounds[indexPath.row].voice_tags[0].tagFilePath) as Any)
+        
         if (soundPlayer.getSoundURL() == seleted_url)
         {
             //曲がセット済みのとき
@@ -98,10 +102,10 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
                 soundPlayer.stop()
                 
                 // 選択を解除
-                tableView.deselectRow(at: indexPath, animated: true)
+                //tableView.deselectRow(at: indexPath, animated: true)
             }
             else{
-                cell.titleLabel.accessibilityLabel = ""
+                cell.titleLabel.accessibilityLabel = "再生中" //再生中の要素を示すため
                 ttsPlaySound()
                 soundPlayer.play(url: seleted_url)
             }
@@ -113,16 +117,15 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
                 cell_i.titleLabel.accessibilityLabel = cell_i.titleLabel.text
             }
             //曲がセットされてないとき
-            cell.titleLabel.accessibilityLabel = ""
+            cell.titleLabel.accessibilityLabel = "再生中"
             ttsPlaySound()
             soundPlayer.play(url: seleted_url)
         }
-        // 選択を解除しておく(解除しないほうが状態がわかりそう)
-        //tableView.deselectRow(at: indexPath, animated: true)
-        //cell.titleLabel.isAccessibilityElement = true
+        // 選択を常に解除しておく(解除しないほうが状態がわかりそう)
+        tableView.deselectRow(at: indexPath, animated: true)
         
         //OSのなどの仕様に依存するので非常に危険
-        //sleep(UInt32(0)) //少し経ってから復活させる //1秒超えるとたいてい外れてしまう
+        //sleep(UInt32(0.9)) //少し経ってから復活させる //1秒超えるとたいてい外れてしまう
         //cell.titleLabel.accessibilityLabel = "選択中" //cell.titleLabel.text
     }
     

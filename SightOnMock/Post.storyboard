@@ -129,10 +129,10 @@
             </objects>
             <point key="canvasLocation" x="2936.8000000000002" y="-667.01649175412297"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--VoiceTag Navigation Controller-->
         <scene sceneID="SGs-7P-zcI">
             <objects>
-                <navigationController id="rNf-5r-S3p" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="VoiceTagNavigation" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rNf-5r-S3p" userLabel="VoiceTag Navigation Controller" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2wg-vu-MWb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -145,10 +145,10 @@
             </objects>
             <point key="canvasLocation" x="1983" y="92"/>
         </scene>
-        <!--Record View Controller-->
+        <!--VoiceTag View Controller-->
         <scene sceneID="MEk-3m-it0">
             <objects>
-                <viewController storyboardIdentifier="VoiceTagViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jZw-Rk-axC" userLabel="Record View Controller" customClass="VoiceTagViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VoiceTagViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jZw-Rk-axC" userLabel="VoiceTag View Controller" customClass="VoiceTagViewController" customModule="SightOnMock" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="R7N-1m-ybJ"/>
                         <viewControllerLayoutGuide type="bottom" id="RwT-Gu-cgD"/>
@@ -166,7 +166,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="buttonTapped:" destination="jZw-Rk-axC" eventType="touchDown" id="KT0-Zj-pYV"/>
+                                    <action selector="buttonTapped:" destination="jZw-Rk-axC" eventType="touchDown" id="VrD-s3-GFJ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -181,7 +181,7 @@
                     <tabBarItem key="tabBarItem" title="録音モード" id="JSq-4S-iEt"/>
                     <navigationItem key="navigationItem" title="音声タグ入力画面" id="Dd6-6M-1kk"/>
                     <connections>
-                        <outlet property="button" destination="PQS-DS-ASv" id="HRj-Wn-JT6"/>
+                        <outlet property="recordButton" destination="PQS-DS-ASv" id="C2t-S4-s1R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7pN-Rf-f4P" sceneMemberID="firstResponder"/>

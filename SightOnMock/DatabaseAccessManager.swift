@@ -33,7 +33,7 @@ class DatabaseAccessManager{
     }
     
     //TODO: 拡張に耐えられないので要リファクタリング
-    func create(_ filePath: String, dataName: String, userId: Int, tags: [String])
+    func create(_ filePath: String, dataName: String, userId: Int, tags: [String], voiceTags: [String])
     {
         sound = Sound()
         let tagsList = List<Tag>()
@@ -43,10 +43,19 @@ class DatabaseAccessManager{
             tagsList.append(newTag)
         }
         
+        //let voiceTags = ["", ""] //あとで引数に追加
+        let voiceTagsList = List<VoiceTag>()
+        for tag in voiceTags {
+            let newTag = VoiceTag()
+            newTag.tagFilePath = tag
+            voiceTagsList.append(newTag)
+        }
+        
         // Sound型オブジェクトの作成
         sound.sound_name = dataName
         sound.user_id = userId
         sound.tags.append(objectsIn: tagsList)
+        sound.voice_tags.append(objectsIn: voiceTagsList)
         sound.file_path = filePath
         sound.save()
     }

@@ -14,6 +14,11 @@ class Tag: Object {
     dynamic var tagName: String = ""
 }
 
+// Tagクラス
+class VoiceTag: Object {
+    dynamic var tagFilePath: String = ""
+}
+
 class Sound: Object {
     dynamic var id: Int = 0
     dynamic var sound_name: String = ""
@@ -21,11 +26,12 @@ class Sound: Object {
     dynamic var user_id: Int = 0
     
     let tags = List<Tag>()
+    let voice_tags = List<VoiceTag>()
     
     dynamic var created_stamp: Double = Date().timeIntervalSince1970
     dynamic var updated_stamp: Double = Date().timeIntervalSince1970
     
-    // データを保存。
+    // データを保存
     func save() {
         let realm = try! Realm()
         if realm.isInWriteTransaction {
@@ -39,7 +45,7 @@ class Sound: Object {
         }
     }
     
-    // 新しいIDを採番します。
+    // 新しいIDを採番します
     fileprivate func createNewId() -> Int {
         let realm = try! Realm()
         return (realm.objects(type(of: self).self).sorted(byKeyPath: "id", ascending: false).first?.id ?? 0) + 1

@@ -93,13 +93,6 @@ class RecordViewController: ViewController{
         button.accessibilityHint = ""
         //読み上げ中でなければこれで読み上げが録音にはいらない
         
-        //音声の読み上げ
-        /*sleep(1)
-        let talker = AVSpeechSynthesizer()
-        let utterance = AVSpeechUtterance(string: "録音を開始します。")
-        utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
-        talker.speak(utterance)
-        sleep(2)*/
         if #available(iOS 10.0, *), let generator = feedbackGenerator as? UIImpactFeedbackGenerator {
             generator.impactOccurred()
             print("on haptic!")
