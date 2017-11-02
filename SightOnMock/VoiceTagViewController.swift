@@ -144,6 +144,7 @@ class VoiceTagViewController: ViewController {
         self.audioRecorder.stop()
         do{
         try audioPlayer = AVAudioPlayer(contentsOf: self.audioRecorder.url)
+            audioPlayer?.numberOfLoops = -1
             audioPlayer?.play()
         }catch{
             print("error in reading a file")
@@ -163,6 +164,7 @@ class VoiceTagViewController: ViewController {
         alert.popoverPresentationController?.sourceView = self.view
         // アラートにボタンをつける
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            self.audioPlayer?.stop()
             self.disactiveRecorder()
             self.post()
             //次画面への遷移
@@ -171,17 +173,39 @@ class VoiceTagViewController: ViewController {
             self.present(nextViewController, animated:true, completion:nil)
             
         }))
-        alert.addAction(UIAlertAction(title: "聞き直す", style: .default, handler: { action in
-            self.audioPlayer?.play()
-            self.confirmationAlert()
-        }))
         alert.addAction(UIAlertAction(title: "取り直す", style: .default, handler: { action in
+            self.audioPlayer?.stop()
+            self.deletefile()
             self.startRecord()
+        }))
+        alert.addAction(UIAlertAction(title: "タグをつけない", style: .default, handler: { action in
+            self.audioPlayer?.stop()
+            self.deletefile()
+            self.disactiveRecorder()
+            //次画面への遷移
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+            self.present(nextViewController, animated:true, completion:nil)
         }))
         // アラート表示
         self.present(alert, animated: true, completion: nil)
     }
-    
+    func deletefile(){
+        do {
+            let fileManager = FileManager.default
+            
+            // Check if file exists
+            if fileManager.fileExists(atPath: self.filePath) {
+                // Delete file
+                try fileManager.removeItem(atPath: filePath)
+            } else {
+                print("File does not exist")
+            }
+        }
+        catch let error as NSError {
+            print("An error took place: \(error)")
+        }
+    }
     func post()
     {
         let sound_file_path = temp_data.loadDataPath()
