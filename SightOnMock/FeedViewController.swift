@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 import RealmSwift
 
-class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSource, SoundPlayerDelegate {
+class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, SoundPlayerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var textfield: UIView!
@@ -19,11 +19,22 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
     var realm: Realm!
     var sounds:Results<Sound>!
     
+    var limitedCellCount:Int! = 5
+    var refreshControl:UIRefreshControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification,  self.textfield);
         //microphone access
         AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeAudio, completionHandler: {(granted: Bool) in})
+        
+        // 引っ張ってロードの初期化
+        refreshControl = UIRefreshControl()
+        //refreshControl.attributedTitle = NSAttributedString(string: "refresh")
+        refreshControl.addTarget(self,
+                                 action: #selector(FeedViewController.onRefresh(_:)),
+                                 for: UIControlEvents.valueChanged)
+        tableView.addSubview(refreshControl)
     }
     
     //画面に来る度，毎回呼び出される
@@ -52,7 +63,26 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sounds.count
+        //sounds.count //読み込み済みデータ数を返すべき
+        if section == 0
+        {
+            return limitedCellCount
+            //return sounds.count
+        }
+        //通常はここに到達しない
+        return 0
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let currentOffsetY = scrollView.contentOffset.y
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.height
+        let distanceToBottom = maximumOffset - currentOffsetY
+        print("currentOffsetY: \(currentOffsetY)")
+        print("maximumOffset: \(maximumOffset)")
+        print("distanceToBottom: \(distanceToBottom)")
+        if scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height {
+            print("一番下に到達した時の処理")
+        }
     }
     
     //セルのデータの読み出し
@@ -162,9 +192,23 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         
     }
     
+    func onRefresh(_ refreshControl: UIRefreshControl){
+        self.refreshControl.beginRefreshing()
+        if(sounds.count >= limitedCellCount + 5)
+        {
+            limitedCellCount = sounds.count + 5
+        }
+        else
+        {
+            limitedCellCount = sounds.count
+        }
+        self.refreshControl.endRefreshing()
+        self.tableView.reloadData()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        tableView.reloadData()
     }
-    
 }
