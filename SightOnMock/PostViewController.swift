@@ -23,6 +23,10 @@ class PostViewController: ViewController {
     let temp_data = TemporaryDataManager()
     let database = DatabaseAccessManager()
     
+    let documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+    let file_name = TemporaryDataManager().load()
+    var file_path: String!
+    
     // インスタンス変数
     var engine = AVAudioEngine()
     //playerNodeの準備
@@ -35,14 +39,20 @@ class PostViewController: ViewController {
     var audiolength = 0
     var audioFormat = AVAudioFormat()
     //読み込みfile関係
-    let file_path = TemporaryDataManager().loadDataPath()
-    let fileUrl = URL(fileURLWithPath: TemporaryDataManager().loadDataPath())
     var isEffected=false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification,  self.textfield);
-        //UIApplication.shared.keyWindow?.rootViewController?.dismiss(animated: true, completion: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        print("[post] viewWillAppear")
+        
+        file_path = documentPath + "/" + TemporaryDataManager().load()
+        let fileUrl = URL(fileURLWithPath: file_path)
+        
         //プレイヤーの初期化
         do {
             let audioFile = try AVAudioFile(forReading: fileUrl)
@@ -70,10 +80,7 @@ class PostViewController: ViewController {
         } catch let error {
             print(error)
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        
         //再生の準備
         do {
             //print(fileUrl)
@@ -104,24 +111,23 @@ class PostViewController: ViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func post()
     {
         if(isEffected){
-        saveData()
+            saveData()
         }
-        let file_path = temp_data.loadDataPath()
-        database.create(file_path, dataName: getNowClockString(), userId: 1, tags:[""], voiceTags: [""])
+        let file_name = temp_data.load()
+        database.create(file_name, dataName: getNowMonthDayString(), userId: 1, tags:[""], voiceTags: [""], createDate: Date())
         database.add()
-        temp_data.deleteData()
+        temp_data.clean()
     }
 
     func saveData()
     {
         let save_file_path = file_path
-        let fileUrl_write = URL(fileURLWithPath: save_file_path)
+        let fileUrl_write = URL(fileURLWithPath: save_file_path!)
         var goFlag=false
         
         do{
@@ -180,7 +186,7 @@ class PostViewController: ViewController {
         }
         
         //一時データ削除
-        temp_data.deleteData()
+        temp_data.clean()
 
         //再生停止
         self.player.stop()

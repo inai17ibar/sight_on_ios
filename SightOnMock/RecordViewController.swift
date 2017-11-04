@@ -15,6 +15,7 @@ class RecordViewController: ViewController{
 
     var audioRecorder:AVAudioRecorder!
     var filePath:String!
+    var fileName:String!
 
     let dataManager = TemporaryDataManager()
     var soundPlayer:SoundPlayer!
@@ -32,7 +33,9 @@ class RecordViewController: ViewController{
     
     func disactiveRecorder()
     {
-        filePath = NSHomeDirectory() + "/Documents/temp_data_"+getNowClockString()+".wav"
+        let documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        fileName = "sound_" + getNowMonthDayString()+".wav"
+        filePath = documentPath + fileName
         let url = URL(fileURLWithPath: filePath)
 
         // 録音の詳細設定
@@ -59,7 +62,10 @@ class RecordViewController: ViewController{
     func initRecorder()
     {
         // 録音ファイルを指定する
-        filePath = NSHomeDirectory() + "/Documents/temp_data_"+getNowClockString()+".wav"
+        let documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        fileName = "sound_" + getNowDateString()+".wav"
+        filePath = documentPath + "/" + fileName
+        print(filePath)
         let url = URL(fileURLWithPath: filePath)
 
         // 再生と録音の機能をアクティブにする
@@ -141,7 +147,7 @@ class RecordViewController: ViewController{
     
     func saveRecordData()
     {
-        dataManager.saveDataPath(filePath)
+        dataManager.save(fileName)
     }
 
     override func didReceiveMemoryWarning() {

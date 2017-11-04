@@ -20,14 +20,13 @@ class TemporaryDataManager {
         filePath = ""
     }
     
-    open func saveDataPath(_ path :String)
+    open func save(_ fileName :String)
     {
         let userDefault = UserDefaults.standard
-        userDefault.set(path, forKey: "Key") // キーを指定してオブジェクトを保存
-        print("Save temporary data.")
+        userDefault.set(fileName, forKey: "Key") // キーを指定してオブジェクトを保存
     }
     
-    open func loadDataPath() -> String
+    open func load() -> String
     {
         return userDefaults.string(forKey: "Key")!
     }
@@ -35,10 +34,8 @@ class TemporaryDataManager {
     // Keyを指定して読み込み(使用イメージ)
     //let filePath: String = loadDataPath()
     
-    open func deleteData()
+    open func clean()
     {
         userDefaults.removeObject(forKey: "Key")
-        //TODO: pathのファイルを削除する処理
-        print("Delete temporary data.")
     }
 }

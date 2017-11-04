@@ -28,14 +28,14 @@ class DatabaseAccessManager{
         // Realmへのオブジェクトの書き込み
         try! realm.write {
             realm.add(sound)
-            print("add new data on database.")
+            print("add on database, " + sound.file_path)
         }
     }
     
-    //TODO: 拡張に耐えられないので要リファクタリング
-    func create(_ filePath: String, dataName: String, userId: Int, tags: [String], voiceTags: [String])
+    func create_test(_ filePath: String, dataName: String, userId: Int, tags: [String], voiceTags: [String], createDate: Date)
     {
         sound = Sound()
+        
         let tagsList = List<Tag>()
         for tag in tags {
             let newTag = Tag()
@@ -43,7 +43,6 @@ class DatabaseAccessManager{
             tagsList.append(newTag)
         }
         
-        //let voiceTags = ["", ""] //あとで引数に追加
         let voiceTagsList = List<VoiceTag>()
         for tag in voiceTags {
             let newTag = VoiceTag()
@@ -52,12 +51,52 @@ class DatabaseAccessManager{
         }
         
         // Sound型オブジェクトの作成
+        sound.file_path = filePath
         sound.sound_name = dataName
         sound.user_id = userId
         sound.tags.append(objectsIn: tagsList)
         sound.voice_tags.append(objectsIn: voiceTagsList)
-        sound.file_path = filePath
+        sound.created_stamp = createDate
+        sound.updated_stamp = createDate
+        sound.is_test_data = true
+        
         sound.save()
+    }
+    
+    func create(_ filePath: String, dataName: String, userId: Int, tags: [String], voiceTags: [String], createDate: Date)
+    {
+        sound = Sound()
+        
+        let tagsList = List<Tag>()
+        for tag in tags {
+            let newTag = Tag()
+            newTag.tagName = tag
+            tagsList.append(newTag)
+        }
+        
+        let voiceTagsList = List<VoiceTag>()
+        for tag in voiceTags {
+            let newTag = VoiceTag()
+            newTag.tagFilePath = tag
+            voiceTagsList.append(newTag)
+        }
+        
+        // Sound型オブジェクトの作成
+        sound.file_path = filePath
+        sound.sound_name = dataName
+        sound.user_id = userId
+        sound.tags.append(objectsIn: tagsList)
+        sound.voice_tags.append(objectsIn: voiceTagsList)
+        sound.created_stamp = createDate
+        sound.updated_stamp = createDate
+        sound.is_test_data = false
+        
+        sound.save()
+    }
+    
+    func update(sound: Sound, filePath: String, dataName: String, userId: Int, tags: [String], voiceTags: [String], updateDate: Date)
+    {
+        
     }
     
     //DBから読み込んで表示する場合

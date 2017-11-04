@@ -76,9 +76,16 @@ class ViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    func getNowClockString() -> String {
+    func getNowMonthDayString() -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "MM月dd日"
+        let now = Date()
+        return formatter.string(from: now)
+    }
+    
+    func getNowDateString() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyMMdd_HHmmss"
         let now = Date()
         return formatter.string(from: now)
     }

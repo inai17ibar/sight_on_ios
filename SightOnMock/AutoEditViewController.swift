@@ -40,8 +40,11 @@ class AutoEditViewController: ViewController {
     var audioFormat = AVAudioFormat()
     
     //読み込みfile関係
-    let file_path = TemporaryDataManager().loadDataPath()
-    let fileUrl = URL(fileURLWithPath: TemporaryDataManager().loadDataPath())        // オーディオファイルの読み込み
+    //let documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+    //let file_name = TemporaryDataManager().load()
+    //var file_path: String! 仕様変更、上に書き直す
+    let file_path = TemporaryDataManager().load()
+    let fileUrl = URL(fileURLWithPath: TemporaryDataManager().load())
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -135,7 +138,8 @@ class AutoEditViewController: ViewController {
     }
 
     func saveaudiofile_(){
-        let save_file_path = TemporaryDataManager().loadDataPath()
+        //仕様変更あり
+        let save_file_path = TemporaryDataManager().load()
         let fileUrl_write = URL(fileURLWithPath: save_file_path)
         //print(fileUrl_write)
         var goFlag=false

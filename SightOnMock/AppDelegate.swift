@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let config = Realm.Configuration(
             // 新しいスキーマバージョンを設定します。 これは以前に使用されたものよりも大きくなければなりません
             // version（以前にスキーマバージョンを設定していない場合、バージョンは0です）。
-            schemaVersion: 1,
+            schemaVersion: 2,
             
             //スキーマのバージョンが上記のものよりも低い/を開くときに自動的に呼び出されるブロックを設定する
             migrationBlock: { migration, oldSchemaVersion in
@@ -31,58 +31,67 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 if (oldSchemaVersion < 1) {
                     // Realmは新しいプロパティと削除されたプロパティを自動的に検出します
                     //そして自動的にディスク上のスキーマを更新する
-                }})
+                }}
+        )
         
         // Tell Realm to use this new configuration object for the default Realm
         Realm.Configuration.defaultConfiguration = config
         
         //デフォルトのレルムに対してこの新しい設定オブジェクトを使用するようにRealmに指示します
         let realm = try! Realm()
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
         print(realm, "Realm")
         print(config,"Realm Version")
         
         // ここに初期化処理を書く
         setDefaultDataset() //Realmの登録内容の初期化
-        //firstInstruction()
+        
+        //ドキュメントフォルダ内のファイルを調べる
+        let documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        var fileNames: [String] {
+            do {
+                return try FileManager.default.contentsOfDirectory(atPath: documentPath)
+            } catch {
+                return []
+            }
+        }
+        for name in fileNames
+        {
+            print(name)
+        }
+        
         return true
-    }
-    
-    func firstInstruction()
-    {
-        //let talker = AVSpeechSynthesizer()
-        //let utterance = AVSpeechUtterance(string: "サイトオンのアプリでは．簡単な操作で音の録音と再生ができます。画面の上端の見出し部分をタッチすると，その画面のヘルプを読み上げます")
-        //let utterance = AVSpeechUtterance(string: "画面の上の見出しをタッチすると、ヘルプを読み上げます。")
-        //utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
-        //talker.speak(utterance)
     }
     
     func setDefaultDataset()
     {
         database.deleteAll()
         
-        //古い順にいれる
+        let calendar = NSCalendar(identifier: NSCalendar.Identifier.gregorian)!
+        
+        //古い順にいれる → Realmのデフォルトファイルを作る予定
         var audioPath = Bundle.main.path(forResource: "washroom", ofType:"wav")!
-        database.create(audioPath, dataName: "06月09日", userId: 1, tags: ["水", "癒やし"], voiceTags: [""])
+        database.create_test(audioPath, dataName: "06月09日", userId: 1, tags: ["水", "癒やし"], voiceTags: [""], createDate: calendar.date(era: 1, year: 2017, month: 6, day: 9, hour: 20, minute: 26, second: 0, nanosecond: 0)!)
         database.add()
         
         audioPath = Bundle.main.path(forResource: "akihabara_lunch", ofType:"m4a")!
-        database.create(audioPath, dataName: "06月11日 秋葉原", userId: 1, tags: ["ランチ"], voiceTags: [""])
+        database.create_test(audioPath, dataName: "06月11日 秋葉原", userId: 1, tags: ["ランチ"], voiceTags: [""], createDate: calendar.date(era: 1, year: 2017, month: 6, day: 11, hour: 14, minute: 26, second: 0, nanosecond: 0)!)
         database.add()
         
         audioPath = Bundle.main.path(forResource: "on_the_bridge", ofType:"m4a")!
-        database.create(audioPath, dataName: "06月11日 勝どき", userId: 1, tags: ["風"], voiceTags: [""])
+        database.create_test(audioPath, dataName: "06月11日 勝どき", userId: 1, tags: ["風"], voiceTags: [""], createDate: calendar.date(era: 1, year: 2017, month: 6, day: 11, hour: 19, minute: 26, second: 0, nanosecond: 0)!)
         database.add()
         
         audioPath = Bundle.main.path(forResource: "ginza_east", ofType:"m4a")!
-        database.create(audioPath, dataName: "06月18日 東銀座", userId: 1, tags: ["話し声", "信号"], voiceTags: [""])
+        database.create_test(audioPath, dataName: "06月18日 東銀座", userId: 1, tags: ["話し声", "信号"], voiceTags: [""], createDate: calendar.date(era: 1, year: 2017, month: 6, day: 18, hour: 13, minute: 26, second: 0, nanosecond: 0)!)
         database.add()
         
         audioPath = Bundle.main.path(forResource: "on_stair", ofType:"m4a")!
-        database.create(audioPath, dataName: "06月20日 大崎", userId: 1, tags: ["階段"], voiceTags: [""])
+        database.create_test(audioPath, dataName: "06月20日 大崎", userId: 1, tags: ["階段"], voiceTags: [""], createDate: calendar.date(era: 1, year: 2017, month: 6, day: 10, hour: 11, minute: 26, second: 0, nanosecond: 0)!)
         database.add()
         
         audioPath = Bundle.main.path(forResource: "yurakucho_muzhirusi", ofType:"m4a")!
-        database.create(audioPath, dataName: "08月08日 有楽町", userId: 1, tags: ["お祭り", "夜"], voiceTags: [""])
+        database.create_test(audioPath, dataName: "08月08日 有楽町", userId: 1, tags: ["お祭り", "夜"], voiceTags: [""], createDate: calendar.date(era: 1, year: 2017, month: 8, day: 8, hour: 20, minute: 26, second: 0, nanosecond: 0)!)
         database.add()
     }
 

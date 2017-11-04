@@ -19,18 +19,22 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
     var realm: Realm!
     var sounds:Results<Sound>!
     
-    var limitedCellCount:Int! = 5
+    private var mySections: NSArray = ["最近"]
+    var limitedCellCount:Int! = 5 //20
     var refreshControl:UIRefreshControl!
+    
+    let documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //アクセスの許可
         UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification,  self.textfield);
         //microphone access
         AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeAudio, completionHandler: {(granted: Bool) in})
         
         // 引っ張ってロードの初期化
         refreshControl = UIRefreshControl()
-        //refreshControl.attributedTitle = NSAttributedString(string: "refresh")
         refreshControl.addTarget(self,
                                  action: #selector(FeedViewController.onRefresh(_:)),
                                  for: UIControlEvents.valueChanged)
@@ -47,7 +51,24 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         sounds = database.extractByUserId(1)
         soundPlayer = SoundPlayer()
         soundPlayer.delegate = self
-        soundPlayer.initPlayer(url: URL(fileURLWithPath: sounds[0].file_path))
+        var seleted_url: URL
+        if(sounds[0].is_test_data)
+        {
+            let path = sounds[0].file_path
+            seleted_url = URL(fileURLWithPath: path)
+        }
+        else
+        {
+            seleted_url = URL(fileURLWithPath: documentPath + "/" + sounds[0].file_path)
+        }
+        soundPlayer.initPlayer(url: seleted_url)
+        
+        for sound in sounds
+        {
+            let date = sound.created_stamp
+            //print(date)
+            //if(date) //DBでユニークをとってセクションをつくる？案外面倒
+        }
         
         //Now reload the tableView
         self.tableView.reloadData()
@@ -63,11 +84,10 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //sounds.count //読み込み済みデータ数を返すべき
+        //読み込み済みデータ数を返すべき
         if section == 0
         {
             return limitedCellCount
-            //return sounds.count
         }
         //通常はここに到達しない
         return 0
@@ -76,12 +96,21 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let currentOffsetY = scrollView.contentOffset.y
         let maximumOffset = scrollView.contentSize.height - scrollView.frame.height
-        let distanceToBottom = maximumOffset - currentOffsetY
-        print("currentOffsetY: \(currentOffsetY)")
-        print("maximumOffset: \(maximumOffset)")
-        print("distanceToBottom: \(distanceToBottom)")
+        _ = maximumOffset - currentOffsetY
+        //print("currentOffsetY: \(currentOffsetY)")
+        //print("maximumOffset: \(maximumOffset)")
+        //print("distanceToBottom: \(distanceToBottom)")
         if scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height {
-            print("一番下に到達した時の処理")
+            //print("一番下に到達した時の処理")
+            if(sounds.count >= limitedCellCount + 5)
+            {
+                limitedCellCount = sounds.count + 5
+            }
+            else
+            {
+                limitedCellCount = sounds.count
+            }
+            tableView.reloadData()
         }
     }
     
@@ -91,7 +120,8 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FeedListItem") as! FeedListItemTableViewCell
             
-            cell.titleLabel.text = "\(sounds[indexPath.row].sound_name)"
+            cell.titleLabel.text = sounds[indexPath.row].sound_name
+            //print(sounds[indexPath.row].sound_name)
             //print(cell.titleLabel.text as Any )
 //            let tags_text = Array(sounds[indexPath.row].tags).reduce("タグ： ") {
 //                (joined: String, x: Tag) -> String
@@ -107,12 +137,24 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
     //あるセルを押したら再生
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        let seleted_url = URL(fileURLWithPath: sounds[indexPath.row].file_path)
+        var seleted_url: URL
+        if(sounds[indexPath.row].is_test_data)
+        {
+            let path = sounds[indexPath.row].file_path
+            print("test_data")
+            seleted_url = URL(fileURLWithPath: path)
+            //seleted_url = URL(fileURLWithPath: Bundle.main.path(forResource: path.components(separatedBy: ".")[0], ofType: path.components(separatedBy: ".")[1])!)
+        }
+        else
+        {
+            print("my_data")
+            seleted_url = URL(fileURLWithPath: documentPath + "/" + sounds[indexPath.row].file_path)
+        }
         let cell = tableView.cellForRow(at: indexPath) as! FeedListItemTableViewCell
-        let voice_tag_url = URL(fileURLWithPath: sounds[indexPath.row].voice_tags[0].tagFilePath)
+        let voice_tag_url = URL(fileURLWithPath: documentPath + "/" + sounds[indexPath.row].voice_tags[0].tagFilePath)
 
-        print(seleted_url as Any)
-        print(voice_tag_url as Any)
+        print("select_sound: " , seleted_url as Any)
+        print("select_voice_tag: " , voice_tag_url as Any)
         
         if (soundPlayer.getSoundURL() == seleted_url)
         {
@@ -121,9 +163,6 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
                 cell.titleLabel.accessibilityLabel = cell.titleLabel.text
                 ttsStopSound()
                 soundPlayer.stop()
-                
-                // 選択を解除
-                //tableView.deselectRow(at: indexPath, animated: true)
             }
             else{
                 cell.titleLabel.accessibilityLabel = "再生中" //再生中の要素を示すため
@@ -193,7 +232,7 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
     }
     
     func onRefresh(_ refreshControl: UIRefreshControl){
-        self.refreshControl.beginRefreshing()
+        /*self.refreshControl.beginRefreshing()
         if(sounds.count >= limitedCellCount + 5)
         {
             limitedCellCount = sounds.count + 5
@@ -203,7 +242,7 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
             limitedCellCount = sounds.count
         }
         self.refreshControl.endRefreshing()
-        self.tableView.reloadData()
+        self.tableView.reloadData()*/
     }
     
     override func didReceiveMemoryWarning() {

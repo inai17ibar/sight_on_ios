@@ -14,6 +14,7 @@ class VoiceTagViewController: ViewController {
     @IBOutlet weak var recordButton: UIButton!
 
     var audioRecorder:AVAudioRecorder!
+    var tag_file_name:String!
     var filePath:String!
     let temp_data = TemporaryDataManager()
     let database = DatabaseAccessManager()
@@ -41,7 +42,9 @@ class VoiceTagViewController: ViewController {
     
     func disactiveRecorder()
     {
-        filePath = NSHomeDirectory() + "/Documents/voice_tag_"+getNowClockString()+".wav"
+        let documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        tag_file_name = "voice_tag_"+getNowDateString()+".wav"
+        filePath = documentPath + "/"+tag_file_name
         let url = URL(fileURLWithPath: filePath)
         
         // 録音の詳細設定
@@ -68,12 +71,14 @@ class VoiceTagViewController: ViewController {
     func initRecorder()
     {
         // 録音ファイルを指定する
-        filePath = NSHomeDirectory() + "/Documents/voice_tag_"+getNowClockString()+".wav"
+        let documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        tag_file_name = "voice_tag_"+getNowDateString()+".wav"
+        filePath = documentPath + "/"+tag_file_name
         let url = URL(fileURLWithPath: filePath)
         
         // 再生と録音の機能をアクティブにする
         let session = AVAudioSession.sharedInstance()
-        try! session.setCategory(AVAudioSessionCategoryPlayAndRecord) //AVAudioSessionCategoryRecord これにすると音をフィードバックを使えるかわりに音声にノイズが入る
+        try! session.setCategory(AVAudioSessionCategoryPlayAndRecord)
         try! session.setActive(true)
         
         // 録音の詳細設定
@@ -85,7 +90,6 @@ class VoiceTagViewController: ViewController {
             AVSampleRateKey: 44100.0 as AnyObject
         ]
         
-        print("success init AudioRecorder")
         do {
             audioRecorder = try AVAudioRecorder(url: url, settings: recordSetting)
         } catch {
@@ -159,9 +163,8 @@ class VoiceTagViewController: ViewController {
         }
         
         confirmationAlert()
-        //self.saveRecordData()
-
     }
+    
     func confirmationAlert() {
         // アラートを作成
         let alert = UIAlertController(
@@ -183,12 +186,12 @@ class VoiceTagViewController: ViewController {
         }))
         alert.addAction(UIAlertAction(title: "取り直す", style: .default, handler: { action in
             self.audioPlayer?.stop()
-            self.deletefile()
+            self.deleteTagFile()
             self.startRecord()
         }))
         alert.addAction(UIAlertAction(title: "タグをつけない", style: .default, handler: { action in
             self.audioPlayer?.stop()
-            self.deletefile()
+            self.deleteTagFile()
             self.disactiveRecorder()
             //次画面への遷移
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
@@ -198,7 +201,9 @@ class VoiceTagViewController: ViewController {
         // アラート表示
         self.present(alert, animated: true, completion: nil)
     }
-    func deletefile(){
+    
+    //?
+    func deleteTagFile(){
         do {
             let fileManager = FileManager.default
             
@@ -214,17 +219,14 @@ class VoiceTagViewController: ViewController {
             print("An error took place: \(error)")
         }
     }
+    
     func post()
     {
-        let sound_file_path = temp_data.loadDataPath()
+        let file_name = temp_data.load()
         print()
-        database.create(sound_file_path, dataName: getNowClockString(), userId: 1, tags:[""], voiceTags: [filePath]) 
+        database.create(file_name, dataName: getNowMonthDayString(), userId: 1, tags:[""], voiceTags: [tag_file_name], createDate: Date())
         database.add()
-        temp_data.deleteData()
+        temp_data.clean()
     }
     
-    func saveRecordData()
-    {
-        //dataManager.saveDataPath(filePath)
-    }
 }
