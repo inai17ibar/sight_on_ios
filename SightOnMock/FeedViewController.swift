@@ -55,7 +55,7 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         if(sounds[0].is_test_data)
         {
             let path = sounds[0].file_path
-            seleted_url = URL(fileURLWithPath: path)
+            seleted_url = URL(fileURLWithPath: Bundle.main.path(forResource: path.components(separatedBy: ".")[0], ofType: path.components(separatedBy: ".")[1])!)
         }
         else
         {
@@ -63,12 +63,12 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         }
         soundPlayer.initPlayer(url: seleted_url)
         
-        for sound in sounds
-        {
-            let date = sound.created_stamp
+        //for sound in sounds
+        //{/
+            //let date = sound.created_stamp
             //print(date)
             //if(date) //DBでユニークをとってセクションをつくる？案外面倒
-        }
+        //}
         
         //Now reload the tableView
         self.tableView.reloadData()
@@ -142,8 +142,7 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         {
             let path = sounds[indexPath.row].file_path
             print("test_data")
-            seleted_url = URL(fileURLWithPath: path)
-            //seleted_url = URL(fileURLWithPath: Bundle.main.path(forResource: path.components(separatedBy: ".")[0], ofType: path.components(separatedBy: ".")[1])!)
+            seleted_url = URL(fileURLWithPath: Bundle.main.path(forResource: path.components(separatedBy: ".")[0], ofType: path.components(separatedBy: ".")[1])!)
         }
         else
         {

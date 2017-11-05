@@ -35,7 +35,7 @@ class RecordViewController: ViewController{
     {
         let documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         fileName = "sound_" + getNowMonthDayString()+".wav"
-        filePath = documentPath + fileName
+        filePath = documentPath + "/" + fileName
         let url = URL(fileURLWithPath: filePath)
 
         // 録音の詳細設定
