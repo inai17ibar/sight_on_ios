@@ -18,7 +18,9 @@ DerivedData
 
 # CocoaPod
 Pods/*
-Podfile.lock
+
+#Bundle
+vendor/bundle/*
 
 # others
 *.swp
