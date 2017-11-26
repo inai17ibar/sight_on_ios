@@ -46,6 +46,7 @@ class VoiceTagViewController: ViewController {
         tag_file_name = "voice_tag_"+getNowDateString()+".wav"
         filePath = documentPath + "/"+tag_file_name
         let url = URL(fileURLWithPath: filePath)
+        print(url as Any)
         
         // 録音の詳細設定
         let recordSetting : [String : AnyObject] = [
@@ -120,6 +121,7 @@ class VoiceTagViewController: ViewController {
         initRecorder()
         showAlert()
     }
+    
     func showAlert() {
         // アラートを作成
         let alert = UIAlertController(
@@ -142,21 +144,19 @@ class VoiceTagViewController: ViewController {
     func finishRecord(){
         // 押されたら実行したい処理
         print("finish recording")
-        self.recordButton.setTitle("録音終了", for: .normal)
+        self.recordButton.setTitle("タグの録音終了", for: .normal)
         self.recordButton.backgroundColor = UIColor(red: 198/255, green: 200/255, blue: 201/255, alpha: 1.0)
         //録音停止，音声タグデータを保存
         self.audioRecorder.stop()
         do{
         try audioPlayer = AVAudioPlayer(contentsOf: self.audioRecorder.url)
             audioPlayer?.numberOfLoops = -1
-            
-            
+
             let seconds = 1.0//Time To Delay
             let dispatchTime: DispatchTime = DispatchTime.now() + Double(Int64(seconds * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
             DispatchQueue.main.asyncAfter(deadline: dispatchTime, execute: {
                 self.audioPlayer?.play()
             })
-
             
         }catch{
             print("error in reading a file")
@@ -176,8 +176,8 @@ class VoiceTagViewController: ViewController {
         // アラートにボタンをつける
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
             self.audioPlayer?.stop()
+            self.post() //順序に注意
             self.disactiveRecorder()
-            self.post()
             //次画面への遷移
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
@@ -192,7 +192,7 @@ class VoiceTagViewController: ViewController {
         alert.addAction(UIAlertAction(title: "タグをつけない", style: .default, handler: { action in
             self.audioPlayer?.stop()
             self.deleteTagFile()
-            self.disactiveRecorder()
+            self.disactiveRecorder() //投稿もしていない
             //次画面への遷移
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController

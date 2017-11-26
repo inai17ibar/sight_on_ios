@@ -97,9 +97,6 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         let currentOffsetY = scrollView.contentOffset.y
         let maximumOffset = scrollView.contentSize.height - scrollView.frame.height
         _ = maximumOffset - currentOffsetY
-        //print("currentOffsetY: \(currentOffsetY)")
-        //print("maximumOffset: \(maximumOffset)")
-        //print("distanceToBottom: \(distanceToBottom)")
         if scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height {
             //print("一番下に到達した時の処理")
             if(sounds.count >= limitedCellCount + 5)
@@ -166,13 +163,20 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
             else{
                 cell.titleLabel.accessibilityLabel = "再生中" //再生中の要素を示すため
                 ttsPlaySound()
+                
                 //3秒の間ボイスタグを流して
                 if(sounds[indexPath.row].voice_tags[0].tagFilePath != "")
                 {
+                    print("has voice tag")
                     soundPlayer.play(url: voice_tag_url)
-                    sleep(3)
+                    let dispatchTime = DispatchTime.now() + 3.0
+                    DispatchQueue.main.asyncAfter( deadline: dispatchTime ) {
+                        self.soundPlayer.play(url: seleted_url)
+                    }
+                }else
+                {
+                    soundPlayer.play(url: seleted_url)
                 }
-                soundPlayer.play(url: seleted_url)
             }
         }
         else{
@@ -187,10 +191,16 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
             //3秒の間ボイスタグを流して
             if(sounds[indexPath.row].voice_tags[0].tagFilePath != "")
             {
+                print("has voice tag")
                 soundPlayer.play(url: voice_tag_url)
-                sleep(3)
+                let dispatchTime = DispatchTime.now() + 3.0
+                DispatchQueue.main.asyncAfter( deadline: dispatchTime ) {
+                    self.soundPlayer.play(url: seleted_url)
+                }
+            }else
+            {
+                soundPlayer.play(url: seleted_url)
             }
-            soundPlayer.play(url: seleted_url)
         }
         // 選択を常に解除しておく(解除しないほうが状態がわかりそう)
         tableView.deselectRow(at: indexPath, animated: true)
