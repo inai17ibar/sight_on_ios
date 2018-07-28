@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="TCa-gi-mzr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="TCa-gi-mzr">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -253,7 +253,7 @@
                 <navigationController id="qH3-s7-yGe" userLabel="Record Navigation Controller" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="録音モード" id="mpD-tr-UGx"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="nvM-T5-Fgj">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -335,7 +335,7 @@
                 <navigationController id="Jzt-T6-x8D" userLabel="Play Navigation Controller" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="再生リスト" id="rtk-A8-kmx"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Nlj-6S-Tt9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -367,11 +367,11 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ge3-SQ-EOy" id="zvU-g6-WYf">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sight_on_icon_dark_mat.png" translatesAutoresizingMaskIntoConstraints="NO" id="ATb-Ra-z15" userLabel="Photo">
-                                                    <rect key="frame" x="12" y="12" width="76" height="76"/>
+                                                    <rect key="frame" x="19" y="15" width="69" height="70"/>
                                                     <color key="backgroundColor" red="0.16390419010000001" green="0.35781735180000002" blue="0.53418970109999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k3Q-Tj-3vv" userLabel="Text View">
@@ -469,7 +469,7 @@
                 <navigationController id="g0V-Pm-svM" userLabel="Help Navigation Controller" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="使い方" id="QuF-BD-RVP"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Y6a-oG-gKm">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
