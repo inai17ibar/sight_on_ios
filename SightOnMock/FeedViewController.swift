@@ -31,7 +31,7 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         //アクセスの許可
         UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification,  self.textfield);
         //microphone access
-        AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeAudio, completionHandler: {(granted: Bool) in})
+        AVCaptureDevice.requestAccess(for: AVMediaType.audio, completionHandler: {(granted: Bool) in})
         
         // 引っ張ってロードの初期化
         refreshControl = UIRefreshControl()
@@ -240,7 +240,7 @@ class FeedViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         
     }
     
-    func onRefresh(_ refreshControl: UIRefreshControl){
+    @objc func onRefresh(_ refreshControl: UIRefreshControl){
         /*self.refreshControl.beginRefreshing()
         if(sounds.count >= limitedCellCount + 5)
         {

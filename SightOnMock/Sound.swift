@@ -11,27 +11,27 @@ import RealmSwift
 
 // Tagクラス
 class Tag: Object {
-    dynamic var tagName: String = ""
+    @objc dynamic var tagName: String = ""
 }
 
 // Tagクラス
 class VoiceTag: Object {
-    dynamic var tagFilePath: String = ""
+    @objc dynamic var tagFilePath: String = ""
 }
 
 class Sound: Object {
-    dynamic var id: Int = 0
-    dynamic var sound_name: String = "" //sound_title
-    dynamic var file_path: String = "" //file_nameに修正
-    dynamic var user_id: Int = 0 //ログイン関連が必要？
+    @objc dynamic var id: Int = 0
+    @objc dynamic var sound_name: String = "" //sound_title
+    @objc dynamic var file_path: String = "" //file_nameに修正
+    @objc dynamic var user_id: Int = 0 //ログイン関連が必要？
     
     let tags = List<Tag>()
     let voice_tags = List<VoiceTag>()
     
-    dynamic var created_stamp: Date = NSDate() as Date
-    dynamic var updated_stamp: Date = NSDate() as Date
+    @objc dynamic var created_stamp: Date = NSDate() as Date
+    @objc dynamic var updated_stamp: Date = NSDate() as Date
     
-    dynamic var is_test_data: Bool = false
+    @objc dynamic var is_test_data: Bool = false
     
     // データを保存
     func save() {

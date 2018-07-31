@@ -90,13 +90,13 @@ class PostViewController: ViewController {
             let audioFrameCount = UInt32(audioFile.length)
             let audioFileBuffer = AVAudioPCMBuffer(pcmFormat: audioFormat, frameCapacity: audioFrameCount)
             audiolength = Int(audioFrameCount)
-            try! audioFile.read(into: audioFileBuffer)
+            try! audioFile.read(into: audioFileBuffer!)
             engine.prepare()
             do{
                 try! engine.start()
             }
             // playerにオーディオファイルを設定
-            self.player.scheduleBuffer(audioFileBuffer, at: nil, options:.loops, completionHandler: { () -> Void in
+            self.player.scheduleBuffer(audioFileBuffer!, at: nil, options:.loops, completionHandler: { () -> Void in
             })
             // 再生開始
             self.player.play()

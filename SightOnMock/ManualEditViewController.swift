@@ -86,7 +86,7 @@ class ManualEditViewController: ViewController {
             let audioFrameCount = UInt32(audioFile.length)
             let audioFileBuffer = AVAudioPCMBuffer(pcmFormat: audioFormat, frameCapacity: audioFrameCount)
             audiolength = Int(audioFrameCount)
-            try! audioFile.read(into: audioFileBuffer)
+            try! audioFile.read(into: audioFileBuffer!)
             engine.prepare()
             do{
                 try! engine.start()
@@ -96,7 +96,7 @@ class ManualEditViewController: ViewController {
              // 再生が終了すると呼ばれる
              print("Completion")
              })*/
-            self.player.scheduleBuffer(audioFileBuffer, at: nil, options:.loops, completionHandler: { () -> Void in
+            self.player.scheduleBuffer(audioFileBuffer!, at: nil, options:.loops, completionHandler: { () -> Void in
                 // 再生が終了すると呼ばれる
                 //print("Completion")
             })
@@ -169,7 +169,7 @@ class ManualEditViewController: ViewController {
         }
 
     }
-    func doubleTapped() {
+    @objc func doubleTapped() {
         // do something cool here
       /*  print("ダブルタップ")
         buttonidx += 1;
